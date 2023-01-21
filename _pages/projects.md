@@ -13,8 +13,9 @@ author_profile: true
 * Local Vehicle Detection Machine Learning
 
 ## Undergraduate Course Projects [2017-2021]
+-----------
 ### Mobile Application
-#### Cooker<br>
+#### Cooker
 • An andriod app where it suggests recipes based on user's choice of ingredients.<br>
 • Software: IDE- Andriod Studio , Database - firebase, Language: Java<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Cooker_App)<br>
@@ -24,9 +25,11 @@ author_profile: true
   blood donation service near a particular area.<br>
 • Software: IDE- Andriod Studio , Database - firebase, Language: Java<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Rokto_Sondhan)<br>
-__________________________________________________
+
+-----------
+
 ### Website
-#### Cooker Web<br>
+#### Cooker Web
 • A cooking webpage where it suggests recipes based on user's choice of ingredients<br>
 • Software: IDE- Microsoft Visual Studio , Database - MySQL, Language: PHP<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Cooker_Webpage)<br>
@@ -35,13 +38,15 @@ __________________________________________________
 • An ASP webfrmae based website for makeup iteams where user-buyer relationship exists.<br>
 • Software: IDE- Microsoft Visual Studio , Database - MySQL, Web Framework: ASP.Net <br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/BeautyPainters)<br>
-__________________________________________________
+
+-----------
+
 ### Game
-#### Project Infinity War<br>
+#### Project Infinity War
 • A first person game based on Marvel Comics Characters by Stan Lee.<br>
 • Software: IDE- Microsoft Visual Studio , Compiler: Visual C++, Language: C++<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/ProjectInfinityWar)<br>
 
 
 
-__________________________________________________
+
