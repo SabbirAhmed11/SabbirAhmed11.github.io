@@ -6,7 +6,6 @@ author_profile: true
 ---
 
 ## Ongoing Projects
-----------------
 
 ### [2020 - *Current*]
 -----------
@@ -14,7 +13,7 @@ author_profile: true
 * Local Vehicle Detection Machine Learning
 
 ## Undergraduate Course Projects [2017-2021]
-----------------
+-----------
 ### Mobile Application
 Cooker<br>
 • An andriod app where it suggests recipes based on user's choice of ingredients.<br>
@@ -26,7 +25,7 @@ Rokto Sondhan<br>
   blood donation service near a particular area.<br>
 • Software: IDE- Andriod Studio , Database - firebase, Language: Java<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Rokto_Sondhan)<br>
-----------------
+-----------
 ### Website
 Cooker Web<br>
 • A cooking webpage where it suggests recipes based on user's choice of ingredients<br>
@@ -37,7 +36,7 @@ Beauty Painters<br>
 • An ASP webfrmae based website for makeup iteams where user-buyer relationship exists.<br>
 • Software: IDE- Microsoft Visual Studio , Database - MySQL, Web Framework: ASP.Net <br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/BeautyPainters)<br>
-----------------
+-----------
 ### Game
 Project Infinity War<br>
 • A first person game based on Marvel Comics Characters by Stan Lee.<br>
