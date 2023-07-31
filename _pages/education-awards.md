@@ -18,6 +18,10 @@ redirect_from:
 * **Thesis Presentation:** [[Presentation]](https://github.com/sabbirahmedAUST/Video_based_Vehicle_Detection_and_Tracking_using_Image_Processing_and_Deep-Learning/blob/main/Thesis_presentation.pptx) 
 * **Supervisor:** [Dr.-Ing. Nusrat J. Lisa](https://scholar.google.de/citations?user=2G9e3zoAAAAJ&hl=en), Associate Professor, Department of CSE, AUST
 
+### English Proficiency
+
+* IELTS Score - Band 7
+
 <br /> 
 
 ___________________________________________
