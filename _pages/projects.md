@@ -50,11 +50,9 @@ author_profile: true
 • A first person game based on Marvel Comics Characters by Stan Lee.<br>
 • Software: IDE- Microsoft Visual Studio , Compiler: Visual C++, Language: C++<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/ProjectInfinityWar)<br>
- <img src="files/Infinity War.gif" width="200" />
- <img src="files/Infinity War.gif" align= center />
-<p style="width: widthOffImageInPixel;margin-top: 0;margin-right: auto;margin-bottom: 0; margin-left: auto;>
-  <img alt="logo" src="files/Infinity War.gif" title="logo">
-</p>
+
+ <img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/blob/main/files/Infinity%20War.gif" align= center />
+https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/blob/main/files/Infinity%20War.gif
 
 
 
