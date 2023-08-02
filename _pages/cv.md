@@ -16,7 +16,7 @@ Dhaka, Bangladesh<br />
 
 ## Employment 
 -------------
-<b>Junior UX Engineer</b><br />
+<b>Associate UX Engineer</b><br />
 Kite Games Studio<br/>
 Dhaka, Bangladesh<br />
 <i style='color:#000099;'>**February 2022 - ongoing**</i><br/>
@@ -36,7 +36,7 @@ You can also find me on [Linkedin](https://www.linkedin.com/in/sabbir-ahmed-8025
 
 **Address:**
 <address>
-Junior UX Engineer<br /> 
+Associate UX Engineer<br /> 
 Kite Games Studio<br /> 
 House-283,Road-19/c, <br />
 Mohakhali DOHS,Dhaka. <br /> 
