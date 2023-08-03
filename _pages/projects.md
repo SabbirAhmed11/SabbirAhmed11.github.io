@@ -35,13 +35,15 @@ author_profile: true
 • A cooking webpage where it suggests recipes based on user's choice of ingredients<br>
 • Software: IDE- Microsoft Visual Studio , Database - MySQL, Language: PHP<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Cooker_Webpage)<br>
-<img src="https://github.com/sabbirahmedAUST/Cooker_Webpage/blob/main/img/2.png" alt="this slowpoke moves"  width="200" />
+![2 23](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/796ce20f-39bc-418e-9a8f-128c8067b258)
+
 <br>
 #### Beauty Painters<br>
 • An ASP webfrmae based website for makeup iteams where user-buyer relationship exists.<br>
 • Software: IDE- Microsoft Visual Studio , Database - MySQL, Web Framework: ASP.Net <br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/BeautyPainters)<br>
-<img src="https://github.com/sabbirahmedAUST/BeautyPainters/blob/master/image/s1.png" alt="this slowpoke moves"  width="200" />
+![s1 1](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/886e9ccb-e230-4c86-b667-600d1960b777)
+
 
 -----------
 
