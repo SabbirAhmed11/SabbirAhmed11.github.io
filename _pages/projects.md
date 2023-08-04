@@ -26,7 +26,8 @@ author_profile: true
   blood donation service near a particular area.<br>
 • Software: IDE- Andriod Studio , Database - firebase, Language: Java<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Rokto_Sondhan)<br>
-<img src="https://github.com/sabbirahmedAUST/Rokto_Sondhan/blob/master/img/splashScreen.gif" alt="this slowpoke moves"  width="200" />
+
+![Uploading rokto sondhan.gif…]()
 
 -----------
 
