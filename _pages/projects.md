@@ -19,7 +19,8 @@ author_profile: true
 • An andriod app where it suggests recipes based on user's choice of ingredients.<br>
 • Software: IDE- Andriod Studio , Database - firebase, Language: Java<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Cooker_App)<br>
-<img src="https://github.com/sabbirahmedAUST/Cooker_App/blob/main/img/gif.gif" alt="this slowpoke moves"  width="200" />
+![ezgif com-resize](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/ad85e8d1-10d0-49a9-bfc2-f99cb609927b)
+
 <br>
 ### Rokto Sondhan<br>
 • An andriod app where it shows available blood groups,ambulance service and user friendly<br>
