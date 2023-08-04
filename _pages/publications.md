@@ -13,6 +13,7 @@ In today’s world, the intelligent transportation system plays a crucial role i
 
 * <a href="https://github.com/sabbirahmedAUST/Video_based_Vehicle_Detection_and_Tracking_using_Image_Processing_and_Deep-Learning/blob/main/Video_Based_Vehicle_Detection_and_Tracki.pdf">Read the Full Paper ➤</a>
 * <a href="https://github.com/sabbirahmedAUST/Video_based_Vehicle_Detection_and_Tracking_using_Image_Processing_and_Deep-Learning/tree/main">How we prepared out dataset and full project details ➤</a>
+
 -------
 ## Local Vehicle Detection using machine learning - Hog + SVM (Project based research 2021)
 **Abstract:** 
@@ -34,3 +35,5 @@ ainwater harvesting (RWH) system has a good potential to supply drinking and coo
 
 ![5-86e7375f63](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/804c9e0f-1971-45d2-b6b8-844d3f58c0fc)
 * <a href="https://drive.google.com/file/d/122SGEo32yRgbRWKHgAfkBjSSONB4pLwH/view?usp=sharing">Read the Full Paper ➤</a>
+
+-----------
