@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: ""
-permalink: /Ui-UX Case Study/
+permalink: /casestudy/
 author_profile: true
 redirect_from:
   - /resume
