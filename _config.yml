@@ -189,18 +189,6 @@ collections:
     output: true
     permalink: /:collection/:path/
 
-# Ui-Ux Case Study
-  - scope:
-      path: ""
-      type: Ui-UX Case Study
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-
-
-
 # Defaults
 defaults:
   # _posts
