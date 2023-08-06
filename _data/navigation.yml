@@ -3,13 +3,16 @@ main:
   - title: "Home"
     url: /
     
+  - title: "Education"
+    url: /education-awards/  
+    
   - title: "Research"
     url: /publications/
 
-  - title: "Education"
-    url: /education-awards/    
+  - title: "UI/Ux Case Study"
+    url: /casestudy/    
     
-  - title: "Projects"
+  - title: "Academic Projects"
     url: /projects/
     
   #- title: "Blog Posts"
