@@ -7,9 +7,9 @@ redirect_from:
   - /resume
 ---
 **Website:** [https://sabbirahmedaust.github.io/](https://sabbirahmedaust.github.io/)
-**Case Study 1** [ColorPop](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/blob/main/_pages/Copychecker.md)
-**Case Study 2** [ColorPop](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/blob/main/_pages/Copychecker.md)
-**Case Study 3** [ColorPop](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/blob/main/_pages/Copychecker.md)
+**Case Study 1** [ColorPop](https://sabbirahmed11.github.io/ccweb/)
+**Case Study 2** [ColorPop](https://sabbirahmed11.github.io/ccweb/)
+**Case Study 3** [ColorPop](https://sabbirahmed11.github.io/ccweb/)
 
 
 ## Education 
