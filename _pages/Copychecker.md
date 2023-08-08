@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: ""
+title: "Copy Checker Website"
 permalink: /ccweb/
 author_profile: true
 redirect_from:
