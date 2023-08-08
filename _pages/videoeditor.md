@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Medi Help"
+title: "Ui-Ux Case Study on Video Downloader"
 permalink: /vd/
 author_profile: true
 redirect_from:
