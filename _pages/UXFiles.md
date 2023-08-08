@@ -6,10 +6,19 @@ author_profile: false
 redirect_from:
   - /resume
 ---
+<div class="clearfix">
+  <div class="img-container">
+    <a target="_blank" href="https://sabbirahmed11.github.io/ccweb/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/91aeb9df-8ac3-47d5-ac91-b07e3a4ca0c0" alt="Color Pop" /></a>
 
-<a target="_blank" href="https://sabbirahmed11.github.io/ccweb/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/990233a1-0b03-4747-aff8-1deaeef4874a" alt="Copy Checker" /></a>
+  </div>
+  <div class="img-container">
+         <a target="_blank" href="https://sabbirahmed11.github.io/cpop/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/bd78f71c-77cb-408c-9263-93d616781cdd" alt="Copy Checker" /></a> 
+  </div>
+</div>
 
-<a target="_blank" href="https://sabbirahmed11.github.io/cpop/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/37a742e9-2308-4c51-bc2f-11d8579f23b1" alt="Copy Checker" /></a>
+
+
+
 
 
 
