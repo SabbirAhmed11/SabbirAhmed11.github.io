@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: ""
+title: "Ui-Ux Case Study On Color Pop App"
 permalink: /cpop/
 author_profile: true
 redirect_from:
