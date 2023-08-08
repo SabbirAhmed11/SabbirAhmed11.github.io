@@ -10,6 +10,9 @@ redirect_from:
 <div>
   <a target="_blank" href="https://sabbirahmed11.github.io/cpop/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/91aeb9df-8ac3-47d5-ac91-b07e3a4ca0c0" alt="Color Pop" /></a>
   <a target="_blank" href="https://sabbirahmed11.github.io/ccweb/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/bd78f71c-77cb-408c-9263-93d616781cdd" alt="Copy Checker" /></a> 
+<a target="_blank" href="https://sabbirahmed11.github.io/vd/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/7c9c0a6c-41be-44d3-bb7f-c7e4c52e30a8" alt="Video Editor" /></a> 
+<a target="_blank" href="https://sabbirahmed11.github.io/medi/"><img src="https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/200924c0-95ec-4727-834a-ee2904ed2122" alt="Medi Help" /></a> 
+
 
 </div>
 
