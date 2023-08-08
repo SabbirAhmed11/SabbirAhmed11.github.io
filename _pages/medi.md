@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Medi Help"
+title: "Ui-Ux Case Study On Medi Help"
 permalink: /medi/
 author_profile: true
 redirect_from:
