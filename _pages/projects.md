@@ -1,20 +1,10 @@
 ---
 layout: archive
-title: ""
+title: "Undergraduate Course Projects [2017-2021]"
 permalink: /projects/
 author_profile: true
 ---
 
-
-## Ongoing Projects
-
-### [2020 - *Current*]
------------
-* Video based Vehicle Detection and Tracking using Image Processing and Deep Learning using Custom Dataset.
-* Local Vehicle Detection Machine Learning
-
-## Undergraduate Course Projects [2017-2021]
------------
 ### Mobile Application
 ### Cooker
 • An andriod app where it suggests recipes based on user's choice of ingredients.<br>
@@ -28,7 +18,6 @@ author_profile: true
   blood donation service near a particular area.<br>
 • Software: IDE- Andriod Studio , Database - firebase, Language: Java<br>
 • Find more about the whole project [here](https://github.com/sabbirahmedAUST/Rokto_Sondhan)<br>
-
 
 ![rokto sondhan](https://github.com/SabbirAhmed11/SabbirAhmed11.github.io/assets/122861806/fcc2d8cb-fa04-43be-aa79-b494f48a707a)
 
