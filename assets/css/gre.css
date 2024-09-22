@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    font-size: 16px; /* Base font size */
+}
+
+.section {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Ensure the button is centered below the controls */
+.icon-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.icon-button {
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button img {
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Increased height */
+}
+
+/* Flashcard */
+.flashcard {
+    width: 85vw; /* Increased width */
+    max-width: 700px; /* Larger max width */
+    height: 70vh; /* Increased height */
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.flashcard.flipped .card-content {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Faces of the Flashcard */
+.flashcard .front, .flashcard .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px; /* Reduced padding */
+    box-sizing: border-box;
+}
+
+.flashcard .front {
+    background-color: #1a73e8;
+    font-size: 2rem; /* Adjusted font size */
+}
+
+.flashcard .back {
+    background-color: #4e5c68;
+    font-size: 1.4rem; /* Adjusted font size */
+    transform: rotateY(180deg);
+}
+
+/* Hint Icon and Text */
+.hint-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.hint-text {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Positive/Negative Indicator */
+.positivity {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.positivity.positive {
+    color: #4caf50;
+}
+
+.positivity.negative {
+    color: #f44336;
+}
+
+/* Sentence Section */
+.sentence {
+    font-size: 1.2rem;
+    margin-bottom: 5px; /* Reduced margin */
+    text-align: center; /* Center multiline text */
+}
+
+/* Synonyms Styling */
+.synonyms {
+    color: #ff9800;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Card Counter */
+.card-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.flashcard.flipped .card-counter {
+    visibility: hidden;
+}
+
+/* Image Section */
+.flashcard-image {
+    margin-top: 5px; /* Reduced margin */
+}
+
+.flashcard-image img {
+    max-width: 220px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Navigation Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.arrow {
+    width: 2rem;
+    cursor: pointer;
+}
+
+/* Grid Container for Sets */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 120px));
+    grid-gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.grid-container button {
+    width: 120px;
+    height: 120px;
+    background-color: #f5f7fa;
+    color: #1a73e8;
+    border: 2px solid #1a73e8;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.grid-container button:hover {
+    background-color: #1a73e8;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .flashcard {
+        width: 95vw;
+        height: 75vh; /* Increase height */
+    }
+
+    .flashcard .front, .flashcard .back {
+        font-size: 1.5rem; /* Adjust text size */
+    }
+
+    .flashcard-image img {
+        max-width: 180px; /* Adjust image size */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .flashcard {
+        width: 100vw;
+        height: 65vh; /* Further increased height */
+    }
+
+    .flashcard .front, .flashcard .back {
+        font-size: 1.3rem; /* Adjust for small screens */
+    }
+
+    .positivity {
+        font-size: 1.1rem;
+    }
+
+    .sentence {
+        font-size: 1rem;
+    }
+
+    .synonyms {
+        font-size: 1rem;
+    }
+
+    .flashcard-image img {
+        max-width: 160px;
+    }
+
+    .arrow {
+        width: 1.5rem;
+    }
+}
