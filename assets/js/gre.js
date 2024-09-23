@@ -564,7 +564,7 @@ function showHint(event) {
     hintTimeout = setTimeout(() => {
         hintText.style.display = 'none';
         hintIcon.style.display = 'block'; // Show the icon again
-    }, 5000);
+    }, 3000);
 }
 
 // Clear the hint text and timeout when navigating to another card
