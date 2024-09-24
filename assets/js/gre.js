@@ -426,24 +426,361 @@ const flashcardsSets = [
     ],
     // Set 2
     [
-        { 
-            word: 'Ebullient', 
-            mnemonic: 'E-boil-ant', 
-            synonyms: 'exuberant, buoyant, joyful', 
-            hint: 'My team was ebullient after the win', 
-            positivity: 'positive', 
-            sentence: 'He was <u>ebullient</u> during the celebration.',
-            image: 'demoimg.png' // Updated path for the image
-        },
-        { 
-            word: 'Facetious', 
-            mnemonic: 'Face-ious', 
-            synonyms: 'flippant, glib, playful', 
-            hint: 'He was being facetious in the meeting', 
-            positivity: 'negative', 
-            sentence: 'His <u>facetious</u> comments were not appreciated at the serious meeting.',
-            image: 'demoimg.png' // Updated path for the image
-        }
+{
+    word: 'banal',
+    mnemonic: 'Lacking in originality, boring',
+    synonyms: 'Trite, Cliché, Commonplace, Hackneyed',
+    hint: 'Roj Tue Dim kahabar thake Kite e',
+    positivity: 'Negative',
+    sentence: 'The conversation turned <u>banal</u>, with no one adding anything new or interesting.',
+    image: './assets/images/flashcards/Set2/banal.webp'
+},
+{
+    word: 'hyperbole',
+    mnemonic: 'Exaggerated statements not meant to be taken literally',
+    synonyms: 'Exaggeration, Overstatement, Amplification',
+    hint: 'mansuer matha manus khaitese',
+    positivity: 'Neutral',
+    sentence: 'His description of the event was filled with <u>hyperbole</u>, claiming it was the most amazing thing ever.',
+    image: './assets/images/flashcards/Set2/hyperbole.gif'
+},
+{
+    word: 'arcane',
+    mnemonic: 'Known or understood by very few people',
+    synonyms: 'Mysterious, Esoteric, Obscure, Enigmatic',
+    hint: 'what\'s happened behind the revolution',
+    positivity: 'Neutral',
+    sentence: 'The professor\'s lecture on the <u>arcane</u> rituals of ancient civilizations left the students puzzled.',
+    image: './assets/images/flashcards/Set2/arcane.gif'
+},
+{
+    word: 'stoic',
+    mnemonic: 'Enduring pain or hardship without showing feelings or complaining',
+    synonyms: 'Resilient, Unemotional, Impassive, Indifferent',
+    hint: 'Abbu',
+    positivity: 'Positive',
+    sentence: 'Despite the injury, she remained <u>stoic</u>, refusing to let the pain overwhelm her.',
+    image: './assets/images/flashcards/Set2/stoic.gif'
+},
+{
+    word: 'omnipresent',
+    mnemonic: 'Present everywhere at the same time',
+    synonyms: 'Ubiquitous, Pervasive, Universal',
+    hint: 'Allah',
+    positivity: 'Neutral',
+    sentence: 'In the modern world, technology seems <u>omnipresent</u>, from homes to workplaces.',
+    image: './assets/images/flashcards/Set2/omnipresent.jpg'
+},
+{
+    word: 'canonize',
+    mnemonic: 'Officially declare someone a saint, or regard someone highly',
+    synonyms: 'Deify, Idolize, Sanctify, Glorify',
+    hint: 'Hzt Muhammad Sallahu Alaihi Oa Sallam',
+    positivity: 'Positive',
+    sentence: 'The critics practically <u>canonized</u> her after the performance, calling her one of the greatest of all time.',
+    image: './assets/images/flashcards/Set2/canonize.jpeg'
+},
+{
+    word: 'indefatigable',
+    mnemonic: 'Incapable of being tired out, persistently energetic',
+    synonyms: 'Tireless, Unflagging, Unrelenting',
+    hint: 'yousuf',
+    positivity: 'Positive',
+    sentence: 'Her <u>indefatigable</u> efforts to raise funds for the charity inspired everyone around her.',
+    image: './assets/images/flashcards/Set2/Indefatigable.gif'
+},
+{
+    word: 'accentuate',
+    mnemonic: 'Make more noticeable or prominent',
+    synonyms: 'Highlight, Emphasize, Stress, Amplify',
+    hint: 'Boi ami jmn vabe portam',
+    positivity: 'Positive',
+    sentence: 'The lighting <u>accentuated</u> the dramatic features of the painting, making it the center of attention.',
+    image: './assets/images/flashcards/Set2/accentuate.jpeg'
+},
+{
+    word: 'wane',
+    mnemonic: 'To decrease in size, extent, or degree',
+    synonyms: 'Diminish, Decline, Fade, Recede',
+    hint: 'Fading or shrinking away',
+    positivity: 'Neutral',
+    sentence: 'As the night progressed, his enthusiasm for the party began to <u>wane</u>.',
+    image: './assets/images/flashcards/Set2/wane.gif'
+},
+{
+    word: 'incredulous',
+    mnemonic: 'Unwilling or unable to believe something',
+    synonyms: 'Skeptical, Doubtful, Disbelieving, Suspicious',
+    hint: 'Baba k awmilig er ku kirti bojaile',
+    positivity: 'Neutral',
+    sentence: 'She looked at him with an <u>incredulous</u> expression when he claimed to have seen a UFO.',
+    image: './assets/images/flashcards/Set2/incredulous.gif'
+},
+{
+    word: 'construe',
+    mnemonic: 'Interpret or understand something in a particular way',
+    synonyms: 'Interpret, Analyze, Decipher, Translate',
+    hint: 'How you understand something',
+    positivity: 'Neutral',
+    sentence: 'His silence was <u>construed</u> as agreement, though he never actually said yes.',
+    image: './assets/images/flashcards/Set2/construe.jpg'
+},
+{
+    word: 'fastidious',
+    mnemonic: 'Very attentive to detail and accuracy',
+    synonyms: 'Meticulous, Picky, Perfectionist, Exacting',
+    hint: 'Ammu jkno jinis e',
+    positivity: 'Negative',
+    sentence: 'She was <u>fastidious</u> about organizing her desk, ensuring that every item was in its proper place.',
+    image: './assets/images/flashcards/Set2/fastidious.jpeg'
+},
+{
+    word: 'amenable',
+    mnemonic: 'Open and responsive to suggestion; easily persuaded or controlled',
+    synonyms: 'Agreeable, Compliant, Accommodating, Cooperative',
+    hint: 'Willing to agree',
+    positivity: 'Positive',
+    sentence: 'The manager was <u>amenable</u> to the changes proposed by the team, making the transition smooth.',
+    image: './assets/images/flashcards/Set2/amenable.gif'
+},
+{
+    word: 'ameliorate',
+    mnemonic: 'To make something better',
+    synonyms: 'Improve, Enhance, Upgrade, Alleviate',
+    hint: 'Making something less bad',
+    positivity: 'Positive',
+    sentence: 'The government tried to <u>ameliorate</u> the effects of the disaster by providing aid to affected families.',
+    image: './assets/images/flashcards/Set2/ameliorate.jpeg'
+},
+{
+    word: 'indiscriminate',
+    mnemonic: 'Done at random or without careful judgment',
+    synonyms: 'Random, Haphazard, Arbitrary, Unselective',
+    hint: 'Without careful choice',
+    positivity: 'Negative',
+    sentence: 'The <u>indiscriminate</u> firing of employees led to confusion and resentment throughout the company.',
+    image: './assets/images/flashcards/Set2/indiscriminate.jpg'
+},
+{
+    word: 'malleable',
+    mnemonic: 'Easily shaped or molded',
+    synonyms: 'Flexible, Adaptable, Pliable',
+    hint: 'Water',
+    positivity: 'Neutral',
+    sentence: 'A <u>malleable</u> metal can be beaten into a sheet.',
+    image: './assets/images/flashcards/Set2/malleable.gif'
+},
+{
+    word: 'indispensable',
+    mnemonic: 'Absolutely necessary or essential',
+    synonyms: 'Essential, Crucial, Vital, Imperative',
+    hint: 'Lamia to me',
+    positivity: 'Positive',
+    sentence: 'Good communication skills are <u>indispensable</u> for a successful career in management.',
+    image: './assets/images/flashcards/Set2/indispensable.gif'
+},
+{
+    word: 'hodgepodge',
+    mnemonic: 'A confused mixture',
+    synonyms: 'Mixture, Jumble, Medley, Patchwork',
+    hint: 'Keka Ferdowsy\'s Recipe',
+    positivity: 'Neutral',
+    sentence: 'The drawer was a <u>hodgepodge</u> of random objects, from old batteries to receipts.',
+    image: './assets/images/flashcards/Set2/hodgepodge.gif'
+},
+{
+    word: 'derivative',
+    mnemonic: 'Imitative of someone else’s work and usually disapproved of as unoriginal',
+    synonyms: 'Imitative, Copied, Unoriginal, Borrowed',
+    hint: 'Reijon er Design Style',
+    positivity: 'Negative',
+    sentence: 'The artist\'s new work was criticized for being too <u>derivative</u> of his earlier, more famous pieces.',
+    image: './assets/images/flashcards/Set2/derivative.webp'
+},
+{
+    word: 'deft',
+    mnemonic: 'Skillful and quick in movement or action',
+    synonyms: 'Skillful, Nimble, Agile, Adroit',
+    hint: 'messi',
+    positivity: 'Positive',
+    sentence: 'With a <u>deft</u> motion, the chef chopped the vegetables at lightning speed.',
+    image: './assets/images/flashcards/Set2/deft.gif'
+},
+{
+    word: 'elicit',
+    mnemonic: 'To draw out a response or reaction',
+    synonyms: 'Evoke, Extract, Bring out, Obtain',
+    hint: 'Getting an answer or response',
+    positivity: 'Neutral',
+    sentence: 'The detective\'s questions were designed to <u>elicit</u> more details about the suspect\'s whereabouts.',
+    image: './assets/images/flashcards/Set2/elict.gif'
+},
+{
+    word: 'punctilious',
+    mnemonic: 'Showing great attention to detail or correct behavior',
+    synonyms: 'Meticulous, Conscientious, Scrupulous, Exact',
+    hint: 'Very detailed in attention',
+    positivity: 'Neutral',
+    sentence: 'He was always <u>punctilious</u> in following the rules, ensuring that every step was properly documented.',
+    image: './assets/images/flashcards/Set2/punctilious.jpg'
+},
+{
+    word: 'transient',
+    mnemonic: 'Lasting only for a short time',
+    synonyms: 'Temporary, Fleeting, Short-lived, Ephemeral',
+    hint: 'Something short-lived',
+    positivity: 'Neutral',
+    sentence: 'The drug may have <u>transient</u> side effects.',
+    image: './assets/images/flashcards/Set2/transient.gif'
+},
+{
+    word: 'imperious',
+    mnemonic: 'Arrogantly domineering or overbearing',
+    synonyms: 'Authoritative, Commanding, Overbearing, Bossy',
+    hint: 'Ami to others',
+    positivity: 'Negative',
+    sentence: 'His <u>imperious</u> tone made it clear that he expected everyone to follow his orders without question.',
+    image: './assets/images/flashcards/Set2/imperiosu.jpg'
+},
+{
+    word: 'arduous',
+    mnemonic: 'Involving or requiring strenuous effort; difficult and tiring',
+    synonyms: 'Difficult, Laborious, Onerous, Grueling',
+    hint: 'Something very difficult',
+    positivity: 'Negative',
+    sentence: 'Climbing the mountain was an <u>arduous</u> task, but the view from the top made it worth the effort.',
+    image: './assets/images/flashcards/Set2/arduous.webp'
+},
+{
+    word: 'timorous',
+    mnemonic: 'Showing or suffering from nervousness or lack of confidence',
+    synonyms: 'Fearful, Shy, Apprehensive, Hesitant',
+    hint: 'Lamia pakhi khola dekhle',
+    positivity: 'Negative',
+    sentence: 'The <u>timorous</u> rabbit stayed hidden under the bush, afraid to venture out into the open.',
+    image: './assets/images/flashcards/Set2/timorous.jpg'
+},
+{
+    word: 'circumspect',
+    mnemonic: 'Wary and unwilling to take risks',
+    synonyms: 'Cautious, Prudent, Careful, Vigilant',
+    hint: 'Ammu jkno jinis e',
+    positivity: 'Neutral',
+    sentence: 'She was <u>circumspect</u> in her approach to the negotiations, making sure not to give away too much too soon.',
+    image: './assets/images/flashcards/Set2/circumspect.webp'
+},
+{
+    word: 'tortuous',
+    mnemonic: 'Full of twists and turns',
+    synonyms: 'Winding, Twisting, Meandering, Convoluted',
+    hint: 'sajeker Rasta',
+    positivity: 'Neutral',
+    sentence: 'The <u>tortuous</u> road through the mountains made for a challenging drive.',
+    image: './assets/images/flashcards/Set2/tortuous.jpg'
+},
+{
+    word: 'extravagant',
+    mnemonic: 'Lacking restraint in spending money or using resources',
+    synonyms: 'Lavish, Excessive, Immoderate, Over-the-top',
+    hint: 'Spending or using too much',
+    positivity: 'Negative',
+    sentence: 'His <u>extravagant</u> lifestyle, filled with luxury cars and private jets, soon led to financial trouble.',
+    image: './assets/images/flashcards/Set2/extravagant.webp'
+},
+{
+    word: 'robust',
+    mnemonic: 'Strong and healthy',
+    synonyms: 'Strong, Sturdy, Vigorous, Hardy',
+    hint: 'Full of strength',
+    positivity: 'Positive',
+    sentence: 'The old oak tree was still <u>robust</u> despite standing for over a hundred years.',
+    image: './assets/images/flashcards/Set2/robust.gif'
+},
+{
+    word: 'utterly',
+    mnemonic: 'Completely or absolutely',
+    synonyms: 'Completely, Totally, Fully, Entirely',
+    hint: 'To the fullest extent',
+    positivity: 'Neutral',
+    sentence: 'She was <u>utterly</u> exhausted after working all night to finish the project.',
+    image: './assets/images/flashcards/Set2/utterly.gif'
+},
+{
+    word: 'audacious',
+    mnemonic: 'Showing a willingness to take surprisingly bold risks',
+    synonyms: 'Bold, Daring, Fearless, Adventurous',
+    hint: 'Bold and willing to take risks',
+    positivity: 'Positive',
+    sentence: 'His <u>audacious</u> plan to start his own business surprised everyone, but it turned out to be a huge success.',
+    image: './assets/images/flashcards/Set2/audacious.jpeg'
+},
+{
+    word: 'ambivalent',
+    mnemonic: 'Having mixed feelings or contradictory ideas about something',
+    synonyms: 'Uncertain, Conflicted, Hesitant, Torn',
+    hint: 'Ammu kno decision near somoy',
+    positivity: 'Neutral',
+    sentence: 'She felt <u>ambivalent</u> about moving to a new city; she was excited but also nervous about the change.',
+    image: './assets/images/flashcards/Set2/ambivalent.jpg'
+},
+{
+    word: 'contrite',
+    mnemonic: 'Feeling or expressing remorse or penitence',
+    synonyms: 'Remorseful, Apologetic, Regretful, Sorry',
+    hint: 'Feeling sorry',
+    positivity: 'Positive',
+    sentence: 'After realizing the harm he had caused, he became deeply <u>contrite</u> and apologized sincerely.',
+    image: './assets/images/flashcards/Set2/contrite.jpg'
+},
+{
+    word: 'evasive',
+    mnemonic: 'Avoiding direct answers or actions',
+    synonyms: 'Elusive, Vague, Ambiguous, Indirect',
+    hint: 'Avoiding directness',
+    positivity: 'Negative',
+    sentence: 'The politician gave an <u>evasive</u> answer when asked about her stance on the controversial issue.',
+    image: './assets/images/flashcards/Set2/evasive.gif'
+},
+{
+    word: 'sanguine',
+    mnemonic: 'Optimistic or positive, especially in difficult situations',
+    synonyms: 'Optimistic, Hopeful, Confident, Upbeat',
+    hint: 'Always seeing the positive side',
+    positivity: 'Positive',
+    sentence: 'Even during the crisis, he remained <u>sanguine</u>, confident that things would eventually improve.',
+    image: './assets/images/flashcards/Set2/sanguine.gif'
+},
+{
+    word: 'copious',
+    mnemonic: 'Abundant in supply or quantity',
+    synonyms: 'Abundant, Plentiful, Ample, Overflowing',
+    hint: 'A lot of something',
+    positivity: 'Positive',
+    sentence: 'The <u>copious</u> amount of information in the report made it difficult to sort through all the details.',
+    image: './assets/images/flashcards/Set2/copious.jpeg'
+},
+{
+    word: 'forestall',
+    mnemonic: 'Prevent or obstruct by taking action ahead of time',
+    synonyms: 'Prevent, Preempt, Obstruct, Hinder',
+    hint: 'Taking action to stop something before it happens',
+    positivity: 'Neutral',
+    sentence: 'The government took steps to <u>forestall</u> a recession by enacting new fiscal policies.',
+    image: './assets/images/flashcards/Set2/forestall.jpeg'
+},
+{
+    word: 'dearth',
+    mnemonic: 'A scarcity or lack of something',
+    synonyms: 'Shortage, Lack, Deficiency, Scarcity',
+    hint: 'Not enough of something',
+    positivity: 'Negative',
+    sentence: 'There is a <u>dearth</u> of affordable housing in the city, leaving many people struggling to find homes.',
+    image: './assets/images/flashcards/Set2/dearth.jpg'
+}
+
+
+
+
     ],
         // Set 3
         [
