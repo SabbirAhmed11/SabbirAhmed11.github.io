@@ -1655,24 +1655,865 @@ const flashcardsSets = [
     ],
         // Set 3
         [
-            { 
-                word: 'Ebullient', 
-                mnemonic: 'E-boil-ant', 
-                synonyms: 'exuberant, buoyant, joyful', 
-                hint: 'My team was ebullient after the win', 
-                positivity: 'positive', 
-                sentence: 'He was <u>ebullient</u> during the celebration.',
-                image: 'demoimg.png' // Updated path for the image
+            {
+                word: 'incrustation',  
+                mnemonic: 'A hard outer layer or covering formed on something.',  
+                synonyms: 'Coating, Crust, Layer',  
+                hint: 'Think of the protective crust formed on old objects.',  
+                positivity: 'Neutral',  
+                sentence: '"The building had an ancient look due to the <u>incrustation</u> on its walls."', 
+                image: './assets/images/flashcards/Set3/incrustation.jfif'  
             },
-            { 
-                word: 'Facetious', 
-                mnemonic: 'Face-ious', 
-                synonyms: 'flippant, glib, playful', 
-                hint: 'He was being facetious in the meeting', 
-                positivity: 'negative', 
-                sentence: 'His <u>facetious</u> comments were not appreciated at the serious meeting.',
-                image: 'demoimg.png' // Updated path for the image
+            {
+                word: 'jurisprudence',  
+                mnemonic: 'The theory or philosophy of law.',  
+                synonyms: 'Law, Legal theory, Legal philosophy',  
+                hint: 'A deeper understanding of how legal systems work.',  
+                positivity: 'Neutral',  
+                sentence: '"He studied <u>jurisprudence</u> to better understand court systems."', 
+                image: './assets/images/flashcards/Set3/jurisprudence.gif'  
+            },
+            {
+                word: 'usurp',  
+                mnemonic: 'To take power or control without legal right.',  
+                synonyms: 'Seize, Commandeer, Take over',  
+                hint: 'A general may attempt to take control unethically.',  
+                positivity: 'Negative',  
+                sentence: '"The military tried to <u>usurp</u> the government."', 
+                image: './assets/images/flashcards/Set3/usurp.gif'  
+            },
+            {
+                word: 'pessimism',  
+                mnemonic: 'A belief that things will turn out badly.',  
+                synonyms: 'Negativity, Cynicism, Hopelessness',  
+                hint: 'Expecting the worst to happen.',  
+                positivity: 'Negative',  
+                sentence: '"His <u>pessimism</u> made the situation seem even worse."', 
+                image: './assets/images/flashcards/Set3/pessimism.gif'  
+            },
+            {
+                word: 'renege',  
+                mnemonic: 'To go back on a promise or agreement.',  
+                synonyms: 'Retract, Break, Default',  
+                hint: 'Backing out after agreeing to something.',  
+                positivity: 'Negative',  
+                sentence: '"He decided to <u>renege</u> on his agreement at the last moment."', 
+                image: './assets/images/flashcards/Set3/renege.gif'  
+            },
+            {
+                word: 'pang',  
+                mnemonic: 'A sudden sharp pain or painful emotion.',  
+                synonyms: 'Ache, Twinge, Stab',  
+                hint: 'A brief but intense feeling of discomfort or emotional pain.',  
+                positivity: 'Negative',  
+                sentence: '"She felt a <u>pang</u> of guilt after speaking harshly to her friend."', 
+                image: './assets/images/flashcards/Set3/pang.jfif'  
+            },
+            {
+                word: 'seep',  
+                mnemonic: 'To leak slowly through small openings.',  
+                synonyms: 'Trickle, Ooze, Leak',  
+                hint: 'What happens when water leaks slowly through a crack.',  
+                positivity: 'Neutral',  
+                sentence: '"Water began to <u>seep</u> through the cracks in the basement wall."', 
+                image: './assets/images/flashcards/Set3/seep.jfif'  
+            },
+            {
+                word: 'deface',  
+                mnemonic: 'To spoil or ruin the surface or appearance of something.',  
+                synonyms: 'Vandalize, Mar, Disfigure',  
+                hint: 'When someone ruins a surface or appearance, often intentionally.',  
+                positivity: 'Negative',  
+                sentence: '"The vandals <u>defaced</u> the public mural with graffiti."', 
+                image: './assets/images/flashcards/Set3/deface.gif'  
+            },
+            {
+                word: 'humid',  
+                mnemonic: 'Having a high amount of moisture in the air.',  
+                synonyms: 'Muggy, Damp, Moist',  
+                hint: 'Common in tropical climates with high moisture.',  
+                positivity: 'Neutral',  
+                sentence: '"The air was so <u>humid</u> that it felt hard to breathe."', 
+                image: './assets/images/flashcards/Set3/humid.gif'  
+            },
+            {
+                word: 'politic',  
+                mnemonic: 'Prudent and diplomatic in dealing with people.',  
+                synonyms: 'Tactful, Diplomatic, Prudent',  
+                hint: 'Being wise in how you navigate tricky situations.',  
+                positivity: 'Positive',  
+                sentence: '"She was always <u>politic</u> in handling workplace disputes."', 
+                image: './assets/images/flashcards/Set3/politic.jfif'  
+            },
+            {
+                word: 'enunciate',  
+                mnemonic: 'To pronounce words clearly.',  
+                synonyms: 'Articulate, Pronounce, Declare',  
+                hint: 'Making sure every word is pronounced clearly.',  
+                positivity: 'Neutral',  
+                sentence: '"The teacher asked the student to <u>enunciate</u> the words clearly during the presentation."', 
+                image: './assets/images/flashcards/Set3/enunciate.gif'  
+            },
+            {
+                word: 'germane',  
+                mnemonic: 'Relevant or applicable to a particular matter.',  
+                synonyms: 'Relevant, Pertinent, Applicable',  
+                hint: 'When something is highly relevant to the current issue.',  
+                positivity: 'Neutral',  
+                sentence: '"Her comments were <u>germane</u> to the discussion and added valuable insight."', 
+                image: './assets/images/flashcards/Set3/germane.gif'  
+            },
+            {
+                word: 'seminal',  
+                mnemonic: 'Highly influential in an original way; important.',  
+                synonyms: 'Influential, Groundbreaking, Foundational',  
+                hint: 'An idea or work that has a profound influence on future developments.',  
+                positivity: 'Positive',  
+                sentence: '"His research was <u>seminal</u>, shaping the future of the field."', 
+                image: './assets/images/flashcards/Set3/seminal.webp'  
+            },
+            {
+                word: 'nascent',  
+                mnemonic: 'Just coming into existence or starting to develop.',  
+                synonyms: 'Developing, Budding, Emerging',  
+                hint: 'Describing something at the very beginning of its development.',  
+                positivity: 'Positive',  
+                sentence: '"The company was still in its <u>nascent</u> stages, with much work left to do."', 
+                image: './assets/images/flashcards/Set3/nascent.gif'  
+            },
+            {
+                word: 'putrescent',  
+                mnemonic: 'Undergoing the process of decay or becoming rotten.',  
+                synonyms: 'Decaying, Decomposing, Rotting',  
+                hint: 'The process of something becoming rotten.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>putrescent</u> odor of the decaying fruit was unbearable."', 
+                image: './assets/images/flashcards/Set3/putrescent.gif'  
+            },
+            {
+                word: 'abash',  
+                mnemonic: 'To cause someone to feel embarrassed or ashamed.',  
+                synonyms: 'Embarrass, Shame, Disconcert',  
+                hint: 'How you feel after being publicly embarrassed.',  
+                positivity: 'Negative',  
+                sentence: '"The student was <u>abashed</u> after being corrected in front of the whole class."', 
+                image: './assets/images/flashcards/Set3/abash.gif'  
+            },
+            {
+                word: 'missive',  
+                mnemonic: 'A written communication or letter, especially a formal one.',  
+                synonyms: 'Letter, Message, Communication',  
+                hint: 'A formal or official letter.',  
+                positivity: 'Neutral',  
+                sentence: '"The CEO sent a <u>missive</u> to the board outlining his vision for the company."', 
+                image: './assets/images/flashcards/Set3/missive.gif'  
+            },
+            {
+                word: 'condign',  
+                mnemonic: 'Deserved or appropriate, usually of a punishment.',  
+                synonyms: 'Deserved, Appropriate, Fitting',  
+                hint: 'A punishment that fits the crime.',  
+                positivity: 'Neutral',  
+                sentence: '"The judge believed the sentence was <u>condign</u> for the crime committed."', 
+                image: './assets/images/flashcards/Set3/condign.gif'  
+            },
+            {
+                word: 'braggart',  
+                mnemonic: 'Someone who boasts or brags about achievements.',  
+                synonyms: 'Boaster, Show-off, Egotist',  
+                hint: 'Someone who constantly talks about their own achievements.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>braggart</u> couldn\'t stop talking about his latest promotion."', 
+                image: './assets/images/flashcards/Set3/braggart.gif'  
+            },
+            {
+                word: 'cynical',  
+                mnemonic: 'Believing that people are motivated by self-interest.',  
+                synonyms: 'Skeptical, Distrustful, Pessimistic',  
+                hint: 'Someone who doesn\'t believe in the sincerity of others\' intentions.',  
+                positivity: 'Negative',  
+                sentence: '"His <u>cynical</u> outlook made it hard for him to trust anyone\'s motives."', 
+                image: './assets/images/flashcards/Set3/cynical.gif'  
+            },
+            {
+                word: 'leniency',  
+                mnemonic: 'The quality of being more merciful or tolerant than expected.',  
+                synonyms: 'Mercy, Tolerance, Compassion',  
+                hint: 'What judges show when they reduce a harsh sentence.',  
+                positivity: 'Positive',  
+                sentence: '"The judge showed <u>leniency</u> by reducing the defendant\'s sentence."', 
+                image: './assets/images/flashcards/Set3/leniency.gif'  
+            },
+            {
+                word: 'delirium',  
+                mnemonic: 'A disturbed state of mind, often accompanied by confusion and hallucinations.',  
+                synonyms: 'Confusion, Frenzy, Madness',  
+                hint: 'A state of mind where reality becomes blurred.',  
+                positivity: 'Negative',  
+                sentence: '"He was in a state of <u>delirium</u> after days of high fever."', 
+                image: './assets/images/flashcards/Set3/delirium.gif'  
+            },
+            {
+                word: 'crotchety',  
+                mnemonic: 'Irritable or easily angered.',  
+                synonyms: 'Grumpy, Irritable, Cranky',  
+                hint: 'When someone\'s mood is constantly irritable.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>crotchety</u> old man complained about everything in the neighborhood."', 
+                image: './assets/images/flashcards/Set3/crotchety.gif'  
+            },
+            {
+                word: 'allocate',  
+                mnemonic: 'To distribute resources or duties for a particular purpose.',  
+                synonyms: 'Assign, Distribute, Allot',  
+                hint: 'What a project manager does to distribute resources.',  
+                positivity: 'Neutral',  
+                sentence: '"The manager needs to <u>allocate</u> more funds to the marketing department."', 
+                image: './assets/images/flashcards/Set3/allocate.webp'  
+            },
+            {
+                word: 'heyday',  
+                mnemonic: 'The period of greatest success or popularity.',  
+                synonyms: 'Prime, Peak, Zenith',  
+                hint: 'The best days of a person\'s or thing\'s career.',  
+                positivity: 'Positive',  
+                sentence: '"In her <u>heyday</u>, she was the most famous singer in the world."', 
+                image: './assets/images/flashcards/Set3/heyday.gif'  
+            },
+            {
+                word: 'query',  
+                mnemonic: 'A question, especially one addressed to an official or organization.',  
+                synonyms: 'Inquiry, Question, Request',  
+                hint: 'A formal word for a question.',  
+                positivity: 'Neutral',  
+                sentence: '"The customer sent a <u>query</u> to inquire about the product availability."', 
+                image: './assets/images/flashcards/Set3/query.gif'  
+            },
+            {
+                word: 'idyllic',  
+                mnemonic: 'Extremely peaceful or picturesque, typically used to describe a place.',  
+                synonyms: 'Picturesque, Peaceful, Serene',  
+                hint: 'A perfectly peaceful countryside scene.',  
+                positivity: 'Positive',  
+                sentence: '"The cottage was nestled in an <u>idyllic</u> setting by the lake."', 
+                image: './assets/images/flashcards/Set3/idyllic.gif'  
+            },
+            {
+                word: 'compound',  
+                mnemonic: 'A thing consisting of two or more separate elements combined together.',  
+                synonyms: 'Mixture, Blend, Combination',  
+                hint: 'A combination of different elements forming something new.',  
+                positivity: 'Neutral',  
+                sentence: '"The company created a new <u>compound</u> by mixing two chemicals."', 
+                image: './assets/images/flashcards/Set3/compound.gif'  
+            },
+            {
+                word: 'plait',  
+                mnemonic: 'A braid of hair or other material.',  
+                synonyms: 'Braid, Twist, Interweave',  
+                hint: 'A way to arrange hair into a braid.',  
+                positivity: 'Neutral',  
+                sentence: '"She braided her hair into a neat <u>plait</u> for the occasion."', 
+                image: './assets/images/flashcards/Set3/plait.gif'  
+            },
+            {
+                word: 'odium',  
+                mnemonic: 'Widespread hatred or disgust towards someone or something.',  
+                synonyms: 'Disgust, Hatred, Loathing',  
+                hint: 'The feeling people have when they detest something or someone.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>odium</u> surrounding the scandal destroyed his reputation."', 
+                image: './assets/images/flashcards/Set3/odium.gif'  
+            },
+            {
+                word: 'circlet',  
+                mnemonic: 'A small circular band or ring, especially for the head.',  
+                synonyms: 'Ring, Band, Loop',  
+                hint: 'A decorative ring worn on the head.',  
+                positivity: 'Neutral',  
+                sentence: '"She wore a silver <u>circlet</u> as part of her wedding attire."', 
+                image: './assets/images/flashcards/Set3/circlet.jfif'  
+            },
+            {
+                word: 'meteoric',  
+                mnemonic: 'Relating to meteors or something that happens very quickly.',  
+                synonyms: 'Rapid, Swift, Sudden',  
+                hint: 'Describing a quick rise or something that happens fast like a meteor.',  
+                positivity: 'Neutral',  
+                sentence: '"The startup\'s <u>meteoric</u> rise surprised everyone in the industry."', 
+                image: './assets/images/flashcards/Set3/meteoric.gif'  
+            },
+            {
+                word: 'interpolate',  
+                mnemonic: 'To insert something (especially words) into a text or conversation.',  
+                synonyms: 'Insert, Introduce, Add',  
+                hint: 'Inserting something extra into a conversation or document.',  
+                positivity: 'Neutral',  
+                sentence: '"He decided to <u>interpolate</u> a few more comments into his presentation."', 
+                image: './assets/images/flashcards/Set3/interpolate.gif'  
+            },
+            {
+                word: 'scrutinize',  
+                mnemonic: 'To examine or inspect closely.',  
+                synonyms: 'Inspect, Examine, Analyze',  
+                hint: 'Looking at something with great attention.',  
+                positivity: 'Neutral',  
+                sentence: '"The detective had to <u>scrutinize</u> the evidence to find the hidden clues."', 
+                image: './assets/images/flashcards/Set3/scrutinize.gif'  
+            },
+            {
+                word: 'elusive',  
+                mnemonic: 'Difficult to find, catch, or achieve.',  
+                synonyms: 'Evasive, Tricky, Fleeting',  
+                hint: 'When something keeps slipping away or is hard to pin down.',  
+                positivity: 'Negative',  
+                sentence: '"The criminal remained <u>elusive</u> despite the ongoing manhunt."', 
+                image: './assets/images/flashcards/Set3/elusive.gif'  
+            },
+            {
+                word: 'grumble',  
+                mnemonic: 'To complain or mutter in a discontented way.',  
+                synonyms: 'Complain, Mutter, Moan',  
+                hint: 'Complaining under your breath about something.',  
+                positivity: 'Negative',  
+                sentence: '"He continued to <u>grumble</u> about the long wait time at the restaurant."', 
+                image: './assets/images/flashcards/Set3/grumble.gif'  
+            },
+            {
+                word: 'intolerant',  
+                mnemonic: 'Unwilling to accept views, beliefs, or behaviors different from one\'s own.',  
+                synonyms: 'Bigoted, Prejudiced, Narrow-minded',  
+                hint: 'Someone who can’t tolerate different opinions or behaviors.',  
+                positivity: 'Negative',  
+                sentence: '"His <u>intolerant</u> attitude made it difficult for him to get along with others."', 
+                image: './assets/images/flashcards/Set3/intolerant.jpg'  
+            },
+            {
+                word: 'ultimatum',  
+                mnemonic: 'A final demand or statement of terms.',  
+                synonyms: 'Demand, Requirement, Condition',  
+                hint: 'A final warning or demand.',  
+                positivity: 'Neutral',  
+                sentence: '"The company gave the worker an <u>ultimatum</u>: improve performance or face dismissal."', 
+                image: './assets/images/flashcards/Set3/ultimatum.gif'  
+            },
+            {
+                word: 'staccato',  
+                mnemonic: 'Performed with each sound or note sharply separated from the others.',  
+                synonyms: 'Sharp, Detached, Abrupt',  
+                hint: 'A musical term for notes that are sharply disconnected.',  
+                positivity: 'Neutral',  
+                sentence: '"The pianist played the piece with sharp, <u>staccato</u> notes."', 
+                image: './assets/images/flashcards/Set3/staccato.jpg'  
+            },
+            {
+                word: 'illusory',  
+                mnemonic: 'Based on illusion; not real.',  
+                synonyms: 'Deceptive, False, Misleading',  
+                hint: 'Something that only seems real but isn’t.',  
+                positivity: 'Negative',  
+                sentence: '"Her dreams of success proved to be <u>illusory</u> and hard to attain."', 
+                image: './assets/images/flashcards/Set3/illusory.gif'  
+            },
+            {
+                word: 'wilt',  
+                mnemonic: 'To become limp or droop due to heat or lack of water.',  
+                synonyms: 'Droop, Sag, Wither',  
+                hint: 'What happens to a flower without water.',  
+                positivity: 'Negative',  
+                sentence: '"The flowers began to <u>wilt</u> under the scorching sun."', 
+                image: './assets/images/flashcards/Set3/wilt.gif'  
+            },
+            {
+                word: 'ogle',  
+                mnemonic: 'To stare at someone in a way that shows excessive interest or desire.',  
+                synonyms: 'Gawk, Leer, Stare',  
+                hint: 'The way someone might stare inappropriately at another person.',  
+                positivity: 'Negative',  
+                sentence: '"He couldn’t help but <u>ogle</u> at the celebrity when she walked by."', 
+                image: './assets/images/flashcards/Set3/ogle.gif'  
+            },
+            {
+                word: 'rampant',  
+                mnemonic: 'Flourishing or spreading unchecked.',  
+                synonyms: 'Widespread, Uncontrolled, Unrestrained',  
+                hint: 'When something grows without control.',  
+                positivity: 'Negative',  
+                sentence: '"Corruption was <u>rampant</u> in the city government."', 
+                image: './assets/images/flashcards/Set3/rampant.jfif'  
+            },
+            {
+                word: 'skulduggery',  
+                mnemonic: 'Underhanded or unscrupulous behavior.',  
+                synonyms: 'Deception, Trickery, Fraud',  
+                hint: 'Shady or deceitful behavior, often involving dishonesty.',  
+                positivity: 'Negative',  
+                sentence: '"The politician’s <u>skulduggery</u> was eventually exposed by the media."', 
+                image: './assets/images/flashcards/Set3/skulduggery.gif'  
+            },
+            {
+                word: 'benediction',  
+                mnemonic: 'A blessing or expression of good wishes.',  
+                synonyms: 'Blessing, Approval, Grace',  
+                hint: 'A blessing given during a religious or formal ceremony.',  
+                positivity: 'Positive',  
+                sentence: '"The priest gave the final <u>benediction</u> to bless the gathering."', 
+                image: './assets/images/flashcards/Set3/benediction.gif'  
+            },
+            {
+                word: 'Machiavellian',  
+                mnemonic: 'Cunning, scheming, and unscrupulous, especially in politics.',  
+                synonyms: 'Scheming, Cunning, Devious',  
+                hint: 'Describing someone who manipulates others for personal gain, often in politics.',  
+                positivity: 'Negative',  
+                sentence: '"His <u>Machiavellian</u> tactics helped him gain power at the expense of others."', 
+                image: './assets/images/flashcards/Set3/Machiavellian.gif'  
+            },
+            {
+                word: 'anecdote',  
+                mnemonic: 'A short, amusing or interesting story about a real incident or person.',  
+                synonyms: 'Story, Tale, Account',  
+                hint: 'A brief and interesting story, often shared in conversations.',  
+                positivity: 'Positive',  
+                sentence: '"She shared a funny <u>anecdote</u> from her childhood during the meeting."', 
+                image: './assets/images/flashcards/Set3/anecdote.gif'  
+            },
+            {
+                word: 'limbo',  
+                mnemonic: 'An uncertain period of awaiting a decision or resolution.',  
+                synonyms: 'Uncertainty, Pause, In-between',  
+                hint: 'Being stuck in a situation without clear resolution.',  
+                positivity: 'Neutral',  
+                sentence: '"The decision was stuck in <u>limbo</u> as both sides failed to reach an agreement."', 
+                image: './assets/images/flashcards/Set3/limbo.gif'  
+            },
+            {
+                word: 'centrifugal',  
+                mnemonic: 'Moving or tending to move away from a center.',  
+                synonyms: 'Outward-moving, Radiating, Divergent',  
+                hint: 'What a spinning wheel does when it throws objects outward.',  
+                positivity: 'Neutral',  
+                sentence: '"The <u>centrifugal</u> force pushed the water droplets outward from the spinning disk."', 
+                image: './assets/images/flashcards/Set3/centrifugal.gif'  
+            },
+            {
+                word: 'precipitate',  
+                mnemonic: 'To cause something to happen suddenly or prematurely.',  
+                synonyms: 'Hasten, Trigger, Accelerate',  
+                hint: 'Causing something to happen quickly, often unexpectedly.',  
+                positivity: 'Neutral',  
+                sentence: '"The manager’s harsh words <u>precipitated</u> an immediate resignation."', 
+                image: './assets/images/flashcards/Set3/precipitate.gif'  
+            },
+            {
+                word: 'implausible',  
+                mnemonic: 'Not seeming reasonable or probable.',  
+                synonyms: 'Unlikely, Improbable, Doubtful',  
+                hint: 'Something hard to believe or unlikely to happen.',  
+                positivity: 'Negative',  
+                sentence: '"The story he told was so <u>implausible</u> that no one believed him."', 
+                image: './assets/images/flashcards/Set3/implausible.gif'  
+            },
+            {
+                word: 'pillory',  
+                mnemonic: 'A device or a means of public punishment and humiliation.',  
+                synonyms: 'Stock, Scaffold, Gibbet',  
+                hint: 'A tool once used for public humiliation or punishment.',  
+                positivity: 'Negative',  
+                sentence: '"The criminal was publicly shamed in the <u>pillory</u> for his crimes."', 
+                image: './assets/images/flashcards/Set3/pillory.gif'  
+            },
+            {
+                word: 'receptive',  
+                mnemonic: 'Willing to consider or accept new suggestions and ideas.',  
+                synonyms: 'Open-minded, Responsive, Accepting',  
+                hint: 'Being willing to listen to new ideas or suggestions.',  
+                positivity: 'Positive',  
+                sentence: '"She was <u>receptive</u> to all the new ideas proposed by the team."', 
+                image: './assets/images/flashcards/Set3/receptive.gif'  
+            },
+            {
+                word: 'sleigh',  
+                mnemonic: 'A type of vehicle for traveling on snow, pulled by animals.',  
+                synonyms: 'Sled, Toboggan, Snow vehicle',  
+                hint: 'A vehicle for traveling on snow, often used in winter sports.',  
+                positivity: 'Neutral',  
+                sentence: '"They rode the <u>sleigh</u> down the snowy hill, laughing all the way."', 
+                image: './assets/images/flashcards/Set3/sleigh.gif'  
+            },
+            {
+                word: 'impersonal',  
+                mnemonic: 'Not influenced by personal feelings; neutral.',  
+                synonyms: 'Neutral, Detached, Objective',  
+                hint: 'Describing an action or decision free from personal bias.',  
+                positivity: 'Neutral',  
+                sentence: '"The report was written in an <u>impersonal</u> tone to avoid bias."', 
+                image: './assets/images/flashcards/Set3/impersonal.gif'  
+            },
+            {
+                word: 'placebo',  
+                mnemonic: 'A harmless pill or treatment given for psychological benefit.',  
+                synonyms: 'Dummy, Sham, Fake treatment',  
+                hint: 'A treatment given to make someone think they are being treated.',  
+                positivity: 'Neutral',  
+                sentence: '"The doctor gave the patient a <u>placebo</u> to ease their anxiety."', 
+                image: './assets/images/flashcards/Set3/placebo.png'  
+            },
+            {
+                word: 'amend',  
+                mnemonic: 'To make corrections or improvements in a text.',  
+                synonyms: 'Correct, Revise, Improve',  
+                hint: 'Making changes to improve a written document.',  
+                positivity: 'Neutral',  
+                sentence: '"The editor worked hard to <u>amend</u> the manuscript before publication."', 
+                image: './assets/images/flashcards/Set3/amend.jfif'  
+            },
+            {
+                word: 'dolorous',  
+                mnemonic: 'Feeling or expressing great sorrow or distress.',  
+                synonyms: 'Mournful, Sorrowful, Anguished',  
+                hint: 'Feeling a great sense of sorrow or sadness.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>dolorous</u> tune of the violin moved the audience to tears."', 
+                image: './assets/images/flashcards/Set3/dolorous.gif'  
+            },
+            {
+                word: 'guffaw',  
+                mnemonic: 'A loud and boisterous laugh.',  
+                synonyms: 'Laugh, Chuckle, Roar',  
+                hint: 'A loud laugh that bursts out uncontrollably.',  
+                positivity: 'Positive',  
+                sentence: '"He let out a loud <u>guffaw</u> after hearing the joke."', 
+                image: './assets/images/flashcards/Set3/guffaw.gif'  
+            },
+            {
+                word: 'tract',  
+                mnemonic: 'A large area of land or a leaflet for distribution.',  
+                synonyms: 'Area, Field, Brochure',  
+                hint: 'A large piece of land or a written pamphlet.',  
+                positivity: 'Neutral',  
+                sentence: '"The farmer owned a large <u>tract</u> of land outside the city."', 
+                image: './assets/images/flashcards/Set3/tract.jfif'  
+            },
+            {
+                word: 'bent',  
+                mnemonic: 'A natural talent or inclination for something.',  
+                synonyms: 'Inclination, Tendency, Talent',  
+                hint: 'A talent or interest that comes naturally to someone.',  
+                positivity: 'Neutral',  
+                sentence: '"She had a <u>bent</u> for creative writing from a young age."', 
+                image: './assets/images/flashcards/Set3/bent.gif'  
+            },
+            {
+                word: 'discourse',  
+                mnemonic: 'Written or spoken communication or debate.',  
+                synonyms: 'Conversation, Dialogue, Discussion',  
+                hint: 'A formal discussion or communication of ideas.',  
+                positivity: 'Neutral',  
+                sentence: '"The professor’s <u>discourse</u> on ancient philosophy was enlightening."', 
+                image: './assets/images/flashcards/Set3/discourse.gif'  
+            },
+            {
+                word: 'defer',  
+                mnemonic: 'To put off to a later time or to yield to someone’s wishes.',  
+                synonyms: 'Postpone, Delay, Yield',  
+                hint: 'When you delay or yield to someone else’s opinion.',  
+                positivity: 'Neutral',  
+                sentence: '"They decided to <u>defer</u> the meeting until everyone was available."', 
+                image: './assets/images/flashcards/Set3/defer.gif'  
+            },
+            {
+                word: 'chary',  
+                mnemonic: 'Cautious or wary about something.',  
+                synonyms: 'Cautious, Wary, Careful',  
+                hint: 'Being extra careful or reluctant to do something.',  
+                positivity: 'Negative',  
+                sentence: '"She was <u>chary</u> of investing in a risky venture."', 
+                image: './assets/images/flashcards/Set3/chary.gif'  
+            },
+            {
+                word: 'don',  
+                mnemonic: 'To put on (an article of clothing).',  
+                synonyms: 'Wear, Put on, Dress',  
+                hint: 'The act of putting on a piece of clothing.',  
+                positivity: 'Neutral',  
+                sentence: '"He <u>donned</u> his jacket before stepping outside into the cold."', 
+                image: './assets/images/flashcards/Set3/don.gif'  
+            },
+            {
+                word: 'primal',  
+                mnemonic: 'Relating to an early stage of development; fundamental.',  
+                synonyms: 'Basic, Fundamental, Primary',  
+                hint: 'Relating to something fundamental or early in development.',  
+                positivity: 'Neutral',  
+                sentence: '"The <u>primal</u> instincts of survival are deeply ingrained in all living beings."', 
+                image: './assets/images/flashcards/Set3/primal.gif'  
+            },
+            {
+                word: 'beleaguer',  
+                mnemonic: 'To trouble or harass someone persistently.',  
+                synonyms: 'Harass, Pester, Trouble',  
+                hint: 'When someone is persistently bothered by problems or difficulties.',  
+                positivity: 'Negative',  
+                sentence: '"The city was <u>beleaguered</u> by constant traffic jams."', 
+                image: './assets/images/flashcards/Set3/beleaguer.gif'  
+            },
+            {
+                word: 'physiognomy',  
+                mnemonic: 'A person’s facial features or expression, especially indicative of character.',  
+                synonyms: 'Features, Face, Expression',  
+                hint: 'The facial features that often hint at a person’s character.',  
+                positivity: 'Neutral',  
+                sentence: '"His stern <u>physiognomy</u> made him look unapproachable."', 
+                image: './assets/images/flashcards/Set3/physiognomy.gif'  
+            },
+            {
+                word: 'nausea',  
+                mnemonic: 'A feeling of sickness with an inclination to vomit.',  
+                synonyms: 'Queasiness, Sickness, Discomfort',  
+                hint: 'The feeling you get when you’re about to vomit.',  
+                positivity: 'Negative',  
+                sentence: '"The constant motion of the boat made her feel intense <u>nausea</u>."', 
+                image: './assets/images/flashcards/Set3/nausea.gif'  
+            },
+            {
+                word: 'ovoid',  
+                mnemonic: 'Egg-shaped or oval.',  
+                synonyms: 'Oval, Egg-shaped, Elliptical',  
+                hint: 'Something shaped like an egg.',  
+                positivity: 'Neutral',  
+                sentence: '"The <u>ovoid</u> shape of the sculpture made it stand out in the gallery."', 
+                image: './assets/images/flashcards/Set3/ovoid.gif'  
+            },
+            {
+                word: 'concoct',  
+                mnemonic: 'To create or invent something, especially by combining ingredients.',  
+                synonyms: 'Create, Invent, Devise',  
+                hint: 'Creating something by mixing various ingredients or ideas.',  
+                positivity: 'Neutral',  
+                sentence: '"She <u>concocted</u> a delicious meal with ingredients from her garden."', 
+                image: './assets/images/flashcards/Set3/concoct.gif'  
+            },
+            {
+                word: 'burgeon',  
+                mnemonic: 'To grow or increase rapidly.',  
+                synonyms: 'Flourish, Expand, Thrive',  
+                hint: 'The rapid growth or flourishing of something.',  
+                positivity: 'Positive',  
+                sentence: '"The small startup began to <u>burgeon</u> after its new product launch."', 
+                image: './assets/images/flashcards/Set3/burgeon.gif'  
+            },
+            {
+                word: 'perversion',  
+                mnemonic: 'The alteration of something from its original course or meaning, often in a negative way.',  
+                synonyms: 'Corruption, Distortion, Deviation',  
+                hint: 'When something good is twisted or corrupted into something wrong.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>perversion</u> of justice in the case shocked the public."', 
+                image: './assets/images/flashcards/Set3/perversion.gif'  
+            },
+            {
+                word: 'unsullied',  
+                mnemonic: 'Not spoiled or made impure; spotless.',  
+                synonyms: 'Pure, Pristine, Untarnished',  
+                hint: 'Something that remains perfectly clean or pure.',  
+                positivity: 'Positive',  
+                sentence: '"The <u>unsullied</u> snow stretched across the field, untouched by footprints."', 
+                image: './assets/images/flashcards/Set3/unsullied.gif'  
+            },
+            {
+                word: 'disembark',  
+                mnemonic: 'To leave a ship, aircraft, or other vehicle.',  
+                synonyms: 'Alight, Debark, Get off',  
+                hint: 'The opposite of \'embark\'.',  
+                positivity: 'Neutral',  
+                sentence: '"The passengers <u>disembarked</u> the ship as it reached the dock."', 
+                image: './assets/images/flashcards/Set3/disembark.gif'  
+            },
+            {
+                word: 'chassis',  
+                mnemonic: 'The frame or structure of a motor vehicle or other complex structure.',  
+                synonyms: 'Frame, Structure, Skeleton',  
+                hint: 'The structure that supports vehicles or machines.',  
+                positivity: 'Neutral',  
+                sentence: '"The car’s <u>chassis</u> was damaged after the accident, but the engine was fine."', 
+                image: './assets/images/flashcards/Set3/chassis.gif'  
+            },
+            {
+                word: 'rivulet',  
+                mnemonic: 'A small stream of water.',  
+                synonyms: 'Streamlet, Brook, Creek',  
+                hint: 'A small stream that flows into a larger body of water.',  
+                positivity: 'Neutral',  
+                sentence: '"A tiny <u>rivulet</u> ran through the forest, feeding into the larger river downstream."', 
+                image: './assets/images/flashcards/Set3/rivulet.gif'  
+            },
+            {
+                word: 'exemplify',  
+                mnemonic: 'To be a typical example of something.',  
+                synonyms: 'Illustrate, Typify, Represent',  
+                hint: 'When you give a clear example of something.',  
+                positivity: 'Positive',  
+                sentence: '"Her actions <u>exemplify</u> the true meaning of kindness."', 
+                image: './assets/images/flashcards/Set3/exemplify.gif'  
+            },
+            {
+                word: 'embellish',  
+                mnemonic: 'To decorate or add details to something, often to make it more attractive.',  
+                synonyms: 'Adorn, Decorate, Enhance',  
+                hint: 'What you do to make a story or object more attractive.',  
+                positivity: 'Neutral',  
+                sentence: '"He <u>embellished</u> his travel stories, making them sound more exciting than they were."', 
+                image: './assets/images/flashcards/Set3/embellish.gif'  
+            },
+            {
+                word: 'obsidian',  
+                mnemonic: 'A type of volcanic glass with a dark, glassy appearance.',  
+                synonyms: 'Volcanic glass, Black stone',  
+                hint: 'A naturally occurring dark volcanic glass.',  
+                positivity: 'Neutral',  
+                sentence: '"The sharp edge of the <u>obsidian</u> gleamed in the sunlight."', 
+                image: './assets/images/flashcards/Set3/obsidian.jfif'  
+            },
+            {
+                word: 'bedizen',  
+                mnemonic: 'To dress or adorn gaudily.',  
+                synonyms: 'Dress up, Adorn, Bedeck',  
+                hint: 'To decorate yourself or something in a flashy, over-the-top way.',  
+                positivity: 'Negative',  
+                sentence: '"She <u>bedizened</u> herself with jewelry before the party."', 
+                image: './assets/images/flashcards/Set3/bedizen.gif'  
+            },
+            {
+                word: 'morgue',  
+                mnemonic: 'A place where bodies are kept, especially to be examined.',  
+                synonyms: 'Mortuary, Morgue house, Funeral home',  
+                hint: 'Where bodies are kept for examination.',  
+                positivity: 'Neutral',  
+                sentence: '"The police visited the <u>morgue</u> to identify the victim\'s body."', 
+                image: './assets/images/flashcards/Set3/morgue.gif'  
+            },
+            {
+                word: 'prosody',  
+                mnemonic: 'The patterns of rhythm and sound used in poetry.',  
+                synonyms: 'Rhythm, Meter, Versification',  
+                hint: 'The way rhythm and sound are used in poems.',  
+                positivity: 'Neutral',  
+                sentence: '"The poet used beautiful <u>prosody</u> to make the verses come alive."', 
+                image: './assets/images/flashcards/Set3/prosody.gif'  
+            },
+            {
+                word: 'abrogate',  
+                mnemonic: 'To repeal or do away with a law, right, or formal agreement.',  
+                synonyms: 'Revoke, Abolish, Annul',  
+                hint: 'When a law is officially canceled or revoked.',  
+                positivity: 'Neutral',  
+                sentence: '"The government decided to <u>abrogate</u> the outdated law."', 
+                image: './assets/images/flashcards/Set3/abrogate.gif'  
+            },
+            {
+                word: 'deciduous',  
+                mnemonic: 'Referring to trees or shrubs that shed their leaves annually.',  
+                synonyms: 'Shedding, Falling, Seasonal',  
+                hint: 'Describing trees that lose their leaves in autumn.',  
+                positivity: 'Neutral',  
+                sentence: '"<u>Deciduous</u> trees shed their leaves each fall and grow new ones in the spring."', 
+                image: './assets/images/flashcards/Set3/deciduous.gif'  
+            },
+            {
+                word: 'paradox',  
+                mnemonic: 'A seemingly contradictory statement that may nonetheless be true.',  
+                synonyms: 'Contradiction, Puzzle, Anomaly',  
+                hint: 'A statement that seems contradictory but reveals truth.',  
+                positivity: 'Neutral',  
+                sentence: '"It was a <u>paradox</u> that he was both wealthy and unhappy."', 
+                image: './assets/images/flashcards/Set3/paradox.gif'  
+            },
+            {
+                word: 'desiccate',  
+                mnemonic: 'To remove moisture from something, usually to preserve it.',  
+                synonyms: 'Dry out, Dehydrate, Parch',  
+                hint: 'What happens when food is dried to preserve it.',  
+                positivity: 'Neutral',  
+                sentence: '"The <u>desiccated</u> fruits were packed for long-term storage."', 
+                image: './assets/images/flashcards/Set3/desiccate.jpg'  
+            },
+            {
+                word: 'bigotry',  
+                mnemonic: 'Intolerance toward those who are different or hold different opinions.',  
+                synonyms: 'Intolerance, Prejudice, Racism',  
+                hint: 'Prejudice or intolerance toward a group of people.',  
+                positivity: 'Negative',  
+                sentence: '"<u>Bigotry</u> has no place in a society that values equality."', 
+                image: './assets/images/flashcards/Set3/bigotry.gif'  
+            },
+            {
+                word: 'obtuse',  
+                mnemonic: 'Annoyingly insensitive or slow to understand.',  
+                synonyms: 'Dull, Slow, Dim',  
+                hint: 'Someone who is slow to understand or grasp concepts.',  
+                positivity: 'Negative',  
+                sentence: '"His <u>obtuse</u> behavior frustrated everyone at the meeting."', 
+                image: './assets/images/flashcards/Set3/obtuse.gif'  
+            },
+            {
+                word: 'catapult',  
+                mnemonic: 'A device or structure used to launch objects, often with great force.',  
+                synonyms: 'Launch, Hurl, Fling',  
+                hint: 'A medieval device that hurls objects at enemies.',  
+                positivity: 'Neutral',  
+                sentence: '"The soldiers used a <u>catapult</u> to launch stones at the enemy fort."', 
+                image: './assets/images/flashcards/Set3/catapult.gif'  
+            },
+            {
+                word: 'derogatory',  
+                mnemonic: 'Showing a critical or disrespectful attitude.',  
+                synonyms: 'Disparaging, Belittling, Critical',  
+                hint: 'A negative or insulting comment aimed at someone.',  
+                positivity: 'Negative',  
+                sentence: '"His <u>derogatory</u> comments upset the entire team."', 
+                image: './assets/images/flashcards/Set3/derogatory.gif'  
+            },
+            {
+                word: 'rally',  
+                mnemonic: 'To come together again after a break or to bring together for a common cause.',  
+                synonyms: 'Gather, Reunite, Assemble',  
+                hint: 'When people come together again after a break.',  
+                positivity: 'Positive',  
+                sentence: '"The group <u>rallied</u> around their leader after the difficult decision was made."', 
+                image: './assets/images/flashcards/Set3/rally.gif'  
+            },
+            {
+                word: 'salacious',  
+                mnemonic: 'Having or conveying undue interest in sexual matters.',  
+                synonyms: 'Lewd, Lascivious, Indecent',  
+                hint: 'A word to describe something with inappropriate sexual content.',  
+                positivity: 'Negative',  
+                sentence: '"The novel was criticized for its <u>salacious</u> content."', 
+                image: './assets/images/flashcards/Set3/salacious.gif'  
+            },
+            {
+                word: 'rasp',  
+                mnemonic: 'A harsh, grating sound.',  
+                synonyms: 'Grate, Scrape, Grind',  
+                hint: 'The sound made when metal scrapes against metal.',  
+                positivity: 'Negative',  
+                sentence: '"The <u>rasp</u> of the knife against the stone filled the quiet room."', 
+                image: './assets/images/flashcards/Set3/rasp.gif'  
+            },
+            {
+                word: 'coin',  
+                mnemonic: 'To invent a new word or phrase, or to create something new.',  
+                synonyms: 'Invent, Create, Devise',  
+                hint: 'To create or invent something, especially a new word.',  
+                positivity: 'Neutral',  
+                sentence: '"Shakespeare <u>coined</u> many new words that we still use today."', 
+                image: './assets/images/flashcards/Set3/coin.gif'  
             }
+            
+            
+            
+            
         ]
 
 
