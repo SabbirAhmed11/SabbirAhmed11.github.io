@@ -29,11 +29,17 @@
         <div class="flashcard-container">
             <div class="flashcard" id="flashcard" onclick="flipCard()">
                 <div class="card-content">
+
+
                     <div class="front">
                         <h2 id="word">Word</h2>
+                        <button id="pronounce-btn" class="pronounce-btn" onclick="pronounceWord(event)">
+                            <img src="./assets/images/flashcards/icons/sound.png" alt="Pronounce" class="pronounce-icon">
+                        </button>
                         <img src="./assets/images/flashcards/icons/hint.png" class="hint-icon" id="hint-icon" onclick="showHint(event)">
                         <div id="hint-text" class="hint-text" style="display: none;">Hint</div>
                     </div>
+
                     <div class="back">
                         <p id="positivity" class="positivity"></p> <!-- Positive/Negative Indicator -->
                         <p id="mnemonic">"Mnemonic"</p>
