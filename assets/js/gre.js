@@ -2588,6 +2588,25 @@ function showCard(index) {
     }
 }
 
+// pronounce
+function pronounceWord() {
+    const word = document.getElementById('word').textContent;
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US'; // Set the language
+    speechSynthesis.speak(utterance);
+}
+// pronounce and not flip
+function pronounceWord(event) {
+    event.stopPropagation(); // Prevent the card from flipping
+    const word = document.getElementById('word').textContent;
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-US'; // Set the language
+    speechSynthesis.speak(utterance);
+}
+
+
+
+
 // Flip the card
 function flipCard() {
     const flashcard = document.getElementById('flashcard');
