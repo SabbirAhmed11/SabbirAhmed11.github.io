@@ -3397,9 +3397,888 @@ const flashcardsSets = [
                             image: './assets/images/flashcards/Set4/irrefutable.gif'
                         }
 
-    ]
+    ],
 
     // set 5
+
+    [
+        {
+            word: 'subjective',  
+            mnemonic: 'Based on personal feelings or opinions.',  
+            synonyms: 'Biased, Personal, Partial',  
+            hint: 'Think of personal opinions.',  
+            positivity: 'Neutral',  
+            sentence: 'The article\'s viewpoint was highly subjective, reflecting the writer\'s personal experience.', 
+            image: './assets/images/flashcards/Set5/subjective.gif'
+        },
+        {
+            word: 'infiltrate',  
+            mnemonic: 'Enter or gain access to secretly.',  
+            synonyms: 'Penetrate, Invade, Intrude',  
+            hint: 'Think of sneaky entry.',  
+            positivity: 'Negative',  
+            sentence: 'The detective managed to infiltrate the criminal organization without raising suspicion.', 
+            image: './assets/images/flashcards/Set5/infiltrate.gif'
+        },
+        {
+            word: 'repertoire',  
+            mnemonic: 'A stock of skills or types of behavior.',  
+            synonyms: 'Collection, Range, Inventory',  
+            hint: 'Think of a set of abilities.',  
+            positivity: 'Neutral',  
+            sentence: 'The singer\'s repertoire included a wide variety of genres, from classical to pop.', 
+            image: './assets/images/flashcards/Set5/repertoire.gif'
+        },
+        {
+            word: 'delude',  
+            mnemonic: 'To deceive or mislead.',  
+            synonyms: 'Deceive, Mislead, Fool',  
+            hint: 'Think of false beliefs.',  
+            positivity: 'Negative',  
+            sentence: 'He was deluded into thinking that his plan would work, despite clear evidence to the contrary.', 
+            image: './assets/images/flashcards/Set5/delude.gif'
+        },
+        {
+            word: 'carnal',  
+            mnemonic: 'Related to physical needs or desires.',  
+            synonyms: 'Sensual, Fleshly, Bodily',  
+            hint: 'Think of physical pleasures.',  
+            positivity: 'Neutral',  
+            sentence: 'The story explored the carnal instincts that drive human behavior.', 
+            image: './assets/images/flashcards/Set5/carnal.gif'
+        },
+        {
+            word: 'percussion',  
+            mnemonic: 'Musical instruments that are struck.',  
+            synonyms: 'Drumming, Striking, Beating',  
+            hint: 'Think of drums or rhythmic sounds.',  
+            positivity: 'Neutral',  
+            sentence: 'The band’s percussion section added a powerful rhythm to the performance.', 
+            image: './assets/images/flashcards/Set5/percussion.gif'
+        },
+        {
+            word: 'communal',  
+            mnemonic: 'Shared by a group or community.',  
+            synonyms: 'Shared, Collective, Public',  
+            hint: 'Think of something shared.',  
+            positivity: 'Positive',  
+            sentence: 'The villagers worked together in the communal garden, growing food for everyone.', 
+            image: './assets/images/flashcards/Set5/communal.gif'
+        },
+        {
+            word: 'ensue',  
+            mnemonic: 'To follow as a result.',  
+            synonyms: 'Follow, Proceed, Result',  
+            hint: 'Think of something that comes next.',  
+            positivity: 'Neutral',  
+            sentence: 'After the heated argument, silence ensued in the room.', 
+            image: './assets/images/flashcards/Set5/ensue.gif'
+        },
+        {
+            word: 'sleazy',  
+            mnemonic: 'Morally degraded or dirty.',  
+            synonyms: 'Sordid, Seedy, Shabby',  
+            hint: 'Think of something dirty or low-class.',  
+            positivity: 'Negative',  
+            sentence: 'The journalist uncovered the sleazy dealings of the corrupt politician.', 
+            image: './assets/images/flashcards/Set5/sleazy.gif'
+        },
+        {
+            word: 'escapade',  
+            mnemonic: 'A reckless adventure.',  
+            synonyms: 'Adventure, Stunt, Antic',  
+            hint: 'Think of a wild or daring event.',  
+            positivity: 'Neutral',  
+            sentence: 'Their weekend escapade to the mountains turned into a dangerous adventure when a storm hit.', 
+            image: './assets/images/flashcards/Set5/escapade.gif'
+        },
+        {
+            word: 'avalanche',
+            mnemonic: 'A mass of snow or ice falling down.',
+            synonyms: 'Landslide, Snowfall, Cascade',
+            hint: 'Think of falling snow.',
+            positivity: 'Neutral',
+            sentence: 'The sudden avalanche buried the hikers\' camp under tons of snow.',
+            image: './assets/images/flashcards/Set5/avalanche.gif'
+        },
+        {
+            word: 'diverge',
+            mnemonic: 'To separate or move apart.',
+            synonyms: 'Split, Divide, Separate',
+            hint: 'Think of something splitting.',
+            positivity: 'Neutral',
+            sentence: 'Their career paths began to diverge after graduation, with one entering academia and the other starting a business.',
+            image: './assets/images/flashcards/Set5/diverge.gif'
+        },
+        {
+            word: 'pernicious',
+            mnemonic: 'Having a harmful effect.',
+            synonyms: 'Harmful, Destructive, Noxious',
+            hint: 'Think of something dangerous.',
+            positivity: 'Negative',
+            sentence: 'The pernicious influence of social media on young minds is a growing concern.',
+            image: './assets/images/flashcards/Set5/pernicious.jfif'
+        },
+        {
+            word: 'alms',
+            mnemonic: 'Money or food given to the poor.',
+            synonyms: 'Charity, Donations, Offerings',
+            hint: 'Think of charitable giving.',
+            positivity: 'Positive',
+            sentence: 'The wealthy businessman regularly distributed alms to the homeless in his city.',
+            image: './assets/images/flashcards/Set5/alms.gif'
+        },
+        {
+            word: 'microcosm',
+            mnemonic: 'A small version of something larger.',
+            synonyms: 'Miniature, Representation, Example',
+            hint: 'Think of a small world.',
+            positivity: 'Neutral',
+            sentence: 'The classroom is a microcosm of society, with its own rules and hierarchies.',
+            image: './assets/images/flashcards/Set5/microcosm.gif'
+        },
+        {
+            word: 'legend',
+            mnemonic: 'A traditional story or myth.',
+            synonyms: 'Myth, Tale, Fable',
+            hint: 'Think of famous old stories.',
+            positivity: 'Neutral',
+            sentence: 'The legend of King Arthur has inspired countless books, films, and works of art.',
+            image: './assets/images/flashcards/Set5/legend.gif'
+        },
+        {
+            word: 'sentinel',
+            mnemonic: 'A guard or watchman.',
+            synonyms: 'Guard, Watchman, Lookout',
+            hint: 'Think of someone standing watch.',
+            positivity: 'Neutral',
+            sentence: 'The sentinel stood at his post all night, keeping watch over the castle gates.',
+            image: './assets/images/flashcards/Set5/sentinel.gif'
+        },
+        {
+            word: 'cumulative',
+            mnemonic: 'Increasing or growing by accumulation.',
+            synonyms: 'Total, Collective, Aggregate',
+            hint: 'Think of something that builds up.',
+            positivity: 'Neutral',
+            sentence: 'The cumulative effect of years of stress finally took a toll on his health.',
+            image: './assets/images/flashcards/Set5/cumulative.gif'
+        },
+        {
+            word: 'demagogue',
+            mnemonic: 'A leader who seeks support by appealing to desires and prejudices.',
+            synonyms: 'Agitator, Instigator, Rabble-rouser',
+            hint: 'Think of someone stirring up emotions.',
+            positivity: 'Negative',
+            sentence: 'The demagogue manipulated the crowd\'s fears to gain political power.',
+            image: './assets/images/flashcards/Set5/demagogue.gif'
+        },
+        {
+            word: 'suture',
+            mnemonic: 'A stitch holding together a wound.',
+            synonyms: 'Stitch, Seam, Closure',
+            hint: 'Think of surgical stitches.',
+            positivity: 'Neutral',
+            sentence: 'The doctor used a suture to close the deep cut on the patient\'s arm.',
+            image: './assets/images/flashcards/Set5/suture.gif'
+        },
+        {
+            word: 'arroyo',
+            mnemonic: 'A dry creek or riverbed that temporarily fills with water.',
+            synonyms: 'Stream, Brook, Creek',
+            hint: 'Think of a seasonal watercourse.',
+            positivity: 'Neutral',
+            sentence: 'After the rain, the dry arroyo became a rushing stream.',
+            image: './assets/images/flashcards/Set5/arroyo.gif'
+        },
+        {
+            word: 'scrap',
+            mnemonic: 'A small piece or fragment.',
+            synonyms: 'Fragment, Piece, Bit',
+            hint: 'Think of a leftover piece.',
+            positivity: 'Neutral',
+            sentence: 'He used a scrap of metal to fix the broken hinge.',
+            image: './assets/images/flashcards/Set5/scrap.gif'
+        },
+        {
+            word: 'quarantine',
+            mnemonic: 'Isolation to prevent the spread of disease.',
+            synonyms: 'Isolation, Seclusion, Detainment',
+            hint: 'Think of isolating to protect others.',
+            positivity: 'Neutral',
+            sentence: 'After traveling abroad, he was placed in quarantine for two weeks.',
+            image: './assets/images/flashcards/Set5/quarantine.gif'
+        },
+        {
+            word: 'mercenary',
+            mnemonic: 'A professional soldier hired to serve in a foreign army.',
+            synonyms: 'Soldier, Hired Gun, Fighter',
+            hint: 'Think of a hired soldier.',
+            positivity: 'Negative',
+            sentence: 'The mercenary fought not for loyalty, but for the highest bidder.',
+            image: './assets/images/flashcards/Set5/mercenary.gif'
+        },
+        {
+            word: 'trifling',
+            mnemonic: 'Unimportant or trivial.',
+            synonyms: 'Petty, Insignificant, Minor',
+            hint: 'Think of something small or unimportant.',
+            positivity: 'Negative',
+            sentence: 'The argument was over a trifling matter, but it escalated quickly.',
+            image: './assets/images/flashcards/Set5/trifling.jfif'
+        },
+        {
+            word: 'pertinent',
+            mnemonic: 'Relevant or applicable to a particular matter.',
+            synonyms: 'Relevant, Applicable, Related',
+            hint: 'Think of something important to the matter.',
+            positivity: 'Positive',
+            sentence: 'Her questions were all pertinent to the ongoing discussion.',
+            image: './assets/images/flashcards/Set5/pertinent.gif'
+        },
+        {
+            word: 'proverb',
+            mnemonic: 'A short, commonly known saying that expresses a truth.',
+            synonyms: 'Saying, Maxim, Aphorism',
+            hint: 'Think of a wise saying.',
+            positivity: 'Neutral',
+            sentence: '"Actions speak louder than words" is a well-known proverb.',
+            image: './assets/images/flashcards/Set5/proverb.gif'
+        },
+        {
+            word: 'erroneous',
+            mnemonic: 'Incorrect or wrong.',
+            synonyms: 'Incorrect, False, Mistaken',
+            hint: 'Think of something that\'s wrong.',
+            positivity: 'Negative',
+            sentence: 'The report was filled with erroneous data, which led to incorrect conclusions.',
+            image: './assets/images/flashcards/Set5/erroneous.gif'
+        },
+        {
+            word: 'chaste',
+            mnemonic: 'Morally pure or abstaining from sexual activity.',
+            synonyms: 'Pure, Virtuous, Innocent',
+            hint: 'Think of moral purity.',
+            positivity: 'Positive',
+            sentence: 'She lived a chaste life, dedicated to her religious beliefs.',
+            image: './assets/images/flashcards/Set5/chaste.gif'
+        },
+        {
+            word: 'bequeath',
+            mnemonic: 'To leave something to someone in a will.',
+            synonyms: 'Give, Bestow, Leave',
+            hint: 'Think of inheritance.',
+            positivity: 'Positive',
+            sentence: 'She bequeathed her jewelry collection to her granddaughter.',
+            image: './assets/images/flashcards/Set5/bequeath.gif'
+        },
+        {
+            word: 'quash',
+            mnemonic: 'To reject or suppress forcibly.',
+            synonyms: 'Suppress, Revoke, Nullify',
+            hint: 'Think of stopping something by force.',
+            positivity: 'Negative',
+            sentence: 'The government moved quickly to quash the rebellion.',
+            image: './assets/images/flashcards/Set5/quash.gif'
+        },
+        {
+            word: 'semblance',
+            mnemonic: 'The outward appearance or apparent form.',
+            synonyms: 'Appearance, Likeness, Facade',
+            hint: 'Think of something that looks like something else.',
+            positivity: 'Neutral',
+            sentence: 'Despite the chaos, he maintained a semblance of calm.',
+            image: './assets/images/flashcards/Set5/semblance.jfif'
+        },
+        {
+            word: 'growl',
+            mnemonic: 'A low, guttural sound, typically by an animal.',
+            synonyms: 'Snarl, Roar, Grumble',
+            hint: 'Think of an animal sound.',
+            positivity: 'Negative',
+            sentence: 'The dog let out a low growl as the stranger approached.',
+            image: './assets/images/flashcards/Set5/growl.gif'
+        },
+        {
+            word: 'cardinal',
+            mnemonic: 'Most important; chief.',
+            synonyms: 'Fundamental, Primary, Essential',
+            hint: 'Think of something of utmost importance.',
+            positivity: 'Positive',
+            sentence: 'The cardinal rule of the game is to always respect your opponent.',
+            image: './assets/images/flashcards/Set5/cardinal.gif'
+        },
+        {
+            word: 'suffuse',
+            mnemonic: 'To spread over or through something.',
+            synonyms: 'Spread, Pervade, Fill',
+            hint: 'Think of something spreading like a color or feeling.',
+            positivity: 'Neutral',
+            sentence: 'The evening sky was suffused with shades of pink and orange.',
+            image: './assets/images/flashcards/Set5/suffuse.gif'
+        },
+        {
+            word: 'supplicant',
+            mnemonic: 'A person who prays or begs humbly.',
+            synonyms: 'Beggar, Pleader, Petitioner',
+            hint: 'Think of someone asking for something humbly.',
+            positivity: 'Neutral',
+            sentence: 'The supplicant knelt before the king, asking for mercy.',
+            image: './assets/images/flashcards/Set5/supplicant.gif'
+        },
+        {
+            word: 'crabbed',
+            mnemonic: 'Irritable and difficult to understand.',
+            synonyms: 'Cross, Grumpy, Ill-tempered',
+            hint: 'Think of someone cranky.',
+            positivity: 'Negative',
+            sentence: 'His crabbed handwriting made the letter nearly impossible to read.',
+            image: './assets/images/flashcards/Set5/crabbed.gif'
+        },
+        {
+            word: 'tremulous',
+            mnemonic: 'Shaking or quivering slightly.',
+            synonyms: 'Shaky, Quivering, Trembling',
+            hint: 'Think of someone or something trembling.',
+            positivity: 'Negative',
+            sentence: 'Her voice was tremulous as she gave her first public speech.',
+            image: './assets/images/flashcards/Set5/tremulous.gif'
+        },
+        {
+            word: 'glaze',
+            mnemonic: 'A glossy surface finish or a blank look.',
+            synonyms: 'Gloss, Shine, Coat',
+            hint: 'Think of a shiny surface.',
+            positivity: 'Neutral',
+            sentence: 'The artist applied a final glaze to the pottery, making it shine.',
+            image: './assets/images/flashcards/Set5/glaze.jfif'
+        },
+        {
+            word: 'gambit',
+            mnemonic: 'A strategic move where something is sacrificed to gain advantage.',
+            synonyms: 'Tactic, Strategy, Maneuver',
+            hint: 'Think of a clever move.',
+            positivity: 'Neutral',
+            sentence: 'His opening gambit in the chess match caught his opponent off guard.',
+            image: './assets/images/flashcards/Set5/gambit.gif'
+        },
+        {
+            word: 'submissive',
+            mnemonic: 'Ready to conform or obey.',
+            synonyms: 'Obedient, Compliant, Yielding',
+            hint: 'Think of someone yielding to authority.',
+            positivity: 'Negative',
+            sentence: 'The dog was submissive, rolling onto its back when approached.',
+            image: './assets/images/flashcards/Set5/submissive.gif'
+        },
+        {
+            word: 'bane',
+            mnemonic: 'A cause of great distress or annoyance.',
+            synonyms: 'Curse, Scourge, Plague',
+            hint: 'Think of something that causes suffering.',
+            positivity: 'Negative',
+            sentence: 'Traffic jams are the bane of my daily commute.',
+            image: './assets/images/flashcards/Set5/bane.jfif'
+        },
+        {
+            word: 'parity',
+            mnemonic: 'The state of being equal.',
+            synonyms: 'Equality, Balance, Equivalence',
+            hint: 'Think of equality in status or amount.',
+            positivity: 'Neutral',
+            sentence: 'The company aimed to achieve parity between male and female employees in leadership roles.',
+            image: './assets/images/flashcards/Set5/parity.gif'
+        },
+        {
+            word: 'compunction',
+            mnemonic: 'A feeling of guilt or moral scruple.',
+            synonyms: 'Regret, Remorse, Contrition',
+            hint: 'Think of feeling guilty.',
+            positivity: 'Negative',
+            sentence: 'He felt no compunction about lying to get the job.',
+            image: './assets/images/flashcards/Set5/compunction.gif'
+        },
+        {
+            word: 'curmudgeon',
+            mnemonic: 'A bad-tempered or surly person.',
+            synonyms: 'Grump, Crank, Grouch',
+            hint: 'Think of a grumpy old person.',
+            positivity: 'Negative',
+            sentence: 'The old man next door was a curmudgeon who yelled at kids for playing in his yard.',
+            image: './assets/images/flashcards/Set5/curmudgeon.gif'
+        },
+        {
+            word: 'incarnation',
+            mnemonic: 'A person or thing regarded as embodying a quality or idea.',
+            synonyms: 'Embodiment, Manifestation, Personification',
+            hint: 'Think of someone representing an idea.',
+            positivity: 'Neutral',
+            sentence: 'She was the very incarnation of kindness, always helping others.',
+            image: './assets/images/flashcards/Set5/incarnation.gif'
+        },
+        {
+            word: 'carnage',
+            mnemonic: 'The killing of a large number of people.',
+            synonyms: 'Slaughter, Massacre, Bloodshed',
+            hint: 'Think of mass destruction.',
+            positivity: 'Negative',
+            sentence: 'The battlefield was a scene of unimaginable carnage after the war.',
+            image: './assets/images/flashcards/Set5/carnage.gif'
+        },
+        {
+            word: 'boon',
+            mnemonic: 'A thing that is helpful or beneficial.',
+            synonyms: 'Blessing, Advantage, Benefit',
+            hint: 'Think of something that helps.',
+            positivity: 'Positive',
+            sentence: 'The new highway was a boon for the small town’s economy.',
+            image: './assets/images/flashcards/Set5/boon.jfif'
+        },
+        {
+            word: 'cataclysm',
+            mnemonic: 'A large-scale and violent event in the natural world.',
+            synonyms: 'Disaster, Catastrophe, Calamity',
+            hint: 'Think of a major disaster.',
+            positivity: 'Negative',
+            sentence: 'The earthquake was a cataclysm that devastated the city.',
+            image: './assets/images/flashcards/Set5/cataclysm.gif'
+        },
+        {
+            word: 'potentate',
+            mnemonic: 'A monarch or ruler with great power.',
+            synonyms: 'Sovereign, Ruler, Emperor',
+            hint: 'Think of a powerful ruler.',
+            positivity: 'Neutral',
+            sentence: 'The potentate ruled his kingdom with an iron fist.',
+            image: './assets/images/flashcards/Set5/potentate.gif'
+        },
+        {
+            word: 'respiration',
+            mnemonic: 'The process of breathing.',
+            synonyms: 'Breathing, Inhalation, Exhalation',
+            hint: 'Think of the act of breathing.',
+            positivity: 'Neutral',
+            sentence: 'The doctor checked the patient\'s respiration to ensure they were breathing properly.',
+            image: './assets/images/flashcards/Set5/respiration.gif'
+        },
+        {
+            word: 'deleterious',
+            mnemonic: 'Causing harm or damage.',
+            synonyms: 'Harmful, Damaging, Detrimental',
+            hint: 'Think of something bad for health.',
+            positivity: 'Negative',
+            sentence: 'The deleterious effects of pollution are becoming more apparent.',
+            image: './assets/images/flashcards/Set5/deleterious.gif'
+        },
+        {
+            word: 'cognizance',
+            mnemonic: 'Knowledge or awareness.',
+            synonyms: 'Awareness, Knowledge, Perception',
+            hint: 'Think of being aware.',
+            positivity: 'Neutral',
+            sentence: 'The committee took full cognizance of the environmental impact before proceeding with the project.',
+            image: './assets/images/flashcards/Set5/cognizance.gif'
+        },
+        {
+            word: 'tinge',
+            mnemonic: 'A slight degree of something.',
+            synonyms: 'Hint, Trace, Touch',
+            hint: 'Think of a small amount.',
+            positivity: 'Neutral',
+            sentence: 'There was a tinge of sadness in her voice as she said goodbye.',
+            image: './assets/images/flashcards/Set5/tinge.jfif'
+        },
+        {
+            word: 'apogee',
+            mnemonic: 'The highest point in the development of something.',
+            synonyms: 'Peak, Climax, Summit',
+            hint: 'Think of the highest point.',
+            positivity: 'Neutral',
+            sentence: 'His career reached its apogee when he won the Nobel Prize.',
+            image: './assets/images/flashcards/Set5/apogee.gif'
+        },
+        {
+            word: 'indissoluble',
+            mnemonic: 'Unable to be destroyed or undone.',
+            synonyms: 'Permanent, Unbreakable, Enduring',
+            hint: 'Think of something that lasts forever.',
+            positivity: 'Positive',
+            sentence: 'Their friendship was an indissoluble bond, forged over years of shared experiences.',
+            image: './assets/images/flashcards/Set5/indissoluble.jfif'
+        },
+        {
+            word: 'enthrall',
+            mnemonic: 'To captivate or charm completely.',
+            synonyms: 'Fascinate, Captivate, Mesmerize',
+            hint: 'Think of something fascinating.',
+            positivity: 'Positive',
+            sentence: 'The magician’s performance enthralled the audience, leaving them in awe.',
+            image: './assets/images/flashcards/Set5/enthrall.gif'
+        },
+        {
+            word: 'hallucination',
+            mnemonic: 'An experience of seeing or hearing something that is not there.',
+            synonyms: 'Illusion, Delusion, Vision',
+            hint: 'Think of seeing things that aren’t real.',
+            positivity: 'Neutral',
+            sentence: 'After days without sleep, he began to have vivid hallucinations of voices and shadows.',
+            image: './assets/images/flashcards/Set5/hallucination.gif'
+        },
+        {
+            word: 'quotidian',
+            mnemonic: 'Occurring daily; commonplace.',
+            synonyms: 'Daily, Everyday, Routine',
+            hint: 'Think of something happening every day.',
+            positivity: 'Neutral',
+            sentence: 'Their quotidian routine of coffee and newspapers brought them comfort each morning.',
+            image: './assets/images/flashcards/Set5/quotidian.gif'
+        },
+        {
+            word: 'citadel',
+            mnemonic: 'A fortress, typically on high ground.',
+            synonyms: 'Stronghold, Fortress, Bastion',
+            hint: 'Think of a protected place.',
+            positivity: 'Neutral',
+            sentence: 'The soldiers retreated to the citadel to defend against the invaders.',
+            image: './assets/images/flashcards/Set5/citadel.jfif'
+        },
+        {
+            word: 'repast',
+            mnemonic: 'A meal.',
+            synonyms: 'Feast, Meal, Banquet',
+            hint: 'Think of eating a meal.',
+            positivity: 'Neutral',
+            sentence: 'After a long day of work, the family sat down to a hearty repast.',
+            image: './assets/images/flashcards/Set5/repast.gif'
+        },
+        {
+            word: 'confiscate',
+            mnemonic: 'To take possession of something officially.',
+            synonyms: 'Seize, Impound, Expropriate',
+            hint: 'Think of taking something away.',
+            positivity: 'Neutral',
+            sentence: 'The police confiscated the illegal weapons during the raid.',
+            image: './assets/images/flashcards/Set5/confiscate.gif'
+        },
+        {
+            word: 'tendentious',
+            mnemonic: 'Expressing or promoting a particular cause or point of view.',
+            synonyms: 'Biased, Partisan, Prejudiced',
+            hint: 'Think of someone with an agenda.',
+            positivity: 'Negative',
+            sentence: 'The tendentious article clearly favored one side of the debate.',
+            image: './assets/images/flashcards/Set5/tendentious.jpg'
+        },
+        {
+            word: 'glib',
+            mnemonic: 'Fluent but insincere or shallow in speech.',
+            synonyms: 'Slick, Superficial, Insincere',
+            hint: 'Think of smooth but shallow talk.',
+            positivity: 'Negative',
+            sentence: 'His glib response to the serious question irritated everyone in the room.',
+            image: './assets/images/flashcards/Set5/glib.gif'
+        },
+        {
+            word: 'matrix',
+            mnemonic: 'An environment or structure within which something develops.',
+            synonyms: 'Framework, Structure, Grid',
+            hint: 'Think of a framework for growth.',
+            positivity: 'Neutral',
+            sentence: 'The city served as a matrix for the cultural movement to thrive.',
+            image: './assets/images/flashcards/Set5/matrix.gif'
+        },
+        {
+            word: 'overweening',
+            mnemonic: 'Excessive pride or confidence.',
+            synonyms: 'Arrogant, Conceited, Overconfident',
+            hint: 'Think of someone overconfident.',
+            positivity: 'Negative',
+            sentence: 'His overweening ambition led him to make reckless decisions.',
+            image: './assets/images/flashcards/Set5/overweening.gif'
+        },
+        {
+            word: 'aboriginal',
+            mnemonic: 'Native to a region; original inhabitants.',
+            synonyms: 'Indigenous, Native, Original',
+            hint: 'Think of something native to a place.',
+            positivity: 'Neutral',
+            sentence: 'The aboriginal people of the island had lived there for thousands of years.',
+            image: './assets/images/flashcards/Set5/aboriginal.gif'
+        },
+        {
+            word: 'meager',
+            mnemonic: 'Lacking in quantity or quality.',
+            synonyms: 'Insufficient, Scant, Paltry',
+            hint: 'Think of something small in amount.',
+            positivity: 'Negative',
+            sentence: 'His meager earnings were barely enough to cover his rent.',
+            image: './assets/images/flashcards/Set5/meager.gif'
+        },
+        {
+            word: 'acquittal',
+            mnemonic: 'A judgment that a person is not guilty of a crime.',
+            synonyms: 'Clearing, Exoneration, Vindication',
+            hint: 'Think of being found not guilty.',
+            positivity: 'Positive',
+            sentence: 'The defendant’s acquittal came as a surprise after the long trial.',
+            image: './assets/images/flashcards/Set5/acquittal.gif'
+        },
+        {
+            word: 'steadfast',
+            mnemonic: 'Resolutely firm and unwavering.',
+            synonyms: 'Loyal, Faithful, Committed',
+            hint: 'Think of someone who never changes their position.',
+            positivity: 'Positive',
+            sentence: 'Her steadfast loyalty to her friends was admired by everyone.',
+            image: './assets/images/flashcards/Set5/steadfast.gif'
+        },
+        {
+            word: 'throes',
+            mnemonic: 'Intense or violent pain and struggle.',
+            synonyms: 'Agony, Struggle, Anguish',
+            hint: 'Think of a person in extreme pain.',
+            positivity: 'Negative',
+            sentence: 'He was in the throes of a fierce battle with his illness.',
+            image: './assets/images/flashcards/Set5/throes.gif'
+        },
+        {
+            word: 'larder',
+            mnemonic: 'A place where food is stored.',
+            synonyms: 'Pantry, Storage, Cupboard',
+            hint: 'Think of a food storage area.',
+            positivity: 'Neutral',
+            sentence: 'The larder was well-stocked with preserves and fresh produce.',
+            image: './assets/images/flashcards/Set5/larder.gif'
+        },
+        {
+            word: 'lust',
+            mnemonic: 'A strong desire for something.',
+            synonyms: 'Craving, Desire, Yearning',
+            hint: 'Think of an intense craving.',
+            positivity: 'Negative',
+            sentence: 'His lust for power drove him to betray his closest allies.',
+            image: './assets/images/flashcards/Set5/lust.gif'
+        },
+        {
+            word: 'apparent',
+            mnemonic: 'Clearly visible or understood.',
+            synonyms: 'Obvious, Evident, Clear',
+            hint: 'Think of something that is easily seen.',
+            positivity: 'Neutral',
+            sentence: 'It was apparent that she was upset by the way she avoided eye contact.',
+            image: './assets/images/flashcards/Set5/apparent.gif'
+        },
+        {
+            word: 'invalidate',
+            mnemonic: 'To make something invalid or null.',
+            synonyms: 'Nullify, Discredit, Void',
+            hint: 'Think of making something useless.',
+            positivity: 'Negative',
+            sentence: 'The discovery of new evidence may invalidate the previous conclusion.',
+            image: './assets/images/flashcards/Set5/invalidate.gif'
+        },
+        {
+            word: 'choleric',
+            mnemonic: 'Easily angered; bad-tempered.',
+            synonyms: 'Irritable, Hot-tempered, Cranky',
+            hint: 'Think of someone quick to anger.',
+            positivity: 'Negative',
+            sentence: 'His choleric outburst at the meeting shocked everyone.',
+            image: './assets/images/flashcards/Set5/choleric.gif'
+        },
+        {
+            word: 'sojourn',
+            mnemonic: 'A temporary stay.',
+            synonyms: 'Visit, Stopover, Stay',
+            hint: 'Think of a short visit.',
+            positivity: 'Neutral',
+            sentence: 'Their sojourn in Paris was brief but memorable.',
+            image: './assets/images/flashcards/Set5/sojourn.gif'
+        },
+        {
+            word: 'temerity',
+            mnemonic: 'Excessive confidence or boldness.',
+            synonyms: 'Audacity, Boldness, Recklessness',
+            hint: 'Think of being overly bold.',
+            positivity: 'Negative',
+            sentence: 'He had the temerity to question the professor’s authority in front of the entire class.',
+            image: './assets/images/flashcards/Set5/temerity.gif'
+        },
+        {
+            word: 'obsessive',
+            mnemonic: 'Having an obsession with something.',
+            synonyms: 'Fixated, Compulsive, Fanatical',
+            hint: 'Think of a strong, uncontrollable focus.',
+            positivity: 'Negative',
+            sentence: 'His obsessive attention to detail caused him to miss the bigger picture.',
+            image: './assets/images/flashcards/Set5/obsessive.gif'
+        },
+        {
+            word: 'monotony',
+            mnemonic: 'Lack of variety and interest.',
+            synonyms: 'Dullness, Repetitiveness, Sameness',
+            hint: 'Think of something boring or repetitive.',
+            positivity: 'Negative',
+            sentence: 'The monotony of the job made her lose motivation.',
+            image: './assets/images/flashcards/Set5/monotony.gif'
+        },
+        {
+            word: 'taut',
+            mnemonic: 'Stretched or pulled tight.',
+            synonyms: 'Tight, Tense, Strained',
+            hint: 'Think of something stretched.',
+            positivity: 'Neutral',
+            sentence: 'The rope was pulled taut between the two poles.',
+            image: './assets/images/flashcards/Set5/taut.gif'
+        },
+        {
+            word: 'beneficial',
+            mnemonic: 'Producing good results or advantageous.',
+            synonyms: 'Advantageous, Helpful, Useful',
+            hint: 'Think of something good for you.',
+            positivity: 'Positive',
+            sentence: 'Regular exercise is beneficial to your health.',
+            image: './assets/images/flashcards/Set5/beneficial.gif'
+        },
+        {
+            word: 'retiring',
+            mnemonic: 'Shy and fond of being alone.',
+            synonyms: 'Reserved, Shy, Withdrawn',
+            hint: 'Think of someone who prefers to be alone.',
+            positivity: 'Neutral',
+            sentence: 'She was a retiring person, rarely seen at social events.',
+            image: './assets/images/flashcards/Set5/retiring.gif'
+        },
+        {
+            word: 'ichthyology',
+            mnemonic: 'The branch of zoology that deals with fish.',
+            synonyms: 'Fish science, Fish studies, Marine biology',
+            hint: 'Think of the study of fish.',
+            positivity: 'Neutral',
+            sentence: 'His passion for ichthyology led him to discover several new species of fish.',
+            image: './assets/images/flashcards/Set5/ichthyology.gif'
+        },
+        {
+            word: 'hygiene',
+            mnemonic: 'Practices conducive to maintaining health.',
+            synonyms: 'Cleanliness, Sanitation, Clean living',
+            hint: 'Think of cleanliness habits.',
+            positivity: 'Positive',
+            sentence: 'Good hygiene is essential to prevent the spread of disease.',
+            image: './assets/images/flashcards/Set5/hygiene.gif'
+        },
+        {
+            word: 'compatible',
+            mnemonic: 'Able to exist or work together without conflict.',
+            synonyms: 'Harmonious, Consistent, Congruent',
+            hint: 'Think of things that work well together.',
+            positivity: 'Positive',
+            sentence: 'The software was compatible with both Windows and Mac systems.',
+            image: './assets/images/flashcards/Set5/compatible.gif'
+        },
+        {
+            word: 'tangential',
+            mnemonic: 'Only slightly related to the main point.',
+            synonyms: 'Peripheral, Incidental, Divergent',
+            hint: 'Think of something off-topic.',
+            positivity: 'Neutral',
+            sentence: 'His comments were tangential to the main issue, diverting the discussion.',
+            image: './assets/images/flashcards/Set5/tangential.gif'
+        },
+        {
+            word: 'palatable',
+            mnemonic: 'Pleasant to taste or acceptable.',
+            synonyms: 'Tasty, Agreeable, Acceptable',
+            hint: 'Think of something easy to accept or enjoy.',
+            positivity: 'Positive',
+            sentence: 'The chef’s new dish was palatable to even the pickiest diners.',
+            image: './assets/images/flashcards/Set5/palatable.gif'
+        },
+        {
+            word: 'confine',
+            mnemonic: 'To keep or restrict within certain limits.',
+            synonyms: 'Restrict, Limit, Restrain',
+            hint: 'Think of something kept within boundaries.',
+            positivity: 'Negative',
+            sentence: 'The prisoner was confined to his cell for 23 hours a day.',
+            image: './assets/images/flashcards/Set5/confine.gif'
+        },
+        {
+            word: 'delusion',
+            mnemonic: 'A false belief despite strong evidence.',
+            synonyms: 'Illusion, Misconception, Fallacy',
+            hint: 'Think of a false belief.',
+            positivity: 'Negative',
+            sentence: 'He lived under the delusion that he was invincible.',
+            image: './assets/images/flashcards/Set5/delusion.gif'
+        },
+        {
+            word: 'postulate',
+            mnemonic: 'To suggest or assume the existence of something.',
+            synonyms: 'Assume, Hypothesize, Propose',
+            hint: 'Think of suggesting a theory.',
+            positivity: 'Neutral',
+            sentence: 'The scientist postulated that the planet could support life.',
+            image: './assets/images/flashcards/Set5/postulate.jfif'
+        },
+        {
+            word: 'protean',
+            mnemonic: 'Able to change or adapt easily.',
+            synonyms: 'Versatile, Adaptable, Flexible',
+            hint: 'Think of something that changes forms.',
+            positivity: 'Positive',
+            sentence: 'His protean ability to shift between different roles made him a valuable actor.',
+            image: './assets/images/flashcards/Set5/protean.gif'
+        },
+        {
+            word: 'debilitate',
+            mnemonic: 'To weaken or make something less effective.',
+            synonyms: 'Weaken, Cripple, Drain',
+            hint: 'Think of something losing strength.',
+            positivity: 'Negative',
+            sentence: 'The long illness debilitated him, leaving him bedridden for weeks.',
+            image: './assets/images/flashcards/Set5/debilitate.gif'
+        },
+        {
+            word: 'maneuver',
+            mnemonic: 'A movement requiring skill and care.',
+            synonyms: 'Tactic, Move, Strategy',
+            hint: 'Think of a careful or strategic move.',
+            positivity: 'Neutral',
+            sentence: 'The pilot executed a tricky maneuver to avoid the storm.',
+            image: './assets/images/flashcards/Set5/maneuver.gif'
+        },
+        {
+            word: 'opaque',
+            mnemonic: 'Not transparent; difficult to understand.',
+            synonyms: 'Obscure, Unclear, Impenetrable',
+            hint: 'Think of something hard to see through.',
+            positivity: 'Negative',
+            sentence: 'The instructions were so opaque that nobody could figure out how to assemble the product.',
+            image: './assets/images/flashcards/Set5/opaque.gif'
+        },
+        {
+            word: 'indoctrinate',
+            mnemonic: 'To teach someone to fully accept certain beliefs.',
+            synonyms: 'Brainwash, Teach, Inculcate',
+            hint: 'Think of intense teaching with a bias.',
+            positivity: 'Negative',
+            sentence: 'The regime sought to indoctrinate the population with its ideology.',
+            image: './assets/images/flashcards/Set5/indoctrinate.gif'
+        },
+        {
+            word: 'molt',
+            mnemonic: 'To shed old feathers, hair, or skin to allow new growth.',
+            synonyms: 'Shed, Cast off, Lose',
+            hint: 'Think of animals shedding their outer layer.',
+            positivity: 'Neutral',
+            sentence: 'The snake molted its skin, leaving behind a dry shell.',
+            image: './assets/images/flashcards/Set5/molt.gif'
+        }
+        
+        
+        
+    ]
 
         
     
