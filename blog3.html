@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 
 <head>
+
+
 
 
   <meta charset="UTF-8">
@@ -12,7 +15,7 @@
   <!-- 
     - primary meta tags
   -->
-  <title>Page is underconstruction</title>
+  <title>Diabetic Retinopathy Detection using Machine Learning</title>
   <meta name="title" content="Sabbir Ahmed - Get your product identity from me.">
   <meta name="description" content="All rights reserved by Sabbir Ahmed">
 
@@ -21,73 +24,342 @@
   -->
   <link rel="shortcut icon" href="./assets/svg/Sa.svg" type="image/svg+xml">
 
-    <title>Under Construction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <!-- 
+    - google font link
+  -->
 
-        .container {
-            text-align: center;
-        }
-
-        #gif {
-            align-content: center;
-            width: 400px; /* Adjust size as needed */
-            margin-bottom: 20px; /* Space between GIF and title */
-            padding-left: 20%;
-            display: none; /* Initially hidden */
-        }
-
-        #loading {
-            font-size: 24px;
-            color: #f5f1f1;
-        }
-
-        #message {
-            font-size: 24px;
-            color: #fcfbf8;
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-        }
-
-        #message2 {
-            font-size: 24px;
-            color: #58dff7;
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 
+  <!-- 
+    - custom css link
+  -->
+ 
+    <link rel="stylesheet" href="./assets/css/blog.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css">
 
+  <!-- 
+    - preload images
+  -->
 
-    </style>
 </head>
-<body>
-    <div class="container">
-        <div id="loading">Loading...</div>
-        <!-- GIF and message are initially hidden -->
-        <img id="gif" src="./assets/images/underconstruction.gif" alt="Under Construction GIF">
-        <div id="message">Sorry for the interruption. This page is now under construction <br> We'll be back shortly.</div>
-        <div id="message2">ahmedsabbiraust@gmail.com</div>
-        
+<body id="top">
+    <header>
+
+          <!-- 
+    - Progress bar
+  -->
+  <div class="progress-bar"></div> 
+
+  
+        <div class="banner">
+            <img src="./assets/images/blog_image/dr_h.png" alt="Vehicle Detection Banner">
+        </div>
+        <div class="header-content">
+            <h1>Diabetic Retinopathy Detection using Machine Learning</h1>
+        </div>
+    </header>
+
+ <!-- Sub-header section -->
+ <section id="sub-header">
+    <div class="sub-header-content">
+        <p>
+            Published Journal:
+            <a href="http://www.iccesd.com/proc_2020/Papers/ENV-4926.pdf" target="_blank">
+                Undergraduate Course Work Based Research
+            </a>
+        </p>
+        <button class="btn pdf-btn2">
+            <img src="./assets/images/blog_image/pdf.png" alt="PDF Icon"> 
+            Full Document
+        </button>
+        <button class="btn github-btn2">
+            <img src="./assets/images/blog_image/code.png" alt="GitHub Icon"> 
+            Source Code
+        </button>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simulate a loading delay
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none'; // Hide loading text
-                document.getElementById('gif').style.display = 'block'; // Show GIF
-                document.getElementById('message').style.display = 'block'; // Show message
-                document.getElementById('message2').style.display = 'block'; // Show GIF
-            }, 2000); // 2-second delay
-        });
-    </script>
+</section>
+
+    <div class="content">
+        <aside id="about-section">
+            <nav>
+                <ul>
+                    <li><a href="#introduction">A Vision for the Future: Detecting Diabetic Retinopathy with Machine Learning</a></li>
+                    <li><a href="#challenges">Key Goals: Revolutionizing Retinopathy Diagnosis with ML</a></li>
+                    <li><a href="#methodology">The Eye in Focus: Unveiling Retinopathy</a></li>
+                    <li><a href="#result">Project Blueprint: Engineering the Future of Diabetic Eye Care</a></li>
+                    <li><a href="#gui">System Specifications: Building the Framework for Early Detection</a></li>
+                    <li><a href="#end">Showcase: How Our AI Solution Detects Retinopathy</a></li>
+                    <li><a href="#future">Comparing Model Performance for Diabetic Retinopathy</a></li>
+                    <li><a href="#future2">A Clear Vision Ahead: Final Thoughts on Retinopathy Detection</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <section id="introduction">
+                <h2>Introduction: A Vision for the Future: Detecting Diabetic Retinopathy with Machine Learning</h2>
+                <p style="text-align: justify;">
+
+                  The health care industry produces a massive amount of data. This data is not always made use to the full extent and is often underutilized. Applying predictive analysis on these datasets, a disease can be detected, predicted, and help in getting treatment at an early stage. A considerable threat to humankind is caused by conditions like cancer, diabetes, or even brain tumor. Diabetic retinopathy (DR) is an extreme eye infection which happens because of diabetes mellitus, and it has developed as the most widely recognized reason for visual deficiency on the planet. The patient’s vision can be affected by diabetes, which causes cataracts, glaucoma, and, most importantly, damage to blood vessels inside the eye, which can lead to complete loss of vision. There are effective treatments for diabetic retinopathy, but this requires early diagnosis and continuous monitoring of patients with diabetes. Diabetic retinopathy is diagnosed by assessment of retinal images. Since manual diagnosis of these image scans is slow and resource-demanding to determine the severity of DR, for the accurate detection of Diabetic Retinopathy, an efficient machine learning technique is to be developed, which extracts essential features of the retinal scan further to classify the image to different Diabetic Retinopathy severity levels. This system focuses on applying classification and prediction models on retinal images to detect diabetic retinopathy attributes for effective monitoring of the patient’s health conditions.
+
+                </p>
+                
+                <img src="./assets/images/blog_image/dr_into.png" alt="Vehicle Detection Demo">
+            </section>
+
+
+            <section id="challenges">
+                
+                <h2>Revolutionizing Retinopathy Diagnosis with Machine Learning</h2>
+
+                <ul>
+                  <li>To study the present Diabetic Retinopathy disease prediction trends and collect data.</li>
+                  <li>To implement different technical indicators.</li>
+                  <li>To perform pre-processing on the dataset gathered to enhance the important features for detecting DR disease.</li>
+                  <li>To build a prediction model using different machine learning models. We will combine the technical indicators with the dataset and then compare the model accuracy.</li>
+                  <li>Build a Machine Learning model to predict the level of severity of DR disease.</li>
+                  <li>To find significant features by applying machine learning techniques.</li>
+                  <li>To compare different ML models and analyze which model performs more efficiently.</li>
+                  <li>To overall assist patients and doctors to help detect early signs of DR disease.</li>
+                </ul>
+                <p style="text-align: justify;">The motive behind choosing this project was to use our engineering knowledge to better the world. There is a tremendous amount of machine learning applications in the healthcare industry. The healthcare industry generates a vast amount of data, which is oftentimes underutilized. My primary motivation in choosing this project was to help the people by giving them a chance to improve their lifestyle. Hence, it was decided to make a machine learning-based healthcare project for Diabetic Retinopathy patients who require regular monitoring of their health conditions. The major motivation is that early detection can be done, which leads to initial treatments, thus increasing the chances of better recovery by regularly monitoring the eye scan.</p>
+              
+
+                <img src="./assets/images/blog_image/dr_m.png" alt="Vehicle Detection Demo">
+            </section>
+
+
+            <section id="methodology">
+                
+                <h2>The Eye in Focus: Unveiling Retinopathy</h2>
+
+                <p style="text-align: justify;">Diabetic retinopathy is a pervasive eye infection in diabetic patients and is the most well-known reason for visual disability/visual impairment among diabetic patients. DR, an interminable, progressive eye disease, has become one of the most common reasons for vision impairment and blindness, especially for working-age people today. It results from prolonged diabetes. Veins in the light-sensitive tissue (i.e., retina) are typically affected in diabetic retinopathy. Non-proliferative diabetic retinopathy (NPDR) occurs when the veins leak blood into the retina. Proliferative DR (PDR), which causes blindness in patients, is the next stage after NPDR.</p>
+            
+                <p style="text-align: justify;">The progression of DR can be classified into four stages: mild, moderate, severe non-proliferative diabetic retinopathy, and the advanced stage of proliferative diabetic retinopathy. The figure below depicts the different stages of DR disease.</p>
+            
+              <img src="https://user-images.githubusercontent.com/45623734/122230561-643de300-ced7-11eb-8f1b-c01f763aea6c.png" alt="Stages of Diabetic Retinopathy">
+            
+              <p style="text-align: justify;">In mild NPDR, small areas in the veins of the retina, called microaneurysms, swell like a balloon. In moderate NPDR, numerous microaneurysms, hemorrhages, and venous beading occur, causing the patient to lose their ability to transport blood to the retina. The third stage, called severe NPDR, results from the presence of new blood vessels, caused by the release of growth factors. The most severe stage of DR is proliferative diabetic retinopathy, in which fragile new blood vessels and scar tissue form on the surface of the retina, increasing the likelihood of blood leakage and leading to permanent vision loss.</p>
+            
+              <p style="text-align: justify;">Currently, the detection of retinopathy is performed by a well-trained doctor manually identifying vascular abnormalities and structural changes of the retina in retinal fundus images. These images are captured by dilating the retina using a vasodilating agent. Due to the manual nature of DR screening techniques, however, highly inconsistent results are often found across different readers. Therefore, automated diabetic retinopathy detection techniques are crucial for addressing these issues.</p>
+            
+              <p style="text-align: justify;">Although DR can damage the retina without showing any signs at the early stage, effective early-stage detection can minimize the risk of progression to more advanced stages of DR. Diagnosis is particularly difficult at the early stage because it relies on recognizing the presence of microaneurysms, retinal hemorrhages, among other features in retinal fundus images. Moreover, accurate detection and determination of the stages of DR can significantly improve interventions, ultimately reducing the risk of permanent vision loss.</p>
+            
+              <p style="text-align: justify;">Earlier systems for automated diabetic retinopathy detection relied on manually crafted feature extraction and traditional machine learning algorithms for prediction. These approaches were time-consuming due to the handcrafted nature of DR feature extraction. Feature extraction in color fundus images is more challenging compared to conventional images for object detection tasks. Furthermore, these handcrafted features are highly sensitive to the quality of the fundus images, focus level, presence of artifacts, and noise. Therefore, these limitations in traditional handcrafted features make it critical to develop an effective feature extraction algorithm to accurately analyze the subtle features related to DR detection.</p>
+
+            </section>
+
+
+            <section id="result">
+              <h2>Project Blueprint: Engineering the Future of Diabetic Eye Care</h2>
+              <p>In this project we use the well-known APTOS 2019 Blindness Detection dataset which is acquired from Kaggle, an online website which contains a large number of publicly accessible datasets. The proposed modules are:</p>
+              <h3><span style="color: rgb(238, 206, 88);">1.1 Data Collection</span></h3>
+      
+              <p style="text-align: justify;">The dataset is taken from <a href="https://www.kaggle.com" target="_blank">www.kaggle.com</a> which contains about 3662 train images and 1928 test images, a total of 10.2GB of data. The train.csv file contains the diagnosis of the train images, labeling each image ID to the severity level of the disease ranging from 0-4 (0 being the lowest and 4 being the highest severity level). The test.csv file contains the image IDs for the test images.</p>
+              
+              <p style="text-align: justify;">Figure below depicts a snapshot of a fraction of the unprocessed training images. These are the raw images obtained from the dataset. As we can see, the images are not in a standard form and the lighting conditions of each image vary.</p>
+              
+              <img src="https://user-images.githubusercontent.com/45623734/122231519-1ecde580-ced8-11eb-8ac1-04709f0bcee3.png" alt="Unprocessed Training Images">
+            
+              <h3><span style="color: rgb(238, 206, 88);">1.2 Data Pre-processing</span></h3>
+              <p style="text-align: justify;">The raw data collected has to go through a process of normalization in order to get a uniform dataset. Thus we need to pre-process the data for accuracy. The following pre-processing steps were used in order to standardize the retina images:</p>
+              
+              <ul>
+                <li>Reducing lighting-condition effects: Raw images come with many different lighting conditions, some images are very dark and difficult to visualize. Thus, we convert the images to 50% grayscale.</li>
+                <li>Cropping Image: We cropped the image to remove the uninformative outer background.</li>
+                <li>Resizing Image: The images were rescaled to get the same radius.</li>
+                <li>Removing Image Noise: Using the Gaussian Blur function in the cv2 library, we reduced the image noise for better analysis.</li>
+              </ul>
+            
+              <p style="text-align: justify;">Figure below depicts the pre-processed training images. The entire database has been processed by the mentioned parameters in order to standardize and enhance the attributes which determine the severity of the DR disease.</p>
+              
+              <img src="https://user-images.githubusercontent.com/45623734/122231791-5a68af80-ced8-11eb-8c3f-414815c2376f.png" alt="Pre-processed Training Images">
+            
+              <h3><span style="color: rgb(238, 206, 88);">1.3 Data Splitting</span></h3>
+            
+              <p style="text-align: justify;">For model training, the train images were split into two sections: ‘Training data’ and ‘Validation data’. The classifier was trained using the training dataset, parameters were tuned using the validation set, and then the test dataset was used to test the performance of the classifier on unseen data. We randomized the train images and split them into a ratio of 3112:550 for the training and validation sets, respectively.</p>
+            
+              <h3><span style="color: rgb(238, 206, 88);">1.4 Building Modelling</span></h3>
+              <p style="text-align: justify;">We will be using the CNN (Convolutional Neural Networks) model for this project. In recent times, most computer vision problems have been solved with greater accuracy with the help of modern deep learning algorithms. Convolutional Neural Networks (CNNs) have proven revolutionary in fields such as object detection and tracking, image and medical disease classification, pedestrian detection, and action recognition. The critical attribute of CNN is that it extracts features in a task-dependent and automated way.</p>
+            
+              <p style="text-align: justify;">In this paper, an efficient Neural Network architecture is presented for DR detection in large-scale databases. Our proposed network was designed with a multi-layer CNN architecture followed by two fully connected layers and an output layer. Among all the ML algorithms, we chose DenseNet for image classification and recognition due to its high accuracy. DenseNet (Densely Connected Convolutional Networks) is one of the latest neural networks for visual object recognition. We used DenseNet over CNN because, in DenseNet, every layer gets "aggregate information" from all preceding layers. This makes the system more compact and efficient.</p>
+            
+  
+              <h3><span style="color: rgb(238, 206, 88);">1.5.1 Model 1</span></h3>
+              <p style="text-align: justify;">The network architecture of our proposed ML Model 1 is as follows. The input layer of the network is 224 x 224 x 3. ReLU was used in all convolutional layers as the activation function for nonlinearity. All Max-Pooling layers used have the same kernel size of 3 x 3. After the DenseNet121 convolutional layers, the Global Average Pooling (GAP) layer was added to reduce overfitting. The final extracted local features were flattened before passing through fully connected layers, each having 1024 neurons. Dropout of 0.5 was included in the fully connected layers to decrease overfitting. Softmax activation function was used at the last output layer to produce normalized outputs. A yield layer of one neuron was included, and we clipped the loss function value between 0 and 4.</p>
+            
+              <p style="text-align: justify;">Model 1 was compiled using the categorical cross-entropy loss function for single-labeled classification. Adam, an adaptive learning rate optimizer, was used in model compilations.</p>
+              <h3><span style="color: rgb(238, 206, 88);">1.5.2 Model 2</span></h3>
+            
+              <p style="text-align: justify;">The network architecture of our proposed ML Model 2 is as follows. The input layer of the network is 224 x 224 x 3. After the Sequential Layer, we used predefined DenseNet121 weights. After that, the GAP layer was added to minimize overfitting, followed by a Dropout of 0.5. Sigmoid activation function was used at the last output layer to produce normalized outputs. Model 2 was compiled using the binary cross-entropy loss function for single-labeled classification, with Adam optimizer used during model compilation.</p>
+              <h3><span style="color: rgb(238, 206, 88);">1.6 Evaluation Measures</span></h3>
+            
+              <p style="text-align: justify;">After training the model, we need to evaluate the results on the training and validation dataset. Based on the evaluation metrics, we tweak the parameters to make the model more efficient. A few standard exhibition measurements, such as Accuracy, Loss, and Quadratic Kappa Score, have been considered for calculating the model's presentation effectiveness.</p>
+            
+              <p>The Quadratic Kappa Score (k) is calculated as follows:</p>
+            
+              <img src="https://user-images.githubusercontent.com/45623734/122232645-05796900-ced9-11eb-99c6-7f2311210ce5.png" alt="Quadratic Kappa Score Formula">
+            
+              <p style="text-align: justify;">Both models were trained for 15 Epoch Cycles, and evaluation metrics were calculated at each cycle. The model was saved only when there was an increase in the Kappa Score at the end of each cycle.</p>
+
+            </section>
+
+
+            <section id="gui">
+                
+                <h2>System Specifications: Building the Framework for Early Detection</h2>
+                
+                <h3><span style="color: rgb(238, 206, 88);">Product Perspective</span></h3>
+                <ul>
+                  <li>The system is run in Python Jupyter and has a user-friendly GUI.</li>
+                  <li>The system consists of many options in which the chance of heart disease is predicted.</li>
+                  <li>The predicted value ranges from 0 to 4, where 0 represents a normal eye, 1 represents mild NPDR, 2 represents moderate NPDR, 3 represents severe NPDR, and 4 represents PDR.</li>
+                  <li>An initial training is required for running the dataset on the machine model in order to do predictions.</li>
+                  <li>The output from the system includes performance graphs of the ML models and a CSV file containing predictions for all the test images. The user should have some knowledge of how to interpret these outputs.</li>
+                </ul>
+              
+              
+                <h3><span style="color: rgb(238, 206, 88);">Product Features</span></h3>
+                <p style="text-align: justify;">The product has two machine learning models on which the training images are trained. Once the models have been trained, we can run the test images on them and compare the predictions.</p>
+              
+                <h3><span style="color: rgb(238, 206, 88);">User Characteristics</span></h3>
+                <p style="text-align: justify;">With the help of this system, any user can monitor the severity level of their DR disease and seek the required treatment if needed. This is useful to patients, doctors, hospitals, and the health ministry of the country.</p>
+              
+                <h3><span style="color: rgb(238, 206, 88);">Assumptions and Dependencies</span></h3>
+                <p style="text-align: justify;">The minimum hardware and software requirements must be met for the proper implementation of this system. The user must provide clear images of their eyes, and the attributes must be visible for analysis.</p>
+              
+              
+                <h3><span style="color: rgb(238, 206, 88);">Domain Requirements</span></h3>
+                <p style="text-align: justify;">For this project, Python will be used to write the source code, and several libraries such as Pandas, Numpy, TensorFlow, Keras, OpenCV, Scikit-learn, and Matplotlib will be used for data manipulation, machine learning, deep learning, image processing, and plotting.</p>
+              
+                <h3><span style="color: rgb(238, 206, 88);">User Requirements</span></h3>
+                <p style="text-align: justify;">The user should have proper information about the data used (database), current data, and how to interpret the results to monitor changes.</p>
+              
+                <h3><span style="color: rgb(238, 206, 88);">System Architecture</span></h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122232959-4a050480-ced9-11eb-8126-78043ccbb0c9.png" alt="System Architecture">
+              
+                <h3><span style="color: rgb(238, 206, 88);">System Use Case Diagram</span></h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233019-55f0c680-ced9-11eb-9101-9374bd6837f7.png" alt="System Use Case Diagram">
+              
+  
+
+            </section>
+
+
+            <section id="end">
+                
+                <h2>Showcase: How Our AI Solution Detects Retinopathy</h2>
+
+                <h3>Dataset Info</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233325-96e8db00-ced9-11eb-9fb9-be17fc7cee3c.png" alt="Dataset Info">
+              
+                <h3>Data Pre-Processing</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233455-b41da980-ced9-11eb-8694-80d019d5b87f.png" alt="Data Pre-Processing">
+              
+                <h3>Machine Learning Model 1 Training</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233507-c0096b80-ced9-11eb-94c2-5e5d693954ad.png" alt="ML Model 1 Training Step 1">
+                <img src="https://user-images.githubusercontent.com/45623734/122233531-c7307980-ced9-11eb-8685-81e826e7998d.png" alt="ML Model 1 Training Step 2">
+              
+                <h3>Machine Learning Model 1 Evaluation Metrics</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233617-d6afc280-ced9-11eb-8df8-736823b702b1.png" alt="ML Model 1 Evaluation Metric 1">
+                <img src="https://user-images.githubusercontent.com/45623734/122233628-dadbe000-ced9-11eb-8908-a04a0360709f.png" alt="ML Model 1 Evaluation Metric 2">
+                <img src="https://user-images.githubusercontent.com/45623734/122233715-ec24ec80-ced9-11eb-9607-3ff2b05eb315.png" alt="ML Model 1 Evaluation Metric 3">
+              
+                <h3>Machine Learning Model 2 Training</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233841-02cb4380-ceda-11eb-98ca-da397812d577.png" alt="ML Model 2 Training">
+              
+                <h3>Machine Learning Model 2 Evaluation Metrics</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122233877-08c12480-ceda-11eb-832f-38fc09ab90b0.png" alt="ML Model 2 Evaluation Metric 1">
+                <img src="https://user-images.githubusercontent.com/45623734/122233895-0c54ab80-ceda-11eb-8f75-445d52ceb817.png" alt="ML Model 2 Evaluation Metric 2">
+                <img src="https://user-images.githubusercontent.com/45623734/122233915-0f4f9c00-ceda-11eb-912c-c7ae370a9603.png" alt="ML Model 2 Evaluation Metric 3">
+              
+                <h3>Prediction Result</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122234056-2d1d0100-ceda-11eb-97eb-d59ece933d1b.png" alt="Prediction Result 1">
+                <img src="https://user-images.githubusercontent.com/45623734/122234065-3017f180-ceda-11eb-86d6-de5b1cdbb725.png" alt="Prediction Result 2">
+              
+            </section>
+
+
+            <section id="future">
+                
+                <h2>ML at Work: Comparing Model Performance for Diabetic Retinopathy</h2>
+                  
+                <ul>
+                  <li><strong>Model 1 Max Train Accuracy</strong> = 83%</li>
+                  <li><strong>Model 2 Max Train Accuracy</strong> = 94%</li>
+                </ul>
+                <img src="https://user-images.githubusercontent.com/45623734/122234148-42922b00-ceda-11eb-95ac-f712bcae73c3.png" alt="Train Accuracy Comparison">
+              
+                <ul>
+                  <li><strong>Model 1 Min Train Loss</strong> = 45%</li>
+                  <li><strong>Model 2 Min Train Loss</strong> = 14%</li>
+                </ul>
+                <img src="https://user-images.githubusercontent.com/45623734/122234184-4d4cc000-ceda-11eb-9c1c-db9a85d2e1dd.png" alt="Train Loss Comparison">
+              
+                <ul>
+                  <li><strong>Model 1 Max Validation Accuracy</strong> = 84%</li>
+                  <li><strong>Model 2 Max Validation Accuracy</strong> = 92%</li>
+                </ul>
+                <img src="https://user-images.githubusercontent.com/45623734/122234248-5d649f80-ceda-11eb-87c8-ebc3c4bc8a5a.png" alt="Validation Accuracy Comparison">
+              
+                <ul>
+                  <li><strong>Model 1 Min Validation Loss</strong> = 6%</li>
+                  <li><strong>Model 2 Min Validation Loss</strong> = 17%</li>
+                </ul>
+                <img src="https://user-images.githubusercontent.com/45623734/122234270-635a8080-ceda-11eb-89bd-398021f8ac6e.png" alt="Validation Loss Comparison">
+              
+                <ul>
+                  <li><strong>Model 1 Max Kappa Score</strong> = 0.90</li>
+                  <li><strong>Model 2 Max Kappa Score</strong> = 0.78</li>
+                </ul>
+                <img src="https://user-images.githubusercontent.com/45623734/122234297-69506180-ceda-11eb-9f9a-3632896dd47b.png" alt="Kappa Score Comparison">
+              
+                <h3>Difference in Predicted Values by Both Models</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122234450-808f4f00-ceda-11eb-8e11-72b344d694f5.png" alt="Difference in Predicted Values">
+              
+                <h3>Comparison of Predicted Severity Level by Both Models</h3>
+                <img src="https://user-images.githubusercontent.com/45623734/122234495-8be27a80-ceda-11eb-99c0-07eeb9caf341.png" alt="Severity Level Comparison">
+
+                 
+            </section>
+
+
+
+            <section id="future2">
+                
+              <h2>A Clear Vision Ahead: Final Thoughts on Retinopathy Detection</h2>
+              <p style="text-align: justify;">The motive behind this paper was to develop a system based on machine learning (ML) techniques for monitoring and helping individuals, doctors, health staff, and others. This system aims to provide timely assistance to those in need of medical attention. The work presented here will be useful in identifying potential patients who may suffer from Diabetic Retinopathy, helping to take preventive measures and, ideally, avoid the possibility of total blindness caused by the disease.</p>
+            
+              <p style="text-align: justify;">In this paper, a novel DenseNet-based deep neural network was introduced to predict the severity level of diabetic retinopathy from retinal image scans, aiding in early-stage treatment. Machine learning techniques were used to process raw images and provide new insights into Diabetic Retinopathy. This system extracts key features from the retinal images, such as retinal veins, optic disc, exudates, cotton wool spots, hemorrhages, and microaneurysms, even from low-quality color fundus images.</p>
+            
+              <p style="text-align: justify;">We presented two models based on the DenseNet network, using various pre-processing methods to improve the performance of the architecture. Model 1 achieved 84% validation accuracy with a kappa score greater than 0.90, while Model 2 achieved 92% validation accuracy with a kappa score greater than 0.78 in severity grading on the challenging Kaggle APTOS 2019 Blindness Detection dataset. The experimental results demonstrate that our proposed algorithm is adequate for use in clinical applications.</p>
+              
+            </section>
+
+        </main>
+    </div>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        Copyright & Design By Sabbir Ahmed - v.2024
+      </p>
+
+      <a href="#top" class="back-top-btn">
+        <span class="span">Back To Top</span>
+        <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon> 
+      </a>
+
+    </div>
+  </footer>
+
+
+    <script src="./assets/js/blog.js"></script>
 </body>
 </html>
