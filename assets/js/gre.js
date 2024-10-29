@@ -5158,8 +5158,916 @@ const flashcardsSets = [
                     image: './assets/images/flashcards/Set6/proximity.jpg'
                 }
               
+    ],
+       // set 7
+       [
+        {
+            word: 'inaugurate',
+            mnemonic: 'To formally begin or introduce something.',
+            synonyms: 'initiate, commence',
+            hint: 'Used during ceremonies',
+            positivity: 'Neutral',
+            sentence: 'The new mayor will be inaugurated next week.',
+            image: './assets/images/flashcards/Set7/inauguration.gif'
+        },
+        {
+            word: 'culpable',
+            mnemonic: 'Deserving blame.',
+            synonyms: 'guilty, blameworthy',
+            hint: 'Blame or responsibility',
+            positivity: 'Negative',
+            sentence: 'He was found culpable for the accident.',
+            image: './assets/images/flashcards/Set7/culpable.gif'
+        },
+        {
+            word: 'continent',
+            mnemonic: 'One of the main landmasses of the world.',
+            synonyms: 'landmass, mainland',
+            hint: 'Earth’s major divisions',
+            positivity: 'Neutral',
+            sentence: 'Australia is a continent with diverse wildlife.',
+            image: './assets/images/flashcards/Set7/continent.gif'
+        },
+        {
+            word: 'supposititious',
+            mnemonic: 'Based on assumption rather than fact.',
+            synonyms: 'hypothetical, assumed',
+            hint: 'Not real, imagined',
+            positivity: 'Neutral',
+            sentence: 'Her explanation seemed supposititious, lacking evidence.',
+            image: './assets/images/flashcards/Set7/supposititious.gif'
+        },
+        {
+            word: 'gratuity',
+            mnemonic: 'A tip given for service.',
+            synonyms: 'tip, bonus',
+            hint: 'Given for service',
+            positivity: 'Positive',
+            sentence: 'The waiter was happy to receive a gratuity.',
+            image: './assets/images/flashcards/Set7/gratuity.gif'
+        },
+        {
+            word: 'perfidious',
+            mnemonic: 'Deceitful and untrustworthy.',
+            synonyms: 'treacherous, deceitful',
+            hint: 'Untrustworthy friend',
+            positivity: 'Negative',
+            sentence: 'His perfidious actions ruined the trust.',
+            image: './assets/images/flashcards/Set7/perfidious.gif'
+        },
+        {
+            word: 'gaudy',
+            mnemonic: 'Showy in a tacky way.',
+            synonyms: 'flashy, tacky',
+            hint: 'Too much decoration',
+            positivity: 'Negative',
+            sentence: 'The painting was gaudy with bright colors.',
+            image: './assets/images/flashcards/Set7/gaudy.gif'
+        },
+        {
+            word: 'devolve',
+            mnemonic: 'To transfer or delegate.',
+            synonyms: 'delegate, transfer',
+            hint: 'Passing responsibility',
+            positivity: 'Neutral',
+            sentence: 'The manager devolved tasks to his team.',
+            image: './assets/images/flashcards/Set7/devolve.gif'
+        },
+        {
+            word: 'legacy',
+            mnemonic: 'Something handed down from the past.',
+            synonyms: 'inheritance, gift',
+            hint: 'Something passed down',
+            positivity: 'Positive',
+            sentence: 'This vase is a legacy from my grandmother.',
+            image: './assets/images/flashcards/Set7/legacy.gif'
+        },
+        {
+            word: 'erratic',
+            mnemonic: 'Unpredictable in behavior.',
+            synonyms: 'inconsistent, unpredictable',
+            hint: 'Changes often',
+            positivity: 'Neutral',
+            sentence: 'His erratic driving scared the passengers.',
+            image: './assets/images/flashcards/Set7/erratic.gif'
+        },
+        {
+            word: 'rummage',
+            mnemonic: 'Search untidily.',
+            synonyms: 'forage, dig',
+            hint: 'Search messily',
+            positivity: 'Neutral',
+            sentence: 'She rummaged through her bag for the keys.',
+            image: './assets/images/flashcards/Set7/rummage.gif'
+        },
+        {
+            word: 'sheer',
+            mnemonic: 'Complete or utter.',
+            synonyms: 'pure, absolute',
+            hint: 'Complete or absolute',
+            positivity: 'Neutral',
+            sentence: 'It was sheer luck that we found the place.',
+            image: './assets/images/flashcards/Set7/sheer.gif'
+        },
+        {
+            word: 'connote',
+            mnemonic: 'To imply or suggest.',
+            synonyms: 'imply, indicate',
+            hint: 'Not said directly',
+            positivity: 'Neutral',
+            sentence: 'His frown seemed to connote disapproval.',
+            image: './assets/images/flashcards/Set7/connote.gif'
+        },
+        {
+            word: 'dainty',
+            mnemonic: 'Delicately small or pretty.',
+            synonyms: 'delicate, graceful',
+            hint: 'Tiny and elegant',
+            positivity: 'Positive',
+            sentence: 'She wore a dainty bracelet on her wrist.',
+            image: './assets/images/flashcards/Set7/dainty.gif'
+        },
+        {
+            word: 'coagulate',
+            mnemonic: 'To thicken into a solid.',
+            synonyms: 'solidify, thicken',
+            hint: 'Turning liquid to solid',
+            positivity: 'Neutral',
+            sentence: 'The blood began to coagulate after a few minutes.',
+            image: './assets/images/flashcards/Set7/coagulate.gif'
+        },
+        {
+            word: 'intrude',
+            mnemonic: 'To force oneself in uninvited.',
+            synonyms: 'invade, infringe',
+            hint: 'Interrupt rudely',
+            positivity: 'Negative',
+            sentence: 'He intruded on our conversation.',
+            image: './assets/images/flashcards/Set7/intrude.gif'
+        },
+        {
+            word: 'clamber',
+            mnemonic: 'Climb awkwardly.',
+            synonyms: 'scramble, scale',
+            hint: 'Climb awkwardly',
+            positivity: 'Neutral',
+            sentence: 'She clambered up the rocky hill.',
+            image: './assets/images/flashcards/Set7/clamber.gif'
+        },
+        {
+            word: 'outlaw',
+            mnemonic: 'Someone declared illegal.',
+            synonyms: 'criminal, bandit',
+            hint: 'Illegal figure',
+            positivity: 'Negative',
+            sentence: 'The outlaw was on the run from the police.',
+            image: './assets/images/flashcards/Set7/outlaw.gif'
+        },
+        {
+            word: 'girth',
+            mnemonic: 'The measurement around something.',
+            synonyms: 'circumference, perimeter',
+            hint: 'A measurement around',
+            positivity: 'Neutral',
+            sentence: 'The girth of the tree was impressive.',
+            image: './assets/images/flashcards/Set7/girth.gif'
+        },
+        {
+            word: 'decipher',
+            mnemonic: 'To interpret or understand.',
+            synonyms: 'decode, interpret',
+            hint: 'Breaking a code',
+            positivity: 'Neutral',
+            sentence: 'The archaeologist deciphered ancient texts.',
+            image: './assets/images/flashcards/Set7/decipher.gif'
+        },
+        {
+            word: 'occlude',
+            mnemonic: 'To block or obstruct.',
+            synonyms: 'block, close',
+            hint: 'To block a path',
+            positivity: 'Negative',
+            sentence: 'The tunnel was occluded by debris.',
+            image: './assets/images/flashcards/Set7/occlude.gif'
+        },
+        {
+            word: 'askance',
+            mnemonic: 'With suspicion.',
+            synonyms: 'doubtfully, skeptically',
+            hint: 'Looking doubtfully',
+            positivity: 'Negative',
+            sentence: 'He looked askance at the strange dish.',
+            image: './assets/images/flashcards/Set7/askance.gif'
+        },
+        {
+            word: 'cuisine',
+            mnemonic: 'Style of cooking.',
+            synonyms: 'gastronomy, food',
+            hint: 'Food style',
+            positivity: 'Neutral',
+            sentence: 'Italian cuisine is famous worldwide.',
+            image: './assets/images/flashcards/Set7/cuisine.gif'
+        },
+        {
+            word: 'dilatory',
+            mnemonic: 'Slow to act.',
+            synonyms: 'lazy, procrastinating',
+            hint: 'Slow to respond',
+            positivity: 'Negative',
+            sentence: 'Her dilatory habits annoyed her boss.',
+            image: './assets/images/flashcards/Set7/dilatory.gif'
+        },
+        {
+            word: 'servile',
+            mnemonic: 'Overly submissive or obedient.',
+            synonyms: 'submissive, fawning',
+            hint: 'Obedient to a fault',
+            positivity: 'Negative',
+            sentence: 'The servile employee never questioned his boss.',
+            image: './assets/images/flashcards/Set7/servile.gif'
+        },
+        {
+            word: 'juxtapose',
+            mnemonic: 'To place side by side for comparison.',
+            synonyms: 'contrast, compare',
+            hint: 'Side-by-side comparison',
+            positivity: 'Neutral',
+            sentence: 'The artist juxtaposed old and new styles in her painting.',
+            image: './assets/images/flashcards/Set7/juxtapose.gif'
+        },
+        {
+            word: 'well-bred',
+            mnemonic: 'Polite and well-mannered.',
+            synonyms: 'polite, cultured',
+            hint: 'Good upbringing',
+            positivity: 'Positive',
+            sentence: 'He was well-bred and treated everyone with respect.',
+            image: './assets/images/flashcards/Set7/well-bred.gif'
+        },
+        {
+            word: 'masquerade',
+            mnemonic: 'A disguise or false appearance.',
+            synonyms: 'disguise, facade',
+            hint: 'Pretending to be something',
+            positivity: 'Negative',
+            sentence: 'She attended the party in masquerade.',
+            image: './assets/images/flashcards/Set7/masquerade.gif'
+        },
+        {
+            word: 'extrude',
+            mnemonic: 'To force something out.',
+            synonyms: 'eject, expel',
+            hint: 'Pushing out',
+            positivity: 'Neutral',
+            sentence: 'The machine extrudes molten plastic.',
+            image: './assets/images/flashcards/Set7/extrude.gif'
+        },
+        {
+            word: 'redoubtable',
+            mnemonic: 'Inspiring fear or respect.',
+            synonyms: 'formidable, intimidating',
+            hint: 'Someone respected or feared',
+            positivity: 'Neutral',
+            sentence: 'The redoubtable leader commanded respect.',
+            image: './assets/images/flashcards/Set7/redoubtable.gif'
+        },
+        {
+            word: 'terminology',
+            mnemonic: 'Words and phrases used in a specific field.',
+            synonyms: 'vocabulary, jargon',
+            hint: 'Specialized vocabulary',
+            positivity: 'Neutral',
+            sentence: 'Medical terminology can be confusing.',
+            image: './assets/images/flashcards/Set7/terminology.gif'
+        },
+        {
+            word: 'regale',
+            mnemonic: 'To entertain lavishly.',
+            synonyms: 'entertain, delight',
+            hint: 'Entertaining someone',
+            positivity: 'Positive',
+            sentence: 'They regaled the guests with stories.',
+            image: './assets/images/flashcards/Set7/regale.gif'
+        },
+        {
+            word: 'dormer',
+            mnemonic: 'A window that projects vertically from a sloping roof.',
+            synonyms: 'attic window, skylight',
+            hint: 'Roof window',
+            positivity: 'Neutral',
+            sentence: 'The dormer provided extra light in the attic.',
+            image: './assets/images/flashcards/Set7/dormer.gif'
+        },
+        {
+            word: 'gaseous',
+            mnemonic: 'In a state of gas.',
+            synonyms: 'vaporous, airy',
+            hint: 'In gas form',
+            positivity: 'Neutral',
+            sentence: 'Steam is a gaseous form of water.',
+            image: './assets/images/flashcards/Set7/gaseous.gif'
+        },
+        {
+            word: 'enormity',
+            mnemonic: 'Extreme seriousness.',
+            synonyms: 'magnitude, seriousness',
+            hint: 'A serious matter',
+            positivity: 'Neutral',
+            sentence: 'The enormity of the disaster shocked everyone.',
+            image: './assets/images/flashcards/Set7/enormity.gif'
+        },
+        {
+            word: 'recital',
+            mnemonic: 'A performance of music or poetry.',
+            synonyms: 'performance, show',
+            hint: 'Performance event',
+            positivity: 'Neutral',
+            sentence: 'She performed a beautiful recital.',
+            image: './assets/images/flashcards/Set7/recital.gif'
+        },
+        {
+            word: 'gust',
+            mnemonic: 'A strong blast of wind.',
+            synonyms: 'blast, breeze',
+            hint: 'A sudden wind',
+            positivity: 'Neutral',
+            sentence: 'A gust of wind knocked the hat off his head.',
+            image: './assets/images/flashcards/Set7/gust.gif'
+        },
+        {
+            word: 'caulk',
+            mnemonic: 'To seal a gap or joint.',
+            synonyms: 'seal, fill',
+            hint: 'Filling cracks',
+            positivity: 'Neutral',
+            sentence: 'He used putty to caulk the windows.',
+            image: './assets/images/flashcards/Set7/caulk.gif'
+        },
+        {
+            word: 'doctrinaire',
+            mnemonic: 'Sticking to beliefs rigidly.',
+            synonyms: 'dogmatic, rigid',
+            hint: 'Rigid beliefs',
+            positivity: 'Negative',
+            sentence: 'His doctrinaire approach alienated others.',
+            image: './assets/images/flashcards/Set7/doctrinaire.gif'
+        },
+        {
+            word: 'institute',
+            mnemonic: 'To set up or establish.',
+            synonyms: 'establish, create',
+            hint: 'To establish something',
+            positivity: 'Neutral',
+            sentence: 'The school was instituted in 1950.',
+            image: './assets/images/flashcards/Set7/institute.gif'
+        },
+        {
+            word: 'pathetic',
+            mnemonic: 'Deserving pity.',
+            synonyms: 'pitiful, sad',
+            hint: 'Deserves sympathy',
+            positivity: 'Negative',
+            sentence: 'The pathetic puppy whimpered in the cold.',
+            image: './assets/images/flashcards/Set7/pathetic.gif'
+        },
+        {
+            word: 'quiver',
+            mnemonic: 'To tremble or shake.',
+            synonyms: 'shake, tremble',
+            hint: 'Slight trembling',
+            positivity: 'Neutral',
+            sentence: 'Her voice quivered with emotion.',
+            image: './assets/images/flashcards/Set7/quiver.gif'
+        },
+        {
+            word: 'torrid',
+            mnemonic: 'Very hot or passionate.',
+            synonyms: 'scorching, passionate',
+            hint: 'Hot weather or emotions',
+            positivity: 'Neutral',
+            sentence: 'The torrid romance ended abruptly.',
+            image: './assets/images/flashcards/Set7/torrid.gif'
+        },
+        {
+            word: 'intimate',
+            mnemonic: 'Close or personal relationship.',
+            synonyms: 'close, personal, familiar',
+            hint: 'Suggests closeness or familiarity',
+            positivity: 'Positive',
+            sentence: 'They shared an intimate conversation about their dreams and fears.',
+            image: './assets/images/flashcards/Set7/Intimate.gif'
+        },
+        {
+            word: 'repulsion',
+            mnemonic: 'Strong feeling of disgust or aversion.',
+            synonyms: 'disgust, aversion, loathing',
+            hint: 'Something unpleasant or repelling',
+            positivity: 'Negative',
+            sentence: 'The idea of eating insects filled her with repulsion.',
+            image: './assets/images/flashcards/Set7/Repulsion.gif'
+        },
+        {
+            word: 'weather',
+            mnemonic: 'State of the atmosphere at a place over a short period.',
+            synonyms: 'climate, forecast, conditions',
+            hint: 'Daily atmosphere conditions',
+            positivity: 'Neutral',
+            sentence: 'The weather today is sunny and warm, perfect for a picnic.',
+            image: './assets/images/flashcards/Set7/Weather.gif'
+        },
+        {
+            word: 'dingy',
+            mnemonic: 'Dark, dull, or grimy appearance.',
+            synonyms: 'shabby, grimy, dirty',
+            hint: 'Looks old and uncared for',
+            positivity: 'Negative',
+            sentence: 'The old attic was filled with dingy, dust-covered furniture.',
+            image: './assets/images/flashcards/Set7/Dingy.gif'
+        },
+        {
+            word: 'blasphemy',
+            mnemonic: 'Speaking disrespectfully about sacred things.',
+            synonyms: 'sacrilege, irreverence, profanity',
+            hint: 'Disrespect toward religion',
+            positivity: 'Negative',
+            sentence: 'He was accused of blasphemy after his controversial comments about the sacred ritual.',
+            image: './assets/images/flashcards/Set7/Blasphemy.gif'
+        },
+        {
+            word: 'plagiarize',
+            mnemonic: 'Copy someone else\'s work without permission.',
+            synonyms: 'copy, steal, replicate',
+            hint: 'Taking credit for others\' work',
+            positivity: 'Negative',
+            sentence: 'Students must be careful not to plagiarize when writing their essays.',
+            image: './assets/images/flashcards/Set7/Plagiarize.gif'
+        },
+        {
+            word: 'hierarchy',
+            mnemonic: 'System in which people are ranked one above the other.',
+            synonyms: 'ranking, order, chain of command',
+            hint: 'Order of ranks or levels',
+            positivity: 'Neutral',
+            sentence: 'The corporate hierarchy determines who has decision-making authority.',
+            image: './assets/images/flashcards/Set7/Hierarchy.gif'
+        },
+        {
+            word: 'credo',
+            mnemonic: 'Belief or principle that guides actions.',
+            synonyms: 'doctrine, tenet, philosophy',
+            hint: 'Personal belief or guiding idea',
+            positivity: 'Neutral',
+            sentence: 'Honesty is the main credo she lives by in both work and life.',
+            image: './assets/images/flashcards/Set7/Credo.gif'
+        },
+        {
+            word: 'tread',
+            mnemonic: 'Walk in a specified way.',
+            synonyms: 'step, walk, stomp',
+            hint: 'Type of walking or moving',
+            positivity: 'Neutral',
+            sentence: 'She tread carefully on the icy sidewalk.',
+            image: './assets/images/flashcards/Set7/Tread.gif'
+        },
+        {
+            word: 'mishap',
+            mnemonic: 'Small accident or unlucky incident.',
+            synonyms: 'accident, mistake, error',
+            hint: 'A small unfortunate event',
+            positivity: 'Negative',
+            sentence: 'A minor mishap in the kitchen led to a small fire.',
+            image: './assets/images/flashcards/Set7/Mishap.gif'
+        },
+        {
+            word: 'sensuous',
+            mnemonic: 'Appealing to the senses.',
+            synonyms: 'luscious, sensual',
+            hint: 'Related to the senses',
+            positivity: 'Positive',
+            sentence: 'The music created a sensuous atmosphere.',
+            image: './assets/images/flashcards/Set7/sensuous.gif'
+        },
+        {
+            word: 'caste',
+            mnemonic: 'Social class system based on birth.',
+            synonyms: 'class, rank, order',
+            hint: 'Social division by birth',
+            positivity: 'Neutral',
+            sentence: 'The caste system has shaped traditional social structures in many cultures.',
+            image: './assets/images/flashcards/Set7/Caste.gif'
+        },
+        {
+            word: 'disaffected',
+            mnemonic: 'Dissatisfied and rebellious against authority.',
+            synonyms: 'discontent, rebellious, alienated',
+            hint: 'Feeling of discontent',
+            positivity: 'Negative',
+            sentence: 'The disaffected youth protested against the government’s policies.',
+            image: './assets/images/flashcards/Set7/Disaffected.gif'
+        },
+        {
+            word: 'mutability',
+            mnemonic: 'Ability to change or be changed.',
+            synonyms: 'changeability, variability, flexibility',
+            hint: 'Capability to change',
+            positivity: 'Neutral',
+            sentence: 'The mutability of the weather makes planning outdoor events challenging.',
+            image: './assets/images/flashcards/Set7/Mutability.gif'
+        },
+        {
+            word: 'ultimate',
+            mnemonic: 'Being or happening at the end; most extreme.',
+            synonyms: 'final, supreme, absolute',
+            hint: 'Final or highest level',
+            positivity: 'Positive',
+            sentence: 'The ultimate goal of the project is to promote sustainability.',
+            image: './assets/images/flashcards/Set7/Ultimate.gif'
+        },
+        {
+            word: 'expeditious',
+            mnemonic: 'Done with speed and efficiency.',
+            synonyms: 'prompt, swift, efficient',
+            hint: 'Doing quickly and well',
+            positivity: 'Positive',
+            sentence: 'The team took an expeditious approach to complete the project ahead of schedule.',
+            image: './assets/images/flashcards/Set7/Expeditious.gif'
+        },
+        {
+            word: 'suckle',
+            mnemonic: 'Feed (a baby or young animal) with milk from the breast.',
+            synonyms: 'nurse, breastfeed, nurture',
+            hint: 'Feeding a baby naturally',
+            positivity: 'Neutral',
+            sentence: 'The lioness continued to suckle her cubs in the shade.',
+            image: './assets/images/flashcards/Set7/Suckle.gif'
+        },
+        {
+            word: 'plane',
+            mnemonic: 'Flat, two-dimensional surface, or a type of aircraft.',
+            synonyms: 'level, flat surface, aircraft',
+            hint: 'Flat area or flying vehicle',
+            positivity: 'Neutral',
+            sentence: 'The plane flew high above the clouds.',
+            image: './assets/images/flashcards/Set7/Plane.gif'
+        },
+        {
+            word: 'anthropomorphic',
+            mnemonic: 'Assigning human traits to non-human entities.',
+            synonyms: 'human-like, personified, humanoid',
+            hint: 'Giving human traits to non-humans',
+            positivity: 'Neutral',
+            sentence: 'The cartoon showed an anthropomorphic cat wearing glasses and reading a book.',
+            image: './assets/images/flashcards/Set7/Anthropomorphic.gif'
+        },
+        {
+            word: 'momentous',
+            mnemonic: 'Of great importance or significance.',
+            synonyms: 'significant, important, historic',
+            hint: 'Very important event',
+            positivity: 'Positive',
+            sentence: 'The signing of the peace treaty was a momentous occasion for both nations.',
+            image: './assets/images/flashcards/Set7/Momentous.gif'
+        },
+        {
+            word: 'magniloquent',
+            mnemonic: 'High-flown or extravagant in speech.',
+            synonyms: 'grandiose, bombastic, pompous',
+            hint: 'Overly fancy or elaborate speech',
+            positivity: 'Negative',
+            sentence: 'His magniloquent speech impressed few but amused many in the audience.',
+            image: './assets/images/flashcards/Set7/Magniloquent.gif'
+        },
+        {
+            word: 'arrogance',
+            mnemonic: 'Having an exaggerated sense of one’s own importance.',
+            synonyms: 'conceit, pride, hubris',
+            hint: 'An overly high opinion of oneself',
+            positivity: 'Negative',
+            sentence: 'His arrogance made it difficult for him to work well with others.',
+            image: './assets/images/flashcards/Set7/Arrogance.gif'
+        },
+        {
+            word: 'solitude',
+            mnemonic: 'State of being alone, often by choice.',
+            synonyms: 'seclusion, isolation, aloneness',
+            hint: 'Being alone',
+            positivity: 'Neutral',
+            sentence: 'He enjoyed the solitude of the mountains, away from the city\'s noise.',
+            image: './assets/images/flashcards/Set7/Solitude.gif'
+        },
+        {
+            word: 'episodic',
+            mnemonic: 'Occurring sporadically or in episodes.',
+            synonyms: 'periodic, sporadic, intermittent',
+            hint: 'Happens in parts or intervals',
+            positivity: 'Neutral',
+            sentence: 'Her book tells the story in an episodic format, with each chapter like a mini-story.',
+            image: './assets/images/flashcards/Set7/Episodic.gif'
+        },
+        {
+            word: 'plummet',
+            mnemonic: 'Fall or drop straight down at high speed.',
+            synonyms: 'drop, tumble, dive',
+            hint: 'Quick downward movement',
+            positivity: 'Negative',
+            sentence: 'The stock prices began to plummet after the company\'s poor performance was revealed.',
+            image: './assets/images/flashcards/Set7/Plummet.gif'
+        },
+        {
+            word: 'accost',
+            mnemonic: 'Approach and address boldly or aggressively.',
+            synonyms: 'confront, approach, challenge',
+            hint: 'Approach in a bold way',
+            positivity: 'Negative',
+            sentence: 'He was accosted by a stranger who demanded money on the street.',
+            image: './assets/images/flashcards/Set7/Accost.gif'
+        },
+        {
+            word: 'impassable',
+            mnemonic: 'Not able to be traveled through.',
+            synonyms: 'blocked, obstructed, impenetrable',
+            hint: 'A blocked path or area',
+            positivity: 'Negative',
+            sentence: 'The road was impassable due to heavy snow and fallen trees.',
+            image: './assets/images/flashcards/Set7/Impassable.gif'
+        },
+        {
+            word: 'straggle',
+            mnemonic: 'Move along slowly or fall behind.',
+            synonyms: 'lag, wander, drift',
+            hint: 'Move slowly or aimlessly',
+            positivity: 'Negative',
+            sentence: 'The hikers began to straggle behind as they grew tired.',
+            image: './assets/images/flashcards/Set7/Straggle.gif'
+        },
+        {
+            word: 'spangle',
+            mnemonic: 'Small, shiny decorative object or sparkling effect.',
+            synonyms: 'sequin, sparkle, glitter',
+            hint: 'Small shiny decoration',
+            positivity: 'Positive',
+            sentence: 'Her dress was covered with tiny spangles that glittered in the light.',
+            image: './assets/images/flashcards/Set7/Spangle.gif'
+        },
+        {
+            word: 'autonomous',
+            mnemonic: 'Independent; able to make decisions on one’s own.',
+            synonyms: 'independent, self-ruling, free',
+            hint: 'Self-governing or self-operating',
+            positivity: 'Positive',
+            sentence: 'The country became autonomous after years of struggle for independence.',
+            image: './assets/images/flashcards/Set7/Autonomous.gif'
+        },
+        {
+            word: 'delete',
+            mnemonic: 'Remove something completely.',
+            synonyms: 'erase, remove, cancel',
+            hint: 'Taking something out completely',
+            positivity: 'Neutral',
+            sentence: 'Please delete the extra files to free up space on the computer.',
+            image: './assets/images/flashcards/Set7/Delete.gif'
+        },
+        {
+            word: 'adjunct',
+            mnemonic: 'Something added, but not essential.',
+            synonyms: 'supplement, addition, accessory',
+            hint: 'An addition to something',
+            positivity: 'Neutral',
+            sentence: 'The online classes were an adjunct to the regular school curriculum.',
+            image: './assets/images/flashcards/Set7/Adjunct.gif'
+        },
+        {
+            word: 'desuetude',
+            mnemonic: 'State of disuse or inactivity.',
+            synonyms: 'obsolescence, inactivity, disuse',
+            hint: 'No longer in use',
+            positivity: 'Negative',
+            sentence: 'The old railway fell into desuetude after the new highway was built.',
+            image: './assets/images/flashcards/Set7/Desuetude.gif'
+        },
+        {
+            word: 'leery',
+            mnemonic: 'Cautious or wary due to suspicion.',
+            synonyms: 'suspicious, wary, cautious',
+            hint: 'Feeling doubtful',
+            positivity: 'Negative',
+            sentence: 'He was leery of strangers who offered unsolicited advice.',
+            image: './assets/images/flashcards/Set7/Leery.gif'
+        },
+        {
+            word: 'solecism',
+            mnemonic: 'Grammatical mistake or social blunder.',
+            synonyms: 'error, blunder, misstep',
+            hint: 'A mistake in language or etiquette',
+            positivity: 'Negative',
+            sentence: 'Using informal language in a formal letter is considered a solecism.',
+            image: './assets/images/flashcards/Set7/Solecism.gif'
+        },
+        {
+            word: 'regime',
+            mnemonic: 'Government or system of rule, often authoritarian.',
+            synonyms: 'government, system, rule',
+            hint: 'A controlling or ruling authority',
+            positivity: 'Neutral',
+            sentence: 'The authoritarian regime restricted freedom of speech among citizens.',
+            image: './assets/images/flashcards/Set7/Regime.gif'
+        },
+        {
+            word: 'patois',
+            mnemonic: 'Regional dialect differing from the standard language.',
+            synonyms: 'dialect, vernacular, argot',
+            hint: 'A local way of speaking',
+            positivity: 'Neutral',
+            sentence: 'The locals spoke in a patois that was difficult for outsiders to understand.',
+            image: './assets/images/flashcards/Set7/Patois.gif'
+        },
+        {
+            word: 'pariah',
+            mnemonic: 'A social outcast.',
+            synonyms: 'outcast, exile, untouchable',
+            hint: 'Someone rejected by society',
+            positivity: 'Negative',
+            sentence: 'After the scandal, he was treated as a pariah and lost all his friends.',
+            image: './assets/images/flashcards/Set7/Pariah.gif'
+        },
+        {
+            word: 'entomology',
+            mnemonic: 'Scientific study of insects.',
+            synonyms: 'insectology, bug study, zoology',
+            hint: 'Study of insects',
+            positivity: 'Neutral',
+            sentence: 'Her interest in entomology led her to pursue a career as an insect researcher.',
+            image: './assets/images/flashcards/Set7/Entomology.gif'
+        },
+        {
+            word: 'blithe',
+            mnemonic: 'Showing a casual and cheerful indifference.',
+            synonyms: 'carefree, unconcerned, happy',
+            hint: 'Light-hearted or carefree',
+            positivity: 'Positive',
+            sentence: 'She had a blithe attitude toward life, always optimistic and cheerful.',
+            image: './assets/images/flashcards/Set7/Blithe.gif'
+        },
+        {
+            word: 'breadth',
+            mnemonic: 'Width or extent of something.',
+            synonyms: 'width, scope, range',
+            hint: 'Measurement of width or scope',
+            positivity: 'Neutral',
+            sentence: 'The breadth of his knowledge impressed everyone at the conference.',
+            image: './assets/images/flashcards/Set7/Breadth.gif'
+        },
+        {
+            word: 'peevish',
+            mnemonic: 'Easily irritated or annoyed.',
+            synonyms: 'irritable, petulant, grouchy',
+            hint: 'Quick to anger or irritation',
+            positivity: 'Negative',
+            sentence: 'She was feeling peevish after the long, exhausting day.',
+            image: './assets/images/flashcards/Set7/Peevish.gif'
+        },
+        {
+            word: 'indulge',
+            mnemonic: 'Allow oneself to enjoy something enjoyable, often to excess.',
+            synonyms: 'satisfy, pamper, spoil',
+            hint: 'Treat oneself to something pleasurable',
+            positivity: 'Positive',
+            sentence: 'He decided to indulge in a piece of chocolate after a hard day\'s work.',
+            image: './assets/images/flashcards/Set7/Indulge.gif'
+        },
+        {
+            word: 'gavel',
+            mnemonic: 'Small mallet used by a judge or auctioneer to call for attention.',
+            synonyms: 'hammer, mallet',
+            hint: 'Tool used by judges or auctioneers',
+            positivity: 'Neutral',
+            sentence: 'The judge struck the gavel, signaling the beginning of the trial.',
+            image: './assets/images/flashcards/Set7/Gavel.gif'
+        },
+        {
+            word: 'galley',
+            mnemonic: 'Long, narrow kitchen, especially on a ship.',
+            synonyms: 'kitchen, cookhouse, mess',
+            hint: 'Small kitchen area, often on a ship',
+            positivity: 'Neutral',
+            sentence: 'The crew gathered in the galley for their evening meal.',
+            image: './assets/images/flashcards/Set7/Galley.gif'
+        },
+        {
+            word: 'slacken',
+            mnemonic: 'To loosen, relax, or make less tight.',
+            synonyms: 'loosen, relax, ease',
+            hint: 'Reduce tension or speed',
+            positivity: 'Neutral',
+            sentence: 'They slackened the rope to allow for more movement.',
+            image: './assets/images/flashcards/Set7/Slacken.gif'
+        },
+        {
+            word: 'euphony',
+            mnemonic: 'Pleasant, harmonious sound.',
+            synonyms: 'melody, harmony, resonance',
+            hint: 'Nice-sounding words or music',
+            positivity: 'Positive',
+            sentence: 'The poet’s verses created a beautiful euphony, captivating the audience.',
+            image: './assets/images/flashcards/Set7/Euphony.gif'
+        },
+        {
+            word: 'demented',
+            mnemonic: 'Mentally ill or irrational.',
+            synonyms: 'insane, mad, crazed',
+            hint: 'Mental instability',
+            positivity: 'Negative',
+            sentence: 'His demented actions left everyone around him in shock.',
+            image: './assets/images/flashcards/Set7/Demented.gif'
+        },
+        {
+            word: 'melee',
+            mnemonic: 'Confused, chaotic fight involving multiple people.',
+            synonyms: 'brawl, scuffle, skirmish',
+            hint: 'Chaotic, unorganized fight',
+            positivity: 'Negative',
+            sentence: 'A melee broke out in the stadium after the controversial call.',
+            image: './assets/images/flashcards/Set7/Melee.gif'
+        },
+        {
+            word: 'antithesis',
+            mnemonic: 'Direct opposite of something.',
+            synonyms: 'opposite, contrast, converse',
+            hint: 'Something that’s completely different',
+            positivity: 'Neutral',
+            sentence: 'Her kindness was the antithesis of his harsh behavior.',
+            image: './assets/images/flashcards/Set7/Antithesis.gif'
+        },
+        {
+            word: 'penchant',
+            mnemonic: 'Strong liking or preference for something.',
+            synonyms: 'preference, inclination, affinity',
+            hint: 'Strong liking or tendency',
+            positivity: 'Positive',
+            sentence: 'She has a penchant for collecting vintage postcards.',
+            image: './assets/images/flashcards/Set7/Penchant.gif'
+        },
+        {
+            word: 'sublime',
+            mnemonic: 'Inspiring awe or admiration; excellent.',
+            synonyms: 'majestic, noble, exquisite',
+            hint: 'Something awe-inspiring or perfect',
+            positivity: 'Positive',
+            sentence: 'The view from the mountaintop was nothing short of sublime.',
+            image: './assets/images/flashcards/Set7/Sublime.gif'
+        },
+        {
+            word: 'petty',
+            mnemonic: 'Of little importance; trivial.',
+            synonyms: 'trivial, minor, insignificant',
+            hint: 'Something minor or unimportant',
+            positivity: 'Negative',
+            sentence: 'Their argument was over such a petty issue that no one could understand the fuss.',
+            image: './assets/images/flashcards/Set7/Petty.gif'
+        },
+        {
+            word: 'subordinate',
+            mnemonic: 'Lower in rank or position.',
+            synonyms: 'inferior, junior, assistant',
+            hint: 'Lower in importance or authority',
+            positivity: 'Neutral',
+            sentence: 'As a subordinate, she reports to the department manager.',
+            image: './assets/images/flashcards/Set7/Subordinate.gif'
+        },
+        {
+            word: 'jibe',
+            mnemonic: 'To be in harmony or agree; also, a mocking remark.',
+            synonyms: 'agree, fit, conform / taunt, mock',
+            hint: 'Agree or mocking comment',
+            positivity: 'Neutral',
+            sentence: 'His story didn\'t jibe with the facts of the investigation.',
+            image: './assets/images/flashcards/Set7/Jibe.gif'
+        },
+        {
+            word: 'sinuous',
+            mnemonic: 'Having many curves and turns.',
+            synonyms: 'winding, curving, twisting',
+            hint: 'Wavy or curving',
+            positivity: 'Neutral',
+            sentence: 'The sinuous mountain road required careful navigation.',
+            image: './assets/images/flashcards/Set7/Sinuous.gif'
+        },
+        {
+            word: 'anthropoid',
+            mnemonic: 'Resembling a human; often refers to apes that look like humans.',
+            synonyms: 'humanlike, primate, humanoid',
+            hint: 'Humanlike in appearance',
+            positivity: 'Neutral',
+            sentence: 'The anthropoid apes share many traits with humans, including social behavior.',
+            image: './assets/images/flashcards/Set7/Anthropoid.gif'
+        }
+        
+
     ]
-    
+           
+        
+
+
 
         
     
