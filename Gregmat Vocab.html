@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="shortcut icon" href="./assets/svg/Sa.svg" type="image/svg+xml">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE Flashcards</title>
+    <link rel="stylesheet" href="./assets/css/gre.css">
+</head>
+<body>
+    <!-- Sets Header and Instructions -->
+    <div id="sets-section" class="section">
+        <h1>All Sets</h1>
+        <p>Click on a set below to begin. Click on a card to flip it. The front of the card shows the word, and the back shows whether it's positive/negative, the mnemonic, a sentence, the synonyms, and the hint.</p>
+        
+        <!-- Grid of Sets -->
+        <div id="sets-container" class="grid-container">
+            <!-- Set buttons will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Flashcard Section -->
+    <div id="flashcard-section" class="section" style="display: none;">
+        <div class="top-left">
+            <button class="icon-button" onclick="goBack()">
+                <img src="./assets/images/flashcards/icons/cards.png" alt="Back Icon">All Sets
+            </button>
+        </div>
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+                <div class="card-content">
+
+                    <div class="front">
+                        <h2 id="word">Word</h2>
+                        <button id="pronounce-btn" class="pronounce-btn" onclick="pronounceWord(event)">
+                            <img src="./assets/images/flashcards/icons/sound.png" alt="Pronounce" class="pronounce-icon">
+                        </button>
+                        <img src="./assets/images/flashcards/icons/hint.png" class="hint-icon" id="hint-icon" onclick="showHint(event)">
+                        <div id="hint-text" class="hint-text" style="display: none;">Hint</div>
+                    </div>
+
+                    <div class="back">
+                        <p id="positivity" class="positivity"></p> <!-- Positive/Negative Indicator -->
+                        <p id="mnemonic">"Mnemonic"</p>
+                        <div class="flashcard-image">
+                            <img id="image" src="./assets/images/flashcards/Set1/abeyance.jpg" alt="Flashcard Image">
+                        </div>
+                        <p id="sentence" class="sentence">Sentence</p> <!-- Sentence Example -->
+                        <p><strong>Synonyms:</strong> <span id="synonyms" class="synonyms">Synonyms</span></p> <!-- Synonyms -->
+                    </div>
+                    <div id="card-counter" class="card-counter">1/50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="controls">
+            <img src="./assets/images/flashcards/icons/left.png" class="arrow" onclick="prevCard()">
+            <img src="./assets/images/flashcards/icons/right.png" class="arrow" onclick="nextCard()">
+        </div>
+    </div>
+
+    <script src="./assets/js/greg.js"></script>
+</body>
+</html>
