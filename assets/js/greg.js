@@ -1012,7 +1012,7 @@ const flashcardsSets = [
         hint: 'To soften the impact',
         positivity: 'Positive',
         sentence: 'New policies were introduced to <u>Mitigate</u> the effects of inflation.',
-        image: './assets/images/flashcards/Others/Mitigate.gif'
+        image: './assets/images/flashcards/Others/Assuage.gif'
     },
     {
         word: 'Obsolete',
@@ -1450,7 +1450,7 @@ const flashcardsSets = [
             hint: 'Reducing pain or difficulty',
             positivity: 'Positive',
             sentence: 'She took painkillers to <u>Alleviate</u> her headache.',
-            image: './assets/images/flashcards/Others/Set6/Alleviate.gif'
+            image: './assets/images/flashcards/Others/Assuage.gif'
         },
         {
             word: 'Analogous',
