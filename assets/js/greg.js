@@ -1135,9 +1135,559 @@ const flashcardsSets = [
 
 
 
-    ]
+    ],
         
-    
+    //Set5
+    [
+        {
+            word: 'Aloof',
+            mnemonic: 'Not friendly or forthcoming; distant',
+            synonyms: 'Detached, Reserved, Unapproachable',
+            hint: 'Someone who stays apart from others',
+            positivity: 'Neutral',
+            sentence: 'He remained <u>Aloof</u> during the meeting, not interacting with anyone.',
+            image: './assets/images/flashcards/Others/Set4/Aloof.gif'
+        },
+        {
+            word: 'Clangor',
+            mnemonic: 'A loud, resonant sound, typically a ringing noise',
+            synonyms: 'Clamor, Racket, Din',
+            hint: 'Think of a loud, metal-like noise',
+            positivity: 'Neutral',
+            sentence: 'The <u>Clangor</u> of the bells echoed through the town.',
+            image: './assets/images/flashcards/Others/Set4/Clangor.gif'
+        },
+        {
+            word: 'Conventional',
+            mnemonic: 'Based on accepted norms or standards',
+            synonyms: 'Traditional, Customary, Usual',
+            hint: 'Following common ways or practices',
+            positivity: 'Neutral',
+            sentence: 'She wore a <u>Conventional</u> outfit to the formal dinner.',
+            image: './assets/images/flashcards/Others/Set4/Conventional.gif'
+        },
+        {
+            word: 'Debunk',
+            mnemonic: 'To expose the falseness of a belief or idea',
+            synonyms: 'Disprove, Refute, Invalidate',
+            hint: 'Revealing the truth behind a myth',
+            positivity: 'Positive',
+            sentence: 'Scientists worked to <u>Debunk</u> the myth about the health benefits of fad diets.',
+            image: './assets/images/flashcards/Others/Set4/Debunk.gif'
+        },
+        {
+            word: 'Diminutive',
+            mnemonic: 'Extremely small in size',
+            synonyms: 'Tiny, Minuscule, Miniature',
+            hint: 'Something noticeably small',
+            positivity: 'Neutral',
+            sentence: 'Despite his <u>Diminutive</u> stature, he commanded attention in the room.',
+            image: './assets/images/flashcards/Others/Set4/Diminutive.gif'
+        },
+        {
+            word: 'Discernible',
+            mnemonic: 'Able to be seen, recognized, or understood',
+            synonyms: 'Visible, Detectable, Observable',
+            hint: 'Something that can be noticed or sensed',
+            positivity: 'Neutral',
+            sentence: 'There was a <u>Discernible</u> shift in his attitude after the promotion.',
+            image: './assets/images/flashcards/Others/Set4/Discernible.gif'
+        },
+        {
+            word: 'Enigmatic',
+            mnemonic: 'Difficult to interpret or understand',
+            synonyms: 'Mysterious, Puzzling, Cryptic',
+            hint: 'Something hard to figure out',
+            positivity: 'Neutral',
+            sentence: 'Her <u>Enigmatic</u> smile left everyone wondering what she was thinking.',
+            image: './assets/images/flashcards/Others/Set4/Enigmatic.gif'
+        },
+        {
+            word: 'Estranged',
+            mnemonic: 'No longer close or affectionate; alienated',
+            synonyms: 'Separated, Alienated, Detached',
+            hint: 'A relationship that has grown distant',
+            positivity: 'Negative',
+            sentence: 'After years of estrangement, the siblings finally reconciled.',
+            image: './assets/images/flashcards/Others/Set4/Estranged.gif'
+        },
+        {
+            word: 'Extravagant',
+            mnemonic: 'Exceeding what is reasonable or appropriate; excessive',
+            synonyms: 'Lavish, Excessive, Indulgent',
+            hint: 'Over-the-top spending or behavior',
+            positivity: 'Negative',
+            sentence: 'His <u>Extravagant</u> spending habits quickly drained his savings.',
+            image: './assets/images/flashcards/Others/Set4/Extravagant.webp'
+        },
+        {
+            word: 'Fanciful',
+            mnemonic: 'Overly imaginative and unrealistic',
+            synonyms: 'Whimsical, Imaginative, Unrealistic',
+            hint: 'Impractical or overly creative',
+            positivity: 'Neutral',
+            sentence: 'The architect’s designs were beautiful but a bit too <u>Fanciful</u> for practical use.',
+            image: './assets/images/flashcards/Others/Set4/Fanciful.gif'
+        },
+        {
+            word: 'Frivolous',
+            mnemonic: 'Not having any serious purpose or value',
+            synonyms: 'Trivial, Silly, Unimportant',
+            hint: 'Lacking seriousness',
+            positivity: 'Negative',
+            sentence: 'She spent money on <u>Frivolous</u> purchases rather than saving for essentials.',
+            image: './assets/images/flashcards/Others/Set4/Frivolous.gif'
+        },
+        {
+            word: 'Heterogeneous',
+            mnemonic: 'Composed of different or diverse elements',
+            synonyms: 'Diverse, Varied, Mixed',
+            hint: 'A mix of different kinds',
+            positivity: 'Neutral',
+            sentence: 'The neighborhood is known for its <u>Heterogeneous</u> community.',
+            image: './assets/images/flashcards/Others/Set4/Heterogeneous.gif'
+        },
+        {
+            word: 'Imperious',
+            mnemonic: 'Assuming power or authority without justification',
+            synonyms: 'Domineering, Overbearing, Commanding',
+            hint: 'Acting as if they have more power',
+            positivity: 'Negative',
+            sentence: 'His <u>Imperious</u> manner made him unpopular with his colleagues.',
+            image: './assets/images/flashcards/Others/Set4/Imperious.jpg'
+        },
+        {
+            word: 'Impertinent',
+            mnemonic: 'Not showing proper respect; rude',
+            synonyms: 'Disrespectful, Rude, Insolent',
+            hint: 'Someone who is improperly bold',
+            positivity: 'Negative',
+            sentence: 'The student\'s <u>Impertinent</u> question surprised the teacher.',
+            image: './assets/images/flashcards/Others/Set4/Impertinent.jpg'
+        },
+        {
+            word: 'Invasive',
+            mnemonic: 'Tending to intrude or encroach',
+            synonyms: 'Intrusive, Encroaching, Meddlesome',
+            hint: 'Pushing into places unwanted',
+            positivity: 'Negative',
+            sentence: 'The new laws were seen as <u>Invasive</u> by many citizens.',
+            image: './assets/images/flashcards/Others/Set4/Invasive.gif'
+        },
+        {
+            word: 'Irresolute',
+            mnemonic: 'Showing or feeling hesitancy; uncertain',
+            synonyms: 'Hesitant, Undecided, Wavering',
+            hint: 'Unable to decide or act firmly',
+            positivity: 'Negative',
+            sentence: 'She remained <u>Irresolute</u>, unable to make a final choice.',
+            image: './assets/images/flashcards/Others/Set4/Irresolute.gif'
+        },
+        {
+            word: 'Laudable',
+            mnemonic: 'Worthy of praise or commendation',
+            synonyms: 'Praiseworthy, Commendable, Admirable',
+            hint: 'Deserving recognition or admiration',
+            positivity: 'Positive',
+            sentence: 'Her commitment to charity work is truly <u>Laudable</u>.',
+            image: './assets/images/flashcards/Others/Set4/Laudable.gif'
+        },
+        {
+            word: 'Lax',
+            mnemonic: 'Not sufficiently strict or severe',
+            synonyms: 'Careless, Negligent, Relaxed',
+            hint: 'Lacking strictness or discipline',
+            positivity: 'Negative',
+            sentence: 'The <u>Lax</u> security allowed unauthorized access to the building.',
+            image: './assets/images/flashcards/Others/Set4/Lax.gif'
+        },
+        {
+            word: 'Marginalize',
+            mnemonic: 'To treat someone or something as unimportant',
+            synonyms: 'Sideline, Trivialize, Overlook',
+            hint: 'Making something or someone less relevant',
+            positivity: 'Negative',
+            sentence: 'Certain groups feel <u>Marginalized</u> by the current policies.',
+            image: './assets/images/flashcards/Others/Set4/Marginalize.gif'
+        },
+        {
+            word: 'Panache',
+            mnemonic: 'Flamboyant confidence of style or manner',
+            synonyms: 'Flair, Style, Charisma',
+            hint: 'Stylish, confident presentation',
+            positivity: 'Positive',
+            sentence: 'She performed with great <u>Panache</u>, captivating the audience.',
+            image: './assets/images/flashcards/Others/Set4/Panache.gif'
+        },
+        {
+            word: 'Plodding',
+            mnemonic: 'Slow and laborious movement',
+            synonyms: 'Trudging, Lumbering, Slow',
+            hint: 'Moving along slowly and steadily',
+            positivity: 'Neutral',
+            sentence: 'His <u>Plodding</u> approach to work got the job done, albeit slowly.',
+            image: './assets/images/flashcards/Others/Set4/Plodding.gif'
+        },
+        {
+            word: 'Prosaic',
+            mnemonic: 'Lacking poetic beauty; commonplace or dull',
+            synonyms: 'Mundane, Ordinary, Unimaginative',
+            hint: 'Plain or boring',
+            positivity: 'Negative',
+            sentence: 'Her explanation was thorough but <u>Prosaic</u>, lacking creativity.',
+            image: './assets/images/flashcards/Others/Set4/Prosaic.gif'
+        },
+        {
+            word: 'Remedial',
+            mnemonic: 'Intended to improve or correct',
+            synonyms: 'Corrective, Healing, Therapeutic',
+            hint: 'Something to fix or improve',
+            positivity: 'Positive',
+            sentence: 'He attended <u>Remedial</u> classes to catch up with his peers.',
+            image: './assets/images/flashcards/Others/Set4/Remedial.gif'
+        },
+        {
+            word: 'Restive',
+            mnemonic: 'Unable to remain still, difficult to control',
+            synonyms: 'Restless, Fidgety, Uneasy',
+            hint: 'Restless and hard to manage',
+            positivity: 'Negative',
+            sentence: 'The <u>Restive</u> crowd grew more impatient as the delay continued.',
+            image: './assets/images/flashcards/Others/Set4/Restive.gif'
+        },
+        {
+            word: 'Sporadic',
+            mnemonic: 'Occurring at irregular intervals; scattered',
+            synonyms: 'Occasional, Intermittent, Infrequent',
+            hint: 'Random or irregular occurrences',
+            positivity: 'Neutral',
+            sentence: 'The city experienced <u>Sporadic</u> power outages throughout the day.',
+            image: './assets/images/flashcards/Others/Set4/Sporadic.gif'
+        },
+        {
+            word: 'Stigmatize',
+            mnemonic: 'To mark with disgrace or disapproval',
+            synonyms: 'Brand, Label, Condemn',
+            hint: 'A negative label attached to someone',
+            positivity: 'Negative',
+            sentence: 'Society tends to <u>Stigmatize</u> those with mental health issues.',
+            image: './assets/images/flashcards/Others/Set4/Stigmatize.gif'
+        },
+        {
+            word: 'Undermine',
+            mnemonic: 'To weaken or damage something gradually',
+            synonyms: 'Weaken, Sabotage, Erode',
+            hint: 'Slowly breaking down or lessening strength',
+            positivity: 'Negative',
+            sentence: 'The scandal served to <u>Undermine</u> his authority.',
+            image: './assets/images/flashcards/Others/Set4/Undermine.gif'
+        },
+        {
+            word: 'Utterly',
+            mnemonic: 'Completely and without qualification',
+            synonyms: 'Totally, Entirely, Absolutely',
+            hint: 'Fully or completely',
+            positivity: 'Neutral',
+            sentence: 'She was <u>Utterly</u> exhausted after the long journey.',
+            image: './assets/images/flashcards/Others/Set4/Utterly.gif'
+        },
+        {
+            word: 'Weary',
+            mnemonic: 'Feeling tired or worn out',
+            synonyms: 'Tired, Exhausted, Fatigued',
+            hint: 'A state of tiredness or fatigue',
+            positivity: 'Negative',
+            sentence: 'He felt <u>Weary</u> after working long hours without a break.',
+            image: './assets/images/flashcards/Others/Set4/Weary.gif'
+        },
+        {
+            word: 'Zealous',
+            mnemonic: 'Showing great energy or enthusiasm in pursuit of a cause',
+            synonyms: 'Passionate, Fervent, Devoted',
+            hint: 'Enthusiastically committed',
+            positivity: 'Positive',
+            sentence: 'She was <u>Zealous</u> in her efforts to promote the environmental campaign.',
+            image: './assets/images/flashcards/Others/Set4/Zealous.gif'
+        }
+        
+
+        
+
+    ],
+    //Set6
+    [
+        {
+            word: 'Admonish',
+            mnemonic: 'To warn or reprimand someone firmly',
+            synonyms: 'Reprimand, Caution, Scold',
+            hint: 'A gentle warning or correction',
+            positivity: 'Neutral',
+            sentence: 'The teacher <u>Admonished</u> the student for not completing his homework.',
+            image: './assets/images/flashcards/Others/Set6/Admonish.gif'
+        },
+        {
+            word: 'Aesthetic',
+            mnemonic: 'Concerned with beauty or the appreciation of beauty',
+            synonyms: 'Artistic, Tasteful, Elegant',
+            hint: 'Relates to appearance and style',
+            positivity: 'Positive',
+            sentence: 'The <u>Aesthetic</u> appeal of the building attracted many visitors.',
+            image: './assets/images/flashcards/Others/Set6/Aesthetic.gif'
+        },
+        {
+            word: 'Affectation',
+            mnemonic: 'Behavior, speech, or writing that is artificial',
+            synonyms: 'Pretension, Artificiality, Insincerity',
+            hint: 'Trying to impress without being genuine',
+            positivity: 'Negative',
+            sentence: 'His accent seemed like an <u>Affectation</u> rather than natural.',
+            image: './assets/images/flashcards/Others/Set6/Affectation.gif'
+        },
+        {
+            word: 'Alleviate',
+            mnemonic: 'To make suffering or a problem less severe',
+            synonyms: 'Ease, Relieve, Mitigate',
+            hint: 'Reducing pain or difficulty',
+            positivity: 'Positive',
+            sentence: 'She took painkillers to <u>Alleviate</u> her headache.',
+            image: './assets/images/flashcards/Others/Set6/Alleviate.gif'
+        },
+        {
+            word: 'Analogous',
+            mnemonic: 'Comparable in certain respects',
+            synonyms: 'Similar, Comparable, Alike',
+            hint: 'Things that can be compared',
+            positivity: 'Neutral',
+            sentence: 'The architecture of the two buildings is <u>Analogous</u> in design.',
+            image: './assets/images/flashcards/Others/Set6/Analogous.gif'
+        },
+        {
+            word: 'Bolster',
+            mnemonic: 'To support or strengthen',
+            synonyms: 'Reinforce, Support, Boost',
+            hint: 'Providing extra strength',
+            positivity: 'Positive',
+            sentence: 'The success of his first project <u>Bolstered</u> his confidence.',
+            image: './assets/images/flashcards/Others/Set6/Bolster.gif'
+        },
+        {
+            word: 'Chauvinistic',
+            mnemonic: 'Showing excessive or prejudiced loyalty or support',
+            synonyms: 'Biased, Nationalistic, Intolerant',
+            hint: 'Think of extreme pride for a group or cause',
+            positivity: 'Negative',
+            sentence: 'His <u>Chauvinistic</u> views made him intolerant of other opinions.',
+            image: './assets/images/flashcards/Others/Set6/Chauvinistic.gif'
+        },
+        {
+            word: 'Connoisseur',
+            mnemonic: 'An expert judge in matters of taste',
+            synonyms: 'Expert, Aficionado, Specialist',
+            hint: 'Knowledgeable about a specific area',
+            positivity: 'Positive',
+            sentence: 'She’s a <u>Connoisseur</u> of fine wines and knows all the best labels.',
+            image: './assets/images/flashcards/Others/Set6/Connoisseur.gif'
+        },
+        {
+            word: 'Dissemble',
+            mnemonic: 'To disguise or conceal true feelings or beliefs',
+            synonyms: 'Pretend, Disguise, Feign',
+            hint: 'Hiding one’s real intentions',
+            positivity: 'Negative',
+            sentence: 'He chose to <u>Dissemble</u> his intentions to avoid suspicion.',
+            image: './assets/images/flashcards/Others/Set6/Dissemble.gif'
+        },
+        {
+            word: 'Dogged',
+            mnemonic: 'Showing persistent determination',
+            synonyms: 'Determined, Tenacious, Persistent',
+            hint: 'Sticking with something, no matter what',
+            positivity: 'Positive',
+            sentence: 'Her <u>Dogged</u> pursuit of justice inspired everyone around her.',
+            image: './assets/images/flashcards/Others/Set6/Dogged.gif'
+        },
+        {
+            word: 'Dupe',
+            mnemonic: 'To deceive or trick someone',
+            synonyms: 'Deceive, Trick, Mislead',
+            hint: 'Fooling or misleading someone',
+            positivity: 'Negative',
+            sentence: 'He was <u>Duped</u> by a fake online advertisement.',
+            image: './assets/images/flashcards/Others/Set6/Dupe.gif'
+        },
+        {
+            word: 'Empirical',
+            mnemonic: 'Based on observation or experience rather than theory',
+            synonyms: 'Experimental, Observed, Factual',
+            hint: 'Directly based on real-world evidence',
+            positivity: 'Neutral',
+            sentence: 'The study is based on <u>Empirical</u> data collected over five years.',
+            image: './assets/images/flashcards/Others/Set6/Empirical.gif'
+        },
+        {
+            word: 'Engender',
+            mnemonic: 'To cause or give rise to a feeling or situation',
+            synonyms: 'Produce, Generate, Create',
+            hint: 'To bring something into existence',
+            positivity: 'Neutral',
+            sentence: 'His harsh words <u>Engendered</u> resentment among the employees.',
+            image: './assets/images/flashcards/Others/Set6/Engender.gif'
+        },
+        {
+            word: 'Entitled',
+            mnemonic: 'Believing oneself to be inherently deserving of privileges',
+            synonyms: 'Privileged, Deserving, Self-important',
+            hint: 'Expecting special treatment',
+            positivity: 'Negative',
+            sentence: 'She acted as if she was <u>Entitled</u> to special treatment.',
+            image: './assets/images/flashcards/Others/Set6/Entitled.gif'
+        },
+        {
+            word: 'Pertinacious',
+            mnemonic: 'Holding firmly to an opinion or course of action',
+            synonyms: 'Persistent, Determined, Stubborn',
+            hint: 'Not giving up on a belief',
+            positivity: 'Neutral',
+            sentence: 'His <u>Pertinacious</u> dedication to his research led to groundbreaking results.',
+            image: './assets/images/flashcards/Others/Set6/Pertinacious.gif'
+        },
+        {
+            word: 'Presumptuous',
+            mnemonic: 'Failing to observe the limits of what is appropriate',
+            synonyms: 'Overconfident, Arrogant, Forward',
+            hint: 'Acting without regard for boundaries',
+            positivity: 'Negative',
+            sentence: 'It was <u>Presumptuous</u> of him to assume he’d get the job.',
+            image: './assets/images/flashcards/Others/Set6/Presumptuous.gif'
+        },
+        {
+            word: 'Probity',
+            mnemonic: 'The quality of having strong moral principles',
+            synonyms: 'Integrity, Honesty, Uprightness',
+            hint: 'Think of a very honest person',
+            positivity: 'Positive',
+            sentence: 'Her <u>Probity</u> made her a highly respected figure in the community.',
+            image: './assets/images/flashcards/Others/Set6/Probity.gif'
+        },
+        {
+            word: 'Proliferate',
+            mnemonic: 'To increase rapidly in numbers',
+            synonyms: 'Multiply, Grow, Expand',
+            hint: 'Rapid growth or spread',
+            positivity: 'Neutral',
+            sentence: 'With the advent of technology, online businesses <u>Proliferate</u> quickly.',
+            image: './assets/images/flashcards/Others/Set6/Proliferate.gif'
+        },
+        {
+            word: 'Specious',
+            mnemonic: 'Appearing to be true but actually false',
+            synonyms: 'Misleading, Deceptive, False',
+            hint: 'Looks good on the surface but isn’t real',
+            positivity: 'Negative',
+            sentence: 'The argument was <u>Specious</u>, as it lacked real evidence.',
+            image: './assets/images/flashcards/Others/Set6/Specious.gif'
+        },
+        {
+            word: 'Spurious',
+            mnemonic: 'Not being what it purports to be; false or fake',
+            synonyms: 'Fake, False, Counterfeit',
+            hint: 'Think of something that pretends to be real',
+            positivity: 'Negative',
+            sentence: 'The document was revealed to be <u>Spurious</u> and had been forged.',
+            image: './assets/images/flashcards/Others/Set6/Spurious.gif'
+        },
+        {
+            word: 'Subjective',
+            mnemonic: 'Based on personal feelings or opinions',
+            synonyms: 'Personal, Biased, Individual',
+            hint: 'Different for each person',
+            positivity: 'Neutral',
+            sentence: 'Beauty is often considered a <u>Subjective</u> matter.',
+            image: './assets/images/flashcards/Others/Set6/Subjective.gif'
+        },
+        {
+            word: 'Subvert',
+            mnemonic: 'To undermine the power or authority of something',
+            synonyms: 'Undermine, Destabilize, Disrupt',
+            hint: 'Working to weaken authority',
+            positivity: 'Negative',
+            sentence: 'The group’s mission was to <u>Subvert</u> the government’s policies.',
+            image: './assets/images/flashcards/Others/Set6/Subvert.gif'
+        },
+        {
+            word: 'Timorous',
+            mnemonic: 'Showing or suffering from nervousness or fear',
+            synonyms: 'Fearful, Timid, Apprehensive',
+            hint: 'Lacking courage or confidence',
+            positivity: 'Negative',
+            sentence: 'He was <u>Timorous</u> when speaking in front of the large crowd.',
+            image: './assets/images/flashcards/Others/Set6/Timorous.gif'
+        },
+        {
+            word: 'Tortuous',
+            mnemonic: 'Full of twists and turns; complicated',
+            synonyms: 'Winding, Complex, Convoluted',
+            hint: 'Think of something very complicated',
+            positivity: 'Neutral',
+            sentence: 'The road to the summit was <u>Tortuous</u>, with many sharp bends.',
+            image: './assets/images/flashcards/Others/Set6/Tortuous.gif'
+        },
+        {
+            word: 'Tractable',
+            mnemonic: 'Easy to control or influence',
+            synonyms: 'Manageable, Compliant, Malleable',
+            hint: 'Easygoing and adaptable',
+            positivity: 'Positive',
+            sentence: 'The child was more <u>Tractable</u> after some gentle encouragement.',
+            image: './assets/images/flashcards/Others/Set6/Tractable.gif'
+        },
+        {
+            word: 'Transient',
+            mnemonic: 'Lasting for a short time',
+            synonyms: 'Temporary, Fleeting, Short-lived',
+            hint: 'Think of something temporary',
+            positivity: 'Neutral',
+            sentence: 'The snow was <u>Transient</u>, melting by noon.',
+            image: './assets/images/flashcards/Others/Set6/Transient.gif'
+        },
+        {
+            word: 'Ubiquitous',
+            mnemonic: 'Present, appearing, or found everywhere',
+            synonyms: 'Widespread, Omnipresent, Universal',
+            hint: 'Found in many places',
+            positivity: 'Neutral',
+            sentence: 'Smartphones have become <u>Ubiquitous</u> in today’s society.',
+            image: './assets/images/flashcards/Others/Set6/Ubiquitous.gif'
+        },
+        {
+            word: 'Underscore',
+            mnemonic: 'To emphasize or highlight something',
+            synonyms: 'Emphasize, Highlight, Stress',
+            hint: 'Drawing attention to something important',
+            positivity: 'Neutral',
+            sentence: 'The report <u>Underscored</u> the importance of regular exercise.',
+            image: './assets/images/flashcards/Others/Set6/Underscore.gif'
+        },
+        {
+            word: 'Venal',
+            mnemonic: 'Showing or motivated by susceptibility to bribery',
+            synonyms: 'Corrupt, Bribable, Dishonest',
+            hint: 'Think of someone easily influenced by money',
+            positivity: 'Negative',
+            sentence: 'The official was known to be <u>Venal</u> and often accepted bribes.',
+            image: './assets/images/flashcards/Others/Set6/Venal.gif'
+        },
+        {
+            word: 'Venerate',
+            mnemonic: 'To regard with great respect',
+            synonyms: 'Revere, Honor, Respect',
+            hint: 'Showing deep admiration',
+            positivity: 'Positive',
+            sentence: 'In some cultures, ancestors are <u>Venerated</u> and remembered through rituals.',
+            image: './assets/images/flashcards/Others/Set6/Venerate.gif'
+        }
+        
+    ]
 ];
 
 let currentSet = [];
