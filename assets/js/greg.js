@@ -1549,7 +1549,7 @@ const flashcardsSets = [
             hint: 'Not giving up on a belief',
             positivity: 'Neutral',
             sentence: 'His <u>Pertinacious</u> dedication to his research led to groundbreaking results.',
-            image: './assets/images/flashcards/Others/Set6/Pertinacious.gif'
+            image: './assets/images/flashcards/Others/Set6/Pertinacious.webp'
         },
         {
             word: 'Presumptuous',
@@ -1558,7 +1558,7 @@ const flashcardsSets = [
             hint: 'Acting without regard for boundaries',
             positivity: 'Negative',
             sentence: 'It was <u>Presumptuous</u> of him to assume he’d get the job.',
-            image: './assets/images/flashcards/Others/Set6/Presumptuous.gif'
+            image: './assets/images/flashcards/Others/Set6/Presumptuous.webp'
         },
         {
             word: 'Probity',
