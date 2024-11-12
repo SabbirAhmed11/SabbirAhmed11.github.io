@@ -1468,7 +1468,7 @@ const flashcardsSets = [
             hint: 'Providing extra strength',
             positivity: 'Positive',
             sentence: 'The success of his first project <u>Bolstered</u> his confidence.',
-            image: './assets/images/flashcards/Others/Set6/Bolster.gif'
+            image: './assets/images/flashcards/Others/Set6/Bolster.png'
         },
         {
             word: 'Chauvinistic',
@@ -1477,7 +1477,7 @@ const flashcardsSets = [
             hint: 'Think of extreme pride for a group or cause',
             positivity: 'Negative',
             sentence: 'His <u>Chauvinistic</u> views made him intolerant of other opinions.',
-            image: './assets/images/flashcards/Others/Set6/Chauvinistic.gif'
+            image: './assets/images/flashcards/Others/Set6/Chauvinistic.jpg'
         },
         {
             word: 'Connoisseur',
