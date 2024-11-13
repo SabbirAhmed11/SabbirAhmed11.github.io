@@ -1687,7 +1687,285 @@ const flashcardsSets = [
             image: './assets/images/flashcards/Others/Set6/Venerate.gif'
         }
         
+    ],
+          //Set7
+    [
+        
+    {
+        word: 'tendentious',
+        mnemonic: 'Expressing or promoting a particular cause or point of view.',
+        synonyms: 'Biased, Partisan, Prejudiced',
+        hint: 'Think of someone with an agenda.',
+        positivity: 'Negative',
+        sentence: 'The tendentious article clearly favored one side of the debate.',
+        image: './assets/images/flashcards/Set5/tendentious.jpg'
+    },
+    {
+        word: 'Appease',
+        mnemonic: 'To pacify or placate by acceding to demands',
+        synonyms: 'Soothe, Calm, Placate',
+        hint: 'Calming or satisfying someone’s anger',
+        positivity: 'Positive',
+        sentence: 'She tried to <u>Appease</u> her angry client with a discount.',
+        image: './assets/images/flashcards/Others/Set7/Appease.gif'
+    },
+    {
+        word: 'Arbitrary',
+        mnemonic: 'Based on random choice or personal whim',
+        synonyms: 'Random, Capricious, Whimsical',
+        hint: 'Without reason or plan',
+        positivity: 'Negative',
+        sentence: 'The decision to fire him seemed <u>Arbitrary</u> and unfair.',
+        image: './assets/images/flashcards/Others/Set7/Arbitrary.gif'
+    },
+    {
+        word: 'Archaic',
+        mnemonic: 'Very old or outdated',
+        synonyms: 'Outdated, Old-fashioned, Antiquated',
+        hint: 'Belonging to the past',
+        positivity: 'Neutral',
+        sentence: 'The company replaced its <u>Archaic</u> computer systems.',
+        image: './assets/images/flashcards/Others/Set7/Archaic.jpg'
+    },
+    {
+        word: 'Clamorous',
+        mnemonic: 'Making a loud and confused noise',
+        synonyms: 'Noisy, Loud, Uproarious',
+        hint: 'A lot of loud noise',
+        positivity: 'Negative',
+        sentence: 'The <u>Clamorous</u> crowd demanded immediate action.',
+        image: './assets/images/flashcards/Others/Set7/Clamorous.gif'
+    },
+    {
+        word: 'Dearth',
+        mnemonic: 'A scarcity or lack of something',
+        synonyms: 'Shortage, Lack, Deficiency',
+        hint: 'Not enough of something',
+        positivity: 'Negative',
+        sentence: 'The <u>Dearth</u> of fresh water in the region was concerning.',
+        image: './assets/images/flashcards/Others/Set7/Dearth.jpg'
+    },
+    {
+        word: 'Explicable',
+        mnemonic: 'Able to be explained or understood',
+        synonyms: 'Understandable, Explainable, Interpretable',
+        hint: 'Something that makes sense',
+        positivity: 'Neutral',
+        sentence: 'Her behavior was <u>Explicable</u> given the circumstances.',
+        image: './assets/images/flashcards/Others/Set7/Explicable.gif'
+    },
+    {
+        word: 'Hyperbole',
+        mnemonic: 'Exaggerated statements or claims not meant literally',
+        synonyms: 'Exaggeration, Overstatement, Embellishment',
+        hint: 'An over-the-top claim',
+        positivity: 'Neutral',
+        sentence: 'Saying she waited an eternity was pure <u>Hyperbole</u>.',
+        image: './assets/images/flashcards/Others/Set7/Hyperbole.gif'
+    },
+    {
+        word: 'Immutable',
+        mnemonic: 'Unchanging over time or unable to be changed',
+        synonyms: 'Fixed, Unchangeable, Constant',
+        hint: 'Something that doesn’t change',
+        positivity: 'Neutral',
+        sentence: 'The laws of physics are often considered <u>Immutable</u>.',
+        image: './assets/images/flashcards/Others/Set7/Immutable.webp'
+    },
+    {
+        word: 'Indefatigable',
+        mnemonic: 'Persisting tirelessly',
+        synonyms: 'Tireless, Unflagging, Persistent',
+        hint: 'Someone who never gets tired',
+        positivity: 'Positive',
+        sentence: 'His <u>Indefatigable</u> efforts eventually led to success.',
+        image: './assets/images/flashcards/Others/Set7/Indefatigable.gif'
+    },
+    {
+        word: 'Indolent',
+        mnemonic: 'Wanting to avoid activity or exertion',
+        synonyms: 'Lazy, Idle, Sluggish',
+        hint: 'Someone who avoids work or effort',
+        positivity: 'Negative',
+        sentence: 'Her <u>Indolent</u> approach made her miss several deadlines.',
+        image: './assets/images/flashcards/Others/Set7/Indolent.gif'
+    },
+    {
+        word: 'Insular',
+        mnemonic: 'Ignorant of or uninterested in cultures outside one’s experience',
+        synonyms: 'Narrow-minded, Isolated, Inward-looking',
+        hint: 'Closed off or inward-looking',
+        positivity: 'Negative',
+        sentence: 'His <u>Insular</u> perspective made it difficult for him to work in a diverse environment.',
+        image: './assets/images/flashcards/Others/Set7/Insular.webp'
+    },
+    {
+        word: 'Intransigent',
+        mnemonic: 'Unwilling to change one\'s views or agree',
+        synonyms: 'Stubborn, Inflexible, Unyielding',
+        hint: 'Refusing to compromise',
+        positivity: 'Negative',
+        sentence: 'Their <u>Intransigent</u> stance caused negotiations to fail.',
+        image: './assets/images/flashcards/Others/Set7/Intransigent.gif'
+    },
+    {
+        word: 'Intrepid',
+        mnemonic: 'Fearless; adventurous',
+        synonyms: 'Courageous, Daring, Bold',
+        hint: 'Someone who isn’t afraid',
+        positivity: 'Positive',
+        sentence: 'The <u>Intrepid</u> explorers braved the harsh conditions to reach the summit.',
+        image: './assets/images/flashcards/Others/Set7/Intrepid.jpeg'
+    },
+    {
+        word: 'Irreverent',
+        mnemonic: 'Showing a lack of respect for people or things',
+        synonyms: 'Disrespectful, Mocking, Flippant',
+        hint: 'Not showing respect',
+        positivity: 'Negative',
+        sentence: 'His <u>Irreverent</u> jokes were not well-received by the audience.',
+        image: './assets/images/flashcards/Others/Set7/Irreverent.gif'
+    },
+    {
+        word: 'Loathe',
+        mnemonic: 'To feel intense dislike or disgust for',
+        synonyms: 'Detest, Abhor, Despise',
+        hint: 'A strong feeling of dislike',
+        positivity: 'Negative',
+        sentence: 'She <u>Loathes</u> being in crowded places.',
+        image: './assets/images/flashcards/Others/Set7/Loathe.gif'
+    },
+    {
+        word: 'Malign',
+        mnemonic: 'To speak about someone in a spitefully critical manner',
+        synonyms: 'Defame, Slander, Vilify',
+        hint: 'Talking badly about someone',
+        positivity: 'Negative',
+        sentence: 'His reputation was unfairly <u>Maligned</u> by false rumors.',
+        image: './assets/images/flashcards/Others/Set7/Malign.jpg'
+    },
+    {
+        word: 'Malleable',
+        mnemonic: 'Easily influenced or pliable',
+        synonyms: 'Flexible, Adaptable, Pliable',
+        hint: 'Something that can be shaped',
+        positivity: 'Neutral',
+        sentence: 'Children’s minds are <u>Malleable</u> and learn things quickly.',
+        image: './assets/images/flashcards/Others/Set7/Malleable.gif'
+    },
+    {
+        word: 'Neophyte',
+        mnemonic: 'A person who is new to a subject or activity',
+        synonyms: 'Beginner, Novice, Rookie',
+        hint: 'Someone just starting',
+        positivity: 'Neutral',
+        sentence: 'As a <u>Neophyte</u> in programming, she needed guidance on basic concepts.',
+        image: './assets/images/flashcards/Others/Set7/Neophyte.gif'
+    },
+    {
+        word: 'Plastic',
+        mnemonic: 'Easily shaped or molded',
+        synonyms: 'Malleable, Flexible, Adaptable',
+        hint: 'Something that can be changed or formed',
+        positivity: 'Neutral',
+        sentence: 'Clay is <u>Plastic</u> and can be shaped into many forms.',
+        image: './assets/images/flashcards/Others/Set7/Plastic.gif'
+    },
+    {
+        word: 'Platitude',
+        mnemonic: 'A remark that is used too often to be interesting',
+        synonyms: 'Cliché, Banality, Truism',
+        hint: 'An overused saying',
+        positivity: 'Negative',
+        sentence: 'His speech was filled with <u>Platitudes</u> that added little value.',
+        image: './assets/images/flashcards/Others/Set7/Platitude.jpg'
+    },
+    {
+        word: 'Prescient',
+        mnemonic: 'Having or showing knowledge of events before they take place',
+        synonyms: 'Prophetic, Visionary, Foresighted',
+        hint: 'Foreseeing future events',
+        positivity: 'Positive',
+        sentence: 'Her <u>Prescient</u> insights saved the company from a financial crisis.',
+        image: './assets/images/flashcards/Others/Set7/Prescient.jpeg'
+    },
+    {
+        word: 'Pristine',
+        mnemonic: 'In its original condition; unspoiled',
+        synonyms: 'Unspoiled, Pure, Untouched',
+        hint: 'Fresh, clean, or untouched',
+        positivity: 'Positive',
+        sentence: 'The beach was <u>Pristine</u>, with clear water and untouched sand.',
+        image: './assets/images/flashcards/Others/Set7/Pristine.gif'
+    },
+    {
+        word: 'Reproach',
+        mnemonic: 'To express disapproval or disappointment',
+        synonyms: 'Rebuke, Scold, Criticize',
+        hint: 'To criticize or scold',
+        positivity: 'Negative',
+        sentence: 'He had no reason to <u>Reproach</u> her for being late.',
+        image: './assets/images/flashcards/Others/Set7/Reproach.gif'
+    },
+    {
+        word: 'Robust',
+        mnemonic: 'Strong and healthy; vigorous',
+        synonyms: 'Sturdy, Powerful, Resilient',
+        hint: 'Strong and full of energy',
+        positivity: 'Positive',
+        sentence: 'The plant was <u>Robust</u> and survived the harsh winter.',
+        image: './assets/images/flashcards/Others/Set7/Robust.gif'
+    },
+    {
+        word: 'Salubrious',
+        mnemonic: 'Health-giving; healthy',
+        synonyms: 'Beneficial, Wholesome, Healthful',
+        hint: 'Something good for your health',
+        positivity: 'Positive',
+        sentence: 'They moved to a more <u>Salubrious</u> climate to improve their health.',
+        image: './assets/images/flashcards/Others/Set7/Salubrious.gif'
+    },
+    {
+        word: 'Sanction',
+        mnemonic: 'To impose a penalty as a form of punishment, usually for violating a rule or law',
+        synonyms: 'Punish, Penalize, Restrict',
+        hint: 'An official endorsement or penalty',
+        positivity: 'Negative',
+        sentence: 'The committee <u>Sanctioned</u> the new research project.',
+        image: './assets/images/flashcards/Others/Set7/Sanction.gif'
+    },
+    {
+        word: 'Sedulous',
+        mnemonic: 'Showing dedication and diligence',
+        synonyms: 'Diligent, Hard-working, Meticulous',
+        hint: 'Carefully attentive',
+        positivity: 'Positive',
+        sentence: 'Her <u>Sedulous</u> efforts led to a promotion.',
+        image: './assets/images/flashcards/Others/Set7/Sedulous.gif'
+    },
+    {
+        word: 'Soporific',
+        mnemonic: 'Tending to induce drowsiness or sleep',
+        synonyms: 'Sleep-inducing, Calming, Drowsy',
+        hint: 'Something that makes you sleepy',
+        positivity: 'Neutral',
+        sentence: 'The lecture was so <u>Soporific</u> that several students dozed off.',
+        image: './assets/images/flashcards/Others/Set7/Soporific.gif'
+    },
+    {
+        word: 'Stern',
+        mnemonic: 'Serious and unrelenting, especially in authority',
+        synonyms: 'Strict, Harsh, Severe',
+        hint: 'Firm and not easily swayed',
+        positivity: 'Neutral',
+        sentence: 'The teacher’s <u>Stern</u> voice silenced the class.',
+        image: './assets/images/flashcards/Others/Set7/Stern.gif'
+    }
+
+    
+
     ]
+
 ];
 
 let currentSet = [];
