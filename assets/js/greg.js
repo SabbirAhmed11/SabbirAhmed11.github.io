@@ -1567,7 +1567,7 @@ const flashcardsSets = [
             hint: 'Think of a very honest person',
             positivity: 'Positive',
             sentence: 'Her <u>Probity</u> made her a highly respected figure in the community.',
-            image: './assets/images/flashcards/Others/Set6/Probity.gif'
+            image: './assets/images/flashcards/Others/Set6/Probity.png'
         },
         {
             word: 'Proliferate',
@@ -1585,7 +1585,7 @@ const flashcardsSets = [
             hint: 'Looks good on the surface but isn’t real',
             positivity: 'Negative',
             sentence: 'The argument was <u>Specious</u>, as it lacked real evidence.',
-            image: './assets/images/flashcards/Others/Set6/Specious.gif'
+            image: './assets/images/flashcards/Others/Set6/Specious.jpg'
         },
         {
             word: 'Spurious',
@@ -1612,7 +1612,7 @@ const flashcardsSets = [
             hint: 'Working to weaken authority',
             positivity: 'Negative',
             sentence: 'The group’s mission was to <u>Subvert</u> the government’s policies.',
-            image: './assets/images/flashcards/Others/Set6/Subvert.gif'
+            image: './assets/images/flashcards/Others/Set6/Subvert.webp'
         },
         {
             word: 'Timorous',
@@ -1630,7 +1630,7 @@ const flashcardsSets = [
             hint: 'Think of something very complicated',
             positivity: 'Neutral',
             sentence: 'The road to the summit was <u>Tortuous</u>, with many sharp bends.',
-            image: './assets/images/flashcards/Others/Set6/Tortuous.gif'
+            image: './assets/images/flashcards/Set2/tortuous.jpg'
         },
         {
             word: 'Tractable',
@@ -1639,7 +1639,7 @@ const flashcardsSets = [
             hint: 'Easygoing and adaptable',
             positivity: 'Positive',
             sentence: 'The child was more <u>Tractable</u> after some gentle encouragement.',
-            image: './assets/images/flashcards/Others/Set6/Tractable.gif'
+            image: './assets/images/flashcards/Set2/malleable.gif'
         },
         {
             word: 'Transient',
