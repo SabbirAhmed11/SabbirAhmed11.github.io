@@ -2061,7 +2061,7 @@ const flashcardsSets = [
     hint: 'Lacking in careful selection',
     positivity: 'Negative',
     sentence: 'The <u>Indiscriminate</u> use of pesticides has harmed the ecosystem.',
-    image: './assets/images/flashcards/Others/Set8/Indiscriminate.gif'
+     image: './assets/images/flashcards/Others/Set7/Arbitrary.gif'
 },
 {
     word: 'Innocuous',
