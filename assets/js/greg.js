@@ -1961,10 +1961,282 @@ const flashcardsSets = [
         sentence: 'The teacher’s <u>Stern</u> voice silenced the class.',
         image: './assets/images/flashcards/Others/Set7/Stern.gif'
     }
+  ],
+//set 8
+  [
+{
+    word: 'Accentuate',
+    mnemonic: 'To make something more noticeable or prominent',
+    synonyms: 'Emphasize, Highlight, Stress',
+    hint: 'Making something stand out',
+    positivity: 'Positive',
+    sentence: 'She used makeup to <u>Accentuate</u> her cheekbones.',
+    image: './assets/images/flashcards/Others/Set8/Accentuate.gif'
+},
+{
+    word: 'Conjectural',
+    mnemonic: 'Based on guesswork or incomplete information',
+    synonyms: 'Speculative, Hypothetical, Uncertain',
+    hint: 'A guess without full proof',
+    positivity: 'Neutral',
+    sentence: 'His theory about alien life was purely <u>Conjectural</u>.',
+    image: './assets/images/flashcards/Others/Set8/Conjectural.gif'
+},
+{
+    word: 'Convivial',
+    mnemonic: 'Friendly, lively, and enjoyable',
+    synonyms: 'Sociable, Cheerful, Festive',
+    hint: 'Lively and enjoyable atmosphere',
+    positivity: 'Positive',
+    sentence: 'They enjoyed a <u>Convivial</u> evening with friends.',
+    image: './assets/images/flashcards/Others/Set8/Convivial.gif'
+},
+{
+    word: 'Decadent',
+    mnemonic: 'Reflecting a state of moral or cultural decline',
+    synonyms: 'Self-indulgent, Degenerate, Corrupt',
+    hint: 'Overly self-indulgent',
+    positivity: 'Negative',
+    sentence: 'The city’s <u>Decadent</u> lifestyle led to financial troubles.',
+    image: './assets/images/flashcards/Others/Set8/Decadent.gif'
+},
+{
+    word: 'Egregious',
+    mnemonic: 'Outstandingly bad; shocking',
+    synonyms: 'Shocking, Appalling, Terrible',
+    hint: 'Really bad or outrageous',
+    positivity: 'Negative',
+    sentence: 'His <u>Egregious</u> mistake cost the company millions.',
+    image: './assets/images/flashcards/Others/Set8/Egregious.gif'
+},
+{
+    word: 'Evanescent',
+    mnemonic: 'Quickly fading or disappearing',
+    synonyms: 'Fleeting, Ephemeral, Brief',
+    hint: 'Something that vanishes quickly',
+    positivity: 'Neutral',
+    sentence: 'The beauty of the rainbow was <u>Evanescent</u>, lasting only a few moments.',
+    image: './assets/images/flashcards/Others/Set8/Evanescent.gif'
+},
+{
+    word: 'Flamboyant',
+    mnemonic: 'Tending to attract attention because of exuberance',
+    synonyms: 'Showy, Flashy, Ostentatious',
+    hint: 'Very bright or flashy',
+    positivity: 'Neutral',
+    sentence: 'His <u>Flamboyant</u> style made him stand out in every crowd.',
+    image: './assets/images/flashcards/Others/Set8/Flamboyant.gif'
+},
+{
+    word: 'Forestall',
+    mnemonic: 'To prevent or obstruct by taking action in advance',
+    synonyms: 'Preempt, Prevent, Hinder',
+    hint: 'To stop something before it happens',
+    positivity: 'Neutral',
+    sentence: 'They took measures to <u>Forestall</u> any disruptions.',
+    image: './assets/images/flashcards/Others/Set8/Forestall.gif'
+},
+{
+    word: 'Gainsay',
+    mnemonic: 'To deny or contradict a fact or statement',
+    synonyms: 'Deny, Dispute, Contradict',
+    hint: 'Challenging or refusing a statement',
+    positivity: 'Neutral',
+    sentence: 'It’s hard to <u>Gainsay</u> the evidence presented by the scientists.',
+    image: './assets/images/flashcards/Others/Set8/Gainsay.gif'
+},
+{
+    word: 'Galvanize',
+    mnemonic: 'To shock or excite someone into action',
+    synonyms: 'Motivate, Inspire, Spur',
+    hint: 'Encouraging immediate action',
+    positivity: 'Positive',
+    sentence: 'The speech was intended to <u>Galvanize</u> the crowd into action.',
+    image: './assets/images/flashcards/Others/Set8/Galvanize.gif'
+},
+{
+    word: 'Indiscriminate',
+    mnemonic: 'Done at random or without careful judgment',
+    synonyms: 'Random, Haphazard, Aimless',
+    hint: 'Lacking in careful selection',
+    positivity: 'Negative',
+    sentence: 'The <u>Indiscriminate</u> use of pesticides has harmed the ecosystem.',
+    image: './assets/images/flashcards/Others/Set8/Indiscriminate.gif'
+},
+{
+    word: 'Innocuous',
+    mnemonic: 'Not harmful or offensive',
+    synonyms: 'Harmless, Safe, Inoffensive',
+    hint: 'Something that won’t cause harm',
+    positivity: 'Positive',
+    sentence: 'His comment was <u>Innocuous</u>, but she took it personally.',
+    image: './assets/images/flashcards/Others/Set8/Innocuous.gif'
+},
+{
+    word: 'Momentary',
+    mnemonic: 'Lasting for a very short time',
+    synonyms: 'Brief, Short-lived, Fleeting',
+    hint: 'Very brief or passing',
+    positivity: 'Neutral',
+    sentence: 'She felt a <u>Momentary</u> pang of regret after making her decision.',
+    image: './assets/images/flashcards/Others/Set8/Momentary.gif'
+},
+{
+    word: 'Mundane',
+    mnemonic: 'Lacking excitement; dull or ordinary',
+    synonyms: 'Ordinary, Routine, Banal',
+    hint: 'Boring or everyday',
+    positivity: 'Negative',
+    sentence: 'She found the office work <u>Mundane</u> and uninspiring.',
+    image: './assets/images/flashcards/Others/Set8/Mundane.gif'
+},
+{
+    word: 'Nettlesome',
+    mnemonic: 'Causing annoyance or difficulty',
+    synonyms: 'Irritating, Bothersome, Troublesome',
+    hint: 'Something that irritates',
+    positivity: 'Negative',
+    sentence: 'The <u>Nettlesome</u> delays made everyone impatient.',
+    image: './assets/images/flashcards/Others/Set8/Nettlesome.gif'
+},
+{
+    word: 'Nullify',
+    mnemonic: 'To make legally null and void; invalidate',
+    synonyms: 'Cancel, Annul, Void',
+    hint: 'To cancel out or invalidate',
+    positivity: 'Neutral',
+    sentence: 'His contract was <u>Nullified</u> due to breach of terms.',
+    image: './assets/images/flashcards/Others/Set8/Nullify.gif'
+},
+{
+    word: 'Obviate',
+    mnemonic: 'To remove a need or difficulty',
+    synonyms: 'Prevent, Eliminate, Remove',
+    hint: 'To make something unnecessary',
+    positivity: 'Positive',
+    sentence: 'The new treatment <u>Obviates</u> the need for surgery.',
+    image: './assets/images/flashcards/Others/Set8/Obviate.gif'
+},
+{
+    word: 'Omnipresent',
+    mnemonic: 'Widely or constantly encountered; present everywhere',
+    synonyms: 'Ubiquitous, Ever-present, Pervasive',
+    hint: 'Everywhere at once',
+    positivity: 'Neutral',
+    sentence: 'Technology has become an <u>Omnipresent</u> part of our lives.',
+    image: './assets/images/flashcards/Others/Set8/Omnipresent.gif'
+},
+{
+    word: 'Oust',
+    mnemonic: 'To drive out or expel someone from a position or place',
+    synonyms: 'Remove, Eject, Expel',
+    hint: 'Forcing someone out',
+    positivity: 'Negative',
+    sentence: 'The board voted to <u>Oust</u> the CEO after the scandal.',
+    image: './assets/images/flashcards/Others/Set8/Oust.gif'
+},
+{
+    word: 'Palpable',
+    mnemonic: 'Able to be touched or felt; clear and obvious',
+    synonyms: 'Tangible, Noticeable, Clear',
+    hint: 'Something you can feel or easily notice',
+    positivity: 'Neutral',
+    sentence: 'There was a <u>Palpable</u> sense of excitement in the room.',
+    image: './assets/images/flashcards/Others/Set8/Palpable.gif'
+},
+{
+    word: 'Perfidy',
+    mnemonic: 'Deceitfulness; untrustworthiness',
+    synonyms: 'Treachery, Betrayal, Disloyalty',
+    hint: 'Being unfaithful or dishonest',
+    positivity: 'Negative',
+    sentence: 'His <u>Perfidy</u> cost him the trust of his colleagues.',
+    image: './assets/images/flashcards/Others/Set8/Perfidy.gif'
+},
+{
+    word: 'Profuse',
+    mnemonic: 'Abundant or plentiful',
+    synonyms: 'Abundant, Copious, Ample',
+    hint: 'Lots of something',
+    positivity: 'Positive',
+    sentence: 'She expressed her <u>Profuse</u> thanks to everyone who helped.',
+    image: './assets/images/flashcards/Others/Set8/Profuse.gif'
+},
+{
+    word: 'Pugnacious',
+    mnemonic: 'Eager or quick to argue or fight',
+    synonyms: 'Combative, Aggressive, Belligerent',
+    hint: 'Someone who loves to argue or fight',
+    positivity: 'Negative',
+    sentence: 'His <u>Pugnacious</u> attitude often got him into trouble.',
+    image: './assets/images/flashcards/Others/Set8/Pugnacious.gif'
+},
+{
+    word: 'Sagacious',
+    mnemonic: 'Having or showing keen mental discernment and good judgment',
+    synonyms: 'Wise, Insightful, Discerning',
+    hint: 'Very wise or intelligent',
+    positivity: 'Positive',
+    sentence: 'Her <u>Sagacious</u> advice helped me make the right decision.',
+    image: './assets/images/flashcards/Others/Set8/Sagacious.gif'
+},
+{
+    word: 'Sanguine',
+    mnemonic: 'Optimistic or positive, especially in a difficult situation',
+    synonyms: 'Hopeful, Optimistic, Cheerful',
+    hint: 'Positive even in tough times',
+    positivity: 'Positive',
+    sentence: 'Despite the setbacks, she remained <u>Sanguine</u> about the future.',
+    image: './assets/images/flashcards/Others/Set8/Sanguine.gif'
+},
+{
+    word: 'Scant',
+    mnemonic: 'Barely sufficient or adequate',
+    synonyms: 'Limited, Sparse, Insufficient',
+    hint: 'Very little of something',
+    positivity: 'Neutral',
+    sentence: 'There was <u>Scant</u> evidence to support the claim.',
+    image: './assets/images/flashcards/Others/Set8/Scant.gif'
+},
+{
+    word: 'Skullduggery',
+    mnemonic: 'Underhanded or unscrupulous behavior; trickery',
+    synonyms: 'Deceit, Trickery, Chicanery',
+    hint: 'Dishonest actions',
+    positivity: 'Negative',
+    sentence: 'The politician was accused of <u>Skullduggery</u> to win the election.',
+    image: './assets/images/flashcards/Others/Set8/Skullduggery.gif'
+},
+{
+    word: 'Trivial',
+    mnemonic: 'Of little value or importance',
+    synonyms: 'Insignificant, Minor, Petty',
+    hint: 'Unimportant or small matters',
+    positivity: 'Negative',
+    sentence: 'Don’t waste time on <u>Trivial</u> details.',
+    image: './assets/images/flashcards/Others/Set8/Trivial.gif'
+},
+{
+    word: 'Utilitarian',
+    mnemonic: 'Designed to be useful or practical rather than attractive',
+    synonyms: 'Practical, Functional, Pragmatic',
+    hint: 'All about function over style',
+    positivity: 'Neutral',
+    sentence: 'The building’s <u>Utilitarian</u> design focused on efficiency over aesthetics.',
+    image: './assets/images/flashcards/Others/Set8/Utilitarian.gif'
+},
+{
+    word: 'Vapid',
+    mnemonic: 'Offering nothing that is stimulating or challenging',
+    synonyms: 'Dull, Boring, Uninspired',
+    hint: 'Lacking in excitement or interest',
+    positivity: 'Negative',
+    sentence: 'The book was so <u>Vapid</u> that she couldn’t finish it.',
+    image: './assets/images/flashcards/Others/Set8/Vapid.gif'
+}
 
-    
 
-    ]
+  ]
 
 ];
 
