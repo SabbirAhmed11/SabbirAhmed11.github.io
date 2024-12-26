@@ -1,93 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
-
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 
-    - primary meta tags
-  -->
-  <title>Page is underconstruction</title>
-  <meta name="title" content="Sabbir Ahmed - Get your product identity from me.">
-  <meta name="description" content="All rights reserved by Sabbir Ahmed">
-
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/svg/Sa.svg" type="image/svg+xml">
-
-    <title>Under Construction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        #gif {
-            align-content: center;
-            width: 400px; /* Adjust size as needed */
-            margin-bottom: 20px; /* Space between GIF and title */
-            padding-left: 20%;
-            display: none; /* Initially hidden */
-        }
-
-        #loading {
-            font-size: 24px;
-            color: #f5f1f1;
-        }
-
-        #message {
-            font-size: 24px;
-            color: #fcfbf8;
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-        }
-
-        #message2 {
-            font-size: 24px;
-            color: #58dff7;
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-        }
-
-
-
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kite Games Studio</title>
+    <link rel="stylesheet" href="./assets/css/kitegames.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/svg/Sa.svg" type="image/svg+xml">
 </head>
-<body>
-    <div class="container">
-        <div id="loading">Loading...</div>
-        <!-- GIF and message are initially hidden -->
-        <img id="gif" src="./assets/images/underconstruction.gif" alt="Under Construction GIF">
-        <div id="message">Sorry for the interruption. This page is now under construction <br> We'll be back shortly.</div>
-        <div id="message2">ahmedsabbiraust@gmail.com</div>
-        
+ <body id="top">
+
+    <div class="preloader" data-preloader>
+        <span class="line"></span>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simulate a loading delay
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none'; // Hide loading text
-                document.getElementById('gif').style.display = 'block'; // Show GIF
-                document.getElementById('message').style.display = 'block'; // Show message
-                document.getElementById('message2').style.display = 'block'; // Show GIF
-            }, 2000); // 2-second delay
-        });
-    </script>
+
+    <header class="header" data-header>
+        <div class="progress-bar"></div> 
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/logo_S.svg" width="102" height="27" alt="logo">
+            </a>
+            <a href="index.html" class="back-home-btn">
+                <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <div id="main">
+        <!-- Section for the GIF -->
+        <section class="media-section media-gif">
+            <a href="https://www.kitegamesstudio.com/" target="_blank">
+                <img src="./assets/images/opening.gif" alt="Opening Animation" class="dynamic-media">
+            </a>
+        </section>
+
+        <!-- Section for the Long Image -->
+        <section class="media-section">
+            <img src="./assets/images/long_image.jpg" alt="Long Scrollable Image" class="dynamic-media">
+        </section>
+        <section class="media-section">
+            <img src="./assets/images/old_design.gif" alt="Long Scrollable Image" class="dynamic-media">
+        </section>
+        <section class="media-section">
+            <img src="./assets/images/long_image2.jpg" alt="Long Scrollable Image" class="dynamic-media">
+        </section>
+        <section class="media-section">
+            <a href="https://www.figma.com/design/iuxpjF3OS9mCES3yWzQMev/Sabbir-Ahmed_UX-Designs?node-id=178-4004" target="_blank">
+                <img src="./assets/images/ending.png" alt="Opening Animation" class="dynamic-media">
+            </a>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/kitegames.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
