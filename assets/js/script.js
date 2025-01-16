@@ -277,6 +277,56 @@ form.addEventListener('submit', e => {
     });
 });
 
+/**
+ * achivements
+ */
+
+const galleryList = document.querySelector(".gallery-list");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryContainer = document.querySelector(".gallery-container");
+const scrollLeftButton = document.getElementById("scrollLeft");
+const scrollRightButton = document.getElementById("scrollRight");
+const dots = document.querySelectorAll(".dot");
+
+let currentPage = 0; // Tracks the current page
+const totalPages = Math.ceil(galleryItems.length / 2); // Total pages (2 images per page)
+
+// Update the gallery position and active dot
+const updateGallery = () => {
+  const translateX = -(currentPage * galleryContainer.offsetWidth);
+  galleryList.style.transform = `translateX(${translateX}px)`;
+
+  // Update active dot
+  dots.forEach((dot, index) => {
+    if (index === currentPage) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+};
+
+// Button click events
+scrollLeftButton.addEventListener("click", () => {
+  currentPage = (currentPage - 1 + totalPages) % totalPages; // Loop to the last page if out of bounds
+  updateGallery();
+});
+
+scrollRightButton.addEventListener("click", () => {
+  currentPage = (currentPage + 1) % totalPages; // Loop to the first page if out of bounds
+  updateGallery();
+});
+
+// Dot click events
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentPage = index;
+    updateGallery();
+  });
+});
+
+// Initialize gallery
+updateGallery();
 
 
 
