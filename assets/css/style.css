@@ -1525,3 +1525,180 @@ textarea.input-field {
   .hero .container { grid-template-columns: 1fr 0.85fr; }
 
 }
+
+
+
+
+/**
+   * Achivements
+ */
+ .manual-scroll-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 30px auto;
+  max-width: 90%;
+}
+
+.gallery-container {
+  width: 80%; /* Show 2 full images */
+  overflow: hidden;
+}
+
+.gallery-list {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.gallery-item {
+  flex: 0 0 calc(50% - 10px); /* Show 2 full images */
+  max-width: 50%;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+.scroll-button {
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px; /* Adjust icon size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.scroll-button.scroll-left {
+  left: -70px;
+}
+
+.scroll-button.scroll-right {
+  right: -70px;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  transform: scale(1.1);
+}
+
+/* Dots for page control */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(160, 157, 157, 0.3); /* Unfilled */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: rgba(247, 247, 247, 0.7); /* Filled */
+}
+.dots-container {
+  position: relative;
+  z-index: 10; /* Ensure dots are above other elements */
+}
+
+/* Responsive adjustments for mobile and smaller devices */
+@media (max-width: 768px) {
+  .manual-scroll-gallery {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align for smaller devices */
+  }
+
+  .gallery-container {
+    width: 100%; /* Use full width */
+  }
+
+  .gallery-list {
+    gap: 10px; /* Reduce gap between images */
+  }
+
+  .gallery-item {
+    flex: 0 0 100%; /* Display one image per page */
+    max-width: 100%; /* Allow full width for smaller screens */
+  }
+
+  .scroll-button {
+    width: 40px; /* Smaller buttons for mobile */
+    height: 40px;
+    font-size: 18px; /* Adjust icon size */
+  }
+
+  .scroll-button.scroll-left {
+    left: 10px; /* Place buttons closer to the content */
+  }
+
+  .scroll-button.scroll-right {
+    right: 10px;
+  }
+
+  .dots-container {
+    margin-top: 15px; /* Reduce space for better layout */
+    gap: 8px; /* Reduce gap between dots */
+  }
+
+  .dot {
+    width: 12px; /* Smaller dots for mobile */
+    height: 12px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .manual-scroll-gallery {
+    flex-direction: column; /* Ensure vertical stacking */
+  }
+
+  .gallery-container {
+    width: 100%; /* Full width for the gallery */
+  }
+
+  .gallery-item {
+    flex: 0 0 100%; /* Show one image at a time */
+    max-width: 100%; /* Full width for images */
+  }
+
+  .scroll-button {
+    width: 35px; /* Smaller buttons for very small screens */
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .dots-container {
+    margin-top: 10px;
+    gap: 5px; /* Reduce spacing further for smaller screens */
+  }
+
+  .dot {
+    width: 10px; /* Even smaller dots */
+    height: 10px;
+  }
+}
