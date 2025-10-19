@@ -3,78 +3,172 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BreatheEarth</title>
+<title>BreatheEarth – simple AQI</title>
+<meta name="description" content="Single-serving site showing local PM2.5 air quality with graceful fallbacks.">
 <style>
+  :root{ --bg:#e8fdea; --fg:#0f2518; }
+  *{box-sizing:border-box}
+  html,body{height:100%}
   body{
-    margin:0; height:100%; display:grid; place-items:center;
-    font-family:system-ui,Inter,Arial,sans-serif;
-    background:#e8fdea; color:#0f2518; transition:background .3s ease,color .3s ease;
+    margin:0; display:grid; place-items:center; text-align:center;
+    font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+    background:var(--bg); color:var(--fg); transition:background .25s ease,color .25s ease; padding:24px;
   }
-  .card{
-    text-align:center; background:rgba(255,255,255,.75);
-    padding:28px 24px; border-radius:18px; max-width:600px;
-  }
-  h1{margin:.2rem 0;font-size:2rem}
-  .sub{opacity:.8;margin-bottom:1rem}
-  .status{font-size:2rem;font-weight:900;margin:.5rem 0}
-  .err{color:#b00;font-weight:700;margin-top:.5rem}
-  button{margin-top:1rem;padding:10px 16px;border:0;border-radius:12px;font-weight:700;
-    background:#0f2518;color:#fff;cursor:pointer}
+  .card{max-width:720px;width:100%;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);padding:28px 22px;border-radius:18px}
+  h1{margin:0 0 .25rem;font-size:clamp(1.8rem,2.2vw+1rem,2.6rem)}
+  .sub{opacity:.8;margin:0 0 1rem}
+  .status{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.02em;margin:.4rem 0}
+  .pm{opacity:.9;font-weight:700}
+  .meta{opacity:.8;margin-top:.25rem}
+  .err{color:#b01212;font-weight:800;margin-top:.6rem}
+  .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+  input{flex:1 1 260px;min-width:230px;padding:10px 12px;border-radius:10px;border:1px solid #cfe0d9;background:#fff;outline:none}
+  button{padding:10px 14px;border:0;border-radius:12px;font-weight:800;cursor:pointer;background:#0f2518;color:#fff}
+  button.secondary{background:#1f3a2b}
+  .hint{opacity:.75;font-size:.9rem;margin-top:8px}
 </style>
 </head>
 <body>
-<div class="card">
-  <h1>BreatheEarth</h1>
-  <p class="sub">The air you breathe connects us all.</p>
-  <div id="place">Requesting location…</div>
-  <div class="status" id="status">—</div>
-  <div id="pm">PM2.5: — µg/m³</div>
-  <div id="time">—</div>
-  <div class="err" id="err"></div>
-  <button id="retry" style="display:none">Try again</button>
-</div>
+  <main class="card" role="main" aria-live="polite">
+    <h1>BreatheEarth</h1>
+    <p class="sub">The air you breathe connects us all.</p>
+
+    <div id="place">Ready.</div>
+    <div class="status" id="status">Click “Check my air quality”.</div>
+    <div class="pm" id="pm">PM2.5: — µg/m³</div>
+    <div class="meta" id="time">—</div>
+    <div class="err" id="err"></div>
+
+    <div class="row" style="margin-top:14px">
+      <button id="checkBtn">Check my air quality</button>
+      <button id="ipBtn" class="secondary" title="Use IP if location is blocked">Try IP fallback</button>
+    </div>
+
+    <div class="row" style="margin-top:8px">
+      <input id="city" placeholder="Or type a city (e.g., Dhaka, London, Austin)" />
+      <button id="cityBtn" class="secondary">Search city</button>
+    </div>
+
+    <div class="hint">Categories: <b>GOOD ≤ 15</b>, <b>BAD ≤ 35</b>, <b>WORSE &gt; 35</b> (PM2.5 µg/m³)</div>
+  </main>
 
 <script>
-const airURL = (lat,lon)=>`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
-const revURL = (lat,lon)=>`https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=en`;
+/* ---------- Endpoints (no API key) ---------- */
+const AIR = (lat, lon) => `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
+const REV = (lat, lon) => `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=en&format=json`;
+const GEO = (q)       => `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=1&language=en&format=json`;
+const IPLOC           = `https://ipapi.co/json/`; // simple IP geolocation (no key)
 
-const el={p:place,status,pm,time,err,retry};
+/* ---------- UI refs ---------- */
+const el = {
+  place:  document.getElementById('place'),
+  status: document.getElementById('status'),
+  pm:     document.getElementById('pm'),
+  time:   document.getElementById('time'),
+  err:    document.getElementById('err'),
+  check:  document.getElementById('checkBtn'),
+  ip:     document.getElementById('ipBtn'),
+  city:   document.getElementById('city'),
+  cityBtn:document.getElementById('cityBtn'),
+};
+
+/* ---------- Helpers ---------- */
 function setTheme(word){
-  if(word==="GOOD"){document.body.style.background="#91e2a0";document.body.style.color="#0a2617";}
-  else if(word==="BAD"){document.body.style.background="#ffe56e";document.body.style.color="#2a2107";}
-  else{document.body.style.background="#ff9d4a";document.body.style.color="#3a1b00";}
+  if(word === 'GOOD'){ document.documentElement.style.setProperty('--bg','#91e2a0'); document.documentElement.style.setProperty('--fg','#0a2617'); }
+  else if(word === 'BAD'){ document.documentElement.style.setProperty('--bg','#ffe56e'); document.documentElement.style.setProperty('--fg','#2a2107'); }
+  else { document.documentElement.style.setProperty('--bg','#ff9d4a'); document.documentElement.style.setProperty('--fg','#3a1b00'); }
 }
-function category(pm){return pm<=15?"GOOD":pm<=35?"BAD":"WORSE";}
-function t(iso){return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'});}
-async function j(url){const r=await fetch(url);if(!r.ok)throw new Error(r.status);return r.json();}
+function categorize(pm){ return pm <= 15 ? 'GOOD' : pm <= 35 ? 'BAD' : 'WORSE'; }
+function fmt(iso){ try{ return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'}); } catch(_){ return ''; } }
+async function j(url){ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
 
-async function load(lat,lon){
-  el.err.textContent="";el.status.textContent="Loading…";
+/* ---------- Core rendering ---------- */
+async function render(lat, lon, label='Your location'){
+  el.err.textContent = ''; el.status.textContent = 'Loading…'; el.place.textContent = label;
+  el.pm.textContent = 'PM2.5: — µg/m³'; el.time.textContent = '—';
   try{
-    const rev=await j(revURL(lat,lon));const name=rev.results?.[0];
-    el.p.textContent=name?[name.name,name.country].filter(Boolean).join(', '):"Your location";
-    const air=await j(airURL(lat,lon));
-    const v=air.hourly.pm2_5.at(-1);const time=air.hourly.time.at(-1);
-    const label=category(v);
-    el.status.textContent=`Air quality is ${label}`;
-    el.pm.textContent=`PM2.5: ${v.toFixed(1)} µg/m³`;
-    el.time.textContent=`Updated ${t(time)}`;
-    setTheme(label);
-  }catch(e){
-    el.err.textContent="Could not load air data. Check network or try again.";
-    el.status.textContent="—";
+    // nicer label if possible
+    try {
+      const rev = await j(REV(lat, lon));
+      const f = rev?.results?.[0];
+      if (f) label = [f.name, f.admin1, f.country].filter(Boolean).join(', ');
+      el.place.textContent = label;
+    } catch(_) {}
+
+    const data = await j(AIR(lat, lon));
+    const hours = data?.hourly?.time || [];
+    const vals  = data?.hourly?.pm2_5 || [];
+    if(!hours.length || !vals.length) throw new Error('No PM2.5 data here');
+
+    // choose the latest available value
+    const i = vals.length - 1;
+    const pm = Number(vals[i]);
+    const labelCat = categorize(pm);
+
+    el.status.textContent = `Air quality is ${labelCat}.`;
+    el.pm.textContent     = `PM2.5: ${pm.toFixed(1)} µg/m³`;
+    el.time.textContent   = `Updated ${fmt(hours[i])}`;
+    setTheme(labelCat);
+  }catch(err){
+    console.error(err);
+    el.err.textContent = 'Could not load air data here. Try IP fallback or city search.';
+    el.status.textContent = '—';
   }
 }
-function ask(){
-  el.retry.style.display="none";el.err.textContent="";el.p.textContent="Requesting location…";
-  if(!navigator.geolocation){el.err.textContent="No geolocation support.";return;}
+
+/* ---------- Flows ---------- */
+// 1) Geolocation (requires user click in many browsers)
+el.check.addEventListener('click', ()=>{
+  el.err.textContent = '';
+  el.place.textContent = 'Requesting location…';
+  if(!navigator.geolocation){
+    el.err.textContent = 'Geolocation not supported in this browser.';
+    return;
+  }
   navigator.geolocation.getCurrentPosition(
-    pos=>load(pos.coords.latitude,pos.coords.longitude),
-    ()=>{el.err.textContent="Location blocked. Please allow and reload.";el.retry.style.display="inline-block";}
+    pos => render(pos.coords.latitude, pos.coords.longitude, 'Your location'),
+    err => {
+      el.err.textContent = 'Location blocked or failed. Use IP fallback or city search.';
+    },
+    { enableHighAccuracy:false, timeout:8000, maximumAge:60000 }
   );
-}
-el.retry.onclick=ask;
-ask();
+});
+
+// 2) IP fallback (no prompt; approximate city-level)
+el.ip.addEventListener('click', async ()=>{
+  el.err.textContent = ''; el.place.textContent = 'Detecting via IP…';
+  try{
+    const ip = await j(IPLOC);
+    if(!ip || !ip.latitude || !ip.longitude) throw new Error('No IP location');
+    const label = [ip.city, ip.region, ip.country_name].filter(Boolean).join(', ');
+    await render(ip.latitude, ip.longitude, label || 'Your city (IP)');
+  }catch(e){
+    console.error(e);
+    el.err.textContent = 'IP lookup failed. Try city search.';
+  }
+});
+
+// 3) Manual city search
+el.cityBtn.addEventListener('click', async ()=>{
+  const q = el.city.value.trim();
+  if(!q){ el.err.textContent = 'Type a city name.'; return; }
+  el.err.textContent = ''; el.place.textContent = 'Searching city…';
+  try{
+    const g = await j(GEO(q));
+    const f = g?.results?.[0];
+    if(!f) throw new Error('City not found');
+    const label = [f.name, f.admin1, f.country].filter(Boolean).join(', ');
+    await render(f.latitude, f.longitude, label);
+  }catch(e){
+    console.error(e);
+    el.err.textContent = 'City not found. Try another.';
+  }
+});
+
+// Enter key for city field
+document.getElementById('city').addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter') el.cityBtn.click();
+});
 </script>
 </body>
 </html>
