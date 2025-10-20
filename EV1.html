@@ -78,7 +78,13 @@ function setTheme(word){
   else if(word === 'BAD'){ document.documentElement.style.setProperty('--bg','#ffe56e'); document.documentElement.style.setProperty('--fg','#2a2107'); }
   else { document.documentElement.style.setProperty('--bg','#ff9d4a'); document.documentElement.style.setProperty('--fg','#3a1b00'); }
 }
-function categorize(pm){ return pm <= 15 ? 'GOOD' : pm <= 35 ? 'BAD' : 'WORSE'; }
+function categorize(pm){ // PM2.5 in µg/m³
+  // ~US EPA 24-hr categories (rounded a bit for clarity)
+  if (pm <= 12.0)  return 'GOOD';      // Good
+  if (pm <= 35.4)  return 'BAD';       // Moderate (we label “BAD” per your spec)
+  return 'WORSE';                      // Unhealthy for sensitive+ / Unhealthy / Worse
+}
+
 function fmt(iso){ try{ return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'}); } catch(_){ return ''; } }
 async function j(url){ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
 
@@ -100,10 +106,17 @@ async function render(lat, lon, label='Your location'){
     const vals  = data?.hourly?.pm2_5 || [];
     if(!hours.length || !vals.length) throw new Error('No PM2.5 data here');
 
-    // choose the latest available value
-    const i = vals.length - 1;
-    const pm = Number(vals[i]);
-    const labelCat = categorize(pm);
+   // pick the hour closest to NOW
+const now = Date.now();
+let bestI = 0, bestDiff = Infinity;
+for (let k = 0; k < hours.length; k++) {
+  const d = new Date(hours[k]).getTime();
+  const diff = Math.abs(d - now);
+  if (diff < bestDiff) { bestDiff = diff; bestI = k; }
+}
+const pm = Number(vals[bestI]);
+const label = categorize(pm);
+
 
     el.status.textContent = `Air quality is ${labelCat}.`;
     el.pm.textContent     = `PM2.5: ${pm.toFixed(1)} µg/m³`;
