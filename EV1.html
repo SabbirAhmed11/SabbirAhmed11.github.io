@@ -3,183 +3,125 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BreatheEarth – simple AQI</title>
-<meta name="description" content="Single-serving site showing local PM2.5 air quality with graceful fallbacks.">
+<title>BreatheEarth</title>
 <style>
-  :root{ --bg:#e8fdea; --fg:#0f2518; }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; display:grid; place-items:center; text-align:center;
-    font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
-    background:var(--bg); color:var(--fg); transition:background .25s ease,color .25s ease; padding:24px;
+  /* full-screen layout */
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out;
   }
-  .card{max-width:720px;width:100%;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);padding:28px 22px;border-radius:18px}
-  h1{margin:0 0 .25rem;font-size:clamp(1.8rem,2.2vw+1rem,2.6rem)}
-  .sub{opacity:.8;margin:0 0 1rem}
-  .status{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.02em;margin:.4rem 0}
-  .pm{opacity:.9;font-weight:700}
-  .meta{opacity:.8;margin-top:.25rem}
-  .err{color:#b01212;font-weight:800;margin-top:.6rem}
-  .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-  input{flex:1 1 260px;min-width:230px;padding:10px 12px;border-radius:10px;border:1px solid #cfe0d9;background:#fff;outline:none}
-  button{padding:10px 14px;border:0;border-radius:12px;font-weight:800;cursor:pointer;background:#0f2518;color:#fff}
-  button.secondary{background:#1f3a2b}
-  .hint{opacity:.75;font-size:.9rem;margin-top:8px}
+
+  h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0.4rem 0; }
+  .sub { font-size: 1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+  .status { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 0.3rem; }
+  .pm { font-weight: 700; opacity: 0.95; }
+  .time { opacity: 0.8; font-size: 0.9rem; margin-top: 0.3rem; }
+  .err { color: #ffbaba; font-weight: 700; margin-top: 1rem; }
+  button {
+    margin-top: 1rem;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
-  <main class="card" role="main" aria-live="polite">
-    <h1>BreatheEarth</h1>
-    <p class="sub">The air you breathe connects us all.</p>
-
-    <div id="place">Ready.</div>
-    <div class="status" id="status">Click “Check my air quality”.</div>
-    <div class="pm" id="pm">PM2.5: — µg/m³</div>
-    <div class="meta" id="time">—</div>
-    <div class="err" id="err"></div>
-
-    <div class="row" style="margin-top:14px">
-      <button id="checkBtn">Check my air quality</button>
-      <button id="ipBtn" class="secondary" title="Use IP if location is blocked">Try IP fallback</button>
-    </div>
-
-    <div class="row" style="margin-top:8px">
-      <input id="city" placeholder="Or type a city (e.g., Dhaka, London, Austin)" />
-      <button id="cityBtn" class="secondary">Search city</button>
-    </div>
-
-    <div class="hint">Categories: <b>GOOD ≤ 12.0</b>, <b>BAD ≤ 35.4</b>, <b>WORSE &gt; 35.4</b> (PM2.5 µg/m³)</div>
-  </main>
+  <h1>BreatheEarth</h1>
+  <p class="sub">The air you breathe connects us all.</p>
+  <div id="place">Requesting location…</div>
+  <div class="status" id="status">—</div>
+  <div class="pm" id="pm">PM2.5: — µg/m³</div>
+  <div class="time" id="time">—</div>
+  <div class="err" id="err"></div>
+  <button id="retry" style="display:none">Try again</button>
 
 <script>
-/* ---------- Endpoints (no API key) ---------- */
-const AIR = (lat, lon) => `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
-const REV = (lat, lon) => `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=en&format=json`;
-const GEO = (q)       => `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=1&language=en&format=json`;
-const IPLOC           = `https://ipapi.co/json/`; // simple IP geolocation (no key)
+const airURL=(lat,lon)=>`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
+const revURL=(lat,lon)=>`https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=en`;
 
-/* ---------- UI refs ---------- */
-const el = {
-  place:  document.getElementById('place'),
-  status: document.getElementById('status'),
-  pm:     document.getElementById('pm'),
-  time:   document.getElementById('time'),
-  err:    document.getElementById('err'),
-  check:  document.getElementById('checkBtn'),
-  ip:     document.getElementById('ipBtn'),
-  city:   document.getElementById('city'),
-  cityBtn:document.getElementById('cityBtn'),
-};
+const el={p:place,status,pm,time,err,retry};
 
-/* ---------- Helpers ---------- */
-function setTheme(word){
-  if(word === 'GOOD'){ document.documentElement.style.setProperty('--bg','#91e2a0'); document.documentElement.style.setProperty('--fg','#0a2617'); }
-  else if(word === 'BAD'){ document.documentElement.style.setProperty('--bg','#ffe56e'); document.documentElement.style.setProperty('--fg','#2a2107'); }
-  else { document.documentElement.style.setProperty('--bg','#ff9d4a'); document.documentElement.style.setProperty('--fg','#3a1b00'); }
-}
-// EPA-like thresholds for 24-hr PM2.5 (rounded for clarity)
-function categorize(pm){ return pm <= 12.0 ? 'GOOD' : pm <= 35.4 ? 'BAD' : 'WORSE'; }
-function fmt(iso){ try{ return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'}); } catch(_){ return ''; } }
-async function j(url){ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
-
-/* choose the hour CLOSEST TO NOW (Open-Meteo returns past & future hours) */
-function indexClosestToNow(times){
-  const now = Date.now();
-  let bestI = 0, bestDiff = Infinity;
-  for (let k = 0; k < times.length; k++){
-    const d = new Date(times[k]).getTime();
-    const diff = Math.abs(d - now);
-    if (diff < bestDiff){ bestDiff = diff; bestI = k; }
-  }
-  return bestI;
+function setBackground(label){
+  const base="./assets/images/EV/";
+  const image={
+    GOOD: "Good.png",
+    BAD: "Bad.png",
+    WORSE: "Worse.png",
+    DEFAULT: "Home.png"
+  }[label] || "Home.png";
+  document.body.style.backgroundImage = `url('${base}${image}')`;
 }
 
-/* ---------- Core rendering ---------- */
-async function render(lat, lon, label='Your location'){
-  el.err.textContent = ''; el.status.textContent = 'Loading…'; el.place.textContent = label;
-  el.pm.textContent = 'PM2.5: — µg/m³'; el.time.textContent = '—';
+function category(pm){ return pm<=15?"GOOD":pm<=35?"BAD":"WORSE"; }
+function formatTime(iso){
+  try { return new Date(iso).toLocaleString([], {hour:'2-digit', minute:'2-digit', month:'short', day:'2-digit'}); }
+  catch { return ""; }
+}
+async function getJSON(url){
+  const r = await fetch(url);
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+async function load(lat,lon){
+  el.err.textContent=""; el.status.textContent="Loading…";
   try{
-    // nicer label if possible
-    try {
-      const rev = await j(REV(lat, lon));
-      const f = rev?.results?.[0];
-      if (f) label = [f.name, f.admin1, f.country].filter(Boolean).join(', ');
-      el.place.textContent = label;
-    } catch(_) {}
+    const rev = await getJSON(revURL(lat,lon));
+    const name = rev.results?.[0];
+    el.p.textContent = name ? [name.name,name.country].filter(Boolean).join(', ') : "Your location";
 
-    const data = await j(AIR(lat, lon));
-    const hours = data?.hourly?.time || [];
-    const vals  = data?.hourly?.pm2_5 || [];
-    if(!hours.length || !vals.length) throw new Error('No PM2.5 data here');
+    const air = await getJSON(airURL(lat,lon));
+    const pm = air.hourly.pm2_5.at(-1);
+    const time = air.hourly.time.at(-1);
+    const label = category(pm);
 
-    // ⬇️ pick the hour nearest to "now"
-    const i = indexClosestToNow(hours);
-    const pm = Number(vals[i]);
-    const cat = categorize(pm);
-
-    el.status.textContent = `Air quality is ${cat}.`;
-    el.pm.textContent     = `PM2.5: ${pm.toFixed(1)} µg/m³`;
-    el.time.textContent   = `Closest hour: ${fmt(hours[i])}`;
-    setTheme(cat);
-  }catch(err){
-    console.error(err);
-    el.err.textContent = 'Could not load air data here. Try IP fallback or city search.';
-    el.status.textContent = '—';
+    el.status.textContent = `Air quality is ${label}`;
+    el.pm.textContent = `PM2.5: ${pm.toFixed(1)} µg/m³`;
+    el.time.textContent = `Updated ${formatTime(time)}`;
+    setBackground(label);
+  } catch (e) {
+    console.error(e);
+    el.err.textContent = "Could not load air data. Please try again.";
+    el.status.textContent = "—";
+    setBackground("DEFAULT");
   }
 }
 
-/* ---------- Flows ---------- */
-// 1) Geolocation (needs a user click in most browsers)
-el.check.addEventListener('click', ()=>{
-  el.err.textContent = '';
-  el.place.textContent = 'Requesting location…';
+function askLocation(){
+  el.err.textContent="";
+  el.p.textContent="Requesting location…";
+  el.retry.style.display="none";
   if(!navigator.geolocation){
-    el.err.textContent = 'Geolocation not supported in this browser.';
+    el.err.textContent="Geolocation not supported.";
     return;
   }
   navigator.geolocation.getCurrentPosition(
-    pos => render(pos.coords.latitude, pos.coords.longitude, 'Your location'),
-    err => { el.err.textContent = 'Location blocked or failed. Use IP fallback or city search.'; },
-    { enableHighAccuracy:false, timeout:8000, maximumAge:60000 }
+    pos => load(pos.coords.latitude, pos.coords.longitude),
+    () => {
+      el.err.textContent="Location blocked. Please allow and reload.";
+      el.retry.style.display="inline-block";
+      setBackground("DEFAULT");
+    }
   );
-});
+}
 
-// 2) IP fallback (approx city-level; no prompt)
-el.ip.addEventListener('click', async ()=>{
-  el.err.textContent = ''; el.place.textContent = 'Detecting via IP…';
-  try{
-    const ip = await j(IPLOC);
-    if(!ip || !ip.latitude || !ip.longitude) throw new Error('No IP location');
-    const label = [ip.city, ip.region, ip.country_name].filter(Boolean).join(', ');
-    await render(ip.latitude, ip.longitude, label || 'Your city (IP)');
-  }catch(e){
-    console.error(e);
-    el.err.textContent = 'IP lookup failed. Try city search.';
-  }
-});
-
-// 3) Manual city search
-el.cityBtn.addEventListener('click', async ()=>{
-  const q = el.city.value.trim();
-  if(!q){ el.err.textContent = 'Type a city name.'; return; }
-  el.err.textContent = ''; el.place.textContent = 'Searching city…';
-  try{
-    const g = await j(GEO(q));
-    const f = g?.results?.[0];
-    if(!f) throw new Error('City not found');
-    const label = [f.name, f.admin1, f.country].filter(Boolean).join(', ');
-    await render(f.latitude, f.longitude, label);
-  }catch(e){
-    console.error(e);
-    el.err.textContent = 'City not found. Try another.';
-  }
-});
-
-// Enter key for city field
-document.getElementById('city').addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter') el.cityBtn.click();
-});
+el.retry.onclick=askLocation;
+askLocation();
 </script>
 </body>
 </html>
