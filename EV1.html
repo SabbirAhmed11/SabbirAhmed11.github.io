@@ -49,7 +49,7 @@
       <button id="cityBtn" class="secondary">Search city</button>
     </div>
 
-    <div class="hint">Categories: <b>GOOD ≤ 15</b>, <b>BAD ≤ 35</b>, <b>WORSE &gt; 35</b> (PM2.5 µg/m³)</div>
+    <div class="hint">Categories: <b>GOOD ≤ 12.0</b>, <b>BAD ≤ 35.4</b>, <b>WORSE &gt; 35.4</b> (PM2.5 µg/m³)</div>
   </main>
 
 <script>
@@ -78,15 +78,22 @@ function setTheme(word){
   else if(word === 'BAD'){ document.documentElement.style.setProperty('--bg','#ffe56e'); document.documentElement.style.setProperty('--fg','#2a2107'); }
   else { document.documentElement.style.setProperty('--bg','#ff9d4a'); document.documentElement.style.setProperty('--fg','#3a1b00'); }
 }
-function categorize(pm){ // PM2.5 in µg/m³
-  // ~US EPA 24-hr categories (rounded a bit for clarity)
-  if (pm <= 12.0)  return 'GOOD';      // Good
-  if (pm <= 35.4)  return 'BAD';       // Moderate (we label “BAD” per your spec)
-  return 'WORSE';                      // Unhealthy for sensitive+ / Unhealthy / Worse
-}
-
+// EPA-like thresholds for 24-hr PM2.5 (rounded for clarity)
+function categorize(pm){ return pm <= 12.0 ? 'GOOD' : pm <= 35.4 ? 'BAD' : 'WORSE'; }
 function fmt(iso){ try{ return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'}); } catch(_){ return ''; } }
 async function j(url){ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
+
+/* choose the hour CLOSEST TO NOW (Open-Meteo returns past & future hours) */
+function indexClosestToNow(times){
+  const now = Date.now();
+  let bestI = 0, bestDiff = Infinity;
+  for (let k = 0; k < times.length; k++){
+    const d = new Date(times[k]).getTime();
+    const diff = Math.abs(d - now);
+    if (diff < bestDiff){ bestDiff = diff; bestI = k; }
+  }
+  return bestI;
+}
 
 /* ---------- Core rendering ---------- */
 async function render(lat, lon, label='Your location'){
@@ -106,22 +113,15 @@ async function render(lat, lon, label='Your location'){
     const vals  = data?.hourly?.pm2_5 || [];
     if(!hours.length || !vals.length) throw new Error('No PM2.5 data here');
 
-   // pick the hour closest to NOW
-const now = Date.now();
-let bestI = 0, bestDiff = Infinity;
-for (let k = 0; k < hours.length; k++) {
-  const d = new Date(hours[k]).getTime();
-  const diff = Math.abs(d - now);
-  if (diff < bestDiff) { bestDiff = diff; bestI = k; }
-}
-const pm = Number(vals[bestI]);
-const label = categorize(pm);
+    // ⬇️ pick the hour nearest to "now"
+    const i = indexClosestToNow(hours);
+    const pm = Number(vals[i]);
+    const cat = categorize(pm);
 
-
-    el.status.textContent = `Air quality is ${labelCat}.`;
+    el.status.textContent = `Air quality is ${cat}.`;
     el.pm.textContent     = `PM2.5: ${pm.toFixed(1)} µg/m³`;
-    el.time.textContent   = `Updated ${fmt(hours[i])}`;
-    setTheme(labelCat);
+    el.time.textContent   = `Closest hour: ${fmt(hours[i])}`;
+    setTheme(cat);
   }catch(err){
     console.error(err);
     el.err.textContent = 'Could not load air data here. Try IP fallback or city search.';
@@ -130,7 +130,7 @@ const label = categorize(pm);
 }
 
 /* ---------- Flows ---------- */
-// 1) Geolocation (requires user click in many browsers)
+// 1) Geolocation (needs a user click in most browsers)
 el.check.addEventListener('click', ()=>{
   el.err.textContent = '';
   el.place.textContent = 'Requesting location…';
@@ -140,14 +140,12 @@ el.check.addEventListener('click', ()=>{
   }
   navigator.geolocation.getCurrentPosition(
     pos => render(pos.coords.latitude, pos.coords.longitude, 'Your location'),
-    err => {
-      el.err.textContent = 'Location blocked or failed. Use IP fallback or city search.';
-    },
+    err => { el.err.textContent = 'Location blocked or failed. Use IP fallback or city search.'; },
     { enableHighAccuracy:false, timeout:8000, maximumAge:60000 }
   );
 });
 
-// 2) IP fallback (no prompt; approximate city-level)
+// 2) IP fallback (approx city-level; no prompt)
 el.ip.addEventListener('click', async ()=>{
   el.err.textContent = ''; el.place.textContent = 'Detecting via IP…';
   try{
