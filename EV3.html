@@ -3,114 +3,180 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BreatheEarth – simple AQI</title>
+<title>BreatheEarth</title>
 <meta name="description" content="Single-serving site showing local PM2.5 air quality.">
 <style>
-  :root{ --bg:#e8fdea; --fg:#0f2518; }
-  *{box-sizing:border-box}
-  html,body{height:100%}
+  /* Base */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;width:100%}
   body{
-    margin:0; display:grid; place-items:center; text-align:center;
     font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
-    background:var(--bg); color:var(--fg); transition:background .25s ease,color .25s ease; padding:24px;
+    color:#0d2417;
+    background:#fff center center / cover no-repeat fixed; /* set by JS */
   }
-  .card{max-width:720px;width:100%;background:rgba(255,255,255,.75);backdrop-filter:blur(8px);padding:28px 22px;border-radius:18px}
-  h1{margin:0 0 .25rem;font-size:clamp(1.8rem,2.2vw+1rem,2.6rem)}
-  .sub{opacity:.8;margin:0 0 1rem}
-  .status{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.02em;margin:.4rem 0}
-  .pm{opacity:.9;font-weight:700}
-  .meta{opacity:.8;margin-top:.25rem}
-  .err{color:#b01212;font-weight:800;margin-top:.6rem}
-  .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-  input{flex:1 1 260px;min-width:230px;padding:10px 12px;border-radius:10px;border:1px solid #cfe0d9;background:#fff;outline:none}
-  button{padding:10px 14px;border:0;border-radius:12px;font-weight:800;cursor:pointer;background:#0f2518;color:#fff}
-  .hint{opacity:.75;font-size:.9rem;margin-top:8px}
+
+  /* Top-right transparent search */
+  .topbar{
+    position:fixed; top:14px; right:14px; z-index:20;
+    display:flex; gap:8px; align-items:center;
+  }
+  .topbar input{
+    min-width:280px; padding:10px 12px;
+    border:2px solid #0d2417; border-radius:12px;
+    background:transparent; color:#0d2417; font-weight:600; outline:none;
+  }
+  .topbar input::placeholder{color:#0d2417; opacity:.55}
+  .topbar button{
+    padding:10px 12px; border:0; border-radius:12px; font-weight:800;
+    background:#0d2417; color:#fff; cursor:pointer;
+  }
+
+  /* Centered readout (higher & bigger) */
+  .stage{min-height:100%; display:grid; place-items:center}
+  .readout{
+    text-align:center;
+    transform: translateY(-18vh); /* lift higher */
+    text-shadow: 0 2px 18px rgba(0,0,0,.12);
+  }
+  .place{
+    font-weight:800;
+    font-size:clamp(1.2rem, 2vw + .7rem, 1.8rem);
+    margin-bottom:.3rem;
+  }
+  .status{
+    font-weight:900; letter-spacing:-.02em;
+    font-size:clamp(2.4rem, 5.2vw + .4rem, 4.0rem);
+    margin:.2rem 0 .2rem;
+  }
+  .pm{
+    font-weight:800; opacity:.95;
+    font-size:clamp(1.0rem, 1.2vw + .6rem, 1.25rem);
+  }
+  .meta{opacity:.9; margin-top:.15rem}
+  .err{color:#b01212; font-weight:800; margin-top:.6rem}
+
+  .actions{
+    margin-top:10px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap
+  }
+  .btn{
+    padding:10px 14px; border:0; border-radius:12px; font-weight:800;
+    background:#0d2417; color:#fff; cursor:pointer;
+  }
+
+  .hint{
+    position:fixed; bottom:14px; left:50%; transform:translateX(-50%);
+    font-size:.9rem; opacity:.8; text-shadow:0 2px 8px rgba(0,0,0,.12)
+  }
 </style>
 </head>
 <body>
-  <main class="card" role="main" aria-live="polite">
-    <h1>BreatheEarth</h1>
-    <p class="sub">The air you breathe connects us all.</p>
 
-    <div id="place">Ready.</div>
-    <div class="status" id="status">Click “Check my air quality”.</div>
-    <div class="pm" id="pm">PM2.5: — µg/m³</div>
-    <div class="meta" id="time">—</div>
-    <div class="err" id="err"></div>
+  <!-- Top-right search -->
+  <div class="topbar">
+    <input id="city" placeholder="Type a city (e.g., Dhaka, Bangladesh)" />
+    <button id="cityBtn">Search city</button>
+  </div>
 
-    <div class="row" style="margin-top:14px">
-      <button id="checkBtn">Check my air quality</button>
-    </div>
+  <!-- Readout (no card/box) -->
+  <div class="stage">
+    <section class="readout" role="main" aria-live="polite">
+      <div id="place" class="place">—</div>
+      <div id="status" class="status">Click “Use my location”.</div>
+      <div id="pm" class="pm">PM2.5: — µg/m³</div>
+      <div id="time" class="meta">—</div>
+      <div id="err" class="err"></div>
+      <div class="actions">
+        <button id="locBtn" class="btn">Use my location</button>
+      </div>
+    </section>
+  </div>
 
-    <div class="row" style="margin-top:8px">
-      <input id="city" placeholder="Or type a city (e.g., Dhaka, London, Austin)" />
-      <button id="cityBtn">Search city</button>
-    </div>
-
-    <div class="hint">Categories: <b>GOOD ≤ 12.0</b>, <b>BAD ≤ 35.4</b>, <b>WORSE &gt; 35.4</b> (PM2.5 µg/m³)</div>
-  </main>
+  <div class="hint">Categories: <b>GOOD ≤ 12.0</b>, <b>BAD ≤ 35.4</b>, <b>WORSE &gt; 35.4</b> (PM2.5 µg/m³)</div>
 
 <script>
-/* -------- Endpoints (no API key) -------- */
+/* ---------- Path to your background images ---------- */
+const IMG_PATH = "assets/images/EV/";
+const BG = {
+  HOME:  IMG_PATH + "Home.png",
+  GOOD:  IMG_PATH + "Good.png",
+  BAD:   IMG_PATH + "Bad.png",
+  WORSE: IMG_PATH + "Worse.png",
+};
+/* Preload + initial background */
+(function(){
+  [BG.HOME, BG.GOOD, BG.BAD, BG.WORSE].forEach(src => { const i=new Image(); i.src=src; });
+  document.body.style.background = `url('${BG.HOME}') center center / cover no-repeat fixed`;
+})();
+
+/* ---------- Endpoints (no API key) ---------- */
 const AIR = (lat, lon) => `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
 const REV1 = (lat, lon) => `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=en&format=json`;
 const REV2 = (lat, lon) => `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
-const GEO  = (q)       => `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=1&language=en&format=json`;
+const GEO  = (q)       => `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=10&language=en&format=json`;
 
-/* -------- UI refs -------- */
+/* ---------- UI refs ---------- */
 const el = {
   place:  document.getElementById('place'),
   status: document.getElementById('status'),
   pm:     document.getElementById('pm'),
   time:   document.getElementById('time'),
   err:    document.getElementById('err'),
-  check:  document.getElementById('checkBtn'),
+  locBtn: document.getElementById('locBtn'),
   city:   document.getElementById('city'),
   cityBtn:document.getElementById('cityBtn'),
 };
 
-/* -------- Helpers -------- */
-function setTheme(word){
-  if(word === 'GOOD'){ document.documentElement.style.setProperty('--bg','#91e2a0'); document.documentElement.style.setProperty('--fg','#0a2617'); }
-  else if(word === 'BAD'){ document.documentElement.style.setProperty('--bg','#ffe56e'); document.documentElement.style.setProperty('--fg','#2a2107'); }
-  else { document.documentElement.style.setProperty('--bg','#ff9d4a'); document.documentElement.style.setProperty('--fg','#3a1b00'); }
-}
+/* ---------- Helpers ---------- */
 function categorize(pm){ return pm <= 12.0 ? 'GOOD' : pm <= 35.4 ? 'BAD' : 'WORSE'; }
 function fmt(iso){ try{ return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'}); } catch(_){ return ''; } }
-async function j(url, opt={}){ const r = await fetch(url, {cache:'no-store', ...opt}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
+async function j(url, opt={}){ const r = await fetch(url,{cache:'no-store',...opt}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
 function indexClosestToNow(times){
-  const now = Date.now(); let bestI = 0, best = Infinity;
-  for(let k=0;k<times.length;k++){ const d = new Date(times[k]).getTime(); const diff = Math.abs(d - now); if(diff < best){ best = diff; bestI = k; } }
+  const now=Date.now(); let bestI=0, best=Infinity;
+  for (let k=0;k<times.length;k++){ const d=new Date(times[k]).getTime(); const diff=Math.abs(d-now); if(diff<best){best=diff; bestI=k;} }
   return bestI;
 }
+function setTheme(cat){
+  const map = { GOOD: BG.GOOD, BAD: BG.BAD, WORSE: BG.WORSE, HOME: BG.HOME };
+  document.body.style.background = `url('${map[cat]||BG.HOME}') center center / cover no-repeat fixed`;
+}
 
-/* Robust reverse-geocoder: try Open-Meteo → OSM Nominatim → fallback to coords */
+/* Only City, Country */
 async function reverseLabel(lat, lon){
-  // 1) Open-Meteo reverse
   try{
     const r = await j(REV1(lat, lon));
     const f = r?.results?.[0];
     if (f){
-      return [f.name, f.admin1, f.country].filter(Boolean).join(', ');
+      const city = f.name;
+      const country = f.country;
+      if (city || country) return [city, country].filter(Boolean).join(', ');
     }
   }catch(_){}
-
-  // 2) OpenStreetMap Nominatim (needs a UA; browser provides one)
   try{
     const r = await j(REV2(lat, lon), { headers: { 'Accept-Language': 'en' }});
     const a = r?.address || {};
     const city = a.city || a.town || a.village || a.hamlet || a.suburb || a.county;
-    const state = a.state || a.province || a.region;
     const country = a.country;
-    const parts = [city, state, country].filter(Boolean);
+    const parts = [city, country].filter(Boolean);
     if (parts.length) return parts.join(', ');
   }catch(_){}
-
-  // 3) Fallback
-  return `${lat.toFixed(3)}, ${lon.toFixed(3)}`;
+  return `${lat.toFixed(2)}, ${lon.toFixed(2)}`;
 }
 
-/* -------- Core rendering -------- */
+/* Pick best geocode result (population + optional "City, Country" hint) */
+function pickBestGeocode(results, rawQuery){
+  if (!Array.isArray(results) || !results.length) return null;
+  const parts = rawQuery.split(',').map(s=>s.trim());
+  const wantCountry = parts.length>1 ? parts[parts.length-1].toLowerCase() : null;
+  let filtered = results;
+  if (wantCountry){
+    filtered = results.filter(r => (r.country || '').toLowerCase().includes(wantCountry));
+    if (!filtered.length) filtered = results;
+  }
+  filtered.sort((a,b)=> (b.population||0) - (a.population||0));
+  return filtered[0];
+}
+
+/* ---------- Core render ---------- */
 async function render(lat, lon){
   el.err.textContent = '';
   el.place.textContent = 'Finding your city…';
@@ -119,15 +185,13 @@ async function render(lat, lon){
   el.time.textContent = '—';
 
   try{
-    // Name the place first (so no “Your location”)
     const label = await reverseLabel(lat, lon);
     el.place.textContent = label;
 
-    // Then air data
     const data = await j(AIR(lat, lon));
     const hours = data?.hourly?.time || [];
     const vals  = data?.hourly?.pm2_5 || [];
-    if(!hours.length || !vals.length) throw new Error('No PM2.5 data here');
+    if (!hours.length || !vals.length) throw new Error('No PM2.5 data');
 
     const i  = indexClosestToNow(hours);
     const pm = Number(vals[i]);
@@ -139,47 +203,48 @@ async function render(lat, lon){
     setTheme(cat);
   }catch(e){
     console.error(e);
-    el.err.textContent = 'Could not load air data here.';
+    el.err.textContent = 'Could not load air data. If geolocation is blocked, use the city search.';
     el.status.textContent = '—';
+    setTheme('HOME');
   }
 }
 
-/* -------- Flows -------- */
-// Geolocation (user click)
-el.check.addEventListener('click', ()=>{
+/* ---------- Flows ---------- */
+// Geolocation (permission on click)
+el.locBtn.addEventListener('click', ()=>{
   el.err.textContent = '';
   el.place.textContent = 'Requesting location…';
-  if(!navigator.geolocation){
+  if (!navigator.geolocation){
     el.err.textContent = 'Geolocation not supported in this browser.';
     return;
   }
   navigator.geolocation.getCurrentPosition(
     pos => render(pos.coords.latitude, pos.coords.longitude),
-    _   => el.err.textContent = 'Location blocked or failed. Use the city search below.',
+    ()  => el.err.textContent = 'Location blocked or failed. Please use the city search.',
     { enableHighAccuracy:false, timeout:8000, maximumAge:60000 }
   );
 });
 
-// Manual city search
+// City search (top-right)
 el.cityBtn.addEventListener('click', async ()=>{
   const q = el.city.value.trim();
-  if(!q){ el.err.textContent = 'Type a city name.'; return; }
+  if (!q){ el.err.textContent = 'Type a city name.'; return; }
   el.err.textContent = ''; el.place.textContent = 'Searching city…'; el.status.textContent = 'Loading…';
   try{
     const g = await j(GEO(q));
-    const f = g?.results?.[0];
-    if(!f) throw new Error('City not found');
-    const label = [f.name, f.admin1, f.country].filter(Boolean).join(', ');
+    const best = pickBestGeocode(g?.results || [], q);
+    if (!best) throw new Error('City not found');
+    const label = [best.name, best.country].filter(Boolean).join(', ');
     el.place.textContent = label;
-    await render(f.latitude, f.longitude);
+    await render(best.latitude, best.longitude);
   }catch(e){
     console.error(e);
-    el.err.textContent = 'City not found. Try another.';
+    el.err.textContent = 'City not found or unavailable. Try "City, Country".';
     el.status.textContent = '—';
   }
 });
 document.getElementById('city').addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter') el.cityBtn.click();
+  if (e.key === 'Enter') el.cityBtn.click();
 });
 </script>
 </body>
