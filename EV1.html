@@ -1,245 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BreatheEarth</title>
-<meta name="description" content="Single-serving site showing local PM2.5 air quality.">
-<style>
-  /* --- Base --- */
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%;width:100%}
-  body{
-    font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
-    color:#0d2417;
-    background:#fff center center / cover no-repeat fixed; /* set by JS */
-    transition: background 0.8s ease;
-  }
-
-  /* --- Top-right transparent search --- */
-  .topbar{
-    position:fixed; top:14px; right:14px; z-index:20;
-    display:flex; gap:8px; align-items:center;
-  }
-  .topbar input{
-    min-width:280px; padding:10px 12px;
-    border:2px solid #0d2417; border-radius:12px;
-    background:transparent; color:#0d2417; font-weight:600; outline:none;
-  }
-  .topbar input::placeholder{color:#0d2417; opacity:.55}
-  .topbar button{
-    padding:10px 12px; border:0; border-radius:12px;
-    font-weight:800; background:#0d2417; color:#fff; cursor:pointer;
-  }
-
-  /* --- Centered readout (moved a bit higher) --- */
-  .stage{
-    min-height:100%;
-    display:grid; place-items:center;
-  }
-  .readout{
-    text-align:center;
-    transform: translateY(-8vh); /* lift the block higher */
-    text-shadow: 0 2px 18px rgba(0,0,0,.12);
-  }
-  .place{
-    font-weight:800; font-size:clamp(1.1rem, 1.6vw + .7rem, 1.6rem);
-    margin-bottom:.25rem;
-  }
-  .status{
-    font-weight:900; letter-spacing:-.02em;
-    font-size:clamp(2.0rem, 4.8vw + .5rem, 3.6rem);
-    margin:.2rem 0 .2rem;
-  }
-  .pm{
-    font-weight:800; opacity:.95;
-    font-size:clamp(1.0rem, 1.2vw + .6rem, 1.25rem);
-  }
-  .meta{opacity:.9; margin-top:.15rem}
-  .err{color:#b01212; font-weight:800; margin-top:.6rem}
-
-  .actions{ margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
-  .btn{
-    padding:10px 14px; border:0; border-radius:12px; font-weight:800;
-    background:#0d2417; color:#fff; cursor:pointer;
-  }
-
-  .hint{position:fixed; bottom:14px; left:50%; transform:translateX(-50%);
-    font-size:.9rem; opacity:.8}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Broadcast GIF</title>
+  <!-- Preload the GIF so it starts quickly -->
+  <link rel="preload" as="image" href="./assets/images/EV.gif" type="image/gif" />
+  <style>
+    :root { color-scheme: dark light; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000; /* nice backdrop for most GIFs */
+      overflow: hidden; /* prevent scrollbars on small rounding differences */
+    }
+    .stage {
+      position: fixed;
+      inset: 0;           /* full-viewport */
+      display: grid;      /* easy centering */
+      place-items: center;
+    }
+    .gif {
+      max-width: 100vw;   /* never overflow width */
+      max-height: 100vh;  /* never overflow height */
+      width: auto;        /* preserve aspect ratio */
+      height: auto;       /* preserve aspect ratio */
+      image-rendering: -webkit-optimize-contrast; /* crisper on some browsers */
+      image-rendering: optimizeQuality;
+      display: block;
+    }
+    /* Optional: fade-in for a cleaner load */
+    .gif { opacity: 0; transition: opacity .3s ease; }
+    .gif.is-loaded { opacity: 1; }
+  </style>
 </head>
 <body>
+  <main class="stage" aria-label="Animated graphic">
+    <img
+      id="evGif"
+      class="gif"
+      src="./assets/images/EV.gif"
+      alt="Animated GIF"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </main>
 
-  <!-- Top-right search -->
-  <div class="topbar">
-    <input id="city" placeholder="Type a city (e.g., Dhaka, Bangladesh)" />
-    <button id="cityBtn">Search city</button>
-  </div>
-
-  <!-- Centered readout (no box) -->
-  <div class="stage">
-    <section class="readout" role="main" aria-live="polite">
-      <div id="place" class="place">—</div>
-      <div id="status" class="status">Click “Use my location”.</div>
-      <div id="pm" class="pm">PM2.5: — µg/m³</div>
-      <div id="time" class="meta">—</div>
-      <div id="err" class="err"></div>
-
-      <div class="actions">
-        <button id="locBtn" class="btn">Use my location</button>
-      </div>
-    </section>
-  </div>
-
-  <div class="hint">Categories: <b>GOOD ≤ 12.0</b>, <b>BAD ≤ 35.4</b>, <b>WORSE &gt; 35.4</b> (PM2.5 µg/m³)</div>
-
-<script>
-/* ---------------- Path to your background images ---------------- */
-const IMG_PATH = "assets/images/EV/";
-const BG = {
-  HOME:  IMG_PATH + "Home.png",
-  GOOD:  IMG_PATH + "Good.png",
-  BAD:   IMG_PATH + "Bad.png",
-  WORSE: IMG_PATH + "Worse.png",
-};
-/* Preload */
-(function(){
-  [BG.HOME, BG.GOOD, BG.BAD, BG.WORSE].forEach(src => { const i=new Image(); i.src=src; });
-  document.body.style.background = `url('${BG.HOME}') center center / cover no-repeat fixed`;
-})();
-
-/* ---------------- Endpoints (no API key) ---------------- */
-const AIR = (lat, lon) => `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
-const REV1 = (lat, lon) => `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=en&format=json`;
-const REV2 = (lat, lon) => `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
-const GEO  = (q)       => `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=10&language=en&format=json`;
-
-/* ---------------- UI refs ---------------- */
-const el = {
-  place:  document.getElementById('place'),
-  status: document.getElementById('status'),
-  pm:     document.getElementById('pm'),
-  time:   document.getElementById('time'),
-  err:    document.getElementById('err'),
-  locBtn: document.getElementById('locBtn'),
-  city:   document.getElementById('city'),
-  cityBtn:document.getElementById('cityBtn'),
-};
-
-/* ---------------- Helpers ---------------- */
-function categorize(pm){ return pm <= 12.0 ? 'GOOD' : pm <= 35.4 ? 'BAD' : 'WORSE'; }
-function fmt(iso){ try{ return new Date(iso).toLocaleString([], {hour:'2-digit',minute:'2-digit',month:'short',day:'2-digit'}); } catch(_){ return ''; } }
-async function j(url, opt={}){ const r = await fetch(url,{cache:'no-store',...opt}); if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }
-function indexClosestToNow(times){
-  const now=Date.now(); let bestI=0, best=Infinity;
-  for (let k=0;k<times.length;k++){ const d=new Date(times[k]).getTime(); const diff=Math.abs(d-now); if(diff<best){best=diff; bestI=k;} }
-  return bestI;
-}
-function setTheme(cat){
-  const map = { GOOD: BG.GOOD, BAD: BG.BAD, WORSE: BG.WORSE, HOME: BG.HOME };
-  document.body.style.background = `url('${map[cat]||BG.HOME}') center center / cover no-repeat fixed`;
-}
-async function reverseLabel(lat, lon){
-  try{
-    const r = await j(REV1(lat, lon));
-    const f = r?.results?.[0];
-    if (f) return [f.name, f.admin1, f.country].filter(Boolean).join(', ');
-  }catch(_){}
-  try{
-    const r = await j(REV2(lat, lon), { headers: { 'Accept-Language': 'en' }});
-    const a = r?.address || {};
-    const city = a.city || a.town || a.village || a.suburb || a.county;
-    const state = a.state || a.region || a.province;
-    const country = a.country;
-    const parts = [city, state, country].filter(Boolean);
-    if (parts.length) return parts.join(', ');
-  }catch(_){}
-  return `${lat.toFixed(2)}, ${lon.toFixed(2)}`;
-}
-function pickBestGeocode(results, rawQuery){
-  if (!Array.isArray(results) || !results.length) return null;
-  const parts = rawQuery.split(',').map(s=>s.trim());
-  const wantCountry = parts.length>1 ? parts[parts.length-1].toLowerCase() : null;
-
-  let filtered = results;
-  if (wantCountry){
-    filtered = results.filter(r => (r.country || '').toLowerCase().includes(wantCountry));
-    if (!filtered.length) filtered = results;
-  }
-  filtered.sort((a,b)=> (b.population||0) - (a.population||0));
-  return filtered[0];
-}
-
-/* ---------------- Core render ---------------- */
-async function render(lat, lon){
-  el.err.textContent = '';
-  el.place.textContent = 'Finding your city…';
-  el.status.textContent = 'Loading…';
-  el.pm.textContent = 'PM2.5: — µg/m³';
-  el.time.textContent = '—';
-
-  try{
-    const label = await reverseLabel(lat, lon);
-    el.place.textContent = label;
-
-    const data = await j(AIR(lat, lon));
-    const hours = data?.hourly?.time || [];
-    const vals  = data?.hourly?.pm2_5 || [];
-    if (!hours.length || !vals.length) throw new Error('No PM2.5 data');
-
-    const i  = indexClosestToNow(hours);
-    const pm = Number(vals[i]);
-    const cat= categorize(pm);
-
-    el.status.textContent = `Air quality is ${cat}.`;
-    el.pm.textContent     = `PM2.5: ${pm.toFixed(1)} µg/m³`;
-    el.time.textContent   = `Closest hour: ${fmt(hours[i])}`;
-    setTheme(cat);
-  }catch(e){
-    console.error(e);
-    el.err.textContent = 'Could not load air data. If geolocation is blocked, use the city search.';
-    el.status.textContent = '—';
-    setTheme('HOME');
-  }
-}
-
-/* ---------------- Flows ---------------- */
-// Geolocation (reliable permission prompt on click)
-el.locBtn.addEventListener('click', ()=>{
-  el.err.textContent = '';
-  el.place.textContent = 'Requesting location…';
-  if (!navigator.geolocation){
-    el.err.textContent = 'Geolocation not supported in this browser.';
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(
-    pos => render(pos.coords.latitude, pos.coords.longitude),
-    ()  => el.err.textContent = 'Location blocked or failed. Please use the city search.',
-    { enableHighAccuracy:false, timeout:8000, maximumAge:60000 }
-  );
-});
-
-// City search (top-right)
-el.cityBtn.addEventListener('click', async ()=>{
-  const q = el.city.value.trim();
-  if (!q){ el.err.textContent = 'Type a city name.'; return; }
-  el.err.textContent = ''; el.place.textContent = 'Searching city…'; el.status.textContent = 'Loading…';
-  try{
-    const g = await j(GEO(q));
-    const best = pickBestGeocode(g?.results || [], q);
-    if (!best) throw new Error('City not found');
-    const label = [best.name, best.admin1, best.country].filter(Boolean).join(', ');
-    el.place.textContent = label;
-    await render(best.latitude, best.longitude);
-  }catch(e){
-    console.error(e);
-    el.err.textContent = 'City not found or unavailable. Try "City, Country".';
-    el.status.textContent = '—';
-  }
-});
-document.getElementById('city').addEventListener('keydown', (e)=>{
-  if (e.key === 'Enter') el.cityBtn.click();
-});
-</script>
+  <script>
+    // Fade in once the GIF is ready
+    const img = document.getElementById('evGif');
+    if (img.complete) {
+      img.classList.add('is-loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('is-loaded'));
+      img.addEventListener('error', () => {
+        console.error('Failed to load ./assets/images/EV.gif');
+      });
+    }
+    // Optional: handle viewport resizes smoothly (no layout jank thanks to CSS)
+  </script>
+  <noscript>
+    Your browser needs JavaScript disabled? The GIF should still display; if not, check the path <code>./assets/images/EV.gif</code>.
+  </noscript>
 </body>
 </html>
