@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Will You Still Use It? — Personal Impact</title>
+<title>Will You Still Use It?</title>
 <meta name="description" content="Pick a plastic item, enter how much you use per week, and see your yearly impact." />
 <style>
   :root{
@@ -13,6 +13,7 @@
     --danger:#b01212;
     --ring:#0d241733;
     --bg1:#eaf4ef; --bg2:#eef3ef; --bg3:#e6efe9;
+    --msgblue:#007acc;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
@@ -37,11 +38,11 @@
 
   .section-title{font-weight:900; letter-spacing:-.01em}
 
-  /* Card grid */
   .grid{
     display:grid; grid-template-columns:repeat(3,1fr);
     gap:16px;
   }
+
   .card{
     position:relative; border-radius:18px;
     background:#f6fbf8; border:2px solid transparent;
@@ -53,8 +54,6 @@
   }
   .card:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.08); background:#f2faf6 }
   .card.active{ border-color:var(--accent); box-shadow:0 0 0 3px #12775a22 inset }
-  .label{position:absolute; bottom:12px; left:12px; right:12px; text-align:center; font-weight:900}
-  .hint{display:block; font-size:.9rem; color:var(--muted); font-weight:700}
 
   .icon{
     width:min(200px,54%);
@@ -62,6 +61,9 @@
     object-fit:contain;
     pointer-events:none;
   }
+
+  .label{position:absolute; bottom:12px; left:12px; right:12px; text-align:center; font-weight:900}
+  .hint{display:block; font-size:.9rem; color:var(--muted); font-weight:700}
 
   .calc{
     border-top:1px solid var(--ring);
@@ -86,12 +88,17 @@
     display:none;
     padding:12px 14px;
     border:1px solid var(--ring); border-radius:16px; background:#f6fbf8;
-    font-weight:750; white-space:pre-line;
+    white-space:pre-line;
   }
   .result.show{display:block}
 
-  footer{
-    text-align:center; font-size:.9rem; color:#284a36; opacity:.85;
+  /* NEW: Blue message styling with spacing */
+  .result-item { font-weight:800; color:var(--ink); }
+  .result-stats { font-weight:750; color:var(--ink); margin-top:2px; }
+  .result-msg {
+    margin-top:10px;
+    color:var(--msgblue);
+    font-weight:650;
   }
 
   @media (max-width:900px){
@@ -106,19 +113,16 @@
 
     <div class="section-title">Select any plastic item</div>
     <section class="grid" id="choices">
-      <!-- Plastic Bottle -->
       <button class="card" data-item="bottle" aria-pressed="false">
         <img class="icon" src="./assets/images/bottle.png" alt="Plastic Bottle" />
         <div class="label">Plastic Bottle <span class="hint">~450 years</span></div>
       </button>
 
-      <!-- Plastic Bag -->
       <button class="card" data-item="bag" aria-pressed="false">
         <img class="icon" src="./assets/images/bag.png" alt="Plastic Bag" />
         <div class="label">Plastic Bag <span class="hint">~20 years</span></div>
       </button>
 
-      <!-- Plastic Straw -->
       <button class="card" data-item="straw" aria-pressed="false">
         <img class="icon" src="./assets/images/straw.png" alt="Plastic Straw" />
         <div class="label">Plastic Straw <span class="hint">~200 years</span></div>
@@ -145,7 +149,6 @@
 <script>
 (function(){
 
-  /* MESSAGE OBJECT – Easy to Edit */
   const messages = {
     bottle: {
       zero: `Zero this week. That’s not a small choice, that’s a statement.
@@ -160,13 +163,13 @@ You just stopped plastic that would've lingered in landfills and oceans until 20
       low: `Just this much bags a week? So you are the famous “I reuse them as trash liners” excuse one. Adorable.
 But your “Innocent Stash” still becomes 150+ bags a year… eventually escaping cupboards to decorate streets and trees like unwanted, non-biodegradable party streamers.`,
       high: `What! In a week? You're not shopping — you're building a plastic bag retirement home.
-all that bag in a year is enough to fill a whole kitchen drawer which is ironically where most people store their “I swear I’ll reuse these” plastic bag graveyard. Time to carry a tote and retire from the bag-hoarding lifestyle.`
+all that bag in a year is enough to fill a whole kitchen drawer basically the plastic bag graveyard. Time to carry a tote and retire from the bag-hoarding lifestyle.`
     },
     straw: {
       zero: `Zero straws this week — that’s impact disguised as a tiny choice.
 You prevented plastic that would outlive three generations. One simple “No straw, please” today means clearer oceans for the future — that’s real influence, no followers required.`,
-      low: `All taht in a week? So you’re sipping like royalty but passing the cleanup to future grandkids?
-That “little treat” becomes 150+ straws a year, and each one hangs around for 20 years — long enough to make a cameo in your great-great-grandchildren’s seafood.`,
+      low: `All that in a week? So you’re sipping like royalty but passing the cleanup to future grandkids?
+That “little treat” becomes 150+ straws a year, and each one hangs around for 200 years — long enough to make a cameo in your great-great-grandchildren’s seafood.`,
       high: `In a week? Babe, that’s not a drink — that’s a straw addiction arc.
 that much straws a year is basically a starter kit for an underwater “do not enter” zone. Switch to alternatives before the ocean nominates you as its villain of the month.`
     }
@@ -178,7 +181,7 @@ that much straws a year is basically a starter kit for an underwater “do not e
   cards.forEach(card=>{
     card.addEventListener('click', ()=>{
       cards.forEach(c=>{ c.classList.remove('active'); c.setAttribute('aria-pressed','false'); });
-      card.classList.add('active');
+      cardclassNames = card.classList.add('active');
       card.setAttribute('aria-pressed','true');
       selected = card.dataset.item;
       document.getElementById('warn').classList.remove('show');
@@ -198,7 +201,7 @@ that much straws a year is basically a starter kit for an underwater “do not e
     if(!selected){
       warn.classList.add('show');
       result.classList.remove('show');
-      result.textContent = '';
+      result.innerHTML = '';
       return;
     }
 
@@ -216,9 +219,11 @@ that much straws a year is basically a starter kit for an underwater “do not e
     const itemLabel = selected === "bottle" ? "Plastic Bottle" :
                       selected === "bag" ? "Plastic Bag" : "Plastic Straw";
 
-    result.textContent = `${itemLabel}
-Weekly: ${countWeek} • Yearly: ${countYear}
-${finalMsg}`;
+    result.innerHTML = `
+<span class="result-item">${itemLabel}</span>
+<span class="result-stats">Weekly: ${countWeek} • Yearly: ${countYear}</span>
+
+<span class="result-msg">${finalMsg}</span>`;
 
     result.classList.add('show');
   });
