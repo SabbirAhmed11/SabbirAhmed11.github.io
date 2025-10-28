@@ -3,64 +3,132 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Is It Really Clean ?</title>
-  <!-- Preload the GIF so it starts quickly -->
+  <title>Is It Really Clean? — 15 sections (single open)</title>
   <link rel="preload" as="image" href="./assets/images/EV.gif" type="image/gif" />
   <style>
-    :root { color-scheme: dark light; }
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #000; /* nice backdrop for most GIFs */
-      overflow: hidden; /* prevent scrollbars on small rounding differences */
+    :root{
+      --bg:#eeebe3;
+      --rail:#ca0013;
+      --text:#ca0013;
+      --card:#ecbbbbd9;
+      --radius:16px;
+      --header-h:50px;
+      --gap:10px;
     }
-    .stage {
-      position: fixed;
-      inset: 0;           /* full-viewport */
-      display: grid;      /* easy centering */
-      place-items: center;
+
+    html,body{
+      height:100vh;margin:0;overflow:hidden;
+      background:var(--bg);color:var(--text);
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
     }
-    .gif {
-      max-width: 100vw;   /* never overflow width */
-      max-height: 100vh;  /* never overflow height */
-      width: auto;        /* preserve aspect ratio */
-      height: auto;       /* preserve aspect ratio */
-      image-rendering: -webkit-optimize-contrast; /* crisper on some browsers */
-      image-rendering: optimizeQuality;
-      display: block;
+
+    .wrap{height:100vh;width:100vw;display:grid;grid-template-rows:50vh 50vh;}
+    .stage{position:relative;display:flex;align-items:flex-end;justify-content:center;background:var(--bg);padding-bottom:4.5vh;}
+    .gif{width:100%;height:100%;object-fit:contain;transform:translateY(-3.2vh);}
+    .overlay{position:relative;background:var(--bg);display:flex;align-items:center;justify-content:center;}
+
+    .columns{
+      width:min(1380px,94vw);
+      display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(10px,2.4vw,22px);
+      margin-top:-2.5vh;
     }
-    /* Optional: fade-in for a cleaner load */
-    .gif { opacity: 0; transition: opacity .3s ease; }
-    .gif.is-loaded { opacity: 1; }
+
+    .acc{display:grid;gap:var(--gap);}
+
+    .item{border-radius:var(--radius);background:transparent;overflow:hidden;transition:transform .15s,box-shadow .15s,background .2s;}
+    .item:hover,.item.open{background:var(--card);box-shadow:0 6px 16px rgba(0,0,0,.12),0 0 0 2px var(--rail);transform:translateY(-1px);}
+
+    .hdr{display:flex;align-items:center;gap:10px;height:var(--header-h);padding:0 14px;width:100%;background:transparent;color:var(--text);font-size:clamp(14px,1.25vw,17px);font-weight:800;cursor:pointer;border:none;outline:none;text-align:left;}
+    .icon{width:26px;height:26px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-size:16px;line-height:1;}
+    .item.open .hdr{color:#fff;background:var(--rail);} .item.open{background:var(--rail);box-shadow:0 10px 28px rgba(0,0,0,.18);} .item.open .icon{border-color:#fff;}
+
+    .panel{max-height:0;overflow:hidden;transition:max-height .28s ease;background:#fff;color:var(--rail);}
+    .panel-inner{padding:10px 14px 14px;font-size:clamp(12px,1.2vw,14px);line-height:1.4;}
+    .item.open .panel{max-height:20vh;}
+
+    @media (max-width: 1200px){
+      .wrap{grid-template-rows:48vh 52vh;}
+      .columns{grid-template-columns:1fr 1fr; margin-top:-1.5vh;}
+      .item.open .panel{max-height:22vh;}
+    }
+    @media (max-width: 720px){
+      .wrap{grid-template-rows:45vh 55vh;}
+      .columns{grid-template-columns:1fr;}
+      .item.open .panel{max-height:28vh;}
+      .hdr{font-size:clamp(14px,3.5vw,18px);}
+    }
   </style>
 </head>
 <body>
-  <main class="stage" aria-label="Animated graphic">
-    <img
-      id="evGif"
-      class="gif"
-      src="./assets/images/EV.gif"
-      alt="Animated GIF"
-      decoding="async"
-      fetchpriority="high"
-    />
+  <main class="wrap">
+    <section class="stage">
+      <img class="gif" src="./EV.gif" alt="Clean Energy Protest Animation" />
+    </section>
+
+    <section class="overlay">
+      <div class="columns" aria-label="Not-so-clean energy list">
+        <!-- COL 1 -->
+        <div class="acc">
+          <div class="item"><button class="hdr"><span class="icon">+</span>Biomass Power Plants</button><div class="panel"><div class="panel-inner">Burning trees for energy releases CO₂ immediately, while regrowth takes decades. Supply chains drive deforestation and habitat loss.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Blue Hydrogen</button><div class="panel"><div class="panel-inner">Made from fossil gas with carbon capture that rarely reaches 100%. Methane leaks and capture energy make the “clean” label shaky.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Clean Coal</button><div class="panel"><div class="panel-inner">Scrubbers can remove particulates but not the bulk of CO₂. “Clean coal” is mostly a rebrand of the same combustion.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Carbon Capture &amp; Storage (CCS)</button><div class="panel"><div class="panel-inner">CCS can lock away some emissions, but uptime, leaks, and energy costs mean the system often avoids far less CO₂ than promised.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Biofuels &amp; Ethanol</button><div class="panel"><div class="panel-inner">Fuel crops displace forests and food, with fertilizer runoff and land-use emissions. Burning plants still puts carbon into the air.</div></div></div>
+        </div>
+
+        <!-- COL 2 -->
+        <div class="acc">
+          <div class="item"><button class="hdr"><span class="icon">+</span>Solar Panel Manufacturing</button><div class="panel"><div class="panel-inner">Mining and fossil-powered factories embed emissions into panels before they ever meet the sun—clean to run, not to build.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Wind Turbine Production</button><div class="panel"><div class="panel-inner">Steel, resin, and fiberglass have a footprint, and many blades aren’t recyclable yet—green power above, buried waste below.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Hydropower Dams</button><div class="panel"><div class="panel-inner">Reservoirs flood valleys and can emit methane from decaying biomass. Rivers, fish, and communities pay the price.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Nuclear Power</button><div class="panel"><div class="panel-inner">Low operational CO₂, but leaves radioactive waste that requires safe storage for millennia—clean today, toxic tomorrow.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Battery Mining</button><div class="panel"><div class="panel-inner">Lithium, cobalt, and nickel extraction can drain water tables and scar landscapes. Clean energy, dirty supply chains.</div></div></div>
+        </div>
+
+        <!-- COL 3 -->
+        <div class="acc">
+          <div class="item"><button class="hdr"><span class="icon">+</span>Direct Air Capture</button><div class="panel"><div class="panel-inner">Machines that “suck CO₂” use lots of energy; if that energy isn’t renewable, the net benefit shrinks fast.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>E‑waste Recycling</button><div class="panel"><div class="panel-inner">Tons of “green tech” become toxic trash; informal recycling often burns or melts electronics, poisoning workers and air.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Waste‑to‑Energy Incinerators</button><div class="panel"><div class="panel-inner">Burning garbage for power sounds tidy, but it releases harmful emissions and ash that still needs disposal.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Carbon Offsetting</button><div class="panel"><div class="panel-inner">Paying to “plant trees” doesn’t erase emissions at the smokestack; many offsets over‑promise and under‑deliver.</div></div></div>
+          <div class="item"><button class="hdr"><span class="icon">+</span>Geothermal Drilling</button><div class="panel"><div class="panel-inner">Generally low‑carbon, but drilling can leak gases and disrupt fragile underground systems in certain sites.</div></div></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
-    // Fade in once the GIF is ready
-    const img = document.getElementById('evGif');
-    if (img.complete) {
-      img.classList.add('is-loaded');
-    } else {
-      img.addEventListener('load', () => img.classList.add('is-loaded'));
-      img.addEventListener('error', () => {
-        console.error('Failed to load ./assets/images/EV.gif');
+    // ONE-OPEN-GLOBALLY: close everything else when opening a new one
+    const allItems = Array.from(document.querySelectorAll('.item'));
+    allItems.forEach(item => {
+      const btn   = item.querySelector('.hdr');
+      const panel = item.querySelector('.panel');
+      const icon  = item.querySelector('.icon');
+      panel.style.maxHeight = '0px';
+      icon.textContent = '+';
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // close ALL items first
+        allItems.forEach(o => {
+          o.classList.remove('open');
+          o.querySelector('.panel').style.maxHeight = '0px';
+          o.querySelector('.icon').textContent = '+';
+        });
+
+        // then open the clicked one if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          icon.textContent = '−';
+        }
       });
-    }
-    // Optional: handle viewport resizes smoothly (no layout jank thanks to CSS)
+
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+    });
   </script>
-  <noscript>
-    Your browser needs JavaScript disabled? The GIF should still display; if not, check the path <code>./assets/images/EV.gif</code>.
-  </noscript>
 </body>
 </html>
