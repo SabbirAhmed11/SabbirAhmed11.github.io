@@ -197,7 +197,18 @@ async function render(lat, lon){
     const pm = Number(vals[i]);
     const cat= categorize(pm);
 
-    el.status.textContent = `Air quality is ${cat}.`;
+    /* ---------- CUSTOM MESSAGES (Option A: same style) ---------- */
+    let msg = "";
+    if (cat === "GOOD") {
+      msg = "Feel lucky. You're breathing some of the cleanest air on Earth today. Many people may never experience air like this in their lifetime.";
+    } else if (cat === "BAD") {
+      msg = "Not the cleanest today. A mask or indoor break might help your lungs stay happy.";
+    } else if (cat === "WORSE") {
+      msg = "Your air is unsafe at the moment. Try staying indoors or using a mask. Your breath matters. It's high time we should act on it.";
+    }
+    el.status.textContent = msg;
+    /* ------------------------------------------------------------ */
+
     el.pm.textContent     = `PM2.5: ${pm.toFixed(1)} µg/m³`;
     el.time.textContent   = `Closest hour: ${fmt(hours[i])}`;
     setTheme(cat);
