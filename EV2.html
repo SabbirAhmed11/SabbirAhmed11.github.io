@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Will You Still Use It? — Personal Impact</title>
+<meta name="description" content="Pick a plastic item, enter how much you use per week, and see your yearly impact." />
+<style>
+  :root{
+    --ink:#0d2417;
+    --muted:#355646aa;
+    --accent:#12775a;
+    --danger:#b01212;
+    --ring:#0d241733;
+    --bg1:#eaf4ef; --bg2:#eef3ef; --bg3:#e6efe9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 70% 10%, #d9efe5 0%, transparent 60%),
+      linear-gradient(180deg,var(--bg1), var(--bg2) 30%, var(--bg3) 100%);
+  }
+
+  .page{
+    max-width:1100px;
+    margin:16px auto;
+    padding:0 16px 20px;
+    display:grid;
+    gap:14px;
+  }
+
+  header{padding:12px 0; border-bottom:1px solid var(--ring)}
+  h1{font-size:clamp(1.1rem,1rem + .8vw,1.6rem); letter-spacing:-.01em}
+
+  .section-title{font-weight:900; letter-spacing:-.01em}
+
+  /* Card grid */
+  .grid{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .card{
+    position:relative; border-radius:18px;
+    background:#f6fbf8; border:2px solid transparent;
+    display:grid; place-items:center;
+    padding:18px 10px 48px;
+    cursor:pointer; user-select:none;
+    transition:transform .15s, box-shadow .15s, background .2s, border-color .15s;
+    min-height:280px;
+  }
+  .card:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.08); background:#f2faf6 }
+  .card.active{ border-color:var(--accent); box-shadow:0 0 0 3px #12775a22 inset }
+  .label{position:absolute; bottom:12px; left:12px; right:12px; text-align:center; font-weight:900}
+  .hint{display:block; font-size:.9rem; color:var(--muted); font-weight:700}
+
+  .icon{
+    width:min(200px,54%);
+    height:auto;
+    object-fit:contain;
+    pointer-events:none;
+  }
+
+  .calc{
+    border-top:1px solid var(--ring);
+    padding-top:12px; display:grid; gap:12px;
+  }
+  .row-slider{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:12px; align-items:center;
+  }
+  #perWeekLabel{ font-weight:900; }
+  input[type="range"]{ width:100%; accent-color:var(--accent) }
+  #perWeekOut{ min-width:2ch; text-align:right; font-weight:1000 }
+
+  .actions{ display:flex; justify-content:center; }
+  .btn{border:0; border-radius:999px; padding:12px 16px; font-weight:900; cursor:pointer; background:var(--ink); color:#fff}
+
+  .warn{display:none; color:var(--danger); font-weight:900}
+  .warn.show{display:block}
+
+  .result{
+    display:none;
+    padding:12px 14px;
+    border:1px solid var(--ring); border-radius:16px; background:#f6fbf8;
+    font-weight:750; white-space:pre-line;
+  }
+  .result.show{display:block}
+
+  footer{
+    text-align:center; font-size:.9rem; color:#284a36; opacity:.85;
+  }
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr}
+    .card{min-height:220px}
+  }
+</style>
+</head>
+<body>
+  <div class="page" role="main" aria-live="polite">
+    <header><h1>Will You Still Use It?</h1></header>
+
+    <div class="section-title">Select any plastic item</div>
+    <section class="grid" id="choices">
+      <!-- Plastic Bottle -->
+      <button class="card" data-item="bottle" aria-pressed="false">
+        <img class="icon" src="./assets/images/bottle.png" alt="Plastic Bottle" />
+        <div class="label">Plastic Bottle <span class="hint">~450 years</span></div>
+      </button>
+
+      <!-- Plastic Bag -->
+      <button class="card" data-item="bag" aria-pressed="false">
+        <img class="icon" src="./assets/images/bag.png" alt="Plastic Bag" />
+        <div class="label">Plastic Bag <span class="hint">~20 years</span></div>
+      </button>
+
+      <!-- Plastic Straw -->
+      <button class="card" data-item="straw" aria-pressed="false">
+        <img class="icon" src="./assets/images/straw.png" alt="Plastic Straw" />
+        <div class="label">Plastic Straw <span class="hint">~200 years</span></div>
+      </button>
+    </section>
+
+    <section class="calc" aria-label="Personal Impact Calculator">
+      <div class="row-slider">
+        <label id="perWeekLabel" for="perWeek">How many do you use per week?</label>
+        <input id="perWeek" type="range" min="0" max="20" step="1" value="0" />
+        <output id="perWeekOut" for="perWeek">0</output>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="calcBtn">Calculate</button>
+      </div>
+
+      <div id="warn" class="warn">Please select a plastic item first.</div>
+    </section>
+
+    <section id="result" class="result" role="status" aria-live="polite"></section>
+
+    <footer>Estimates vary by conditions. Choose less, reuse more, and refuse single-use.</footer>
+  </div>
+
+<script>
+(function(){
+
+  /* MESSAGE OBJECT – Easy to Edit */
+  const messages = {
+    bottle: {
+      zero: `Zero this week — that’s not a small choice, that’s a statement.
+You just saved the next 450 years from inheriting your plastic. If 1% of the world did what you just did, oceans would finally get a breather.`,
+      low: `1–3 a week? Cute.
+You're “not the problem”… but also not exactly the solution. At this rate, your “tiny habit” still becomes 150+ pieces a year— aka a starter pack for microplastics in your future sushi.`,
+      high: `4–20 a week? Babe, that’s not hydration — that’s a plastic subscription service.
+At 200–520 a year, you’re on the premium plan. Cancel it while the planet still has storage space.`
+    },
+    bag: {
+      zero: `Zero this week — that’s a quiet revolution.
+You just stopped plastic that would've lingered in landfills and oceans until 2045. If even 1% of people copied you, beaches would breathe again instead of swallowing “disposable” bags that don’t disappear.`,
+      low: `1–3 bags a week? The famous “I reuse them as trash liners” excuse — adorable.
+But your “innocent stash” still becomes 150+ bags a year… eventually escaping cupboards to decorate streets and trees like unwanted, non-biodegradable party streamers.`,
+      high: `4–20 bags a week? You're not shopping — you're building a plastic bag retirement home.
+200–520 bags a year is enough to fill a whole kitchen drawer… which is ironically where most people store their “I swear I’ll reuse these” plastic bag graveyard. Time to carry a tote and retire from the bag-hoarding lifestyle.`
+    },
+    straw: {
+      zero: `Zero straws this week — that’s impact disguised as a tiny choice.
+You prevented plastic that would outlive three generations. One simple “No straw, please” today means clearer oceans for the future — that’s real influence, no followers required.`,
+      low: `1–3 straws a week? So you’re sipping like royalty but passing the cleanup to future grandkids?
+That “little treat” becomes 150+ straws a year, and each one hangs around for 200 years — long enough to make a cameo in your great-great-grandchildren’s seafood.`,
+      high: `4–20 straws a week? Babe, that’s not a drink — that’s a straw addiction arc.
+200–520 straws a year is basically a starter kit for an underwater “do not enter” zone. Switch to metal or bamboo before the ocean nominates you as its villain of the month.`
+    }
+  };
+
+  const cards = Array.from(document.querySelectorAll('.card'));
+  let selected = null;
+
+  cards.forEach(card=>{
+    card.addEventListener('click', ()=>{
+      cards.forEach(c=>{ c.classList.remove('active'); c.setAttribute('aria-pressed','false'); });
+      card.classList.add('active');
+      card.setAttribute('aria-pressed','true');
+      selected = card.dataset.item;
+      document.getElementById('warn').classList.remove('show');
+    });
+  });
+
+  const perWeek = document.getElementById('perWeek');
+  const perWeekOut = document.getElementById('perWeekOut');
+  const updateOut = ()=> perWeekOut.textContent = perWeek.value;
+  perWeek.addEventListener('input', updateOut); updateOut();
+
+  const calcBtn = document.getElementById('calcBtn');
+  const result = document.getElementById('result');
+  const warn = document.getElementById('warn');
+
+  calcBtn.addEventListener('click', ()=>{
+    if(!selected){
+      warn.classList.add('show');
+      result.classList.remove('show');
+      result.textContent = '';
+      return;
+    }
+
+    warn.classList.remove('show');
+
+    const countWeek = parseInt(perWeek.value || '0', 10);
+    const countYear = countWeek * 52;
+
+    let level = "zero";
+    if(countWeek >= 1 && countWeek <= 3) level = "low";
+    if(countWeek >= 4) level = "high";
+
+    const finalMsg = messages[selected][level];
+
+    const itemLabel = selected === "bottle" ? "Plastic Bottle" :
+                      selected === "bag" ? "Plastic Bag" : "Plastic Straw";
+
+    result.textContent = `${itemLabel}
+Weekly: ${countWeek} • Yearly: ${countYear}
+${finalMsg}`;
+
+    result.classList.add('show');
+  });
+
+})();
+</script>
+</body>
+</html>
