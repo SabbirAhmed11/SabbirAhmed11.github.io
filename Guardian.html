@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Guardian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: rgba(186, 250, 212, 0.96);
+      --accent: #f5f5f5;
+      --accent-soft: rgba(230, 245, 235, 0.82);
+      --primary: #7CFFB2;
+      --primary-soft: rgba(124, 255, 178, 0.14);
+      --radius-xl: 24px;
+      --radius-full: 999px;
+      --transition-fast: 0.25s ease;
+      --max-width: 540px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      color: var(--accent);
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        url("./assets/images/Treasure Hunts/gurdian.gif")
+        center/cover
+        no-repeat;
+      z-index: -2;
+      filter: blur(2px) saturate(1.15);
+      transform: scale(1.05);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(0, 40, 15, 0.25), rgba(0, 0, 0, 0.96));
+      z-index: -1;
+    }
+
+    .app {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 24px 18px 22px;
+      border-radius: 28px;
+      background: linear-gradient(
+        to bottom,
+        rgba(46, 97, 65, 0.98),
+        rgba(12, 51, 30, 0.99)
+      );
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.9),
+        0 0 0 0.5px rgba(124, 255, 178, 0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+      color: var(--primary);
+      text-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+    }
+
+    .player-card {
+      margin-top: 4px;
+      padding: 18px 14px 14px;
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at top left, var(--primary-soft), transparent),
+        rgba(1, 10, 4, 0.98);
+      border: 1px solid rgba(124, 255, 178, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .song-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .song-title {
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .song-title span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .progress-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--accent-soft);
+      margin-top: 2px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(180, 230, 200, 0.16);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, var(--primary), #ffffff);
+      transition: width 0.1s linear;
+      box-shadow: 0 0 6px rgba(124, 255, 178, 0.6);
+    }
+
+    .lyrics-box {
+      margin-top: 4px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.78);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--primary);
+      border: 1px solid rgba(124, 255, 178, 0.22);
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.9);
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+    }
+
+    .lyrics-box span {
+      white-space: pre-line;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn-main {
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(124, 255, 178, 0.4);
+      background: rgba(0, 0, 0, 0.78);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-main img {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.95);
+      background: rgba(4, 30, 15, 0.98);
+    }
+
+    .btn-main.primary {
+      background: rgba(4, 35, 16, 0.98);
+      box-shadow: 0 0 12px rgba(124, 255, 178, 0.35);
+    }
+
+    .btn-main.primary.active {
+      box-shadow: 0 0 18px rgba(124, 255, 178, 0.55);
+      border-color: var(--primary);
+    }
+
+    .comments-section {
+      margin-top: 22px;
+      padding: 14px 12px;
+      border-radius: var(--radius-xl);
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(124, 255, 178, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .comments-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .comments-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .input-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .input-row input,
+    .input-row textarea {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(124, 255, 178, 0.28);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--accent);
+      outline: none;
+      width: 100%;
+      resize: none;
+      flex: none;
+    }
+
+    .input-row input::placeholder,
+    .input-row textarea::placeholder {
+      color: rgba(200, 235, 215, 0.4);
+    }
+
+    .input-row textarea {
+      min-height: 90px;
+    }
+
+    .btn-post {
+      padding: 10px 20px;
+      font-size: 13px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color: #000;
+      font-weight: 600;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+      align-self: flex-end;
+      margin-top: 2px;
+    }
+
+    .btn-post:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.95);
+    }
+
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .comment {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(5, 20, 10, 1);
+      border: 1px solid rgba(124, 255, 178, 0.18);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      line-height: 1.6;
+      backdrop-filter: blur(4px);
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .comment-time {
+      font-size: 10px;
+      color: rgba(210, 245, 225, 0.6);
+      font-weight: 400;
+    }
+
+    .comment-text {
+      color: var(--accent-soft);
+      font-size: 12px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    /* DIRECTIONS SECTION */
+    .directions-section {
+      margin-top: 18px;
+      padding: 12px 12px;
+      border-radius: var(--radius-xl);
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(124, 255, 178, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .directions-label {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .directions-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .directions-input {
+      flex: 1;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(124, 255, 178, 0.28);
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 12px;
+      color: var(--accent);
+      outline: none;
+    }
+
+    .directions-input::placeholder {
+      color: rgba(200, 235, 215, 0.4);
+    }
+
+    .btn-direction {
+      padding: 8px 14px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color: #000;
+      font-weight: 600;
+      font-size: 11px;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-direction:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .nav-wrapper {
+      margin-top: 20px;
+    }
+
+    .nav-label {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0.5px;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-link {
+      flex: 1 1 calc(50% - 8px);
+      min-width: 110px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(124, 255, 178, 0.22);
+      font-size: 11px;
+      color: var(--accent-soft);
+      background: rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: left;
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.9);
+      color: var(--primary);
+      border-color: var(--primary);
+      background: rgba(3, 24, 12, 0.98);
+    }
+
+    @media (min-width: 800px) {
+      body {
+        padding: 32px;
+      }
+      .app {
+        padding: 26px 22px 24px;
+      }
+      .title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="title">THE GUARDIAN</div>
+  </header>
+
+  <!-- PLAYER -->
+  <section class="player-card">
+    <div class="song-title-row">
+      <div class="song-title">
+        <span class="dot"></span>
+        The Guardian Says:
+      </div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrapper">
+      <span id="current-time">0:00</span>
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span id="duration">0:00</span>
+    </div>
+
+    <!-- LYRICS / NARRATION -->
+    <div class="lyrics-box">
+      <span id="lyrics-line">Tap play to hear the Guardian speak.</span>
+    </div>
+
+    <!-- AUDIO CONTROLS WITH PNG ICONS -->
+    <div class="controls">
+      <button class="btn-main primary" id="btn-toggle">
+        <img id="toggle-icon-img" src="./assets/images/Treasure Hunts/play.png" alt="Play">
+        <span id="toggle-label">Play</span>
+      </button>
+
+      <button class="btn-main" id="btn-retry">
+        <img src="./assets/images/Treasure Hunts/replay.png" alt="Replay">
+        <span>Replay</span>
+      </button>
+    </div>
+
+    <audio id="audio" preload="auto">
+      <source src="./assets/images/Treasure Hunts/gurdian.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  <!-- COMMENTS -->
+  <section class="comments-section">
+    <div class="comments-header">
+      <div class="comments-title">Your Thoughts</div>
+    </div>
+
+    <div class="input-row">
+      <input type="text" id="name-input" placeholder="Your name" maxlength="30" />
+      <textarea id="comment-input" placeholder="Leave your thoughts" maxlength="150"></textarea>
+      <button class="btn-post" id="post-btn">Post</button>
+    </div>
+
+    <div class="comments-list" id="comments-list"></div>
+  </section>
+
+  <!-- DIRECTIONS TO NEXT DESTINATION -->
+  <section class="directions-section">
+    <div class="directions-label">Move to Next Destination</div>
+    <div class="directions-row">
+      <input
+        type="text"
+        id="coords-input"
+        class="directions-input"
+        value="29.886505276782014, -97.93601074214945"
+        placeholder="Enter coordinates (latitude, longitude)" />
+      <button class="btn-direction" id="direction-btn">Direction</button>
+    </div>
+  </section>
+
+  <!-- PORTALS -->
+  <section class="nav-wrapper">
+    <div class="nav-label">Portals</div>
+    <div class="nav-links">
+      <div class="nav-link" data-link="FM.html">Flowing Memory</div>
+      <div class="nav-link" data-link="FC.html">Forgotten Corner</div>
+      <div class="nav-link" data-link="SOIL.html">Foundation</div>
+      <div class="nav-link" data-link="WILD.html">The Living</div>
+      <div class="nav-link" data-link="AIR.html">Endless Whisper</div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const audio = document.getElementById("audio");
+  const btnToggle = document.getElementById("btn-toggle");
+  const toggleIconImg = document.getElementById("toggle-icon-img");
+  const toggleLabel = document.getElementById("toggle-label");
+  const btnRetry = document.getElementById("btn-retry");
+  const progressFill = document.getElementById("progress-fill");
+  const progressBar = document.getElementById("progress-bar");
+  const currentTimeEl = document.getElementById("current-time");
+  const durationEl = document.getElementById("duration");
+  const lyricsLineEl = document.getElementById("lyrics-line");
+
+  function formatTime(sec) {
+    if (isNaN(sec) || sec < 0) return "0:00";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ":" + s.toString().padStart(2, "0");
+  }
+
+  audio.addEventListener("loadedmetadata", () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  const lyricsBlocks = [
+    {
+      t: 0,
+      text:
+        "I have been standing here longer than most buildings you see. I breathe for you turning your carbon into life, giving you air that costs nothing but care."
+    },
+    {
+      t: 12,
+      text:
+        "Yet every year, over 10 million hectares of my kind disappear. Forests burned, cleared, or forgotten for convenience."
+    },
+    {
+      t: 23,
+      text:
+        "With every cut, the air grows heavier and the ground more fragile and the summers you complain about grow longer."
+    },
+    {
+      t: 31,
+      text:
+        "I once sheltered birds, cooled your streets, and held back floods after the rain."
+    },
+    {
+      t: 37,
+      text:
+        "But smoke settles on my leaves now, Plastic tangles in my roots. And the songs of life I hosted are fading."
+    },
+    {
+      t: 46,
+      text:
+        "I don’t ask much ,just space to grow and breathe.\n" +
+        "Let shade return to places that forgot it ever existed."
+    },
+    {
+      t: 54,
+      text:
+        "Because when I fall silent,\n" +
+        "The world will too !"
+    }
+  ];
+
+  function updateLyrics(currentTime) {
+    let active = lyricsBlocks[0];
+    for (let i = 0; i < lyricsBlocks.length; i++) {
+      if (currentTime >= lyricsBlocks[i].t) {
+        active = lyricsBlocks[i];
+      } else {
+        break;
+      }
+    }
+    if (active) {
+      lyricsLineEl.textContent = active.text;
+    }
+  }
+
+  audio.addEventListener("timeupdate", () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + "%";
+    }
+    updateLyrics(audio.currentTime);
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener("play", () => {
+    btnToggle.classList.add("active");
+    toggleIconImg.src = "./assets/images/Treasure Hunts/pause.png";
+    toggleLabel.textContent = "Pause";
+  });
+
+  audio.addEventListener("pause", () => {
+    btnToggle.classList.remove("active");
+    toggleIconImg.src = "./assets/images/Treasure Hunts/play.png";
+    toggleLabel.textContent = "Play";
+  });
+
+  audio.addEventListener("ended", () => {
+    btnToggle.classList.remove("active");
+    toggleIconImg.src = "./assets/images/Treasure Hunts/play.png";
+    toggleLabel.textContent = "Play";
+    progressFill.style.width = "0%";
+    currentTimeEl.textContent = "0:00";
+    lyricsLineEl.textContent = "Tap play to hear the Guardian speak again.";
+  });
+
+  btnToggle.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  btnRetry.addEventListener("click", () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
+
+  progressBar.addEventListener("click", (e) => {
+    const rect = progressBar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = Math.max(0, Math.min(audio.duration * ratio, audio.duration));
+      updateLyrics(audio.currentTime);
+    }
+  });
+
+  // COMMENTS (local only)
+  const COMMENTS_KEY = "guardian_whispers_v1";
+  const commentsListEl = document.getElementById("comments-list");
+  const nameInput = document.getElementById("name-input");
+  const commentInput = document.getElementById("comment-input");
+  const postBtn = document.getElementById("post-btn");
+  const MAX_COMMENTS = 10;
+
+  function loadComments() {
+    try {
+      const data = JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
+      return Array.isArray(data) ? data : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveComments(list) {
+    localStorage.setItem(COMMENTS_KEY, JSON.stringify(list));
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function renderComments() {
+    const comments = loadComments();
+    commentsListEl.innerHTML = "";
+    [...comments].reverse().forEach(c => {
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = `
+        <div class="comment-header">
+          <div>${escapeHtml(c.name || "Guest")}</div>
+          <div class="comment-time">${escapeHtml(c.time || "")}</div>
+        </div>
+        <div class="comment-text">${escapeHtml(c.text)}</div>
+      `;
+      commentsListEl.appendChild(div);
+    });
+  }
+
+  function addComment(name, text) {
+    let comments = loadComments();
+    const now = new Date();
+    const timeStr =
+      now.getHours().toString().padStart(2, "0") + ":" +
+      now.getMinutes().toString().padStart(2, "0");
+
+    comments.push({
+      name: name.trim() || "Guest",
+      text: text.trim(),
+      time: timeStr
+    });
+
+    if (comments.length > MAX_COMMENTS) {
+      comments = comments.slice(comments.length - MAX_COMMENTS);
+    }
+
+    saveComments(comments);
+    renderComments();
+  }
+
+  postBtn.addEventListener("click", () => {
+    const name = nameInput.value;
+    const text = commentInput.value;
+    if (!text.trim()) {
+      commentInput.focus();
+      commentInput.placeholder = "Please write something first...";
+      return;
+    }
+    addComment(name, text);
+    commentInput.value = "";
+  });
+
+  window.addEventListener("storage", (e) => {
+    if (e.key === COMMENTS_KEY) {
+      renderComments();
+    }
+  });
+
+  renderComments();
+
+  // DIRECTIONS (Google Maps walking route)
+  const coordsInput = document.getElementById("coords-input");
+  const directionBtn = document.getElementById("direction-btn");
+
+  function parseCoords(str) {
+    if (!str) return null;
+    const parts = str.split(",").map(s => s.trim());
+    if (parts.length !== 2) return null;
+    const lat = parseFloat(parts[0]);
+    const lng = parseFloat(parts[1]);
+    if (isNaN(lat) || isNaN(lng)) return null;
+    return { lat, lng };
+  }
+
+  if (directionBtn && coordsInput) {
+    directionBtn.addEventListener("click", () => {
+      const coords = parseCoords(coordsInput.value);
+      if (!coords) {
+        alert("Please enter valid coordinates as: latitude, longitude");
+        return;
+      }
+      const url =
+        `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}&travelmode=walking`;
+      window.open(url, "_blank");
+    });
+  }
+
+  // PORTALS: navigate to linked HTML files in same directory
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const target = link.getAttribute("data-link");
+    if (target) {
+      link.addEventListener("click", () => {
+        window.location.href = target;
+      });
+    }
+  });
+</script>
+</body>
+</html>
