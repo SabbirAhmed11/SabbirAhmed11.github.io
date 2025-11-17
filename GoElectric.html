@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GOElectric</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GO ELECTRIC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+
+
+
+
+</head>
+<body>
+<div class="app">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="title">GO Eletric</div>
+  </header>
+
+
+  <!-- COMMENTS -->
+  <section class="comments-section">
+    <div class="comments-header">
+      <div class="comments-title">Your Thoughts</div>
+    </div>
+
+    <div class="input-row">
+      <input type="text" id="name-input" placeholder="Your name" maxlength="30" />
+      <textarea id="comment-input" placeholder="Leave your thoughts" maxlength="150"></textarea>
+      <button class="btn-post" id="post-btn">Post</button>
+    </div>
+
+    <div class="comments-list" id="comments-list"></div>
+  </section>
+
+  <!-- DIRECTIONS TO NEXT DESTINATION -->
+  <section class="directions-section">
+    <div class="directions-label">Move to Next Destination</div>
+    <div class="directions-row">
+      <input
+        type="text"
+        id="coords-input"
+        class="directions-input"
+        value="29.886505276782014, -97.93601074214945"
+        placeholder="Enter coordinates (latitude, longitude)" />
+      <button class="btn-direction" id="direction-btn">Direction</button>
+    </div>
+  </section>
+
+  <!-- PORTALS -->
+  <section class="nav-wrapper">
+    <div class="nav-label">Portals</div>
+    <div class="nav-links">
+      <div class="nav-link" data-link="FM.html">Flowing Memory</div>
+      <div class="nav-link" data-link="FC.html">Forgotten Corner</div>
+      <div class="nav-link" data-link="SOIL.html">Foundation</div>
+      <div class="nav-link" data-link="WILD.html">The Living</div>
+      <div class="nav-link" data-link="AIR.html">Endless Whisper</div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const audio = document.getElementById("audio");
+  const btnToggle = document.getElementById("btn-toggle");
+  const toggleIconImg = document.getElementById("toggle-icon-img");
+  const toggleLabel = document.getElementById("toggle-label");
+  const btnRetry = document.getElementById("btn-retry");
+  const progressFill = document.getElementById("progress-fill");
+  const progressBar = document.getElementById("progress-bar");
+  const currentTimeEl = document.getElementById("current-time");
+  const durationEl = document.getElementById("duration");
+  const lyricsLineEl = document.getElementById("lyrics-line");
+
+  function formatTime(sec) {
+    if (isNaN(sec) || sec < 0) return "0:00";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ":" + s.toString().padStart(2, "0");
+  }
+
+  audio.addEventListener("loadedmetadata", () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  const lyricsBlocks = [
+    {
+      t: 0,
+      text:
+        "I have been standing here longer than most buildings you see. I breathe for you turning your carbon into life, giving you air that costs nothing but care."
+    },
+    {
+      t: 12,
+      text:
+        "Yet every year, over 10 million hectares of my kind disappear. Forests burned, cleared, or forgotten for convenience."
+    },
+    {
+      t: 23,
+      text:
+        "With every cut, the air grows heavier and the ground more fragile and the summers you complain about grow longer."
+    },
+    {
+      t: 31,
+      text:
+        "I once sheltered birds, cooled your streets, and held back floods after the rain."
+    },
+    {
+      t: 37,
+      text:
+        "But smoke settles on my leaves now, Plastic tangles in my roots. And the songs of life I hosted are fading."
+    },
+    {
+      t: 46,
+      text:
+        "I don’t ask much ,just space to grow and breathe.\n" +
+        "Let shade return to places that forgot it ever existed."
+    },
+    {
+      t: 54,
+      text:
+        "Because when I fall silent,\n" +
+        "The world will too !"
+    }
+  ];
+
+  function updateLyrics(currentTime) {
+    let active = lyricsBlocks[0];
+    for (let i = 0; i < lyricsBlocks.length; i++) {
+      if (currentTime >= lyricsBlocks[i].t) {
+        active = lyricsBlocks[i];
+      } else {
+        break;
+      }
+    }
+    if (active) {
+      lyricsLineEl.textContent = active.text;
+    }
+  }
+
+  audio.addEventListener("timeupdate", () => {
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + "%";
+    }
+    updateLyrics(audio.currentTime);
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener("play", () => {
+    btnToggle.classList.add("active");
+    toggleIconImg.src = "./assets/images/Treasure Hunts/pause.png";
+    toggleLabel.textContent = "Pause";
+  });
+
+  audio.addEventListener("pause", () => {
+    btnToggle.classList.remove("active");
+    toggleIconImg.src = "./assets/images/Treasure Hunts/play.png";
+    toggleLabel.textContent = "Play";
+  });
+
+  audio.addEventListener("ended", () => {
+    btnToggle.classList.remove("active");
+    toggleIconImg.src = "./assets/images/Treasure Hunts/play.png";
+    toggleLabel.textContent = "Play";
+    progressFill.style.width = "0%";
+    currentTimeEl.textContent = "0:00";
+    lyricsLineEl.textContent = "Tap play to hear the Guardian speak again.";
+  });
+
+  btnToggle.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  btnRetry.addEventListener("click", () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
+
+  progressBar.addEventListener("click", (e) => {
+    const rect = progressBar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    if (!isNaN(audio.duration) && audio.duration > 0) {
+      audio.currentTime = Math.max(0, Math.min(audio.duration * ratio, audio.duration));
+      updateLyrics(audio.currentTime);
+    }
+  });
+
+  // COMMENTS (local only)
+  const COMMENTS_KEY = "guardian_whispers_v1";
+  const commentsListEl = document.getElementById("comments-list");
+  const nameInput = document.getElementById("name-input");
+  const commentInput = document.getElementById("comment-input");
+  const postBtn = document.getElementById("post-btn");
+  const MAX_COMMENTS = 10;
+
+  function loadComments() {
+    try {
+      const data = JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
+      return Array.isArray(data) ? data : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveComments(list) {
+    localStorage.setItem(COMMENTS_KEY, JSON.stringify(list));
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function renderComments() {
+    const comments = loadComments();
+    commentsListEl.innerHTML = "";
+    [...comments].reverse().forEach(c => {
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = `
+        <div class="comment-header">
+          <div>${escapeHtml(c.name || "Guest")}</div>
+          <div class="comment-time">${escapeHtml(c.time || "")}</div>
+        </div>
+        <div class="comment-text">${escapeHtml(c.text)}</div>
+      `;
+      commentsListEl.appendChild(div);
+    });
+  }
+
+  function addComment(name, text) {
+    let comments = loadComments();
+    const now = new Date();
+    const timeStr =
+      now.getHours().toString().padStart(2, "0") + ":" +
+      now.getMinutes().toString().padStart(2, "0");
+
+    comments.push({
+      name: name.trim() || "Guest",
+      text: text.trim(),
+      time: timeStr
+    });
+
+    if (comments.length > MAX_COMMENTS) {
+      comments = comments.slice(comments.length - MAX_COMMENTS);
+    }
+
+    saveComments(comments);
+    renderComments();
+  }
+
+  postBtn.addEventListener("click", () => {
+    const name = nameInput.value;
+    const text = commentInput.value;
+    if (!text.trim()) {
+      commentInput.focus();
+      commentInput.placeholder = "Please write something first...";
+      return;
+    }
+    addComment(name, text);
+    commentInput.value = "";
+  });
+
+  window.addEventListener("storage", (e) => {
+    if (e.key === COMMENTS_KEY) {
+      renderComments();
+    }
+  });
+
+  renderComments();
+
+  // DIRECTIONS (Google Maps walking route)
+  const coordsInput = document.getElementById("coords-input");
+  const directionBtn = document.getElementById("direction-btn");
+
+  function parseCoords(str) {
+    if (!str) return null;
+    const parts = str.split(",").map(s => s.trim());
+    if (parts.length !== 2) return null;
+    const lat = parseFloat(parts[0]);
+    const lng = parseFloat(parts[1]);
+    if (isNaN(lat) || isNaN(lng)) return null;
+    return { lat, lng };
+  }
+
+  if (directionBtn && coordsInput) {
+    directionBtn.addEventListener("click", () => {
+      const coords = parseCoords(coordsInput.value);
+      if (!coords) {
+        alert("Please enter valid coordinates as: latitude, longitude");
+        return;
+      }
+      const url =
+        `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}&travelmode=walking`;
+      window.open(url, "_blank");
+    });
+  }
+
+  // PORTALS: navigate to linked HTML files in same directory
+  document.querySelectorAll(".nav-link").forEach(link => {
+    const target = link.getAttribute("data-link");
+    if (target) {
+      link.addEventListener("click", () => {
+        window.location.href = target;
+      });
+    }
+  });
+</script>
+</body>
+</html>
