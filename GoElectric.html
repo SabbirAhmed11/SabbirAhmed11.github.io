@@ -1,331 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>GOElectric</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>GO ELECTRIC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Electric</title>
+    <link rel="stylesheet" href="./assets/css/goelectric.css">
 </head>
+
 <body>
-<div class="app">
-  <!-- HEADER -->
-  <header class="header">
-    <div class="title">GO Eletric</div>
-  </header>
+
+<header class="ev-header">
+    <h1>Why EV Matters</h1>
+    <div class="scroll-progress" id="scrollProgress"></div>
+</header>
+
+<!-- MAIN CONTENT WRAPPER -->
+<main>
+
+    <!-- AIR QUALITY SECTION -->
+    <section class="air-quality-section">
+        <div class="aq-card">
+
+            <!-- LEFT -->
+            <div class="aq-left">
+                <h2>Air Quality Now</h2>
+
+                <div class="aq-location">
+                    <img src="./assets/svg/location.svg" alt="location" class="location-icon">
+                    <span id="userLocation">Detecting...</span>
+                </div>
+
+                <a class="aq-btn" href="https://sabbirahmed11.github.io/EV3.html" target="_blank">
+                    How Clean Is Your Air?
+                </a>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="aq-right" id="pmStatusBox">
+                <div class="pm-value">
+                    <span class="pm-label">PM 2.5</span>
+                    <span id="pmValue">--</span>
+                </div>
+
+                <span id="pmCondition" class="pm-condition">Loading...</span>
+            </div>
+
+        </div>
+    </section>
 
 
-  <!-- COMMENTS -->
-  <section class="comments-section">
-    <div class="comments-header">
-      <div class="comments-title">Your Thoughts</div>
+    <!-- DID YOU KNOW SECTION -->
+    <section class="didyou-section">
+        <h3 class="section-title">Did You Know?</h3>
+
+        <div class="slider-container" id="sliderContainer">
+            <div class="slider" id="dykSlider">
+
+                <!-- 8 demo images -->
+                <div class="slide"><img src="./assets/images/1.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/2.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/3.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/4.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/5.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/6.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/7.png" alt=""></div>
+                <div class="slide"><img src="./assets/images/8.png" alt=""></div>
+
+            </div>
+        </div>
+
+        <div class="slider-dots" id="dykDots"></div>
+    </section>
+
+
+    <!-- MYTHS VS FACTS -->
+    <section class="myths-section">
+        <h3 class="section-title myths-title">Myths VS Facts</h3>
+
+         <div class="myth-list">
+
+    <!-- Myth 1 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>EVs Are Worse for the Environment Because of Batteries.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        Although EV batteries require energy to produce, the overall environmental impact is still much lower than gasoline vehicles. EVs produce zero tailpipe emissions and significantly fewer greenhouse gases across their lifetime. As the grid becomes cleaner, EVs continue to reduce emissions. Battery materials can also be recycled, reducing long-term environmental impact.
+                    </p>
+                    <a href="https://www.iea.org/reports/global-ev-outlook-2023" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="input-row">
-      <input type="text" id="name-input" placeholder="Your name" maxlength="30" />
-      <textarea id="comment-input" placeholder="Leave your thoughts" maxlength="150"></textarea>
-      <button class="btn-post" id="post-btn">Post</button>
+    <!-- Myth 2 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>EV Batteries Don’t Last Long.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        Modern EV batteries are designed to last many years and often keep more than 80% of their capacity after 8–10 years. With strong thermal control systems, degradation remains slow. Most EVs remain reliable well past 150,000 miles, and battery warranties typically cover long-term use with confidence.
+                    </p>
+                    <a href="https://www.recurrentauto.com/research/how-long-do-ev-batteries-last?" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="comments-list" id="comments-list"></div>
-  </section>
-
-  <!-- DIRECTIONS TO NEXT DESTINATION -->
-  <section class="directions-section">
-    <div class="directions-label">Move to Next Destination</div>
-    <div class="directions-row">
-      <input
-        type="text"
-        id="coords-input"
-        class="directions-input"
-        value="29.886505276782014, -97.93601074214945"
-        placeholder="Enter coordinates (latitude, longitude)" />
-      <button class="btn-direction" id="direction-btn">Direction</button>
+    <!-- Myth 3 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>EVs Are Too Slow Compared to Gas Cars.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        Electric motors produce instant torque, giving EVs quick and smooth acceleration. Many popular EV models reach 0–60 mph faster than gasoline cars in the same class. Without gears, power delivery is immediate and consistent, making EVs responsive in both city and highway driving.
+                    </p>
+                    <a href="https://www.fueleconomy.gov/feg/evtech.shtml" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- PORTALS -->
-  <section class="nav-wrapper">
-    <div class="nav-label">Portals</div>
-    <div class="nav-links">
-      <div class="nav-link" data-link="FM.html">Flowing Memory</div>
-      <div class="nav-link" data-link="FC.html">Forgotten Corner</div>
-      <div class="nav-link" data-link="SOIL.html">Foundation</div>
-      <div class="nav-link" data-link="WILD.html">The Living</div>
-      <div class="nav-link" data-link="AIR.html">Endless Whisper</div>
+    <!-- Myth 4 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>EVs Can’t Handle Bad Weather.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        EVs perform reliably in rain, heat, and cold conditions. While winter temperatures may reduce range, the vehicle remains safe and fully drivable. Modern EVs use thermal management to protect the battery, and regenerative braking can improve traction, making EVs capable even on snowy or wet roads.
+                    </p>
+                    <a href="https://www.consumerreports.org/cars/hybrids-evs/evs-in-cold-weather-a6149750183/" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+
+    <!-- Myth 5 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>There Aren’t Enough Charging Stations.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        Most EV drivers charge at home, covering 80–90% of their daily travel needs. Public charging networks expand every year, with more fast chargers placed across cities and highways. Navigation apps help drivers quickly locate nearby chargers, making EV travel easier and more convenient than many expect.
+                    </p>
+                    <a href="https://www.iea.org/reports/global-ev-outlook-2025/electric-vehicle-charging?" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Myth 6 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>EVs Are Too Expensive to Own.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        EVs often cost less to own long-term. Electricity is cheaper than gasoline, and EVs require far fewer maintenance items. Without oil changes, exhaust repairs, or fuel system issues, owners save significantly over time. Incentives and rebates can also lower the initial purchase cost.
+                    </p>
+                    <a href="https://www.nrdc.org/stories/electric-vs-gas-cars-it-cheaper-drive-ev?" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Myth 7 -->
+    <div class="myth-item">
+        <button class="myth-toggle">
+            <span>EV Batteries End Up in Landfills.</span>
+            <img src="./assets/svg/arrow.svg" class="arrow-icon" alt="">
+        </button>
+        <div class="myth-content">
+            <div class="myth-inner">
+                <img src="./assets/images/demo.png" class="myth-img" alt="">
+                <div class="myth-text">
+                    <p>
+                        EV batteries are rarely discarded in landfills. Up to 90% of their valuable materials—such as lithium, nickel, and cobalt—can be recovered through recycling. Many older batteries are reused for home and solar energy storage. As recycling technology advances, the environmental footprint of EV batteries continues to shrink.
+                    </p>
+                    <a href="https://www.epa.gov/recycle/used-lithium-ion-batteries" class="ref-btn">References</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<script>
-  const audio = document.getElementById("audio");
-  const btnToggle = document.getElementById("btn-toggle");
-  const toggleIconImg = document.getElementById("toggle-icon-img");
-  const toggleLabel = document.getElementById("toggle-label");
-  const btnRetry = document.getElementById("btn-retry");
-  const progressFill = document.getElementById("progress-fill");
-  const progressBar = document.getElementById("progress-bar");
-  const currentTimeEl = document.getElementById("current-time");
-  const durationEl = document.getElementById("duration");
-  const lyricsLineEl = document.getElementById("lyrics-line");
 
-  function formatTime(sec) {
-    if (isNaN(sec) || sec < 0) return "0:00";
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return m + ":" + s.toString().padStart(2, "0");
-  }
 
-  audio.addEventListener("loadedmetadata", () => {
-    durationEl.textContent = formatTime(audio.duration);
-  });
+        
+    </section>
 
-  const lyricsBlocks = [
-    {
-      t: 0,
-      text:
-        "I have been standing here longer than most buildings you see. I breathe for you turning your carbon into life, giving you air that costs nothing but care."
-    },
-    {
-      t: 12,
-      text:
-        "Yet every year, over 10 million hectares of my kind disappear. Forests burned, cleared, or forgotten for convenience."
-    },
-    {
-      t: 23,
-      text:
-        "With every cut, the air grows heavier and the ground more fragile and the summers you complain about grow longer."
-    },
-    {
-      t: 31,
-      text:
-        "I once sheltered birds, cooled your streets, and held back floods after the rain."
-    },
-    {
-      t: 37,
-      text:
-        "But smoke settles on my leaves now, Plastic tangles in my roots. And the songs of life I hosted are fading."
-    },
-    {
-      t: 46,
-      text:
-        "I don’t ask much ,just space to grow and breathe.\n" +
-        "Let shade return to places that forgot it ever existed."
-    },
-    {
-      t: 54,
-      text:
-        "Because when I fall silent,\n" +
-        "The world will too !"
-    }
-  ];
+        <!-- FUEL COST CALCULATOR -->
+    <section class="fuel-section">
+        <h3 class="section-title fuel-title">How Much Fuel Costs You Per Year</h3>
 
-  function updateLyrics(currentTime) {
-    let active = lyricsBlocks[0];
-    for (let i = 0; i < lyricsBlocks.length; i++) {
-      if (currentTime >= lyricsBlocks[i].t) {
-        active = lyricsBlocks[i];
-      } else {
-        break;
-      }
-    }
-    if (active) {
-      lyricsLineEl.textContent = active.text;
-    }
-  }
+        <div class="fuel-card">
+            <!-- LEFT TEXT -->
+            <div class="fuel-left">
+                <h2>Fuel Cost Calculator</h2>
+                <p>Input your vehicle details and fuel rate of your area.</p>
+            </div>
 
-  audio.addEventListener("timeupdate", () => {
-    if (!isNaN(audio.duration) && audio.duration > 0) {
-      const pct = (audio.currentTime / audio.duration) * 100;
-      progressFill.style.width = pct + "%";
-    }
-    updateLyrics(audio.currentTime);
-    currentTimeEl.textContent = formatTime(audio.currentTime);
-  });
+            <!-- RIGHT FORM -->
+            <div class="fuel-right">
+                <label class="fuel-label">
+                    GAS Price (per gallon):
+                    <input type="number" id="gasPrice" placeholder="e.g. 3.50" step="0.01">
+                </label>
 
-  audio.addEventListener("play", () => {
-    btnToggle.classList.add("active");
-    toggleIconImg.src = "./assets/images/Treasure Hunts/pause.png";
-    toggleLabel.textContent = "Pause";
-  });
+                <label class="fuel-label">
+                    Your Vehicle MPG:
+                    <input type="number" id="vehicleMpg" placeholder="e.g. 25" step="0.1">
+                </label>
 
-  audio.addEventListener("pause", () => {
-    btnToggle.classList.remove("active");
-    toggleIconImg.src = "./assets/images/Treasure Hunts/play.png";
-    toggleLabel.textContent = "Play";
-  });
+                <label class="fuel-label">
+                    Miles You Drive Per Year:
+                    <input type="number" id="annualMiles" placeholder="e.g. 12000" step="1">
+                </label>
 
-  audio.addEventListener("ended", () => {
-    btnToggle.classList.remove("active");
-    toggleIconImg.src = "./assets/images/Treasure Hunts/play.png";
-    toggleLabel.textContent = "Play";
-    progressFill.style.width = "0%";
-    currentTimeEl.textContent = "0:00";
-    lyricsLineEl.textContent = "Tap play to hear the Guardian speak again.";
-  });
-
-  btnToggle.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  });
-
-  btnRetry.addEventListener("click", () => {
-    audio.currentTime = 0;
-    audio.play();
-  });
-
-  progressBar.addEventListener("click", (e) => {
-    const rect = progressBar.getBoundingClientRect();
-    const ratio = (e.clientX - rect.left) / rect.width;
-    if (!isNaN(audio.duration) && audio.duration > 0) {
-      audio.currentTime = Math.max(0, Math.min(audio.duration * ratio, audio.duration));
-      updateLyrics(audio.currentTime);
-    }
-  });
-
-  // COMMENTS (local only)
-  const COMMENTS_KEY = "guardian_whispers_v1";
-  const commentsListEl = document.getElementById("comments-list");
-  const nameInput = document.getElementById("name-input");
-  const commentInput = document.getElementById("comment-input");
-  const postBtn = document.getElementById("post-btn");
-  const MAX_COMMENTS = 10;
-
-  function loadComments() {
-    try {
-      const data = JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
-      return Array.isArray(data) ? data : [];
-    } catch {
-      return [];
-    }
-  }
-
-  function saveComments(list) {
-    localStorage.setItem(COMMENTS_KEY, JSON.stringify(list));
-  }
-
-  function escapeHtml(str) {
-    return String(str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-
-  function renderComments() {
-    const comments = loadComments();
-    commentsListEl.innerHTML = "";
-    [...comments].reverse().forEach(c => {
-      const div = document.createElement("div");
-      div.className = "comment";
-      div.innerHTML = `
-        <div class="comment-header">
-          <div>${escapeHtml(c.name || "Guest")}</div>
-          <div class="comment-time">${escapeHtml(c.time || "")}</div>
+                <button id="fuelCalculateBtn" class="fuel-btn">Calculate</button>
+            </div>
         </div>
-        <div class="comment-text">${escapeHtml(c.text)}</div>
-      `;
-      commentsListEl.appendChild(div);
-    });
-  }
 
-  function addComment(name, text) {
-    let comments = loadComments();
-    const now = new Date();
-    const timeStr =
-      now.getHours().toString().padStart(2, "0") + ":" +
-      now.getMinutes().toString().padStart(2, "0");
+        <p id="fuelResult" class="fuel-result">
+            <!-- result text will appear here -->
+        </p>
+    </section>
 
-    comments.push({
-      name: name.trim() || "Guest",
-      text: text.trim(),
-      time: timeStr
-    });
 
-    if (comments.length > MAX_COMMENTS) {
-      comments = comments.slice(comments.length - MAX_COMMENTS);
-    }
 
-    saveComments(comments);
-    renderComments();
-  }
+    <!-- EV CHARGING POINT SECTION -->
+    <section class="charging-section">
+        <h3 class="section-title charging-title">EV Charging Point</h3>
 
-  postBtn.addEventListener("click", () => {
-    const name = nameInput.value;
-    const text = commentInput.value;
-    if (!text.trim()) {
-      commentInput.focus();
-      commentInput.placeholder = "Please write something first...";
-      return;
-    }
-    addComment(name, text);
-    commentInput.value = "";
-  });
+        <div class="charging-card">
+            <!-- LEFT TEXT -->
+            <div class="charging-left">
+                <h2>Find EV Charging Points Near You</h2>
+                <p>Search your location and discover charging points.</p>
+                <p id="chargingSummary" class="charging-summary">
+                    Type a city and click Find to see how many stations are near you.
+                </p>
+            </div>
 
-  window.addEventListener("storage", (e) => {
-    if (e.key === COMMENTS_KEY) {
-      renderComments();
-    }
-  });
+            <!-- RIGHT SEARCH -->
+            <div class="charging-right">
+                <div class="charging-search">
+                    <input type="text" id="chargingQuery" placeholder="Search location">
+                    <button id="chargingFindBtn" class="charging-btn">Find</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  renderComments();
 
-  // DIRECTIONS (Google Maps walking route)
-  const coordsInput = document.getElementById("coords-input");
-  const directionBtn = document.getElementById("direction-btn");
+          <!-- SHARE ON SOCIAL MEDIA -->
+    <section class="share-section">
+        <h3 class="section-title share-title">Share On Social Media</h3>
 
-  function parseCoords(str) {
-    if (!str) return null;
-    const parts = str.split(",").map(s => s.trim());
-    if (parts.length !== 2) return null;
-    const lat = parseFloat(parts[0]);
-    const lng = parseFloat(parts[1]);
-    if (isNaN(lat) || isNaN(lng)) return null;
-    return { lat, lng };
-  }
+        <div class="share-card">
+            <!-- STICKER PREVIEW -->
+            <div class="share-sticker">
+                <img src="./assets/images/sticker.png" alt="Go Electric Sticker">
+            </div>
 
-  if (directionBtn && coordsInput) {
-    directionBtn.addEventListener("click", () => {
-      const coords = parseCoords(coordsInput.value);
-      if (!coords) {
-        alert("Please enter valid coordinates as: latitude, longitude");
-        return;
-      }
-      const url =
-        `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}&travelmode=walking`;
-      window.open(url, "_blank");
-    });
-  }
+            <!-- TEXT + ICONS + BUTTON -->
+            <div class="share-content">
+                <h2>Share This EV Sticker</h2>
 
-  // PORTALS: navigate to linked HTML files in same directory
-  document.querySelectorAll(".nav-link").forEach(link => {
-    const target = link.getAttribute("data-link");
-    if (target) {
-      link.addEventListener("click", () => {
-        window.location.href = target;
-      });
-    }
-  });
-</script>
+                <p class="share-quote">
+                    “Smoke belongs on ribs, not in the air.”
+                </p>
+
+                <p class="share-tags">
+                    #GoElectric &nbsp; #CleanAir &nbsp; #DriveEV
+                </p>
+
+                <div class="share-social-row">
+                    <!-- Replace src with your own icon SVGs, filenames are up to you -->
+                    <button class="social-icon-btn" data-platform="facebook">
+                        <img src="./assets/svg/facebook.svg" alt="Share on Facebook">
+                    </button>
+                    <button class="social-icon-btn" data-platform="instagram">
+                        <img src="./assets/svg/instagram.svg" alt="Share on Instagram">
+                    </button>
+                    <button class="social-icon-btn" data-platform="tiktok">
+                        <img src="./assets/svg/tiktok.svg" alt="Share on TikTok">
+                    </button>
+                    <button class="social-icon-btn" data-platform="twitter">
+                        <img src="./assets/svg/twitter.svg" alt="Share on X (Twitter)">
+                    </button>
+                    <button class="social-icon-btn" data-platform="linkedin">
+                        <img src="./assets/svg/linkedin.svg" alt="Share on LinkedIn">
+                    </button>
+                    <button class="social-icon-btn" data-platform="pinterest">
+                        <img src="./assets/svg/pinterest.svg" alt="Share on Pinterest">
+                    </button>
+                </div>
+
+                <button id="shareBtn" class="share-btn">
+                    Share Sticker
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+           <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            Feel free to reach out to us :
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-item">
+                <span class="footer-icon">✉️</span>
+                <span>vvvvvvv@hotmail.com</span>
+            </div>
+            <div class="footer-item footer-phone">
+                <span class="footer-icon">📞</span>
+                <span>(9)45x-xxx-xxx</span>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+</main>
+
+<script src="./assets/js/goelectric.js"></script>
 </body>
 </html>
