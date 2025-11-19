@@ -1,0 +1,713 @@
+/* =========================
+   GLOBAL
+   ========================= */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    background: #F8FFF3; 
+    color: #253000;
+
+    /* 
+    background: #ffffff;  
+    color: #222;
+    
+    */
+
+
+}
+
+main {
+    padding-bottom: 32px;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+.section-title {
+    padding-left: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 16px 0 10px;
+    color: #015E02;
+}
+
+p,
+.fuel-result,
+.charging-summary,
+.share-quote,
+.share-tags {
+    color: #414B2D;             /* softer body text */
+}
+
+.myths-title {
+    font-weight: 700;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.ev-header {
+    padding: 22px 16px 8px 16px;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.ev-header h1 {
+    color: #111827;
+}
+
+.scroll-progress {
+    height: 4px;
+    width: 0%;
+    background: #3BAF64;
+    border-radius: 4px;
+    transition: width 0.15s linear;
+}
+
+/* =========================
+   AIR QUALITY
+   ========================= */
+.air-quality-section {
+    padding: 16px;
+}
+
+.aq-card {
+    background: #d4f4e1;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    box-shadow: 0 6px 14px rgba(93, 171, 98, 0.37);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    
+   
+}
+
+.aq-card:hover {
+    box-shadow: 0 8px 20px rgba(84, 160, 89, 0.58);
+    transform: translateY(-2px);
+}
+
+.aq-left h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.aq-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.location-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.aq-btn {
+    background: #239851;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.aq-right {
+    background: #ffffff;
+    padding: 12px 10px;
+    border-radius: 12px;
+    text-align: center;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.pm-label {
+    display: block;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 2px;
+}
+
+.pm-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.pm-condition {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =========================
+   DID YOU KNOW – SLIDER
+   ========================= */
+.didyou-section {
+    padding-top: 4px;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    max-width: 360px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.slide img:hover {
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    transform: translateY(-2px);
+}
+
+.slider-dots {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.slider-dots div {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    margin: 4px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.slider-dots .active {
+    background: #3BAF64;
+}
+
+/* =========================
+   MYTHS VS FACTS
+   ========================= */
+.myths-section {
+    padding-top: 4px;
+}
+
+.myth-list {
+    margin-top: 4px;
+}
+
+.myth-item {
+    margin: 12px 16px;
+    background: #ffffff;
+    border: #015E02;
+     border: 2px solid #015E02;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.myth-item:hover {
+    background: #cfeada;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+    transform: translateY(-1px);
+}
+
+.myth-toggle {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 12px 12px 6px 12px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myth-toggle span {
+    font-weight: 500;
+}
+
+.arrow-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s;
+}
+
+.myth-content {
+    display: none;
+    padding: 0 12px 12px 12px;
+}
+
+.myth-inner {
+    display: flex;
+    gap: 12px;
+}
+
+.myth-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.myth-text {
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.myth-text p {
+    margin-bottom: 8px;
+}
+
+.ref-btn {
+    align-self: flex-start;
+    background: #239851;
+    padding: 7px 12px;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+/* =========================
+   FUEL COST CALCULATOR
+   ========================= */
+.fuel-section {
+    padding-top: 8px;
+}
+
+.fuel-title {
+    font-weight: 700;
+}
+
+.fuel-card {
+    margin: 0 16px 8px;
+    background: #F8FFF3;
+    border: 2px solid #015E02;
+    border-radius: 12px;
+    display: flex;
+    gap: 18px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(93, 171, 98, 0.37);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.fuel-card:hover {
+    box-shadow: 0 8px 20px rgba(84, 160, 89, 0.58);
+    transform: translateY(-2px);
+}
+
+.fuel-left h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.fuel-left p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.fuel-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.fuel-label {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fuel-label input {
+    border-radius: 999px;
+    border: 1px solid #239851;
+    padding: 8px 10px;
+    font-size: 13px;
+    outline: none;
+}
+
+.fuel-label input:focus {
+    border-color: #000903;
+}
+
+.fuel-btn {
+    margin-top: 4px;
+    align-self: flex-end;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: #239851;
+    color: white;
+    font-size: 14px;
+}
+
+.fuel-result {
+    margin: 6px 16px 16px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* =========================
+   EV CHARGING
+   ========================= */
+.charging-section {
+    padding-top: 8px;
+}
+
+.charging-title {
+    font-weight: 700;
+}
+
+.charging-card {
+    margin: 0 16px;
+    background: #F8FFF3;
+    border: 2px solid #015E02;
+    border-radius: 12px;
+    display: flex;
+    gap: 18px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(93, 171, 98, 0.37);
+    
+
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.charging-card:hover {
+    box-shadow: 0 8px 20px rgba(84, 160, 89, 0.58);
+    transform: translateY(-2px);
+}
+
+.charging-left h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.charging-left p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.charging-summary {
+    margin-top: 8px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.charging-right {
+    display: flex;
+    align-items: center;
+}
+
+.charging-search {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.charging-search input {
+    border-radius: 999px;
+    border: 1px solid #239851;
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 170px;
+    outline: none;
+}
+
+.charging-search input:focus {
+    border-color: #3BAF64;
+}
+
+.charging-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    background: #239851;
+    color: white;
+    font-size: 14px;
+}
+
+/* =========================
+   SHARE SECTION
+   ========================= */
+.share-section {
+    padding-top: 12px;
+}
+
+.share-title {
+    font-weight: 700;
+}
+
+.share-card {
+    margin: 0 16px 24px;
+    background: #F8FFF3;
+    border: 2px solid #015E02;
+    border-radius: 12px;
+    display: flex;
+    gap: 18px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(93, 171, 98, 0.37);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.share-card:hover {
+    box-shadow: 0 8px 20px rgba(84, 160, 89, 0.58);
+    transform: translateY(-2px);
+}
+
+/* LEFT: sticker preview */
+.share-sticker {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-sticker img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* RIGHT: text + icons + button */
+.share-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.share-content h2 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.share-quote {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px 0 0;
+}
+
+.share-tags {
+    font-size: 13px;
+    color: #333;
+    opacity: 0.85;
+}
+
+/* social icons row */
+.share-social-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.social-icon-btn {
+    border: none;
+    background: #ffffff;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    padding: 4px;
+    cursor: pointer;
+}
+
+.social-icon-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* main share button */
+.share-btn {
+    margin-top: 8px;
+    padding: 8px 22px;
+    border-radius: 999px;
+    border: none;
+    background: #239851;
+    color: white;
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.site-footer {
+    margin-top: 24px;
+}
+
+.footer-top {
+    background: #C6C6C6;
+    padding: 14px 16px;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    background: #E1E1E1;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-icon {
+    font-size: 16px;
+}
+
+/* =========================
+   MOBILE TWEAKS (phones)
+   ========================= */
+@media (max-width: 480px) {
+    .slide img {
+        max-width: 100%;
+        height: 190px;
+    }
+
+    .myth-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .share-card {
+        flex-direction: column;
+    }
+
+    .share-sticker {
+        flex: 0 0 auto;
+    }
+
+    .share-sticker img {
+        max-width: 260px;
+    }
+}
+
+/* =========================
+   DESKTOP / LARGE SCREENS
+   ========================= */
+@media (min-width: 768px) {
+    body {
+    background: #F8FFF3; 
+    }
+
+    /* all main sections share same centered container */
+    .air-quality-section,
+    .didyou-section,
+    .myths-section,
+    .fuel-section,
+    .charging-section,
+    .share-section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /* remove side margins inside container */
+    .aq-card,
+    .fuel-card,
+    .charging-card,
+    .share-card {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .aq-card {
+        padding: 20px 24px;
+    }
+
+    .aq-right {
+        width: 180px;
+        padding: 14px 10px;
+    }
+
+    /* two images in view on desktop */
+    .slide {
+        flex: 0 0 50%;
+    }
+
+    .slide img {
+        max-width: 400px;
+        height: 220px;
+    }
+
+    .myth-img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .fuel-left h2,
+    .charging-left h2 {
+        font-size: 22px;
+    }
+
+    .fuel-left p,
+    .charging-left p {
+        font-size: 15px;
+    }
+
+    .fuel-label input,
+    .charging-search input {
+        font-size: 14px;
+    }
+
+    .fuel-btn,
+    .charging-btn {
+        font-size: 14px;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
