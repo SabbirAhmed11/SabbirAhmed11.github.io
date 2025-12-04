@@ -7,72 +7,109 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* ========== AIR QUALITY (DEMO PM + REAL LOCATION) ========== */
+/* ========== AIR QUALITY (REAL PM2.5 + LOCATION) ========== */
 const pmValue = document.getElementById("pmValue");
 const pmCondition = document.getElementById("pmCondition");
 const userLocation = document.getElementById("userLocation");
 const pmBox = document.getElementById("pmStatusBox");
 
-function setAQI(value) {
+// Bakersfield fallback (if user blocks geo or browser doesn't support it)
+const FALLBACK_CITY = "Bakersfield, California";
+const FALLBACK_LAT = 35.3733;
+const FALLBACK_LON = -119.0187;
+
+// Set PM2.5 value + color + label
+function setAQI(pm) {
+    if (pm === null || pm === undefined || isNaN(pm)) {
+        pmValue.textContent = "--";
+        pmCondition.textContent = "Data unavailable";
+        pmBox.style.background = "#eeeeee";
+        return;
+    }
+
+    const value = Math.round(pm);
     pmValue.textContent = value;
 
-    if (value < 50) {
+    // EPA-style PM2.5 bands (µg/m³)
+    if (value <= 12) {
         pmCondition.textContent = "GOOD";
-        pmBox.style.background = "#CFF7DA";
-    } else if (value < 100) {
+        pmBox.style.background = "#CFF7DA";   // green
+    } else if (value <= 35) {
         pmCondition.textContent = "MODERATE";
-        pmBox.style.background = "#FFF3C4";
+        pmBox.style.background = "#FFF3C4";   // yellow
+    } else if (value <= 55) {
+        pmCondition.textContent = "UNHEALTHY (Sensitive)";
+        pmBox.style.background = "#FFD9B3";   // orange
     } else {
         pmCondition.textContent = "UNHEALTHY";
-        pmBox.style.background = "#FFD2D2";
+        pmBox.style.background = "#FFD2D2";   // red
     }
 }
 
-// demo PM value for now
-setAQI(62);
+// Fetch PM2.5 from Open-Meteo Air Quality API
+function fetchPm25(lat, lon) {
+    const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
 
-// reverse geocode to city, state using OpenStreetMap Nominatim
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            const series = data?.hourly?.pm2_5;
+            if (Array.isArray(series) && series.length > 0) {
+                const latest = series[series.length - 1];
+                setAQI(latest);
+            } else {
+                setAQI(null);
+            }
+        })
+        .catch(() => {
+            setAQI(null);
+        });
+}
+
+// Reverse-geocode to nice "City, State" label (same as before)
 function fetchLocationName(lat, lon) {
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
 
-    fetch(url, {
-        headers: {
-            "Accept-Language": "en"
-        }
-    })
-    .then(res => res.json())
-    .then(data => {
-        const address = data.address || {};
-        const city = address.city || address.town || address.village || address.hamlet;
-        const state = address.state || address.region;
+    fetch(url, { headers: { "Accept-Language": "en" } })
+        .then(res => res.json())
+        .then(data => {
+            const address = data.address || {};
+            const city = address.city || address.town || address.village || address.hamlet;
+            const state = address.state || address.region;
 
-        if (city && state) {
-            userLocation.textContent = `${city}, ${state}`;
-        } else if (state) {
-            userLocation.textContent = state;
-        } else {
+            if (city && state) {
+                userLocation.textContent = `${city}, ${state}`;
+            } else if (state) {
+                userLocation.textContent = state;
+            } else {
+                userLocation.textContent = "Your location";
+            }
+        })
+        .catch(() => {
             userLocation.textContent = "Your location";
-        }
-    })
-    .catch(() => {
-        userLocation.textContent = "Your location";
-    });
+        });
 }
 
+// Geolocation logic: user → local; else → Bakersfield fallback
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
         pos => {
             const { latitude, longitude } = pos.coords;
             fetchLocationName(latitude, longitude);
+            fetchPm25(latitude, longitude);
         },
         () => {
             // permission denied or error
-            userLocation.textContent = "Bakersfield, California";
+            userLocation.textContent = FALLBACK_CITY;
+            fetchPm25(FALLBACK_LAT, FALLBACK_LON);
         }
     );
 } else {
-    userLocation.textContent = "Bakersfield, California";
+    userLocation.textContent = FALLBACK_CITY;
+    fetchPm25(FALLBACK_LAT, FALLBACK_LON);
 }
+
+  
 
 
 /* ========== SLIDER (MOBILE 1, DESKTOP 2) ========== */
@@ -174,54 +211,98 @@ toggles.forEach(toggle => {
 });
 
 
-
-
-/* ========== FUEL COST CALCULATOR ========== */
+/* ========== FUEL COST + CO2 CALCULATOR ========== */
 
 const fuelBtn = document.getElementById("fuelCalculateBtn");
 const fuelResultEl = document.getElementById("fuelResult");
 
-if (fuelBtn) {
-    fuelBtn.addEventListener("click", () => {
-        const gasPrice = parseFloat(document.getElementById("gasPrice").value);
-        const mpg = parseFloat(document.getElementById("vehicleMpg").value);
-        const miles = parseFloat(document.getElementById("annualMiles").value);
+// CO2 elements on the infographic
+const co2GasNumberEl = document.getElementById("co2GasNumber");
+const co2EvNumberEl = document.getElementById("co2EvNumber");
+const co2ResultEl = document.getElementById("co2Result");
 
-        if (!gasPrice || !mpg || !miles || gasPrice <= 0 || mpg <= 0 || miles <= 0) {
-            fuelResultEl.textContent = "Please fill in all fields with valid numbers.";
-            return;
-        }
+// Emission constants (EPA values)
+const CO2_PER_GALLON_KG = 8.887;        // kg CO₂ per gallon gasoline
+const EV_KWH_PER_100_MILES = 30;        // EV energy use
+const GRID_CO2_KG_PER_KWH = 0.4;        // U.S. grid average CO₂ per kWh
 
-        // Gas car annual cost
-        const gallonsPerYear = miles / mpg;
-        const gasCost = gallonsPerYear * gasPrice;
+fuelBtn.addEventListener("click", () => {
+    const gasPrice = parseFloat(document.getElementById("gasPrice").value);
+    const mpg = parseFloat(document.getElementById("vehicleMpg").value);
+    const miles = parseFloat(document.getElementById("annualMiles").value);
 
-        // Simple EV estimate (you can tweak later)
-        const evKWhPerMile = 0.30;       // 30 kWh per 100 miles
-        const electricityPrice = 0.14;   // $0.14 per kWh (demo)
-        const evCost = miles * evKWhPerMile * electricityPrice;
+    if (!gasPrice || !mpg || !miles) {
+        fuelResultEl.textContent = "Please enter all the fields to calculate your cost.";
+        return;
+    }
 
-        const savings = gasCost - evCost;
+    /* -------------------- COST CALCULATIONS -------------------- */
 
-        const gasStr = gasCost.toFixed(0);
-        const evStr = evCost.toFixed(0);
-        const saveStr = Math.abs(savings).toFixed(0);
+    // Gasoline yearly cost
+    const gallonsUsed = miles / mpg;
+    const gasCost = gallonsUsed * gasPrice;
 
-        if (savings > 0) {
-            fuelResultEl.textContent =
-                `You spend about $${gasStr} per year on fuel. ` +
-                `Switching to an EV could cost around $${evStr} per year and save roughly $${saveStr}.`;
-        } else if (savings < 0) {
-            fuelResultEl.textContent =
-                `You spend about $${gasStr} per year on fuel. ` +
-                `With our simple assumptions, an EV might cost around $${evStr} per year (about $${saveStr} more).`;
-        } else {
-            fuelResultEl.textContent =
-                `You spend about $${gasStr} per year on fuel. ` +
-                `With our simple assumptions, the yearly cost looks similar for an EV.`;
-        }
-    });
-}
+    // EV yearly cost (30 kWh/100 miles, $0.14/kWh)
+    const kWhPerMile = EV_KWH_PER_100_MILES / 100;
+    const evCost = miles * kWhPerMile * 0.14;
+
+    const savings = gasCost - evCost;
+
+    const gasStr = gasCost.toFixed(0);
+    const evStr = evCost.toFixed(0);
+    const saveStr = Math.abs(savings).toFixed(0);
+
+    /* -------------------- CO₂ EMISSIONS CALCULATIONS -------------------- */
+
+    // Gas CO2 metric tons
+    const gasCO2_tons = (gallonsUsed * CO2_PER_GALLON_KG) / 1000;
+
+    // EV CO2 metric tons
+    const evCO2_tons = (miles * kWhPerMile * GRID_CO2_KG_PER_KWH) / 1000;
+
+    // Update CO₂ values in infographic
+    if (co2GasNumberEl && co2EvNumberEl) {
+        co2GasNumberEl.textContent = gasCO2_tons.toFixed(1);
+        co2EvNumberEl.textContent = evCO2_tons.toFixed(1);
+    }
+
+    /* -------------------- TEXT RESULT -------------------- */
+
+    const ASSUMPTIONS_TEXT =
+        " (EV estimate uses 30 kWh per 100 miles and $0.14 per kWh).";
+
+    if (savings > 0) {
+        fuelResultEl.textContent =
+            `Based on your inputs, you spend about $${gasStr} per year on gasoline. ` +
+            `A typical EV driving the same distance would cost around $${evStr} per year, ` +
+            `saving you about $${saveStr}` +
+            ASSUMPTIONS_TEXT;
+    } else if (savings < 0) {
+        fuelResultEl.textContent =
+            `Based on your inputs, you spend about $${gasStr} per year on gasoline. ` +
+            `A typical EV would cost about $${evStr} per year in electricity, ` +
+            `about $${saveStr} more than your current fuel cost` +
+            ASSUMPTIONS_TEXT;
+    } else {
+        fuelResultEl.textContent =
+            `Based on your inputs, your yearly gas and EV charging costs are nearly the same` +
+            ASSUMPTIONS_TEXT;
+    }
+
+    /* -------------------- CO₂ RESULT TEXT -------------------- */
+
+    co2ResultEl.textContent =
+        `Your gas vehicle produces approximately ${gasCO2_tons.toFixed(1)} metric tons of CO₂ per year. ` +
+        `On average an EV driving the same distance would produce around ${evCO2_tons.toFixed(1)} metric tons, ` +
+        `mainly from electricity generation.`;
+
+
+
+
+});
+
+
+
 
 
 
@@ -369,3 +450,30 @@ if (socialButtons.length) {
         });
     });
 }
+
+// REFERENCES – ACCORDION
+document.querySelectorAll(".ref-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        const arrow = btn.querySelector(".arrow-icon");
+
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            arrow.style.transform = "rotate(0deg)";
+        } else {
+            content.style.display = "block";
+            arrow.style.transform = "rotate(180deg)";
+        }
+    });
+});
+
+// Scroll to References when any image in the slider is clicked
+document.querySelectorAll(".slide img").forEach(img => {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", () => {
+        document.getElementById("references").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
