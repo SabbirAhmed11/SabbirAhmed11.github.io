@@ -4,16 +4,8 @@
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-    background: #F8FFF3; 
+    background: #F8FFF3;
     color: #253000;
-
-    /* 
-    background: #ffffff;  
-    color: #222;
-    
-    */
-
-
 }
 
 main {
@@ -83,8 +75,6 @@ p,
     gap: 18px;
     box-shadow: 0 6px 14px rgba(93, 171, 98, 0.37);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
-    
-   
 }
 
 .aq-card:hover {
@@ -130,6 +120,7 @@ p,
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
 }
 
 .pm-label {
@@ -153,6 +144,9 @@ p,
 /* =========================
    DID YOU KNOW – SLIDER
    ========================= */
+/* =========================
+   DID YOU KNOW – SLIDER
+   ========================= */
 .didyou-section {
     padding-top: 4px;
 }
@@ -161,8 +155,8 @@ p,
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 0 16px;
     box-sizing: border-box;
+    padding: 0 24px;               /* breathing room on desktop & mobile */
 }
 
 .slider {
@@ -170,17 +164,18 @@ p,
     transition: transform 0.4s ease;
 }
 
+/* default: ONE slide per view */
 .slide {
     flex: 0 0 100%;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
+    padding: 0 8px;                /* small gap between card and viewport edge */
 }
 
 .slide img {
     width: 100%;
-    max-width: 360px;
-    height: 200px;
+    height: 220px;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 6px 14px rgba(0,0,0,0.08);
@@ -194,7 +189,7 @@ p,
 
 .slider-dots {
     text-align: center;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
 .slider-dots div {
@@ -211,6 +206,14 @@ p,
     background: #3BAF64;
 }
 
+/* TWO slides per view on wider screens */
+@media (min-width: 768px) {
+    .slide {
+        flex: 0 0 50%;
+    }
+}
+
+
 /* =========================
    MYTHS VS FACTS
    ========================= */
@@ -225,8 +228,7 @@ p,
 .myth-item {
     margin: 12px 16px;
     background: #ffffff;
-    border: #015E02;
-     border: 2px solid #015E02;
+    border: 2px solid #015E02;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.04);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -303,6 +305,21 @@ p,
 /* =========================
    FUEL COST CALCULATOR
    ========================= */
+.fuel-note {
+    margin: 0;
+    font-size: 13px;
+    color: #4a5835;
+    line-height: 1.5;
+}
+
+.fuel-note-heading {
+    font-weight: 600;
+}
+
+.fuel-note-em {
+    font-weight: 600;
+}
+
 .fuel-section {
     padding-top: 8px;
 }
@@ -326,6 +343,14 @@ p,
 .fuel-card:hover {
     box-shadow: 0 8px 20px rgba(84, 160, 89, 0.58);
     transform: translateY(-2px);
+}
+
+/* fuel left column layout */
+.fuel-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .fuel-left h2 {
@@ -376,9 +401,73 @@ p,
 }
 
 .fuel-result {
-    margin: 6px 16px 16px;
+    margin: 25px 16px 16px;
     font-size: 14px;
+    line-height: 1.3;
+    color: #600000;
+}
+
+
+
+
+/* CO2 comparison visual */
+.co2-visual {
+    margin: 24px 16px 0;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.co2-visual img {
+    width: 100%;
+    display: block;
+}
+
+/* Common label styles */
+.co2-label {
+    position: absolute;
+    top: 8%;
+    text-align: center;
+    transform: translateY(-15%);
+}
+
+.co2-label-number {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.co2-label-sub {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Left side (Gas vehicle) */
+.co2-gas {
+    left: 18%;
+    color: #E56A23;
+}
+
+/* Right side (EV) */
+.co2-ev {
+    right: 18%;
+    color: #33A54A;
+}
+
+.co2-note {
+    margin: 25px 16px 0;
+    font-size: 12px;
+    color: #5f6b3c;
     line-height: 1.4;
+}
+
+.co2-result {
+    margin: 25px 16px 0;
+    font-size: 15px;
+    color: #600000;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 /* =========================
@@ -401,8 +490,6 @@ p,
     gap: 18px;
     padding: 16px;
     box-shadow: 0 6px 14px rgba(93, 171, 98, 0.37);
-    
-
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -458,6 +545,7 @@ p,
     background: #239851;
     color: white;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 /* =========================
@@ -526,7 +614,6 @@ p,
 
 .share-tags {
     font-size: 13px;
-    color: #333;
     opacity: 0.85;
 }
 
@@ -570,6 +657,76 @@ p,
     align-self: flex-start;
 }
 
+
+/* ============== REFERENCES SECTION ============== */
+
+.references-section {
+    padding-top: 12px;
+}
+
+.ref-list {
+    margin-top: 4px;
+}
+
+.ref-item {
+    margin: 12px 16px;
+    background: #ffffff;
+    border: 2px solid #015E02;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.ref-item:hover {
+    background: #dcefe0;
+    transform: translateY(-1px);
+}
+
+.ref-toggle {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ref-content {
+    display: none;
+    padding: 0 12px 12px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.ref-content ul {
+    padding-left: 16px;
+    margin: 0;
+}
+
+.ref-content li {
+    margin: 6px 0;
+}
+
+.ref-content a {
+    color: #1f540a;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.formula-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+
 /* =========================
    FOOTER
    ========================= */
@@ -578,13 +735,13 @@ p,
 }
 
 .footer-top {
-    background: #C6C6C6;
+    background: #c5e0c5;
     padding: 14px 16px;
     font-size: 14px;
 }
 
 .footer-bottom {
-    background: #E1E1E1;
+    background: #8fc8a5;
     padding: 12px 16px;
     display: flex;
     justify-content: space-between;
@@ -607,10 +764,45 @@ p,
 /* =========================
    MOBILE TWEAKS (phones)
    ========================= */
+@media (max-width: 600px) {
+
+    /* stack fuel card on mobile */
+    .fuel-card {
+        flex-direction: column;
+    }
+
+    .fuel-right {
+        width: 100%;
+    }
+
+    /* stack charging card on mobile */
+    .charging-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .charging-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .charging-search {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .charging-search input {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
 @media (max-width: 480px) {
-    .slide img {
-        max-width: 100%;
-        height: 190px;
+
+    /* slider: nothing extra needed for img, just ensure full width */
+    .slider {
+        width: 100%;
     }
 
     .myth-img {
@@ -629,17 +821,40 @@ p,
     .share-sticker img {
         max-width: 260px;
     }
+
+    .fuel-section .fuel-title + .co2-visual {
+        margin-top: 24px;
+    }
+
+    .co2-visual {
+        margin: 24px 16px 0;
+    }
+
+    .co2-label {
+        top: 6%;
+        transform: translateY(-10%);
+    }
+
+    .co2-label-number {
+        font-size: 40px;
+    }
+
+    .co2-label-sub {
+        font-size: 16px;
+    }
+
+    .co2-result {
+        margin-top: 10px;
+        font-size: 14px;
+    }
 }
 
 /* =========================
    DESKTOP / LARGE SCREENS
    ========================= */
 @media (min-width: 768px) {
-    body {
-    background: #F8FFF3; 
-    }
 
-    /* all main sections share same centered container */
+    /* center main sections */
     .air-quality-section,
     .didyou-section,
     .myths-section,
@@ -652,7 +867,6 @@ p,
         padding-right: 40px;
     }
 
-    /* remove side margins inside container */
     .aq-card,
     .fuel-card,
     .charging-card,
@@ -670,14 +884,13 @@ p,
         padding: 14px 10px;
     }
 
-    /* two images in view on desktop */
+    /* TWO slides per view on desktop */
     .slide {
         flex: 0 0 50%;
     }
 
     .slide img {
-        max-width: 400px;
-        height: 220px;
+        height: 260px;
     }
 
     .myth-img {
@@ -710,4 +923,27 @@ p,
         padding-left: 40px;
         padding-right: 40px;
     }
+    /* Desktop layout for References */
+.references-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+
+.ref-toggle {
+    font-size: 16px;
+    padding: 14px 14px;
+}
+
+.ref-content {
+    font-size: 15px;
+    padding: 0 14px 14px 14px;
+}
+
+
+
+
 }
