@@ -47,24 +47,36 @@ function setAQI(pm) {
 }
 
 // Fetch PM2.5 from Open-Meteo Air Quality API
+// Fetch PM2.5 from Open-Meteo Air Quality API
 function fetchPm25(lat, lon) {
-    const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&timezone=auto`;
+    const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&hourly=pm2_5&current=pm2_5&timezone=auto`;
 
     fetch(url)
         .then(res => res.json())
         .then(data => {
+            console.log("AQ raw response:", data); // 👈 check this in browser console
+
+            const current = data?.current?.pm2_5;
             const series = data?.hourly?.pm2_5;
-            if (Array.isArray(series) && series.length > 0) {
+
+            if (typeof current === "number") {
+                setAQI(current);
+            } else if (Array.isArray(series) && series.length > 0) {
                 const latest = series[series.length - 1];
                 setAQI(latest);
             } else {
                 setAQI(null);
             }
         })
-        .catch(() => {
+        .catch(err => {
+            console.error("AQ fetch error:", err);
             setAQI(null);
         });
 }
+
+
+
+
 
 // Reverse-geocode to nice "City, State" label (same as before)
 function fetchLocationName(lat, lon) {
