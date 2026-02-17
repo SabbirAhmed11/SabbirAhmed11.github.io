@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+   <link rel="icon" type="image/svg+xml" href="./assets/svg/Sheet.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SheetGuess</title>
+  <link rel="stylesheet" href="assets/css/sheetguess.css" />
+</head>
+
+<body>
+  <!-- START POPUP -->
+
+
+  <div id="startModal" class="modal">
+  <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+
+    <!-- LOGO -->
+    <div class="modalLogoWrap">
+      <img src="assets/images/sheetguess/logo.png" alt="Project logo" class="modalLogo">
+    </div>
+
+    <h2 id="mTitle">How to Play</h2>
+
+    <p class="mText">
+      You will see spreadsheet values that identifies an image<br>
+      Now based on the values <b>Imagine the photograph !</b><br><br>
+      - You have <b>20 seconds</b> to guess. <br>
+      - The card flips automatically and reveals the image.<br>
+      - Rate how well you guessed (0–10).
+    </p>
+
+    <div class="mActions">
+      <button id="startBtn" class="btn primary">Let’s start</button>
+    </div>
+  </div>
+</div>
+
+
+  <header class="topbar">
+   
+
+    <div class="brand">
+  <img src="assets/images/sheetguess/logo.png" alt="Logo" class="brandLogo">
+
+  <div class="brandText">
+    <h1>Guess The Photograph From Spreadsheet Values !</h1>
+  </div>
+</div>
+
+
+  
+
+    <div class="hud">
+      <div class="pill"><span>Card</span><b id="cardCount">0/0</b></div>
+      <div class="pill"><span>Timer</span><b id="timer">20</b></div>
+      <button id="exportBtn" class="btn small">Export ratings</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="card" class="flip" tabindex="0" aria-label="Flip card">
+      <div class="flip-inner">
+
+        <!-- FRONT -->
+        <section class="side front">
+          <div class="head">
+            <h2>Data Card</h2>
+            <p>Imagine the image from these spreadsheet values.</p>
+          </div>
+
+          <div id="clues" class="grid"></div>
+
+          <div class="controls">
+            <button id="flipBtn" class="btn primary">Flip</button>
+            <button id="nextBtn" class="btn">Next</button>
+            <button id="restartBtn" class="btn ghost">Restart</button>
+          </div>
+
+          <div class="note">Flip unlocks after the timer ends.</div>
+        </section>
+
+        <!-- BACK: IMAGE + RATING + COPY -->
+        <section class="side back">
+          <div id="imgBox" class="imgBox">
+            <img id="revealImg" alt="Revealed image" />
+            <div id="imgFallback" class="imgFallback hidden">
+              Image not available (check ImageURL + Drive sharing)
+            </div>
+          </div>
+
+          <div class="rate">
+            <div class="rateTop">
+              <div class="rateTitle">How well did you guess? (0–10)</div>
+              <button id="copyBtn" class="btn small">Copy description</button>
+            </div>
+
+            <div id="rating" class="rating"></div>
+            <div id="savedMsg" class="savedMsg" aria-live="polite"></div>
+            <div id="copyMsg" class="copyMsg" aria-live="polite"></div>
+          </div>
+
+          <div class="controls">
+            <button id="backBtn" class="btn">Back</button>
+            <button id="nextBtn2" class="btn primary">Next</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/sheetguess.js"></script>
+</body>
+</html>
