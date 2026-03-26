@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KITES</title>
+  <link rel="icon" type="image/svg+xml" href="assets/svg/kite.svg">
+  <link rel="stylesheet" href="assets/css/memory.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Corner transition overlay -->
+  <div class="corner-transition" aria-hidden="true">
+    <div class="corner-fill corner-left"></div>
+    <div class="corner-fill corner-right"></div>
+  </div>
+
+  <!-- Section 1 -->
+  <section class="panel panel-hero" id="hero">
+    <div class="scene">
+      <div class="background"></div>
+
+      <div class="kite kite-i" data-strength="1.1">
+        <img src="assets/images/I.png" alt="I kite letter" />
+      </div>
+
+      <div class="kite kite-k" data-strength="1.25">
+        <img src="assets/images/K.png" alt="K kite letter" />
+      </div>
+
+      <div class="kite kite-s" data-strength="1.05">
+        <img src="assets/images/S.png" alt="S kite letter" />
+      </div>
+
+      <div class="kite kite-t" data-strength="1.15">
+        <img src="assets/images/T.png" alt="T kite letter" />
+      </div>
+
+      <div class="kite kite-e" data-strength="1.1">
+        <img src="assets/images/E.png" alt="E kite letter" />
+      </div>
+
+      <div class="scroll-hint">Scroll</div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+<section class="panel panel-two kite-quote-section" id="section-two">
+  <p class="kite-memory-quote">
+    <span>EVEN</span>
+    <span>NOW,</span>
+    <span>WHEN</span>
+    <span>I</span>
+    <span>LOOK</span>
+    <span>UP</span>
+    <span>AND</span>
+    <span>SEE</span>
+    <span>A</span>
+    <span>KITE</span>
+    <span>IN</span>
+    <span>THE</span>
+    <span>SKY,</span>
+    <span>IT</span>
+    <span>REMINDS</span>
+    <span>ME</span>
+    <span>OF</span>
+    <span>HOME</span>
+    <span>AND</span>
+    <span>THOSE</span>
+    <span>COLORFUL</span>
+    <span>DAYS.</span>
+
+    <br>
+
+    <span>AFTER</span>
+    <span>SO</span>
+    <span>MANY</span>
+    <span>YEARS,</span>
+    <span>I</span>
+    <span>STILL</span>
+    <span>STOP</span>
+    <span>FOR</span>
+    <span>A</span>
+    <span>MOMENT</span>
+    <span>AND</span>
+    <span>WATCH</span>
+    <span>THEM</span>
+    <span>DANCE</span>
+    <span>IN</span>
+    <span>THE</span>
+    <span>WIND.</span>
+
+    <br>
+
+    <span>SOME</span>
+    <span>MEMORIES</span>
+    <span>NEVER</span>
+    <span>LEAVE</span>
+    <span>—</span>
+    <span>THEY</span>
+    <span>JUST</span>
+    <span>KEEP</span>
+    <span>FLYING</span>
+    <span>WITH</span>
+    <span>YOU.</span>
+  </p>
+      
+      <img
+    src="assets/images/k2.png"
+    alt="Flying kite"
+    class="transition-kite"
+      />
+
+</section>
+
+<section class="panel panel-three" id="section-three">
+  <div class="section-three-shell">
+    <div class="scroll-bg">
+  <div class="scroll-track">
+    <img src="assets/images/lg.png" />
+    <img src="assets/images/lg.png" />
+  </div>
+</div>
+
+        <div class="transition-kite-2-wrap">
+      <img src="assets/images/k3.png" alt="Flying kite" class="transition-kite-2" />
+    </div>
+
+    <div class="section-three-content">
+      <!-- your section 3 content -->
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="panel panel-four-anchor" id="section-four-anchor"></section>
+
+<section class="panel panel-four" id="section-four">
+  <div class="section-four-shell">
+    <div class="game-wrap">
+      <div class="game-ui">
+        <h2>MOVE K TO CUT THE OTHER KITES</h2>
+        <p>DON’T LET THEM TOUCH YOU.</p>
+        <button id="start-game-btn">PLAY</button>
+        <div class="game-status" id="game-status">CLICK PLAY TO START</div>
+      </div>
+
+      <div class="game-area" id="game-area">
+        <div class="player-kite kite-game kite-player" id="player-kite">
+          <img src="assets/images/K_1.png" alt="Player kite K" />
+        </div>
+
+        <div class="enemy-kite kite-game enemy enemy-i" data-letter="I">
+          <img src="assets/images/I_1.png" alt="Enemy kite I" />
+        </div>
+
+        <div class="enemy-kite kite-game enemy enemy-t" data-letter="T">
+          <img src="assets/images/T_1.png" alt="Enemy kite T" />
+        </div>
+
+
+        <div class="enemy-kite kite-game enemy enemy-t" data-letter="E">
+          <img src="assets/images/E_1.png" alt="Enemy kite E" />
+        </div>
+
+        <div class="enemy-kite kite-game enemy enemy-e" data-letter="L">
+          <img src="assets/images/L_1.png" alt="Enemy kite L" />
+        </div>
+        <div class="enemy-kite kite-game enemy enemy-e" data-letter="O">
+          <img src="assets/images/O_1.png" alt="Enemy kite O" />
+        </div>
+
+
+
+        <div class="enemy-kite kite-game enemy enemy-i" data-letter="I">
+          <img src="assets/images/Y_1.png" alt="Enemy kite Y" />
+        </div>
+
+        <div class="enemy-kite kite-game enemy enemy-t" data-letter="A">
+          <img src="assets/images/A_1.png" alt="Enemy kite A" />
+        </div>
+
+
+      </div>
+
+      <div class="game-feedback" id="game-feedback"></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <script src="assets/js/memory.js"></script>
+</body>
+</html>
