@@ -1,0 +1,656 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+}
+
+@font-face {
+  font-family: 'KiteFont';
+  src: url('../font/kite_v4.otf') format('opentype');
+  font-display: swap;
+}
+
+/* Custom Cursor */
+html, body, a, button {
+  cursor: url('../images/k_cursor.png') 16 16, auto;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #6FAEDD;
+}
+
+/* ---------- Panels ---------- */
+
+.panel {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.panel-hero {
+  z-index: 1;
+}
+
+.panel-two {
+  position: relative;
+  background: #6FAEDD;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 30; /* higher than corner overlay */
+}
+
+/* ---------- Scene ---------- */
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
+}
+
+/* ---------- Kites ---------- */
+
+.kite {
+  position: absolute;
+  z-index: 2;
+  will-change: transform, opacity;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+}
+
+.kite img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Order from left to right: I K S T E */
+
+.kite-i {
+  left: 10%;
+  top: 45%;
+}
+
+.kite-k {
+  left: 24%;
+  top: 26%;
+}
+
+.kite-s {
+  left: 43%;
+  top: 35%;
+}
+
+.kite-t {
+  left: 58%;
+  top: 18%;
+}
+
+.kite-e {
+  left: 77%;
+  top: 35%;
+}
+
+.kite-i,
+.kite-k,
+.kite-s,
+.kite-t,
+.kite-e {
+  width: 220px;
+}
+
+/* ---------- Scroll hint ---------- */
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  animation: hintBob 1.8s ease-in-out infinite;
+}
+
+@keyframes hintBob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ---------- Corner transition overlay ---------- */
+
+.corner-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.corner-fill {
+  position: absolute;
+  bottom: 0;
+  width: 120vmax;
+  height: 120vmax;
+  background: #6FAEDD;
+  transform: scale(0);
+  will-change: transform;
+}
+
+.corner-left {
+  left: 0;
+  transform-origin: bottom left;
+  border-top-right-radius: 100%;
+}
+
+.corner-right {
+  right: 0;
+  transform-origin: bottom right;
+  border-top-left-radius: 100%;
+}
+
+/* ---------- Quote section ---------- */
+
+.kite-quote-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7vw 8vw;
+  background: #6FAEDD;
+  overflow: hidden;
+}
+
+.kite-memory-quote {
+  position: relative;
+  z-index: 31; /* above the transition overlay */
+  max-width: 1200px;
+  margin: 0;
+  text-align: center;
+  font-family: 'KiteFont', 'Space Grotesk', sans-serif;
+  font-size: calc(var(--index) * 1.6);
+  line-height: 1.95;
+  font-weight: 700;
+}
+
+.kite-memory-quote br {
+  display: block;
+  content: "";
+  margin-top: 0.45em;
+}
+
+.kite-memory-quote span {
+  display: inline-block;
+  margin: 0.14em 0.22em;
+  cursor: default;
+  position: relative;
+  will-change: transform;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* colorful palette */
+.kite-memory-quote span:nth-child(8n+1) { color: #B51608; }
+.kite-memory-quote span:nth-child(8n+2) { color: #846302; }
+.kite-memory-quote span:nth-child(8n+3) { color: #046b10; }
+.kite-memory-quote span:nth-child(8n+4) { color: #0055ff; }
+.kite-memory-quote span:nth-child(8n+5) { color: #7b61ff; }
+.kite-memory-quote span:nth-child(8n+6) { color: #d9065e; }
+.kite-memory-quote span:nth-child(8n+7) { color: #b9590b; }
+.kite-memory-quote span:nth-child(8n+8) { color: #256dd1; }
+
+.kite-memory-quote span:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.25),
+    0 10px 24px rgba(0,0,0,0.25);
+}
+
+
+.panel-two {
+  position: relative;
+  overflow: hidden;
+}
+
+.transition-kite {
+  position: absolute;
+  right: -20%;
+  bottom: -300px;
+  width: 300px;
+  height: auto;
+  z-index: 40;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.panel-three {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.section-three-shell {
+  position: fixed;
+  inset: -2px;
+  width: calc(100vw + 4px);
+  height: calc(100vh + 4px);
+  background: #FADF0B;
+  transform: translate3d(104%, 104%, 0);
+  will-change: transform;
+  z-index: 36;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.section-three-content {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.scroll-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLoop 50s linear infinite;
+}
+
+.scroll-track img {
+  height: 60%;
+  width: auto;
+
+}
+
+
+.transition-kite-2-wrap {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  width: 260px;
+  height: 260px;
+  z-index: 45;
+  pointer-events: none;
+  will-change: transform, opacity;
+  overflow: visible;
+  opacity: 0;
+}
+
+.transition-kite-2 {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  right: -40px;
+  bottom: -180px;
+}
+
+.panel-four-anchor {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.panel-four {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.section-four-shell {
+  position: fixed;
+  inset: -2px;
+  width: calc(100vw + 4px);
+  height: calc(100vh + 4px);
+  background: #6FAEDD;
+  transform: translate3d(104%, 104%, 0);
+  will-change: transform;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.game-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.game-ui {
+  position: absolute;
+  top: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.game-ui {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.game-wrap.playing .game-ui {
+  opacity: 0;
+  transform: translate(-50%, -20px);
+  pointer-events: none;
+}
+
+
+.game-ui h2 {
+  font-family: 'KiteFont', 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.game-ui p {
+  font-family: 'KiteFont', 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+}
+
+.game-ui button {
+  border: none;
+  background: white;
+  color: #111;
+  padding: 1.1rem 2.6rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 10px 0 #111;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game-ui button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 8px 0 #111;
+}
+
+.game-ui button:active {
+  transform: translateY(6px);
+  box-shadow: 0 4px 0 #111;
+}
+
+.game-status {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.game-area {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.kite-game {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  will-change: transform, left, top;
+}
+
+.kite-game img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.kite-player {
+  left: 20%;
+  top: 70%;
+  z-index: 4;
+}
+
+.enemy {
+  z-index: 2;
+}
+
+.enemy-i { left: 70%; top: 30%; }
+.enemy-t { left: 82%; top: 55%; }
+.enemy-e { left: 60%; top: 72%; }
+
+.enemy.dead {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4) rotate(40deg);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.game-area.playing {
+  cursor: none;
+}
+
+
+.game-feedback {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0.95;
+  animation: confettiFall 1.8s linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+.lose-emoji {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  font-size: 5rem;
+  opacity: 0;
+  animation: losePop 0.7s ease forwards;
+}
+
+.game-status {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'KiteFont', 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+}
+
+@keyframes losePop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+@keyframes scrollLoop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+.panel-five {
+  min-height: 100vh;
+  background: #6FAEDD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-five-wrap {
+  max-width: 900px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.kite-ending-heading {
+  font-family: 'KiteFont', 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.kite-ending-text {
+  font-family: 'KiteFont', 'Space Grotesk', sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.06em;
+}
+
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1200px) {
+  .kite-i { width: 130px; }
+  .kite-k { width: 180px; }
+  .kite-s { width: 135px; }
+  .kite-t { width: 160px; }
+  .kite-e { width: 145px; }
+
+  .kite-memory-quote {
+    font-size: calc(var(--index) * 1.45);
+    line-height: 1.85;
+  }
+}
+
+@media (max-width: 768px) {
+  .kite-i {
+    left: 4%;
+    top: 67%;
+    width: 90px;
+  }
+
+  .kite-k {
+    left: 19%;
+    top: 50%;
+    width: 120px;
+  }
+
+  .kite-s {
+    left: 40%;
+    top: 62%;
+    width: 90px;
+  }
+
+  .kite-t {
+    left: 57%;
+    top: 42%;
+    width: 110px;
+  }
+
+  .kite-e {
+    left: 76%;
+    top: 63%;
+    width: 95px;
+  }
+
+  .scroll-hint {
+    bottom: 18px;
+    font-size: 0.72rem;
+  }
+
+  .kite-quote-section {
+    padding: 10vw 6vw;
+  }
+
+  .kite-memory-quote {
+    font-size: calc(var(--index) * 1.3);
+    line-height: 1.75;
+  }
+
+  .kite-memory-quote span {
+    margin: 0.1em 0.14em;
+  }
+}
