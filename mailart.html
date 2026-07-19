@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roads I Walk – Mail Art</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f3ee;
+      --paper: #fffdf8;
+      --text: #161616;
+      --muted: #5b5b5b;
+      --line: rgba(0, 0, 0, 0.08);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 7vw;
+      background: #000;
+    }
+
+    /* .heroGif {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      filter: contrast(1.02) saturate(1.02);
+    } */
+
+    .heroVideo{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
+}
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.28) 35%, rgba(0,0,0,0.08) 65%, rgba(0,0,0,0.18) 100%);
+      z-index: 1;
+    }
+
+    .heroContent {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      color: #fff;
+      transform: translateY(25px);
+      opacity: 0;
+      animation: heroFade 1.2s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    .heroTag {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(3px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      max-width: 700px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .scrollCue {
+      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+    }
+
+    .scrollLine {
+      width: 70px;
+      height: 1px;
+      background: rgba(255,255,255,0.75);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scrollLine::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -35%;
+      width: 35%;
+      height: 100%;
+      background: #fff;
+      animation: cueMove 1.8s ease-in-out infinite;
+    }
+
+    /* INTRO */
+    .intro {
+      width: min(1100px, 92%);
+      margin: 70px auto 30px;
+      padding: 34px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      backdrop-filter: blur(4px);
+    }
+
+    .intro p {
+      font-size: 1.08rem;
+      color: #2a2a2a;
+      max-width: 900px;
+    }
+
+    /* SECTIONS */
+    .storySection {
+      width: min(1180px, 92%);
+      margin: 60px auto;
+      padding: 34px;
+      border-radius: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .storyGrid {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .storySection.reverse .storyGrid {
+      grid-template-columns: 1fr 1.08fr;
+    }
+
+    .storySection.reverse .mediaWrap {
+      order: 2;
+    }
+
+    .storySection.reverse .textWrap {
+      order: 1;
+    }
+
+    .mediaWrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #eae7df;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease;
+    }
+
+    .mediaWrap img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .mediaWrap:hover img {
+      transform: scale(1.04);
+    }
+
+    .mediaWrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.16), rgba(0,0,0,0.02) 40%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 2;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.88);
+      font-size: 13px;
+      color: #202020;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    }
+
+    .textWrap {
+      padding: 8px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #777;
+    }
+
+    .textWrap h2 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .textWrap p {
+      font-size: 1.02rem;
+      color: #2f2f2f;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .textWrap p.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .meta {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meta span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f1eee7;
+      color: #494949;
+      font-size: 14px;
+    }
+
+
+
+    /* RESPONSE TO THE MAIL ART EXCHANGE */
+    .responseSection {
+      width: min(1180px, 92%);
+      margin: 60px auto 80px;
+      padding: 34px;
+      border-radius: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .responseHeading {
+      max-width: 780px;
+      margin-bottom: 26px;
+    }
+
+    .responseHeading .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .responseHeading h2 {
+      font-size: clamp(2rem, 3.4vw, 3.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    /*
+      The uploaded image is 16:9, so it is shown at its natural ratio.
+      This removes the empty side areas and keeps the full composition visible.
+    */
+    .responseVisual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #e6e1d8;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease;
+    }
+
+    .responseVisual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(0,0,0,0.18), transparent 30%);
+    }
+
+    .responseVisual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .responseBadge {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 3;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      color: #202020;
+      font-size: 13px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+      backdrop-filter: blur(6px);
+    }
+
+    .responseCopy {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .responseCopy p {
+      color: #2f2f2f;
+      font-size: 1rem;
+      line-height: 1.72;
+      margin: 0;
+    }
+
+    .responseCopy p + p {
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
+    }
+
+    .responseMeta {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .responseMeta span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f1eee7;
+      color: #494949;
+      font-size: 14px;
+    }
+
+
+    /* FOOTER */
+    footer {
+      width: min(1180px, 92%);
+      margin: 80px auto 50px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(42px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes heroFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cueMove {
+      0% { left: -35%; }
+      100% { left: 100%; }
+    }
+
+    @media (max-width: 900px) {
+      .storyGrid,
+      .storySection.reverse .storyGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .storySection.reverse .mediaWrap,
+      .storySection.reverse .textWrap {
+        order: initial;
+      }
+
+      .storySection,
+      .intro {
+        padding: 22px;
+      }
+
+      .hero {
+        min-height: 88vh;
+        padding: 24px;
+      }
+
+      .hero h1 {
+        line-height: 1;
+      }
+
+      .responseSection {
+        padding: 22px;
+      }
+
+      .responseHeading {
+        margin-bottom: 20px;
+      }
+
+      .responseCopy {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .responseCopy p + p {
+        padding-left: 0;
+        padding-top: 18px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .responseBadge {
+        left: 12px;
+        bottom: 12px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="heroVideo" autoplay muted loop playsinline>
+  <source src="./assets/images/mailart/ma.mp4" type="video/mp4">
+</video>
+    <!-- <img src="assets/img/mailart/mailart.GIF" alt="Mail art animated header" class="heroGif" /> -->
+
+    <div class="heroContent">
+      <div class="heroTag">Mail Art Documentation</div>
+      <h1>Roads I Walk</h1>
+      <p>
+        A simple interactive archive of my mail art piece. This work documents 1230 N LBJ Drive through memory, movement, collected materials, and hand-drawn illustrations.
+      </p>
+      <div class="scrollCue">
+        <span>Scroll to read</span>
+        <span class="scrollLine"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro reveal">
+    <p>
+      The main purpose of this page is to represent the front, middle, and back of the mail art piece as a readable visual journey. Rather than showing only the final object, it also explains the materials, symbols, and decisions used in the work.
+    </p>
+  </section>
+
+  <!-- FRONT -->
+  <section class="storySection reveal">
+    <div class="storyGrid">
+      <div class="mediaWrap tiltCard">
+        <img src="./assets/images/mailart/front.png" alt="Front side of the mail art" />
+        <div class="badge">Front / Familiar Road</div>
+      </div>
+
+      <div class="textWrap">
+        <span class="eyebrow">Part One</span>
+        <h2>The Road I Became Familiar With</h2>
+        <p>
+          The front side focuses on 1230 N LBJ Drive, a road that became repeated, known, and personally meaningful through everyday movement. Instead of showing the road as one fixed image, I used different moments, different views, and different modes of presence to suggest how a place slowly becomes part of memory.
+        </p>
+        <p>
+          The images are not only visual records. I wanted the front to feel like an observation like a road seen again and again, but never in exactly the same way.
+        </p>
+        <p>
+          Small elements collected from the site, including rocks and china berries, are attached as references to what physically exists there. These materials are not added as decoration. They act as evidence, texture, and memory.
+        </p>
+        <div class="meta">
+          <span>1230 N LBJ Drive</span>
+          <span>Rocks</span>
+          <span>China berries</span>
+          <span>3D Map</span>
+          <span>Different Views</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIDDLE -->
+  <section class="storySection reverse reveal">
+    <div class="storyGrid">
+      <div class="mediaWrap tiltCard">
+        <img src="./assets/images/mailart/middle.png" alt="Middle section with map and car" />
+        <div class="badge">Middle / Route + Motion</div>
+      </div>
+
+      <div class="textWrap">
+        <span class="eyebrow">Part Two</span>
+        <h2>Map, Movement, and Journey</h2>
+        <p>
+          The middle section works like a transition. It shifts from collected fragments to a more direct idea of movement through space. A redmarked route on the map identifies the N LBJ DR road.
+        </p>
+        <p>
+          The small 3D pop up car brings in the feeling of the road as something active and lived. It suggests motion and travel kind of vibe that one is prensent there.
+        </p>
+        <p>
+          The illustrated trees are drawn as the appearence of them in road and placed around the route to hold the atmosphere of the surroundings. They are important because the memory of this road is not only the pavement or address. It is also shaped by the trees, shadows, and small details that frame the experience.
+        </p>
+        <div class="meta">
+          <span>2D map</span>
+          <span>Car</span>
+          <span>Trees</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK -->
+  <section class="storySection reveal">
+    <div class="storyGrid">
+      <div class="mediaWrap tiltCard">
+        <img src="./assets/images/mailart/back.png" alt="Back side of the mail art with leaves and materials" />
+        <div class="badge">Back / Surrounding Memory</div>
+      </div>
+
+      <div class="textWrap">
+        <span class="eyebrow">Part Three</span>
+        <h2>The Memory of What Surrounds the Road</h2>
+        <p>
+          The back section holds the quieter memory of the place. Here, the focus moves to the surrounding natural elements — sycamore leaves,elm leaves, privet leaves, stones and other traces gathered from the environment.
+        </p>
+        <p>
+          These materials matter because they represent what stays around the road even when the road itself is no longer in front of me. 
+        </p>
+        <p>
+          In this part of the work, the road becomes a memory field. The back preserves the physical presence of the surroundings and turns the mail art into a document of attachment, and surroundings.
+        </p>
+        <div class="meta">
+          <span>Sycamore leaves</span>
+          <span>Elm leaves</span>
+           <span>Privet leaves</span>
+          <span>Stones</span>
+          <span>China Berries</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MY RESPONSE -->
+  <section class="responseSection reveal" aria-labelledby="response-title">
+    <div class="responseHeading">
+      <span class="eyebrow">The Exchange Continues</span>
+      <h2 id="response-title">My Response: Between Here and Home</h2>
+    </div>
+
+    <div class="responseVisual tiltCard">
+      <img
+        src="./assets/images/mailart/mail_art response.png"
+        alt="Mail art response collage connecting memories of Bangladesh and the United States"
+      />
+      <div class="responseBadge">My Response / Distance &amp; Home</div>
+    </div>
+
+    <div class="responseCopy">
+      <p>
+        This piece is my response to the mail art my friends sent me. Our shared theme was distance and the feeling of missing home while living far away. I wanted to show that distance is not measured only in miles. It can also be felt through people, food, familiar places, achievements, and the small memories we continue to carry.
+      </p>
+
+      <p>
+        The collage places Bangladesh and the United States within the same visual space. Maps, flags, stamps, postmarks, travel marks, personal milestones, and everyday memories sit beside one another. Together, they show what it feels like to build a life in one place while still feeling deeply connected to another.
+      </p>
+
+      <p>
+        Sending this response back completes the exchange. The project becomes a two-way conversation in which mail art carries memory across distance and creates a connection between the place I live now and the country I still call home.
+      </p>
+    </div>
+
+    <div class="responseMeta" aria-label="Response themes">
+      <span>Bangladesh ↔ United States</span>
+      <span>Distance</span>
+      <span>Memory</span>
+      <span>Belonging</span>
+      <span>Mail Exchange</span>
+    </div>
+  </section>
+
+
+  <footer>
+    <div>Mail Art Project — Sabbir Ahmed</div>
+    <div>Documentation website for presentation and archive</div>
+  </footer>
+
+  <script>
+    // Reveal sections
+    const reveals = document.querySelectorAll('.reveal');
+    const paragraphs = document.querySelectorAll('.textWrap p');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+
+          const ps = entry.target.querySelectorAll('.textWrap p');
+          ps.forEach((p, i) => {
+            setTimeout(() => {
+              p.classList.add('visible');
+            }, i * 180);
+          });
+        }
+      });
+    }, { threshold: 0.16 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Tilt effect for images
+    const cards = document.querySelectorAll('.tiltCard');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateY = (x - centerX) / 28;
+        const rotateX = (centerY - y) / 28;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // Slight parallax on hero
+    const heroGif = document.querySelector('.heroGif');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (heroGif) {
+        heroGif.style.transform = `scale(1.03) translateY(${y * 0.12}px)`;
+      }
+    });
+  </script>
+</body>
+</html>
