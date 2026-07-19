@@ -184,49 +184,44 @@ addEventOnElements(hoveredElements, "mouseout", function () {
 /** tab scoll before to next */
 
 /**
- * Auto-scroll for the project section */
- 
+ * Current Projects — original-style continuous auto-scroll
+ */
+
 const projectSection = document.querySelector(".slider-list");
-let clone;
-let infiniteScrollEnabled = true;
 
-const infiniteScroll = () => {
-  clone = projectSection.innerHTML + projectSection.innerHTML; // Duplicate the content
-  projectSection.innerHTML = clone;
+if (projectSection) {
+  const originalProjects = projectSection.innerHTML;
 
+  // Duplicate the cards once, creating a seamless infinite row.
+  projectSection.insertAdjacentHTML("beforeend", originalProjects);
+
+  let projectScrollEnabled = true;
+  let projectAnimationId = null;
   let startPosition = 0;
+  const scrollSpeed = 3;
 
-  const scroll = () => {
-    if (!infiniteScrollEnabled) return;
+  const scrollProjects = () => {
+    if (projectScrollEnabled) {
+      startPosition += scrollSpeed;
+      projectSection.scrollLeft = startPosition;
 
-    startPosition += 3; // Increase this value for faster scrolling (try 2, 3, 4, etc.)
-    projectSection.scrollTo(startPosition, 0);
-
-    if (startPosition >= projectSection.scrollWidth / 2) {
-      startPosition = 0; // Reset scroll position to create an infinite loop
+      if (startPosition >= projectSection.scrollWidth / 2) {
+        startPosition = 0;
+        projectSection.scrollLeft = 0;
+      }
     }
 
-    requestAnimationFrame(scroll);
+    projectAnimationId = requestAnimationFrame(scrollProjects);
   };
 
-  scroll();
-};
-
-// Pause auto-scroll when a navigation link is clicked, then resume after a delay
-
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    infiniteScrollEnabled = false;
-
-    // Resume auto-scrolling after 2 seconds (adjust the delay as needed)
-    setTimeout(() => {
-      infiniteScrollEnabled = true;
-      infiniteScroll(); // Restart the infinite scroll
-    }, 1000);
+  // Preserve the original continuous movement. Temporarily pause only while
+  // the browser tab is hidden, then continue from the same position.
+  document.addEventListener("visibilitychange", () => {
+    projectScrollEnabled = !document.hidden;
   });
-});
 
-window.onload = infiniteScroll;
+  projectAnimationId = requestAnimationFrame(scrollProjects);
+}
 
 
 
@@ -278,55 +273,99 @@ form.addEventListener('submit', e => {
 });
 
 /**
- * achivements
+ * Achievements — one-image auto-playing slider
  */
 
-const galleryList = document.querySelector(".gallery-list");
-const galleryItems = document.querySelectorAll(".gallery-item");
-const galleryContainer = document.querySelector(".gallery-container");
-const scrollLeftButton = document.getElementById("scrollLeft");
-const scrollRightButton = document.getElementById("scrollRight");
-const dots = document.querySelectorAll(".dot");
+const showcase = document.querySelector("[data-showcase]");
 
-let currentPage = 0; // Tracks the current page
-const totalPages = Math.ceil(galleryItems.length / 2); // Total pages (2 images per page)
+if (showcase) {
+  const track = showcase.querySelector(".showcase-track");
+  const slides = [...showcase.querySelectorAll("[data-showcase-slide]")];
+  const prevBtn = showcase.querySelector("[data-showcase-prev]");
+  const nextBtn = showcase.querySelector("[data-showcase-next]");
+  const dots = [...document.querySelectorAll("[data-showcase-dots] .dot")];
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Update the gallery position and active dot
-const updateGallery = () => {
-  const translateX = -(currentPage * galleryContainer.offsetWidth);
-  galleryList.style.transform = `translateX(${translateX}px)`;
+  let activeIndex = 0;
+  let autoplayId = null;
+  let touchStartX = 0;
+  const autoplayDelay = 4500;
 
-  // Update active dot
-  dots.forEach((dot, index) => {
-    if (index === currentPage) {
-      dot.classList.add("active");
-    } else {
-      dot.classList.remove("active");
+  const goToSlide = (index) => {
+    activeIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === activeIndex;
+      slide.classList.toggle("active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeIndex;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  };
+
+  const stopAutoplay = () => {
+    if (autoplayId) {
+      clearInterval(autoplayId);
+      autoplayId = null;
     }
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (!prefersReducedMotion) {
+      autoplayId = setInterval(() => goToSlide(activeIndex + 1), autoplayDelay);
+    }
+  };
+
+  const restartAutoplay = () => {
+    startAutoplay();
+  };
+
+  prevBtn?.addEventListener("click", () => {
+    goToSlide(activeIndex - 1);
+    restartAutoplay();
   });
-};
 
-// Button click events
-scrollLeftButton.addEventListener("click", () => {
-  currentPage = (currentPage - 1 + totalPages) % totalPages; // Loop to the last page if out of bounds
-  updateGallery();
-});
-
-scrollRightButton.addEventListener("click", () => {
-  currentPage = (currentPage + 1) % totalPages; // Loop to the first page if out of bounds
-  updateGallery();
-});
-
-// Dot click events
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    currentPage = index;
-    updateGallery();
+  nextBtn?.addEventListener("click", () => {
+    goToSlide(activeIndex + 1);
+    restartAutoplay();
   });
-});
 
-// Initialize gallery
-updateGallery();
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      goToSlide(index);
+      restartAutoplay();
+    });
+  });
 
+  showcase.addEventListener("mouseenter", stopAutoplay);
+  showcase.addEventListener("mouseleave", startAutoplay);
+  showcase.addEventListener("focusin", stopAutoplay);
+  showcase.addEventListener("focusout", startAutoplay);
 
+  showcase.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+    stopAutoplay();
+  }, { passive: true });
+
+  showcase.addEventListener("touchend", (event) => {
+    const distance = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(distance) > 45) {
+      goToSlide(activeIndex + (distance < 0 ? 1 : -1));
+    }
+    startAutoplay();
+  }, { passive: true });
+
+  document.addEventListener("visibilitychange", () => {
+    document.hidden ? stopAutoplay() : startAutoplay();
+  });
+
+  goToSlide(0);
+  startAutoplay();
+}
 
