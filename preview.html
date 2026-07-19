@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insigt / Incite</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #fff;
+  z-index: 1000;
+}
+
+section {
+  padding: 42px 16px;
+  max-width: 960px;
+  margin: auto;
+}
+
+section:first-of-type {
+  padding-top: 54px;
+}
+
+h1, h2 {
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(34px, 9vw, 68px);
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  font-size: clamp(24px, 6vw, 42px);
+  letter-spacing: -0.5px;
+}
+
+p {
+  color: #aaa;
+  line-height: 1.65;
+  font-size: clamp(15px, 3.8vw, 18px);
+  max-width: 760px;
+  margin: 0 0 16px;
+}
+
+video, img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin-top: 16px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.grid:has(img:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width: 768px) {
+  section {
+    padding: 34px 14px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  video, img {
+    border-radius: 10px;
+    margin-top: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="progress-bar"></div>
+
+<section>
+  <h1>Insight / Incite</h1>
+  <p>This project presents data in a participatory way. Users actively interpret structured information, form their own mental image, and then compare it with the revealed image.</p>
+  <video controls autoplay muted loop>
+    <source src="./assets/images/p_art/perspectiveart1.mp4" type="video/mp4">
+  </video>
+</section>
+
+<section>
+  <h2>Setup</h2>
+  <p>
+   Initially the artwork is fully covered. Participants do not know what the image is.
+   Instructions and response cards are placed on the table.
+  </p>
+
+  <div class="grid">
+    <img src="./assets/images/p_art/p_setup1.png">
+    <img src="./assets/images/p_art/p_setup2.png">
+  </div>
+</section>
+
+<section>
+  <h2>Split Perception</h2>
+  <p>
+    The class is divided into two groups.
+    Group A, the side that see the image will try to describe the image but only with words.
+    Group B, the other side who see only words and will try to imagine the image and write a detail description of the image.
+  </p>
+
+ <div class="grid">
+    <img src="./assets/images/p_art/p_setup3.png">
+  </div>
+</section>
+
+<section>
+  <h2>Response</h2>
+  <p>
+    Now, The cover is removed. Participants view the artwork from their perspective,
+    write responses, and pin them.
+  </p>
+
+ <div class="grid">
+    <img src="./assets/images/p_art/p_setup4.png">
+  </div>
+</section>
+
+
+
+<section>
+  <h2>Results For Group A and B</h2>
+  <p>
+  Even though the full data was not provided, key words and their arrangement helped participants visualize the image. The results show that most of Group B imagined something related to the ocean and a boat, with very similar interpretations.
+
+  </p>
+
+  <div class="grid">
+    <img src="./assets/images/p_art/p_setup5.png">
+
+  </div>
+</section>
+
+
+<section>
+  <h2>Complex Approach</h2>
+  <p>The first artwork was relatively easy, as the words were very direct. Even the colors and visual approach guided the audience clearly toward the image. To increase complexity, the second version uses only a few direct words, while others are less exact. The colors are also kept similar, making interpretation more open.</p>
+  <video controls autoplay muted loop>
+    <source src="./assets/images/p_art/perspectiveart2.mp4" type="video/mp4">
+  </video>
+<p>For this stage, the instruction changes slightly. Participants now see only the words, visualize the image in their minds, and express it through doodling. </p>
+    <div class="grid">
+    <img src="./assets/images/p_art/p_setup6.png">
+  </div>
+</section>
+
+
+
+<section>
+  <h2>Results</h2>
+  <p>Surprisingly, even with less direct words and the added step of drawing, participants still remembered the key words. Despite the extra and less relevant words, they were able to almost perfectly guess the image.</p>
+  
+
+  <div class="grid">
+    <img src="./assets/images/p_art/p_setup7.png">
+  </div>
+</section>
+
+
+<script>
+const progressBar = document.querySelector('.progress-bar');
+const sections = document.querySelectorAll('section');
+
+sections.forEach(section => section.classList.add('reveal'));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+sections.forEach(section => revealObserver.observe(section));
+
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = pageHeight > 0 ? (scrollTop / pageHeight) * 100 : 0;
+  progressBar.style.width = progress + '%';
+}
+
+window.addEventListener('scroll', updateProgress);
+window.addEventListener('load', () => {
+  updateProgress();
+  sections[0]?.classList.add('visible');
+});
+</script>
+
+</body>
+</html>
