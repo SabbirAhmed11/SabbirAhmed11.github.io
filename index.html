@@ -32,6 +32,59 @@
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
+
+  <!-- About Me layout refinements -->
+  <style>
+    .about-visual {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .about-visual .about-banner {
+      width: 100%;
+      margin: 0;
+    }
+
+    .about-visual .about-banner .img-cover {
+      display: block;
+    }
+
+    .about-visual .identity-tags {
+      margin: 18px 0 0;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .education-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .education-entry {
+      display: grid;
+      gap: 2px;
+    }
+
+    .education-degree {
+      color: var(--text-white);
+      line-height: 1.35;
+    }
+
+    .education-meta {
+      color: var(--text-light-gray);
+      font-family: var(--fontFamily-roboto);
+      font-size: 1.3rem;
+      line-height: 1.45;
+    }
+  </style>
+
   <!-- 
     - preload images
   -->
@@ -149,14 +202,14 @@
             <h1 class="h1 title">Crafting inviting digital journeys, one pixel at a time.</h1>
 
             <div class="wrapper">
-              <a href="./assets/images/Sabbir_Ahmed_CV.pdf" class="btn btn:hover">
+              <a href="./assets/Resume_Sabbir Ahmed.pdf" class="btn btn:hover">
                 <span class="span">Download CV</span>
 
                 <ion-icon name="cloud-download-outline" aria-hidden="true"></ion-icon>
               </a>
 
               <p class="hero-text">
-                User Experience Designer & Researcher at Kite Games Studio Limited
+                UX Designer & Researcher
               </p>
             </div>
 
@@ -296,54 +349,86 @@
             <div class="tab-content active" data-tab-content="about">
               <div class="grid-list">
 
-                <figure class="about-banner img-holder" style="--width: ; --height: ;" data-tilt>
-                  <img src="./assets/images/aboutme.png" width="570" height="420" loading="lazy" alt="about banner"
-                    class="img-cover">
-                </figure>
+                <!-- custom identity panel, replaces the generic stock photo -->
+               
+                  
+                
+
+                <div class="about-visual">
+                  <figure class="about-banner img-holder" style="--width: 570; --height: 420;" data-tilt>
+                    <img src="./assets/images/aboutme.png" width="570" height="420" loading="lazy"
+                      alt="Sabbir Ahmed" class="img-cover">
+                  </figure>
+
+                  <ul class="identity-tags" aria-label="Professional roles">
+                    <li>CSE Engineer</li>
+                    <li>UX Designer</li>
+                    <li>Researcher</li>
+                  </ul>
+                </div>
+
+      
+
+
+                
 
                 <div class="about-content">
 
                   <h2 class="h4 title section-title">
-                    A simple Designer with Basic Skills of Coding.
+                    A Designer That Can Code.
                   </h2>
 
                   <p class="section-text">
-                   As a passionate and dedicated User Experience (UX) Engineer with a keen interest in human interaction and design-related topics, I am seeking job opportunities to further explore and contribute to the field of human-computer interaction and user-centered design. With a solid foundation in UX design principles, research methodologies, and prototyping, I am committed to leveraging my skills and knowledge to advance the understanding of user behavior and create meaningful and intuitive digital experiences.
+                   My journey is unique. Although I graduated in Computer Science and Engineering, I have always been drawn to design and the way people experience technology. This led me to pursue UX design, where I have spent more than four years creating digital products and solving real user problems. I enjoy bringing design and technology together to make digital experiences easier and more meaningful for people. Alongside my design experience, my technical background in machine learning researches have shaped my growing interest in Human Centered Design and User Experience based research to serve real human needs.             
                   </p>
 
-                  <ul class="about-list">
+                  <div class="info-table">
 
-                    <li class="about-item">
-                      <p class="list-title">Name</p>
-
-                      <span class="span title h5">Sabbir Ahmed</span>
-                    </li>
-
-                    <li class="about-item">
-                      <p class="list-title">Education</p>
-
-                      <span class="span title h5">BSc. in Computer Science and Engineering</span>
-                    </li>
-
-                    <li class="about-item">
-                      <p class="list-title">Email Address</p>
-
-                      <span class="span title h5">ahmedsabbiraust@gmail.com</span>
-                    </li>
-
-                    <li class="about-item">
-                      <p class="list-title">Social Network</p>
-
-                      <div class="social-list">
-
-                        <a href="#" class="social-link h6" title="Facebook">Fb.</a>
-                        <a href="#" class="social-link h6" title="Linkedin">Ln.</a>
-                        <a href="#" class="social-link h6" title="Dribbble">Be.</a>
-
+                    <div class="info-row">
+                      <div class="info-label">
+                        <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                        <span>Name</span>
                       </div>
-                    </li>
+                      <div class="info-value">Sabbir Ahmed</div>
+                    </div>
 
-                  </ul>
+                    <div class="info-row">
+                      <div class="info-label">
+                        <ion-icon name="school-outline" aria-hidden="true"></ion-icon>
+                        <span>Education</span>
+                      </div>
+                      <div class="info-value education-list">
+                        <div class="education-entry">
+                          <span class="education-degree">MFA in Communication Design</span>
+                          <span class="education-meta">Texas State University · 2025–Present (Continuing)</span>
+                        </div>
+                        <div class="education-entry">
+                          <span class="education-degree">BSc. in Computer Science and Engineering</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="info-row">
+                      <div class="info-label">
+                        <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                        <span>Email</span>
+                      </div>
+                      <div class="info-value">ahmedsabbiraust@gmail.com</div>
+                    </div>
+
+                    <div class="info-row">
+                      <div class="info-label">
+                        <ion-icon name="share-social-outline" aria-hidden="true"></ion-icon>
+                        <span>Social</span>
+                      </div>
+                      <div class="info-value social-list">
+                        <a href="#" class="social-link" title="Facebook">Facebook</a>
+                        <a href="#" class="social-link" title="Linkedin">LinkedIn</a>
+                        <a href="#" class="social-link" title="Behance">Behance</a>
+                      </div>
+                    </div>
+
+                  </div>
 
                 </div>
 
@@ -356,66 +441,119 @@
                 <div class="skill-content">
 
                   <h3 class="h4 title section-title">
-                    Bridging UX with Technology and Innovation
+                    Designing with Technology, and Purpose
                   </h3>
 
                   <p class="section-text">
-                   As a UX designer, I bring a diverse skillset backed by hands-on experience in designing over five apps currently available on both the Play Store and App Store. With a degree in Computer Science and Engineering, I have honed my skills in Python and machine learning, demonstrated through two publications: one on video-based machine learning and another on developing a GUI for a rainwater harvesting system. Additionally, I am proficient in web development using HTML, CSS, and JavaScript frameworks and have developed mobile apps using Android Studio (Java-based) during my academic career.</p>
-
+                   My skill set combines UX design, technical knowledge, and research experience. Over the past four years, I have designed and improved more than five mobile applications available on the App Store and Google Play, working across user research, prototyping and designing layouts. My Computer Science and Engineering background has also given me practical experience with Python, machine learning, HTML, CSS, JavaScript, and App development. Through my two academic publications ; one focused on Machine Learning and another on Environmental Science specialized in MatLab. 
                 </div>
 
-                <figure class="skill-banner img-holder" style="--width: 570; --height: 420;" data-tilt>
-                  <img src="./assets/images/skill.png" width="570" height="420" loading="lazy" alt="skill banner"
-                    class="img-cover">
-                </figure>
+                <!-- custom skill-badge visual, replaces the generic stock image -->
+                <div class="skill-visual has-after" data-tilt>
+                  <div class="skill-visual-grid"></div>
+
+                  <ul class="skill-badges">
+
+                    <li class="skill-badge">
+                      <ion-icon name="color-palette-outline" aria-hidden="true"></ion-icon>
+                      <span>UX / UI Design</span>
+                    </li>
+
+                    <li class="skill-badge">
+                      <ion-icon name="code-slash-outline" aria-hidden="true"></ion-icon>
+                      <span>Python</span>
+                    </li>
+
+                    <li class="skill-badge">
+                      <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
+                      <span>Machine Learning</span>
+                    </li>
+
+                    <li class="skill-badge">
+                      <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
+                      <span>HTML / CSS / JS</span>
+                    </li>
+
+                    <li class="skill-badge">
+                      <ion-icon name="phone-portrait-outline" aria-hidden="true"></ion-icon>
+                      <span>Android Studio</span>
+                    </li>
+
+                    <li class="skill-badge">
+                      <ion-icon name="analytics-outline" aria-hidden="true"></ion-icon>
+                      
+                      <span>MatLab</span>
+                    </li>
+
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <div class="tab-content" data-tab-content="awward">
+              <div class="grid-list research-layout">
+
+                <div class="research-content">
+                  <h3 class="h4 title section-title">
+                    Exploring the Intersection of Intelligent Systems, HCI, and UX
+                  </h3>
+
+                  <p class="section-text">
+                    My research focuses on how machine learning and human-centered design can work together to create useful, understandable, and adaptive digital experiences. I am particularly interested in intelligent interfaces, computer vision, user behavior, and research that connects technical systems with real human needs.
+                  </p>
+                </div>
+
+                <div class="research-visual has-after" data-tilt>
+                  <div class="research-visual-grid"></div>
+
+                  <ul class="research-badges">
+                    <li class="research-badge">
+                      <ion-icon name="hardware-chip-outline" aria-hidden="true"></ion-icon>
+                      <div>
+                        <h4 class="title">Machine Learning</h4>
+                      </div>
+                    </li>
+
+                    <li class="research-badge">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                      <div>
+                        <h4 class="title">Human–Computer Interaction</h4>
+                      </div>
+                    </li>
+
+                    <li class="research-badge">
+                      <ion-icon name="eye-outline" aria-hidden="true"></ion-icon>
+                      <div>
+                        <h4 class="title">Computer Vision</h4>
+                      </div>
+                    </li>
+
+                    <li class="research-badge">
+                      <ion-icon name="analytics-outline" aria-hidden="true"></ion-icon>
+                      <div>
+                        <h4 class="title">UX Behavior</h4>
+                      </div>
+                    </li>
+
+                    <li class="research-badge">
+                      <ion-icon name="sparkles-outline" aria-hidden="true"></ion-icon>
+                      <div>
+                        <h4 class="title">Intelligent Interfaces</h4>
+                      </div>
+                    </li>
+
+                    <li class="research-badge">
+                      <ion-icon name="accessibility-outline" aria-hidden="true"></ion-icon>
+                      <div>
+                        <h4 class="title">Human-Centered AI</h4>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
 
               </div>
             </div>
 
-            </div>
-
-            <div class="tab-content" data-tab-content="awward">
-
-              <h3 class="h4 title section-title">
-                Exploring the Intersection of Machine Learning, HCI, and UX Behavior
-              </h3>
-              <p>My research interests focus on the convergence of machine learning, human-computer interaction (HCI), and user experience behavior. I am fascinated by how intelligent systems can enhance user interactions and create more intuitive, adaptive experiences. </p>
-
-              <ul class="grid-list">
-
-                <li>
-                  <div class="award-card">
-                    <figure class="card-banner img-holder" style="--width: 534; --height: 383;" data-tilt>
-                      <img src="./assets/images/ml.png" width="534" height="383" loading="lazy" alt="certificate"
-                        class="img-cover">
-                    </figure>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="award-card">
-                    <figure class="card-banner img-holder" style="--width: 534; --height: 383;" data-tilt>
-                      <img src="./assets/images/ux.png" width="534" height="383" loading="lazy" alt="certificate"
-                        class="img-cover">
-                    </figure>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="award-card">
-                    <figure class="card-banner img-holder" style="--width: 534; --height: 383;" data-tilt>
-                      <img src="./assets/images/hci.png" width="534" height="383" loading="lazy" alt="certificate"
-                        class="img-cover">
-                    </figure>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-
-
-
           </div>
 
         </div>
@@ -423,96 +561,108 @@
 
 
       <!-- 
-        - #Achievements
-      -->
-  
-      <section class="section achievements" aria-label="Achievements">
-        <h2 class="title h2 section-title text-center">My Most Recent Achievements</h2>
-        <div class="manual-scroll-gallery">
-          <!-- Left Button -->
-          <button id="scrollLeft" class="scroll-button scroll-left" aria-label="Scroll Left">
-            &#9664; <!-- Left Arrow -->
-          </button>
-      
-          <!-- Gallery Container -->
-          <div class="gallery-container">
-            <ul class="gallery-list">
-              <li class="gallery-item">
-                <img src="./assets/images/achievement1.jpg" alt="Achievement 1" class="gallery-image">
-              </li>
-              <li class="gallery-item">
-                <img src="./assets/images/achievement2.jpg" alt="Achievement 2" class="gallery-image">
-              </li>
-              <li class="gallery-item">
-                <img src="./assets/images/achievement3.jpg" alt="Achievement 3" class="gallery-image">
-              </li>
-              <li class="gallery-item">
-                <img src="./assets/images/achievement4.jpg" alt="Achievement 4" class="gallery-image">
-              </li>
-              <li class="gallery-item">
-                <img src="./assets/images/achievement5.jpg" alt="Achievement 5" class="gallery-image">
-              </li>
-              <li class="gallery-item">
-                <img src="./assets/images/achievement6.jpg" alt="Achievement 6" class="gallery-image">
-              </li>
-            </ul>
-          </div>
-      
-          <!-- Right Button -->
-          <button id="scrollRight" class="scroll-button scroll-right" aria-label="Scroll Right">
-            &#9654; <!-- Right Arrow -->
-          </button>
-        </div>
-      
-        <!-- Dots for page control -->
-        <div class="dots-container">
-          <span class="dot" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-
-      <!-- 
-        - #CTA
+        - #ACHIEVEMENTS
       -->
 
-      <section class="section cta" aria-label="work with me">
+      <section class="section achievements" aria-label="Recent achievements" id="achievements">
         <div class="container">
+          <h2 class="title h2 section-title text-center">Most Recent Achievements</h2>
 
-          <h2 class="title h2 section-title text-center">
-            These are my current projects!
-          </h2>
+          <!-- One image is shown at a time. Replace each title and description when new images are added. -->
+          <div class="showcase" data-showcase>
+            <div class="showcase-viewport">
+              <div class="showcase-track">
 
-          <a href="all project.html" class="btn btn:hover">
-            <span class="span">Find All My Works Here</span>
+                <article class="showcase-slide active" data-showcase-slide>
+                  <figure class="achievement-figure">
+                    <img src="./assets/images/recent/n1.png" alt="Achievement highlight 1" class="img-cover">
+                    <figcaption class="achievement-overlay">
 
-            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-          </a>
+                      <h3 class="title h4">Published 2nd Research Paper - ICAEEE 2024 </h3>
+                    </figcaption>
+                  </figure>
+                </article>
 
+                <article class="showcase-slide" data-showcase-slide>
+                  <figure class="achievement-figure">
+                    <img src="./assets/images/recent/n2.png" alt="Achievement highlight 2" class="img-cover">
+                    <figcaption class="achievement-overlay">  
+                      <h3 class="title h4">Best Employee Award 2024</h3>
+                    </figcaption>
+                  </figure>
+                </article>
+
+                <article class="showcase-slide" data-showcase-slide>
+                  <figure class="achievement-figure">
+                    <img src="./assets/images/recent/n3.png" alt="Achievement highlight 3" class="img-cover">
+                    <figcaption class="achievement-overlay">
+                      <h3 class="title h4">Selected For Texas State University, Fall 2025</h3>
+                    </figcaption>
+                  </figure>
+                </article>
+
+                <article class="showcase-slide" data-showcase-slide>
+                  <figure class="achievement-figure">
+                    <img src="./assets/images/recent/n4.png" alt="Achievement highlight 4" class="img-cover">
+                    <figcaption class="achievement-overlay">
+                      <h3 class="title h4">Started Working as a Teaching Assitant</h3>
+                    </figcaption>
+                  </figure>
+                </article>
+
+                <article class="showcase-slide" data-showcase-slide>
+                  <figure class="achievement-figure">
+                    <img src="./assets/images/recent/n5.png" alt="Achievement highlight 5" class="img-cover">
+                    <figcaption class="achievement-overlay">
+                      <h3 class="title h4">Attended Design Seminar , New York 2025</h3>
+                    </figcaption>
+                  </figure>
+                </article>
+
+                <article class="showcase-slide" data-showcase-slide>
+                  <figure class="achievement-figure">
+                    <img src="./assets/images/recent/n6.png" alt="Achievement highlight 6" class="img-cover">
+                    <figcaption class="achievement-overlay">
+                      <h3 class="title h4">Completed MFA Residency, 2026</h3>
+                    </figcaption>
+                  </figure>
+                </article>
+
+              </div>
+            </div>
+
+            <button class="showcase-nav showcase-prev" data-showcase-prev aria-label="Previous achievement">
+              <ion-icon name="chevron-back-outline" aria-hidden="true"></ion-icon>
+            </button>
+
+            <button class="showcase-nav showcase-next" data-showcase-next aria-label="Next achievement">
+              <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <div class="dots-container" data-showcase-dots aria-label="Achievement navigation">
+            <button class="dot active" data-index="0" aria-label="Go to achievement 1"></button>
+            <button class="dot" data-index="1" aria-label="Go to achievement 2"></button>
+            <button class="dot" data-index="2" aria-label="Go to achievement 3"></button>
+            <button class="dot" data-index="3" aria-label="Go to achievement 4"></button>
+            <button class="dot" data-index="4" aria-label="Go to achievement 5"></button>
+            <button class="dot" data-index="5" aria-label="Go to achievement 6"></button>
+          </div>
         </div>
       </section>
 
-
-
-
-
-      <!-- 
+<!-- 
         - #PROJECTS
       -->
       
 
  
-       <section class="section project" aria-label="my latest projects" id="project">
+      <section class="section project" aria-label="my latest projects" id="project">
+        <div class="container project-heading">
+          <h2 class="title h2 section-title text-center">Most Recent Projects</h2>
+        </div>
 
-        <ul class="slider-list">
+        <ul class="slider-list" aria-label="Current projects">
 
           <li class="slider-item">
             <div class="project-card text-center">
@@ -575,10 +725,10 @@
             <div class="project-card text-center">
 
               <div class="card-banner img-holder has-before" style="--width: 1000; --height: 763;">
-                <img src="./assets/images/gre.png" width="1000" height="763" loading="lazy"
+                <img src="./assets/images/mfa/dbox.png" width="1000" height="763" loading="lazy"
                   alt="Project poster: Creative & experienced digital design studio" class="img-cover">
 
-                <a href="gre.html" class="btn btn:hover">
+                <a href="DBox.html" class="btn btn:hover">
                   <span class="span">Project Details</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
@@ -586,10 +736,10 @@
               </div>
 
               <div class="card-content">
-                <p class="card-subtitle">Flashcard, Education</p>
+                <p class="card-subtitle">Shadow Art, Studio</p>
 
                 <h3 class="title h3">
-                  <a href="gre.html" class="card-title">GRE 10000 Words Flashcards</a>
+                  <a href="DBox.html" class="card-title">Shadow Art Installation</a>
                 </h3>
               </div>
 
@@ -608,7 +758,7 @@
                 <img src="./assets/images/ccw.png" width="1000" height="763" loading="lazy"
                   alt="Project poster: Creative & experienced digital design studio" class="img-cover">
 
-                <a href="#" class="btn btn:hover">
+                <a href="copychecker.html" class="btn btn:hover">
                   <span class="span">Project Details</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
@@ -634,10 +784,10 @@
             <div class="project-card text-center">
 
               <div class="card-banner img-holder has-before" style="--width: 1000; --height: 763;">
-                <img src="./assets/images/lp.png" width="1000" height="763" loading="lazy"
+                <img src="./assets/images/mfa/mailart.png" width="1000" height="763" loading="lazy"
                   alt="Project poster: Flutter Framework & Warframe Design" class="img-cover">
 
-                <a href="#" class="btn btn:hover">
+                <a href="mailart.html" class="btn btn:hover">
                   <span class="span">Project Details</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
@@ -645,10 +795,10 @@
               </div>
 
               <div class="card-content">
-                <p class="card-subtitle">iOS, Application</p>
+                <p class="card-subtitle">Postal Art, Visual Storytelling</p>
 
                 <h3 class="title h3">
-                  <a href="underconstruction.html" class="card-title">LR Presets for Lightroom</a>
+                  <a href="mailart.html" class="card-title">Art That Travels Through the Mail</a>
                 </h3>
               </div>
 
@@ -677,6 +827,34 @@
 
                 <h3 class="title h3">
                   <a href="logo.html" class="card-title">Logo Designing</a>
+                </h3>
+              </div>
+
+            </div>
+          </li>
+
+ <!--#Insight Vs Incite-->
+
+
+          <li class="slider-item">
+            <div class="project-card text-center">
+
+              <div class="card-banner img-holder has-before" style="--width: 1000; --height: 763;">
+                <img src="./assets/images/mfa/incite.png" width="1000" height="763" loading="lazy"
+                  alt="Project poster: Flutter Framework & Warframe Design" class="img-cover">
+
+                <a href="preview.html" class="btn btn:hover">
+                  <span class="span">Project Details</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+
+              <div class="card-content">
+                <p class="card-subtitle">Lenticular Art, Participatory Research</p>
+
+                <h3 class="title h3">
+                  <a href="preview.html" class="card-title">Imagine, Interpret, Reveal </a>
                 </h3>
               </div>
 
@@ -717,10 +895,10 @@
             <div class="project-card text-center">
 
               <div class="card-banner img-holder has-before" style="--width: 1000; --height: 763;">
-                <img src="./assets/images/ss.png" width="1000" height="763" loading="lazy"
+                <img src="./assets/images/mfa/kgs.png" width="1000" height="763" loading="lazy"
                   alt="Project poster: Full Web Development Project With JavaScript" class="img-cover">
 
-                <a href="#" class="btn btn:hover">
+                <a href="kitegames.html" class="btn btn:hover">
                   <span class="span">Project Details</span>
 
                   <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
@@ -728,10 +906,10 @@
               </div>
 
               <div class="card-content">
-                <p class="card-subtitle">Design,Product</p>
+                <p class="card-subtitle">Web,Application</p>
 
                 <h3 class="title h3">
-                  <a href="underconstruction.html" class="card-title">App Store Screenshot Designing</a>
+                  <a href="kitegames.html" class="card-title">Website Design for Kite Games Studio</a>
                 </h3>
               </div>
 
@@ -740,6 +918,12 @@
 
         </ul>
 
+        <div class="container project-actions">
+          <a href="all project.html" class="btn btn:hover">
+            <span class="span">Find All My Works Here</span>
+            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+          </a>
+        </div>
       </section>
 
 
