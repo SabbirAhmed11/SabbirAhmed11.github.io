@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>খাবারের মেনু</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="foodmenu_styles.css">
+  <script src="foodmenu_script.js" defer></script>
+</head>
+
+<body>
+  <main
+    class="gallery"
+    aria-label="খাবারের ছবি ও দাম"
+    aria-roledescription="carousel"
+  >
+    <div id="slides"></div>
+
+    <button
+      class="menu-trigger"
+      id="open-menu"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="full-menu"
+    >
+      সম্পূর্ণ মেনু
+      <span class="menu-chevron" aria-hidden="true"></span>
+    </button>
+
+    <button
+      class="chevron previous"
+      id="previous"
+      type="button"
+      aria-label="আগের খাবার"
+    ></button>
+
+    <button
+      class="chevron next"
+      id="next"
+      type="button"
+      aria-label="পরের খাবার"
+    ></button>
+
+    <nav
+      class="dots"
+      id="dots"
+      aria-label="খাবার বেছে নিন"
+    ></nav>
+  </main>
+
+  <dialog
+    class="menu-overlay"
+    id="full-menu"
+    aria-labelledby="menu-title"
+  >
+    <header class="overlay-header">
+      <h2 id="menu-title">সম্পূর্ণ মেনু</h2>
+
+      <button
+        class="close-menu"
+        id="close-menu"
+        type="button"
+        aria-label="মেনু বন্ধ করুন"
+        autofocus
+      >×</button>
+    </header>
+
+    <div class="menu-panel" id="menu"></div>
+  </dialog>
+</body>
+</html>

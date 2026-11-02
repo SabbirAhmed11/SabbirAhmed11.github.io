@@ -1,0 +1,651 @@
+/* =========================
+   THEME / EDITABLE VALUES
+   ========================= */
+
+:root {
+  --accent: #efc56f;
+  --menu-background: #fbf4e7;
+  --ink: #30271f;
+
+  --edge: clamp(20px, 4vw, 64px);
+  --fade-duration: 900ms;
+
+  --price-size: 140px;
+  --price-font-size: 42px;
+  --price-top: 140px;
+}
+
+/* =========================
+   BASE
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #241a12;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+/* =========================
+   FULL-SCREEN SLIDES
+   ========================= */
+
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--fade-duration) ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--desktop-position, center);
+}
+
+/* Gradient keeps the dish name readable. */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    #0003 0%,
+    transparent 38%,
+    #130e09db 100%
+  );
+}
+
+.dish-name {
+  position: absolute;
+  z-index: 1;
+  bottom: 100px;
+  left: var(--edge);
+  right: var(--edge);
+
+  max-width: 1000px;
+  margin: 0;
+
+  color: white;
+  font-size: clamp(32px, 5.5vw, 76px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* =========================
+   STARBURST PRICE
+   ========================= */
+
+.price {
+  position: absolute;
+  z-index: 2;
+  top: var(--price-top);
+  left: var(--edge);
+
+  width: var(--price-size);
+  height: var(--price-size);
+  padding: 20px;
+
+  display: grid;
+  place-items: center;
+
+  color: #422b15;
+  background: var(--accent);
+
+  font: 700 var(--price-font-size) / 1 Arial, sans-serif;
+
+  clip-path: polygon(
+    50% 0%,
+    61% 12%,
+    75% 7%,
+    79% 23%,
+    93% 25%,
+    89% 41%,
+    100% 50%,
+    89% 59%,
+    93% 75%,
+    79% 77%,
+    75% 93%,
+    61% 88%,
+    50% 100%,
+    39% 88%,
+    25% 93%,
+    21% 77%,
+    7% 75%,
+    11% 59%,
+    0% 50%,
+    11% 41%,
+    7% 25%,
+    21% 23%,
+    25% 7%,
+    39% 12%
+  );
+}
+
+/* =========================
+   TOP-RIGHT MENU BUTTON
+   ========================= */
+
+.menu-trigger {
+  position: absolute;
+  z-index: 5;
+  top: max(24px, env(safe-area-inset-top));
+  right: var(--edge);
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 10px 17px;
+
+  color: white;
+  background: #21170e55;
+  border: 1px solid #ffffff80;
+  border-radius: 4px;
+
+  font-size: 18px;
+}
+
+.menu-chevron {
+  width: 8px;
+  height: 8px;
+
+  border-right: 1.5px solid;
+  border-bottom: 1.5px solid;
+
+  transform: rotate(45deg);
+}
+
+/* =========================
+   SLIDER DOTS
+   ========================= */
+
+.dots {
+  position: absolute;
+  z-index: 3;
+  bottom: max(28px, env(safe-area-inset-bottom));
+  left: 50%;
+
+  display: flex;
+  max-width: calc(100% - 24px);
+
+  transform: translateX(-50%);
+}
+
+.dot {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  background: transparent;
+}
+
+.dot::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: #ffffff70;
+}
+
+.dot[aria-current="true"]::after {
+  background: var(--accent);
+}
+
+/* =========================
+   TEMPORARY SIDE CHEVRONS
+   ========================= */
+
+.chevron {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+
+  width: 48px;
+  height: 64px;
+  padding: 0;
+
+  color: white;
+  background: transparent;
+  border: 0;
+
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 350ms ease;
+}
+
+.chevron::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+
+  border-top: 2px solid;
+  border-right: 2px solid;
+
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.previous {
+  left: 8px;
+}
+
+.next {
+  right: 8px;
+}
+
+.previous::after {
+  transform: rotate(-135deg);
+}
+
+.next::after {
+  transform: rotate(45deg);
+}
+
+.gallery.show-chevrons .chevron,
+.chevron:hover,
+.chevron:focus-visible {
+  opacity: 1;
+}
+
+/* =========================
+   FULL-SCREEN MENU OVERLAY
+   ========================= */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--ink);
+  background: var(--menu-background);
+  border: 0;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.menu-overlay::backdrop {
+  background: #0008;
+}
+
+.menu-overlay[open] {
+  animation: menu-enter 250ms ease-out;
+}
+
+.overlay-header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding:
+    max(18px, env(safe-area-inset-top))
+    var(--edge)
+    18px;
+
+  background: var(--menu-background);
+  border-bottom: 1px solid #dfd2bf;
+}
+
+.overlay-header h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.close-menu {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 0;
+
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+
+  font: 36px / 1 Arial, sans-serif;
+}
+
+.close-menu:hover {
+  opacity: 0.65;
+}
+
+.menu-panel {
+  width: min(100%, 800px);
+  margin: 0 auto;
+
+  padding:
+    12px
+    var(--edge)
+    max(30px, env(safe-area-inset-bottom));
+}
+
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  padding: 20px 0;
+
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfd2bf;
+
+  text-align: left;
+}
+
+.menu-item:last-child {
+  border-bottom: 0;
+}
+
+.menu-item-copy {
+  flex: 1;
+}
+
+.menu-item-name {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.menu-item-note {
+  display: block;
+  margin-top: 3px;
+
+  color: #796b5b;
+  font-size: 14px;
+}
+
+.menu-item-price {
+  flex-shrink: 0;
+  color: #a43727;
+  font: 600 21px / 1.5 Arial, sans-serif;
+}
+
+button.menu-item:hover .menu-item-name {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+  :root {
+    --price-size: 120px;
+    --price-font-size: 36px;
+    --price-top: 125px;
+  }
+
+  .slide img {
+    object-position: var(--mobile-position, center);
+  }
+
+  .dish-name {
+    bottom: 95px;
+    font-size: clamp(30px, 8vw, 44px);
+  }
+
+  .menu-trigger {
+    top: max(20px, env(safe-area-inset-top));
+  }
+
+  .dot {
+    width: 26px;
+  }
+}
+
+/* Respect the visitor's motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .chevron {
+    transition: none;
+  }
+
+  .menu-overlay[open] {
+    animation: none;
+  }
+}
+
+/* The badge wrapper provides a shadow outside the clipped star. */
+
+.price {
+  outline: none;
+  background: #ffd071;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Animate whenever a slide becomes active. */
+.slide.active .price {
+  animation: price-pop 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes price-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) rotate(-12deg);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.08) rotate(3deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Move the mobile badge slightly higher. */
+@media (max-width: 600px) {
+  :root {
+    --price-top: 95px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide.active .price {
+    animation: none;
+  }
+}
+
+@media (min-width: 601px) {
+  :root {
+    --price-size: 185px;
+    --price-font-size: 70px;
+  }
+}
+
+/* =========================
+   PRICE GROUP / COOKING CHARGES
+   Keeps the existing badge size, position and pop animation.
+   ========================= */
+
+.price-group {
+  position: absolute;
+  z-index: 2;
+  top: var(--price-top);
+  left: var(--edge);
+  width: var(--price-size);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.25));
+}
+
+.price-group .price {
+  position: relative;
+  inset: auto;
+  flex-shrink: 0;
+}
+
+.charge-note {
+  display: block;
+  width: max-content;
+  max-width: min(260px, calc(100vw - 2 * var(--edge)));
+  padding: 8px 12px;
+  border: 1px solid #ffffff60;
+  border-radius: 5px;
+  background: rgba(25, 18, 12, 0.9);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .charge-note {
+    max-width: min(205px, calc(100vw - 2 * var(--edge)));
+    font-size: 14px;
+  }
+
+  /* All eleven dots fit on mobile. */
+  .dot {
+    width: 23px;
+  }
+}
+
+/* Price and curved text form one badge. */
+.price-group {
+  width: var(--price-size);
+  height: var(--price-size);
+
+  display: grid;
+  place-items: center;
+  gap: 0;
+
+  overflow: visible;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
+}
+
+.price-group .price {
+  position: relative;
+  inset: auto;
+  grid-area: 1 / 1;
+  z-index: 1;
+}
+
+/* Extra space around the star for circular lettering. */
+.price-group.has-charge {
+  width: calc(var(--price-size) + 54px);
+  height: calc(var(--price-size) + 54px);
+}
+
+.charge-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.charge-ring text {
+  fill: #fff3d4;
+  stroke: rgba(35, 22, 10, 0.85);
+  stroke-width: 3px;
+  paint-order: stroke fill;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Animate the star and its lettering together. */
+.slide.active .price-group .price {
+  animation: none;
+}
+
+.slide.active .price-group {
+  animation: price-pop 700ms
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (max-width: 600px) {
+  .price-group.has-charge {
+    width: calc(var(--price-size) + 50px);
+    height: calc(var(--price-size) + 50px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide.active .price-group {
+    animation: none;
+  }
+}
