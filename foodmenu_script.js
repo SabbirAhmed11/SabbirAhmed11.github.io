@@ -289,38 +289,16 @@ priceGroup.append(price);
 if (dish.chargeNote) {
   priceGroup.classList.add("has-charge");
 
-  const svgNS = "http://www.w3.org/2000/svg";
-  const pathId = `charge-circle-${index}`;
-
-  const svg = document.createElementNS(svgNS, "svg");
-  svg.classList.add("charge-ring");
-  svg.setAttribute("viewBox", "0 0 240 240");
-  svg.setAttribute("aria-hidden", "true");
-
-  const defs = document.createElementNS(svgNS, "defs");
-  const path = document.createElementNS(svgNS, "path");
-
-  path.setAttribute("id", pathId);
-
-  // Circular path, starting at the bottom.
-  path.setAttribute(
-    "d",
-    "M 120,220 A 100,100 0 1,1 120,20 A 100,100 0 1,1 120,220"
-  );
-
-  defs.append(path);
-
-  const text = document.createElementNS(svgNS, "text");
-  const textPath = document.createElementNS(svgNS, "textPath");
-
-  textPath.setAttribute("href", `#${pathId}`);
-  textPath.setAttribute("startOffset", "50%");
-  textPath.setAttribute("text-anchor", "middle");
-  textPath.textContent = dish.chargeNote;
-
-  text.append(textPath);
-  svg.append(defs, text);
-  priceGroup.append(svg);
+  // Outlined Bengali lettering keeps the circular design consistent on phones.
+  const ring = document.createElement("img");
+  ring.className = "charge-ring charge-ring-outline";
+  ring.alt = "";
+  ring.setAttribute("aria-hidden", "true");
+  const ringFile = dish.id === "grilled-fish"
+    ? "charge-fish"
+    : dish.id === "full-grilled-chicken" ? "charge-10lb" : "charge-2lb";
+  ring.src = `fcimg/${ringFile}.svg`;
+  priceGroup.append(ring);
 
   priceGroup.setAttribute(
     "aria-label",
